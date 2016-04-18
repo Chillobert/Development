@@ -1,10 +1,12 @@
 package prog2_a3.fatsquirrel.core;
 
-public abstract class Game {
+import java.util.Scanner;
 
-    public static void main(String []args){
-		
-    };
+public class Game {
+prog2_a3.State state;
+public Game (){
+state = new prog2_a3.State();
+};
 
     public void run(){
 	while(true){
@@ -13,14 +15,16 @@ public abstract class Game {
             update();
 			}
 	}
-		//test test test
+
 		
 //Darstellung des Spielzustands auf dem Ausgabemedium
-    abstract void render();
+    void render(){
+    	
+    };
 	
 //Verarbeitung von Benutzereingaben
     public void processInput(){
-    	
+        
     };
 	
 //Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang	

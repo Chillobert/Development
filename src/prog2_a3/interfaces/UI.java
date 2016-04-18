@@ -1,4 +1,4 @@
-package prog2_a3;
+package prog2_a3.interfaces;
 
 import java.util.Scanner;
 
@@ -8,6 +8,8 @@ public interface UI {
         Scanner input = new Scanner(System.in);
         String in;
         in = input.next();
+        
+        
 		
 	}
 }

@@ -34,7 +34,7 @@ public abstract class Entity{
         
         //Referenzcheck; true falls beide von gleicher Klasse abstammen
 
-        public boolean checkInstance(Entity entity ){
+        public boolean checkInstance(Entity entity){
             return this.getClass().isInstance(entity);
         }
         
