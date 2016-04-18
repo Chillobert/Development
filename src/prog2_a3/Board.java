@@ -24,12 +24,13 @@ private String[][] board;
 	this.amountGoodPlants = config.getAmountGoodPlants();
 	this.amountBadPlants = config.getAmountBadPlants();
 	this.board = new String[config.getLength()][config.getWidth()];
-	fillBoard(2,3,2,2,2);
+	fillBoard(2,0,0,0,0);
 	};
     
     //Erstellen aller Entitys an zufälligem Ort
     private void fillBoard(int amountGoodBeasts, int amountBadBeasts, int amountGoodPlants, int amountBadPlants, int amountWalls){
 	EntitySet entSet = new EntitySet ();
+	
         for(int i = 0; i!=amountGoodBeasts;i++)
             entSet.add("GoodBeast", randLoc()[0], randLoc()[1]);
         for(int i = 0; i!=amountBadBeasts;i++)

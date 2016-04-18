@@ -1,8 +1,8 @@
 package prog2_a3;
 
 public class BoardConfig {
-private final int length = 40;
-private final int width = 20;
+private final int length =10;
+private final int width = 10;
 private final int amountGoodBeasts = 2;
 private final int amountBadBeasts = 2;
 private final int amountGoodPlants = 2;

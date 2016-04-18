@@ -8,7 +8,7 @@ public class Launcher {
                 EntitySet entSet = new EntitySet();
 
             while(play){
-                entSet.add("BadBeast",1,2);
+                //entSet.add("BadBeast",1,2);
                 entSet.add("GoodBeast" ,2,3);
                 entSet.add("GoodPlant",3,4);
                 entSet.add("BadPlant",4,5);
@@ -21,6 +21,9 @@ public class Launcher {
                 Wall franz = new Wall(9,6,7);
                 System.out.println(Piechler.equals(franz));
                 System.out.println(karl.checkDescendant(fritz));*/
+                Board board = new Board();
+                board.toString();
+                
                 System.out.println(entSet.toString());
                 entSet.nextStepAll();
                 System.out.println(entSet.toString());
