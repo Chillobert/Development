@@ -16,7 +16,6 @@ public final class XY {
             Random r = new Random();
             return move(new int[]{r.nextInt(3)-1,r.nextInt(3)-1});
         }
-        //test test test
         public int getX(){
             return loc[0];
         }
