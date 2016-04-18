@@ -22,10 +22,10 @@ public class Launcher {
                 System.out.println(Piechler.equals(franz));
                 System.out.println(karl.checkDescendant(fritz));*/
                 Board board = new Board();
-                board.toString();
+                System.out.println(board.toString());
                 
                 
-                System.out.println(board.entSet.toString());
+                //System.out.println(board.entSet.toString());
                 //board.entSet.nextStepAll();
                 // System.out.println(board.entSet.toString());
                 //ent.delete(3);

@@ -55,9 +55,7 @@ public EntitySet entSet = new EntitySet();
 @Override
     public String toString(){
     		//Möchte er bestimmt selbst geschrieben habe
-	
-	
-    	return (Arrays.deepToString(board) + "\n");
+    	return entSet.toString();
     }
 
     public int getEntityCount() {
