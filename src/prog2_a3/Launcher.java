@@ -8,12 +8,13 @@ public class Launcher {
                 EntitySet entSet = new EntitySet();
 
             while(play){
-                entSet.add("BadBeast",1,2);
-                entSet.add("GoodBeast" ,2,3);
-                entSet.add("GoodPlant",3,4);
-                entSet.add("BadPlant",4,5);
-                entSet.add("GuidedMasterSquirrel",3,4);
-                entSet.add("Wall", 6, 7);
+                BadBeast meixner = new BadBeast(0,7,6);
+                BadBeast otto = new BadBeast(1,5,4);
+                GoodBeast bla = new GoodBeast(2,3,4);
+                //entSet.add("GoodPlant",3,4);
+                //entSet.add("BadPlant",4,5);
+                //entSet.add("GuidedMasterSquirrel",3,4);
+                //entSet.add("Wall", 6, 7);
                 /*GuidedMasterSquirrel karl = new GuidedMasterSquirrel(6,3,4);
                 MiniSquirrel fritz = karl.createDescendant(6, 100, 3, 5);
                 BadBeast otto = new BadBeast(7,4,6);
@@ -21,14 +22,21 @@ public class Launcher {
                 Wall franz = new Wall(9,6,7);
                 System.out.println(Piechler.equals(franz));
                 System.out.println(karl.checkDescendant(fritz));*/
-                System.out.println(entSet.toString());
-                entSet.nextStepAll();
-                System.out.println(entSet.toString());
+                //Board board = new Board();
+                //System.out.println(board.toString());
+                System.out.println(meixner.checkInstance(otto));
+                System.out.println(meixner.checkInstance(bla));
+                System.out.println(bla instanceof GoodBeast);
+                
+                
+                //System.out.println(board.entSet.toString());
+                //board.entSet.nextStepAll();
+                // System.out.println(board.entSet.toString());
                 //ent.delete(3);
-                for(int i = 0; i<=3;i++){
-                    entSet.nextStepAll();
-                System.out.println(entSet.toString());
-                }
+                //for(int i = 0; i<=3;i++){
+                //  board.entSet.nextStepAll();
+                //System.out.println(board.entSet.toString());
+                //}
                 play=false;
             }
 	}
