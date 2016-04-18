@@ -30,6 +30,6 @@ public class GuidedMasterSquirrel extends MasterSquirrel {
     }
     
     private void move(int[] vector){
-        loc = new XY(vector);
+        loc = loc.move(vector);
     }
 }
