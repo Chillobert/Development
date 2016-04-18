@@ -19,7 +19,9 @@ public abstract class Game {
     abstract void render();
 	
 //Verarbeitung von Benutzereingaben
-    abstract void processInput();
+    void processInput(){
+        
+    };
 	
 //Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang	
     private void update() {

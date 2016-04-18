@@ -64,6 +64,7 @@ public class EntitySet {
         for(int i=0;entArray[i]!=null;i++){
             entArray[i].nextStep();
              checkCollision(i);
+             
         }
         
         //Nach Rundendurchlauf wird mit jeder ID(siehe mortalCombat) die in delArray gespeichert wurde die Delete Methode aufgerufen
