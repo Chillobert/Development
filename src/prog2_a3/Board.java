@@ -38,8 +38,6 @@ private String[][] board;
             entSet.add("GoodPlant", randLoc()[0], randLoc()[1]);
         for(int i = 0; i!=amountBadPlants;i++)
             entSet.add("BadPlant", randLoc()[0], randLoc()[1]);
-        for(int i = 0; i!=amountBadPlants;i++)
-            entSet.add("Wall", randLoc()[0], randLoc()[1]);
         for(int i = 0; i<= this.length;i++){
             entSet.add("Wall", i, 0);
             entSet.add("Wall", i, this.width);
