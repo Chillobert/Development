@@ -2,12 +2,13 @@ package prog2_a3.fatsquirrel.core;
 
 import java.util.Scanner;
 
-public class Game {
+public class Game implements prog2_a3.interfaces.UI{
 prog2_a3.State state;
 public Game (){
 state = new prog2_a3.State();
 };
 
+@Override
     public void run(){
 	while(true){
             render();
@@ -18,11 +19,13 @@ state = new prog2_a3.State();
 
 		
 //Darstellung des Spielzustands auf dem Ausgabemedium
-    void render(){
+@Override
+    public void render(){
     	
     };
 	
 //Verarbeitung von Benutzereingaben
+@Override
     public void processInput(){
         Scanner input = new Scanner(System.in);
         System.out.println("Wählen Sie eine Bewegungsrichtung für ihr Eichhörnchen: ");
@@ -35,8 +38,9 @@ state = new prog2_a3.State();
         }
     };
 	
-//Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang	
-    private void update() {
+//Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang
+@Override
+    public void update() {
     EntitySet entSet = new EntitySet();
     entSet.nextStepAll();
     prog2_a3.FlattenedBoard fb = new prog2_a3.FlattenedBoard(); // Damit in jeder Runde ein aktuelles flattenedBoard erstellt wird.

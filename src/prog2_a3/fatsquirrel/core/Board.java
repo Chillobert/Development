@@ -65,15 +65,15 @@ public EntitySet entSet = new EntitySet();
     public int getEntityCount() {
 		int amount = 0;
 		return amount;
-		
 	}
     
-    public String[][] flatten(){
-        String[][] flattenBoard = new String[this.length][this.width];
-        for(String[] row:flattenBoard)
-            Arrays.fill(row, "...");
-        for(int i = 0;entSet.entArray.length!=' ';i++){
-            flattenBoard[entSet.entArray[i].loc.getX()][entSet.entArray[i].loc.getY()]=entSet.entArray[i].getName(entSet.entArray[i]);
+    public Entity[][] flatten(){
+        Entity[][] flattenBoard = new Entity[this.length+1][this.width+1];
+        for(Entity[] row:flattenBoard)
+            Arrays.fill(row, null);
+        for(int i = 0;entSet.entArray.length>i;i++){
+            if(entSet.entArray[i]!=null)
+                flattenBoard[entSet.entArray[i].loc.getX()][entSet.entArray[i].loc.getY()]=entSet.entArray[i];
         }
         return flattenBoard;
     }
