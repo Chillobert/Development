@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class EntitySet {
 
-    int numbOf=0;
-    Entity[] entArray = new Entity[50];
-    int[] delArray = new int[50];
-    int idColl=0;
+    private int numbOf=0;
+    private Entity[] entArray = new Entity[50];
+    private int[] delArray = new int[50];
+    private int idColl=0;
     
     public EntitySet(){   
         Arrays.fill(delArray, ' ');
@@ -51,6 +51,10 @@ public class EntitySet {
         return numbOf;
     }
     
+    public Entity[] getEntityArray(){
+        return entArray;
+    }
+    
     @Override
     public String toString(){
         String output="";
@@ -67,7 +71,7 @@ public class EntitySet {
         }
         
         //Nach Rundendurchlauf wird mit jeder ID(siehe mortalCombat) die in delArray gespeichert wurde die Delete Methode aufgerufen
-        for(int j = 0;delArray[j] != ' '; j++){
+        for(int j = 0;delArray[j] != ' '; j++){                
         	delete(delArray[j]);
         	
         }
@@ -90,30 +94,21 @@ public class EntitySet {
     return c.isInstance(o);
 
     }
-    
+
     //equals methode(mit instanceof)?
     private void mortalCombat(int arrayPos,int collPos){
     	if(isInstance(entArray[arrayPos],PlayerEntity.class)){
-    		if(isInstance(entArray[collPos], GoodPlant.class)){
-    			entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
-    			entArray[collPos].updateEnergy(entArray[collPos].getEnergy()); //Energie auf 0 setzen
-    			
-    			for(int i = 0; i < delArray.length; i++){ //- Id an CollPos wird in delArray gespeichert
-    				if(delArray[i] == ' '){
-    					delArray[i] = entArray[collPos].getId(); //-
-    					return;
-    				}
-    			}
-    		}
-    	}
-    		
-       /* if(entArray[ArrayPos] instanceof PlayerEntity){
-            if(entArray[CollPos] instanceof GoodPlant){
-                entArray[ArrayPos].updateEnergy(entArray[CollPos].getEnergy());
-                //gelöschte Elemente als Int[] und nach der schleife in check delete aufrufen mit allen Elementen
-                //und bei Update energy das element des Verlierers auf 0 setzen
+            if(isInstance(entArray[collPos], GoodPlant.class)){
+                entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
+                entArray[collPos].updateEnergy(entArray[collPos].getEnergy()); //Energie auf 0 setzen
             }
-      }
-      */ 
+
+            for(int i = 0; i < delArray.length; i++){ //- Id an CollPos wird in delArray gespeichert
+                if(delArray[i] == ' '){
+                    delArray[i] = entArray[collPos].getId(); //-
+                return;
+                }
+            }
+    	}	
     }
 }

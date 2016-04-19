@@ -65,12 +65,13 @@ public EntitySet entSet = new EntitySet();
 	}
     
     public FlattenedBoard flatten(){
+        Entity[] entArray = entSet.getEntityArray();
         Entity[][] flattenedBoard = new Entity[this.length+1][this.width+1];
         for(Entity[] row:flattenedBoard)
             Arrays.fill(row, null);
-        for(int i = 0;entSet.entArray.length>i;i++){
-            if(entSet.entArray[i]!=null)
-                flattenedBoard[entSet.entArray[i].loc.getX()][entSet.entArray[i].loc.getY()]=entSet.entArray[i];
+        for(int i = 0;entArray.length>i;i++){
+            if(entArray[i]!=null)
+                flattenedBoard[entArray[i].loc.getX()] [entArray[i].loc.getY()] = entArray[i];
         }
         return new FlattenedBoard(flattenedBoard);
     }

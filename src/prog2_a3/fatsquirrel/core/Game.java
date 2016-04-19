@@ -5,10 +5,12 @@ import prog2_a3.*;
 import prog2_a3.interfaces.*;
 
 public class Game implements UI{
-prog2_a3.State state;
-public Game (){
-state = new State();
-};
+
+    State state;
+    
+    public Game (){
+        state = new State();
+    };
 
 @Override
     public void run(){
@@ -16,8 +18,8 @@ state = new State();
             render();
             processInput();
             update();
-			}
 	}
+    }
 
 		
 //Darstellung des Spielzustands auf dem Ausgabemedium
@@ -32,9 +34,10 @@ state = new State();
         Scanner input = new Scanner(System.in);
         System.out.println("Wählen Sie eine Bewegungsrichtung für ihr Eichhörnchen: ");
         GuidedMasterSquirrel a;
-        for(int i=0;state.board.entSet.entArray.length>i;i++){
-            if(state.board.entSet.entArray[i] instanceof GuidedMasterSquirrel){
-                a = (GuidedMasterSquirrel)state.board.entSet.entArray[i];
+        Entity[] entArray = state.board.entSet.getEntityArray();
+        for(int i=0; entArray.length>i;i++){
+            if(entArray[i] instanceof GuidedMasterSquirrel){
+                a = (GuidedMasterSquirrel)entArray[i];
                 a.in = input.next();
             }
         }
@@ -45,30 +48,5 @@ state = new State();
     public void update() {
         EntitySet entSet = new EntitySet();
         entSet.nextStepAll();
-        
     }	
-	
 }
-
-/*
-	public static void main(String[] args){
-		
-			/*
-            Boolean play=true;
-            EntitySet ent = new EntitySet();
-
-            while(play){
-                ent.add("BadBeast", 0, 1, 2);
-                ent.add("GoodBeast" ,1,2,3);
-                ent.add("GoodPlant",2,3,4);
-                ent.add("BadPlant",3,4,5);
-                ent.add("GuidedMasterSquirrel",4,5,6);
-                ent.add("Wall", 5, 6, 7);
-                System.out.println(ent.toString());
-                ent.nextStepAll();
-                System.out.println(ent.toString());
-                ent.delete(3);
-                System.out.println(ent.toString());
-                play=false;
-            }
-            */		
