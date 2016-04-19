@@ -2,15 +2,15 @@
 package prog2_a3;
 
 import java.util.Arrays;
+import prog2_a3.fatsquirrel.core.*;
 
 
 public class FlattenedBoard implements prog2_a3.interfaces.BoardView {
     
-    private final prog2_a3.fatsquirrel.core.Board board;
-    private final prog2_a3.fatsquirrel.core.Entity[][] flattenedBoard;
-    public FlattenedBoard(){
-        board = new prog2_a3.fatsquirrel.core.Board();
-             flattenedBoard = board.flatten();
+ 
+    private final Entity[][] flattenedBoard;
+    public FlattenedBoard(Entity[][] flattenedBoard){
+        this.flattenedBoard = flattenedBoard;
     }
     
     @Override
@@ -21,5 +21,9 @@ public class FlattenedBoard implements prog2_a3.interfaces.BoardView {
     @Override
     public String toString(){
         return Arrays.deepToString(flattenedBoard);
+    }
+    
+    public Entity getField(int x, int y){
+        return this.flattenedBoard[x][y];
     }
 }

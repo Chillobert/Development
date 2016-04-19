@@ -26,6 +26,7 @@ public class Launcher {
                 System.out.println(karl.checkDescendant(fritz));*/
                 Board board = new Board();
                 System.out.println(board.toString());
+                System.out.println((board.flatten().toString()));
                 
                 
                 //System.out.println(board.entSet.toString());

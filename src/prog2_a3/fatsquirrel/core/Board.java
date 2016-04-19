@@ -2,19 +2,17 @@ package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
 import java.util.Random;
-
-import prog2_a3.BoardConfig;
+import prog2_a3.*;
 
 public class Board {
 	
-private int length;
-private int width;
-private int amountGoodBeasts;
-private int amountBadBeasts;
-private int amountGoodPlants;
-private int amountBadPlants;
+private final int length;
+private final int width;
+private final int amountGoodBeasts;
+private final int amountBadBeasts;
+private final int amountGoodPlants;
+private final int amountBadPlants;
 private int amountWalls;
-private String[][] board;
 public EntitySet entSet = new EntitySet();
 
     public Board(){
@@ -25,9 +23,8 @@ public EntitySet entSet = new EntitySet();
 	this.amountBadBeasts = config.getAmountBadBeasts();
 	this.amountGoodPlants = config.getAmountGoodPlants();
 	this.amountBadPlants = config.getAmountBadPlants();
-	this.board = new String[config.getLength()][config.getWidth()];
 	fillBoard(2,0,0,0,0);
-	};
+    };
     
     //Erstellen aller Entitys an zufälligem Ort
     private void fillBoard(int amountGoodBeasts, int amountBadBeasts, int amountGoodPlants, int amountBadPlants, int amountWalls){
@@ -36,18 +33,20 @@ public EntitySet entSet = new EntitySet();
     	for(int i = 0; i!=amountGoodBeasts;i++)
             this.entSet.add("GoodBeast", randLoc()[0], randLoc()[1]);
         for(int i = 0; i!=amountBadBeasts;i++)
-        	this.entSet.add("BadBeast", randLoc()[0], randLoc()[1]);
+            this.entSet.add("BadBeast", randLoc()[0], randLoc()[1]);
         for(int i = 0; i!=amountGoodPlants;i++)
-        	this.entSet.add("GoodPlant", randLoc()[0], randLoc()[1]);
+            this.entSet.add("GoodPlant", randLoc()[0], randLoc()[1]);
         for(int i = 0; i!=amountBadPlants;i++)
-        	this.entSet.add("BadPlant", randLoc()[0], randLoc()[1]);
+            this.entSet.add("BadPlant", randLoc()[0], randLoc()[1]);
+        for(int i = 0; i!=amountWalls;i++)
+            this.entSet.add("Wall", randLoc()[0], randLoc()[1]);
         for(int i = 0; i<= this.length;i++){
-        	this.entSet.add("Wall", i, 0);
-        	this.entSet.add("Wall", i, this.width);
+            this.entSet.add("Wall", i, 0);
+            this.entSet.add("Wall", i, this.width);
         }
         for(int i = 1; i<this.width;i++){
-        	this.entSet.add("Wall", 0, i);
-        	this.entSet.add("Wall", this.length, i);
+            this.entSet.add("Wall", 0, i);
+            this.entSet.add("Wall", this.length, i);
         }
     };
 
@@ -58,23 +57,21 @@ public EntitySet entSet = new EntitySet();
     
 @Override
     public String toString(){
-    		//Möchte er bestimmt selbst geschrieben habe
     	return entSet.toString();
     }
 
     public int getEntityCount() {
-		int amount = 0;
-		return amount;
+	return entSet.getLatestId();
 	}
     
-    public Entity[][] flatten(){
-        Entity[][] flattenBoard = new Entity[this.length+1][this.width+1];
-        for(Entity[] row:flattenBoard)
+    public FlattenedBoard flatten(){
+        Entity[][] flattenedBoard = new Entity[this.length+1][this.width+1];
+        for(Entity[] row:flattenedBoard)
             Arrays.fill(row, null);
         for(int i = 0;entSet.entArray.length>i;i++){
             if(entSet.entArray[i]!=null)
-                flattenBoard[entSet.entArray[i].loc.getX()][entSet.entArray[i].loc.getY()]=entSet.entArray[i];
+                flattenedBoard[entSet.entArray[i].loc.getX()][entSet.entArray[i].loc.getY()]=entSet.entArray[i];
         }
-        return flattenBoard;
+        return new FlattenedBoard(flattenedBoard);
     }
 }

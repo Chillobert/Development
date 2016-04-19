@@ -1,11 +1,13 @@
 package prog2_a3.fatsquirrel.core;
 
 import java.util.Scanner;
+import prog2_a3.*;
+import prog2_a3.interfaces.*;
 
-public class Game implements prog2_a3.interfaces.UI{
+public class Game implements UI{
 prog2_a3.State state;
 public Game (){
-state = new prog2_a3.State();
+state = new State();
 };
 
 @Override
@@ -41,9 +43,9 @@ state = new prog2_a3.State();
 //Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang
 @Override
     public void update() {
-    EntitySet entSet = new EntitySet();
-    entSet.nextStepAll();
-    prog2_a3.FlattenedBoard fb = new prog2_a3.FlattenedBoard(); // Damit in jeder Runde ein aktuelles flattenedBoard erstellt wird.
+        EntitySet entSet = new EntitySet();
+        entSet.nextStepAll();
+        
     }	
 	
 }
