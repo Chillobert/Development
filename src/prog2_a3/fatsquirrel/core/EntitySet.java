@@ -60,7 +60,7 @@ public class EntitySet {
     public String toString(){
         String output="";
         for(int i=0;entArray[i]!=null;i++){
-            output += entArray[i].toString() + '\n';
+            output += entArray[i].getName() + "," + entArray[i].toString() + '\n';
         }
         return(output);
     }
@@ -105,7 +105,7 @@ public class EntitySet {
     //equals methode(mit instanceof)?
     private void mortalCombat(int arrayPos,int collPos){
     	if(isInstance(entArray[arrayPos],PlayerEntity.class)){
-    		//Hier müssen die verschiedenen Kollisionsfälle implementiert werden
+    		//Hier mï¿½ssen die verschiedenen Kollisionsfï¿½lle implementiert werden
     		//arrayPos = bewegte Entity  //collPos = statische Entity 
     		//Goodplant Kollision:
             if(isInstance(entArray[collPos], GoodPlant.class)){

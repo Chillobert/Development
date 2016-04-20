@@ -1,6 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
-public class MiniSquirrel extends Entity{
+public class MiniSquirrel extends PlayerEntity{
 	private int patronId;
 
     public MiniSquirrel(int id, int energy, int x, int y, int patronId) {

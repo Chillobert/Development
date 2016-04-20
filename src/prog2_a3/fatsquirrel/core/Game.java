@@ -4,17 +4,14 @@ import java.util.Scanner;
 import prog2_a3.*;
 import prog2_a3.interfaces.*;
 
-public class Game implements UI{
-
-    State state;
-    EntitySet entSet;
-    FlattenedBoard flattenedBoard;
+public class Game {
+    public State state;
+    private FlattenedBoard flattenedBoard;
     public Game (){
         state = new State();
-        entSet = new EntitySet();
     };
 
-@Override
+
     public void run(){
 	while(true){
             render();
@@ -25,14 +22,14 @@ public class Game implements UI{
 
 		
 //Darstellung des Spielzustands auf dem Ausgabemedium
-@Override
-    public void render(){
+
+    protected void render(){
     	
     };
 	
 //Verarbeitung von Benutzereingaben
-@Override
-    public void processInput(){
+
+    protected void processInput(){
         Scanner input = new Scanner(System.in);
         System.out.println("Wählen Sie eine Bewegungsrichtung für ihr Eichhörnchen: ");
         GuidedMasterSquirrel a;
@@ -43,12 +40,12 @@ public class Game implements UI{
                 a.in = input.next();
             }
         }
-    };
+    }
 	
 //Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang
-@Override
-    public void update() {
+
+    protected void update() {
         flattenedBoard = state.board.flatten();
-        entSet.nextStepAll(flattenedBoard.getVectors());
+        state.board.entSet.nextStepAll(flattenedBoard.getVectors());
     }	
 }

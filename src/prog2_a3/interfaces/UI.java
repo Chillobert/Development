@@ -1,14 +1,12 @@
 package prog2_a3.interfaces;
 
+import prog2_a3.fatsquirrel.console.*;
 
 public interface UI {
 
-	void run();
-        
-        void render();
-        
-        void processInput();
-        
-        void update();
+    GameImpl game = new GameImpl();
+    
+	String getCommand();
+        void render (BoardView view);
 	
 }

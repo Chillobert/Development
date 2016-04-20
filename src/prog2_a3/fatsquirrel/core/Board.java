@@ -2,7 +2,6 @@ package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
 import java.util.Random;
-import prog2_a3.*;
 
 public class Board {
 	
@@ -24,7 +23,6 @@ public EntitySet entSet = new EntitySet();
 	this.amountGoodPlants = config.getAmountGoodPlants();
 	this.amountBadPlants = config.getAmountBadPlants();
 	fillBoard(2,0,0,0,0);
-	this.flatten();
     };
     
     //Erstellen aller Entitys an zufälligem Ort

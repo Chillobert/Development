@@ -57,8 +57,10 @@ public abstract class Entity{
         }
         
         public String getName(){
-            
-            return this.getClass().getName();
+            String name = this.getClass().getName();
+            int i = name.lastIndexOf(".");
+            name = name.substring(i+1,name.length());
+            return name;
         }
         
         public int getTimeout(){

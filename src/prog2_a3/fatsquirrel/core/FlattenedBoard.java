@@ -1,7 +1,6 @@
 
-package prog2_a3;
+package prog2_a3.fatsquirrel.core;
 
-import prog2_a3.fatsquirrel.core.*;
 import prog2_a3.interfaces.*;
 import java.util.Hashtable;
 
@@ -16,7 +15,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     Hashtable<Integer, XY> vectorList;
     
     public FlattenedBoard(Entity[][] flattenedBoard, XY size){
-        this.vectorList = new Hashtable<Integer, XY>();
+        this.vectorList = new Hashtable<>();
         this.flattenedBoard = flattenedBoard;
         this.size = size;
         this.entSet = new EntitySet();
@@ -63,7 +62,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     @Override
     public void killAndReplace(Entity entity){
         entSet.delete(entity.getId());
-        entSet.add(entity.getName(),(int)(Math.random()*size.getX()),(int)(Math.random()*size.getY()));
+        entSet.add(entity.getName(),(int)(Math.random()*(size.getX()-1)),(int)(Math.random()*(size.getY()-1)));
     }
     
     @Override
@@ -76,10 +75,19 @@ public class FlattenedBoard implements BoardView, EntityContext {
         Entity[] entArray = entSet.getEntityArray();
         int minDistance = 30;
         int currentDistance;
+        String supName;
+        String supName2;
+        int k;
         PlayerEntity entityReturn=null;
         for(int i=0; i < entArray.length;i++){
+            supName = entArray[i].getClass().getSuperclass().getName();
+            supName2 = entArray[i].getClass().getSuperclass().getSuperclass().getName();
+            k = supName2.lastIndexOf(".");
+            supName2 = supName2.substring(k+1,supName2.length());
+            k = supName.lastIndexOf(".");
+            supName = supName.substring(k+1,supName.length());
             //Das Array aller Entitys durchgehen und für PlayerEntitys die Distanz zum Objekt mit aktuellem Minimum vergleichen
-            if ("PlayerEntity".equals(entArray[i].getClass().getSuperclass().getSuperclass().getName())){
+            if ("PlayerEntity".equals(supName2)|"PlayerEntity".equals(supName)){
                 //Summe der Beträge, der X und Y Differenzen @_@
                 currentDistance = (Math.abs(position.getX() - entArray[i].getLocation().getX()) + Math.abs(position.getY() - entArray[i].getLocation().getY()));
                 if (currentDistance < minDistance){

@@ -26,8 +26,8 @@ public class Launcher {
                 Board board = new Board();
                 System.out.println(board.toString());
                 //board.entSet.delete(2);
-                System.out.println(board.toString());
-                System.out.println((board.flatten().toString()));
+                System.out.println(board.entSet.getEntityArray()[0].getName().equals("GuidedMasterSquirrel"));
+                //System.out.println((board.flatten().toString()));
                
                 
                 //System.out.println(board.entSet.toString());
