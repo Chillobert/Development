@@ -105,10 +105,38 @@ public class EntitySet {
     //equals methode(mit instanceof)?
     private void mortalCombat(int arrayPos,int collPos){
     	if(isInstance(entArray[arrayPos],PlayerEntity.class)){
+    		//Hier müssen die verschiedenen Kollisionsfälle implementiert werden
+    		//arrayPos = bewegte Entity  //collPos = statische Entity 
+    		//Goodplant Kollision:
             if(isInstance(entArray[collPos], GoodPlant.class)){
                 entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
                 entArray[collPos].updateEnergy(entArray[collPos].getEnergy()); //Energie auf 0 setzen
             }
+            //Wall Kollision:
+            if(isInstance(entArray[collPos], Wall.class)){
+            	
+            }
+            //BadPlant Kollision:
+            if(isInstance(entArray[collPos], BadPlant.class)){
+            	
+            }
+            //GoodBeast Kollision:
+            if(isInstance(entArray[collPos], GoodBeast.class)){
+            	
+            }
+            //BadBeast Kollision:
+            if(isInstance(entArray[collPos], BadBeast.class)){
+            	
+            }
+            //MasterSquirrel Kollision
+            if(isInstance(entArray[collPos], MasterSquirrel.class)){
+            	
+            }
+            //MiniSquirrel Kollision:
+            if(isInstance(entArray[collPos], MiniSquirrel.class)){
+            	
+            }
+            
 
             for(int i = 0; i < delArray.length; i++){ //- Id an CollPos wird in delArray gespeichert
                 if(delArray[i] == ' '){

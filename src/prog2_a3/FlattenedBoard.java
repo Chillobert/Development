@@ -1,14 +1,14 @@
 
 package prog2_a3;
 
-import java.util.Arrays;
 import prog2_a3.fatsquirrel.core.*;
 import prog2_a3.interfaces.*;
 import java.util.Hashtable;
 
 
+
 public class FlattenedBoard implements BoardView, EntityContext {
-    
+
  
     private final Entity[][] flattenedBoard;
     XY size;
@@ -28,7 +28,14 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     @Override
     public String toString(){
-        return Arrays.deepToString(flattenedBoard);
+    	String output = "";
+    	
+        for (int row = 0; row < flattenedBoard.length; row++) {
+            for (int column = 0; column < flattenedBoard[row].length; column++) {
+                output += flattenedBoard[row][column] + "\n";
+            }
+        }
+            return output;
     }
     
     public Entity getEntity(int x, int y){
