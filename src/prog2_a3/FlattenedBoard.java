@@ -20,7 +20,18 @@ public class FlattenedBoard implements prog2_a3.interfaces.BoardView, prog2_a3.i
     
     @Override
     public String toString(){
-        return Arrays.deepToString(flattenedBoard);
+    	String output = "";
+    	
+        for (int row = 0; row < flattenedBoard.length; row++) {
+            for (int column = 0; column < flattenedBoard[row].length; column++) {
+                output += flattenedBoard[row][column] + "\n";
+            }
+        }
+            return output;
+    	
+    	
+    	
+        //return Arrays.deepToString(flattenedBoard);
     }
     
     public Entity getField(int x, int y){
@@ -29,12 +40,12 @@ public class FlattenedBoard implements prog2_a3.interfaces.BoardView, prog2_a3.i
 
 	@Override
 	public XY getSize() {
-		// Spielfeld Größe abfragen?
 		return null;
 	}
 
 	@Override
 	public XY getEntityType(XY xy) {
+		
 		// Überprüfe Typ der Entity, die an den übergebenen Koordinaten liegt
 		return null;
 	}
