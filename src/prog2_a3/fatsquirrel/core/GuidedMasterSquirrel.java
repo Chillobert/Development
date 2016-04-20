@@ -1,6 +1,5 @@
 package prog2_a3.fatsquirrel.core;
 
-import java.util.Scanner;
 
 public class GuidedMasterSquirrel extends MasterSquirrel {
     
@@ -23,10 +22,6 @@ public class GuidedMasterSquirrel extends MasterSquirrel {
             case "y":vector[0]=-1;vector[1]=1;break;
             default: System.out.println("Keine gültige Richtung");break;
         }
-            this.move(vector);
-    }
-    
-    private void move(int[] vector){
-        loc = loc.move(vector);
+            this.move(new XY(vector));
     }
 }

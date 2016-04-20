@@ -71,8 +71,8 @@ public EntitySet entSet = new EntitySet();
             Arrays.fill(row, null);
         for(int i = 0;entArray.length>i;i++){
             if(entArray[i]!=null)
-                flattenedBoard[entArray[i].loc.getX()] [entArray[i].loc.getY()] = entArray[i];
+                flattenedBoard[entArray[i].getLocation().getX()] [entArray[i].getLocation().getY()] = entArray[i];
         }
-        return new FlattenedBoard(flattenedBoard);
+        return new FlattenedBoard(flattenedBoard,new XY(new int[]{length,width}));
     }
 }

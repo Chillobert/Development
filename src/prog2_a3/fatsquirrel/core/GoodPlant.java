@@ -13,5 +13,8 @@ public class GoodPlant extends Entity{
     @Override
     public void nextStep() {
     }
-
+    @Override
+    public void nextStep(XY vector){
+        
+    }
 }

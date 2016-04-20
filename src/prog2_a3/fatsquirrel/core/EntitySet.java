@@ -1,6 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
+import java.util.Hashtable;
 
 public class EntitySet {
 
@@ -64,14 +65,20 @@ public class EntitySet {
         return(output);
     }
 
-    public void nextStepAll(){
+    public void nextStepAll(Hashtable<Integer, XY> vectorList){
         for(int i=0;entArray[i]!=null;i++){
-            entArray[i].nextStep();
+            //wenn Pflanze oder Wall nextStep() aufrufen
+            if(("GoodPlant").equals(entArray[i].getName())|"BadPlant".equals(entArray[i].getName())|"Wall".equals(entArray[i].getName()))
+                entArray[i].nextStep();
+            //falls in der Vectorliste die Id des aktuellen Objekts vorliegt, move(XY vector) aufrufen
+            if(vectorList.containsKey(entArray[i].getId()))
+                entArray[i].nextStep(vectorList.get(entArray[i].getId()));
+
              checkCollision(i);
         }
         
         //Nach Rundendurchlauf wird mit jeder ID(siehe mortalCombat) die in delArray gespeichert wurde die Delete Methode aufgerufen
-        for(int j = 0;delArray[j] != ' '; j++){                
+        for(int j = 0;delArray[j] != ' '; j++){
         	delete(delArray[j]);
         	
         }
@@ -82,7 +89,7 @@ public class EntitySet {
 
     private void checkCollision(int arrayPos){
         for(int i=0;entArray[i]!=null;i++){
-            if((entArray[arrayPos].loc.getX()==entArray[i].loc.getX()&(entArray[arrayPos].loc.getY()==entArray[i].loc.getY()))){
+            if((entArray[arrayPos].getLocation().getX()==entArray[i].getLocation().getX()&(entArray[arrayPos].getLocation().getY()==entArray[i].getLocation().getY()))){
                 mortalCombat(arrayPos,i);
                 return;
             }

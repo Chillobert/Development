@@ -8,9 +8,14 @@ public class GoodBeast extends Entity{
 	public GoodBeast(int id, int x, int y) {
 		super(id, energy, x, y);
 	}
-//test test test
-        @Override
-        public void nextStep(){
-            this.randMove();
-        }
+
+    @Override
+    public void nextStep(){
+
+    }
+        
+    @Override
+    public void nextStep(XY vector){
+        this.move(vector);
+    }
 }

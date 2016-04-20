@@ -4,5 +4,7 @@ import prog2_a3.fatsquirrel.core.*;
         
 public interface BoardView {
 
-    public Entity[][] getBoard();
+    String getEntityType(int x, int y);
+    
+    XY getSize();
 }

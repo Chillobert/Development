@@ -1,6 +1,5 @@
 package prog2_a3;
 
-import java.util.Arrays;
 import prog2_a3.fatsquirrel.core.Board;
 
 public class Launcher {

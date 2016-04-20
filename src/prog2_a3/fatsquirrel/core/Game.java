@@ -7,9 +7,11 @@ import prog2_a3.interfaces.*;
 public class Game implements UI{
 
     State state;
-    
+    EntitySet entSet;
+    FlattenedBoard flattenedBoard;
     public Game (){
         state = new State();
+        entSet = new EntitySet();
     };
 
 @Override
@@ -46,7 +48,7 @@ public class Game implements UI{
 //Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang
 @Override
     public void update() {
-        EntitySet entSet = new EntitySet();
-        entSet.nextStepAll();
+        flattenedBoard = state.board.flatten();
+        entSet.nextStepAll(flattenedBoard.getVectors());
     }	
 }

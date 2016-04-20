@@ -5,7 +5,8 @@ public abstract class Entity{
 	
 	private int id;
 	private int energy;
-	protected XY loc;
+	private XY loc;
+        private int penalty;
 	
         //Constructor
         public Entity(){
@@ -25,11 +26,16 @@ public abstract class Entity{
         public int getEnergy(){
 	return energy;
         }
+        
+        public XY getLocation(){
+            return loc;
+        }
 	
         public void updateEnergy(int charge){
 	energy = energy + charge;
         }
 
+        public abstract void nextStep(XY vector);
         public abstract void nextStep();
         
         //Referenzcheck; true falls beide von gleicher Klasse abstammen
@@ -41,14 +47,25 @@ public abstract class Entity{
         public void randMove(){
             loc = loc.moveRandom();
         }
-    
+        
+        public void move(XY vector){
+            loc = loc.move(new int[]{vector.getX(),vector.getY()});
+        }
         @Override
         public String toString(){
             return ("id:"+id+", energy:"+energy+", X:"+loc.getX()+", Y:"+loc.getY());
         }
         
-        public String getName(Object o){
+        public String getName(){
             
-            return o.getClass().getName();
+            return this.getClass().getName();
+        }
+        
+        public int getTimeout(){
+            return penalty;
+        }
+        
+        public void setTimeout(int timeout){
+            this.penalty = timeout;
         }
 }

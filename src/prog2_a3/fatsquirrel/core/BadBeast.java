@@ -11,10 +11,12 @@ public final static int energy = -150;
 	}
         
 @Override
-        public void nextStep(){
-            this.randMove();
-        }
+    public void nextStep(XY vector){
+            this.move(vector);
+    }
 
+@Override
+    public void nextStep(){};
 
         
 }
