@@ -24,6 +24,7 @@ public EntitySet entSet = new EntitySet();
 	this.amountGoodPlants = config.getAmountGoodPlants();
 	this.amountBadPlants = config.getAmountBadPlants();
 	fillBoard(2,0,0,0,0);
+	this.flatten();
     };
     
     //Erstellen aller Entitys an zufälligem Ort

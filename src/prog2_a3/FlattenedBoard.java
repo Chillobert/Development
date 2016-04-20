@@ -29,44 +29,46 @@ public class FlattenedBoard implements prog2_a3.interfaces.BoardView, prog2_a3.i
 
 	@Override
 	public XY getSize() {
-		// TODO Auto-generated method stub
+		// Spielfeld Größe abfragen?
 		return null;
 	}
 
 	@Override
 	public XY getEntityType(XY xy) {
-		// TODO Auto-generated method stub
+		// Überprüfe Typ der Entity, die an den übergebenen Koordinaten liegt
 		return null;
 	}
 
 	@Override
 	public PlayerEntity nearestPlayerEntity(XY xy) {
-		// TODO Auto-generated method stub
+		//Übergabe eines XY Objekts => Durchsuche FlattenedBoard nach am nächstenliegenden Object (Return Object)
+		
+		
 		return null;
 	}
 
 	@Override
 	public void tryMove(MiniSquirrel miniSquirrel, XY moveDirection) {
-		// TODO Auto-generated method stub
+		// ÜBergabe eines MiniSquirrels und einem Bewegungsvekotr(XY) =>Prüfe FlattenedBoard ob an zu bewegender Stelle ein Object ist.
 		
 	}
 
 	@Override
 	public void tryMove(GoodBeast goodBeast, XY moveDirection) {
-		// TODO Auto-generated method stub
+		// ÜBergabe eines Goodbeasts und einem Bewegungsvekotr(XY) =>Prüfe FlattenedBoard ob an zu bewegender Stelle ein Object ist.
 		
 	}
 
 	@Override
 	public void tryMove(BadBeast badBeast, XY moveDirection) {
-		// TODO Auto-generated method stub
+		// ÜBergabe eines BadBeasts und einem Bewegungsvekotr(XY) =>Prüfe FlattenedBoard ob an zu bewegender Stelle ein Object ist.
 		
 	}
 
 	@Override
 	public void tryMove(MasterSquirrel masterBot, XY moveDirection) {
-		// TODO Auto-generated method stub
-		
+		// ÜBergabe eines MasterSquirrels und einem Bewegungsvekotr(XY) =>Prüfe FlattenedBoard ob an zu bewegender Stelle ein Object ist.
+				
 	}
 
 	@Override
@@ -77,13 +79,12 @@ public class FlattenedBoard implements prog2_a3.interfaces.BoardView, prog2_a3.i
 
 	@Override
 	public void kill(Entity entity) {
-		// TODO Auto-generated method stub
+		// Lösche Übergebene Entity
 		
 	}
 
 	@Override
 	public void killAndReplace(Entity entity) {
-		// TODO Auto-generated method stub
-		
+		// Lösche Übergebene Entity und erstelle eine neue Entity vom selben typ an einem zufälligen Ort
 	}
 }
