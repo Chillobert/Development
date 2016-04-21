@@ -7,12 +7,13 @@ public class Board {
 	
 private final int length;
 private final int width;
+private final XY size;
 private final int amountGoodBeasts;
 private final int amountBadBeasts;
 private final int amountGoodPlants;
 private final int amountBadPlants;
 private int amountWalls;
-public EntitySet entSet = new EntitySet();
+public EntitySet entSet;
 
     public Board(){
 	BoardConfig config = new BoardConfig();
@@ -23,6 +24,8 @@ public EntitySet entSet = new EntitySet();
 	this.amountGoodPlants = config.getAmountGoodPlants();
 	this.amountBadPlants = config.getAmountBadPlants();
 	fillBoard(2,0,0,0,0);
+        this.size = new XY(new int[]{length,width});
+        this.entSet = new EntitySet(size);
     };
     
     //Erstellen aller Entitys an zufälligem Ort
@@ -72,6 +75,6 @@ public EntitySet entSet = new EntitySet();
             if(entArray[i]!=null)
                 flattenedBoard[entArray[i].getLocation().getX()] [entArray[i].getLocation().getY()] = entArray[i];
         }
-        return new FlattenedBoard(flattenedBoard,new XY(new int[]{length,width}));
+        return new FlattenedBoard(flattenedBoard,size,entSet);
     }
 }

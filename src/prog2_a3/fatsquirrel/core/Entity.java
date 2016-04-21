@@ -7,7 +7,7 @@ public abstract class Entity{
 	private int energy;
 	private XY loc;
         private int penalty;
-	
+	public int collCount=0;
         //Constructor
         public Entity(){
         };

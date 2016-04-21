@@ -1,7 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
 
-public class GoodPlant extends Entity{
+public class GoodPlant extends Plant{
 	
 	public final static int energy = 100; 
 

@@ -1,6 +1,6 @@
 package prog2_a3;
 
-import prog2_a3.fatsquirrel.core.Board;
+import prog2_a3.fatsquirrel.core.*;
 
 public class Launcher {
 
@@ -16,17 +16,14 @@ public class Launcher {
                 //entSet.add("BadPlant",4,5);
                 //entSet.add("GuidedMasterSquirrel",3,4);
                 //entSet.add("Wall", 6, 7);
-                /*GuidedMasterSquirrel karl = new GuidedMasterSquirrel(6,3,4);
-                MiniSquirrel fritz = karl.createDescendant(6, 100, 3, 5);
-                BadBeast otto = new BadBeast(7,4,6);
-                Wall Piechler = new Wall(8,5,6);
-                Wall franz = new Wall(9,6,7);
-                System.out.println(Piechler.equals(franz));
-                System.out.println(karl.checkDescendant(fritz));*/
-                Board board = new Board();
-                System.out.println(board.toString());
+
+                //Wall franz = new Wall(9,6,7);
+               // System.out.println(Piechler.equals(franz));
+               // System.out.println(karl.checkDescendant(fritz));
+               // Board board = new Board();
+               // System.out.println(board.toString());
                 //board.entSet.delete(2);
-                System.out.println(board.entSet.getEntityArray()[0].getName().equals("GuidedMasterSquirrel"));
+                //System.out.println(board.entSet.getEntityArray()[0].getName().equals("GuidedMasterSquirrel"));
                 //System.out.println((board.flatten().toString()));
                
                 

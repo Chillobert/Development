@@ -7,11 +7,13 @@ public class EntitySet {
 
     private int numbOf=0;
     private Entity[] entArray = new Entity[50];
-    private int[] delArray = new int[50];
+    private int[] deleteArray = new int[50];
     private int idColl=0;
+    private final XY size;
     
-    public EntitySet(){   
-        Arrays.fill(delArray, ' ');
+    public EntitySet(XY size){   
+        Arrays.fill(deleteArray, 200);
+        this.size = size;
     }
     
     public void add(String entityTyp, int x, int y){
@@ -48,6 +50,18 @@ public class EntitySet {
         numbOf--;
     }
     
+    public void killAndReplace(Entity entity){
+        delete(entity.getId());
+        add(entity.getName(),(int)(Math.random()*(size.getX()-1)),(int)(Math.random()*(size.getY()-1)));
+    }
+    
+    public void addDelete(Entity entity){
+        for(int i= 0; i < deleteArray.length;i++){
+            if(deleteArray[i]==200)
+                deleteArray[i]=entity.getId();
+        }
+    }
+    
     public int getLatestId(){
         return numbOf;
     }
@@ -55,7 +69,6 @@ public class EntitySet {
     public Entity[] getEntityArray(){
         return entArray;
     }
-    
     @Override
     public String toString(){
         String output="";
@@ -78,13 +91,13 @@ public class EntitySet {
         }
         
         //Nach Rundendurchlauf wird mit jeder ID(siehe mortalCombat) die in delArray gespeichert wurde die Delete Methode aufgerufen
-        for(int j = 0;delArray[j] != ' '; j++){
-        	delete(delArray[j]);
+        for(int j = 0;deleteArray[j] != ' '; j++){
+        	delete(deleteArray[j]);
         	
         }
         
         //Nach delete wird delArray geleert
-        Arrays.fill(delArray, ' ');
+        Arrays.fill(deleteArray, ' ');
     }
 
     private void checkCollision(int arrayPos){
@@ -108,25 +121,23 @@ public class EntitySet {
     		//Hier m�ssen die verschiedenen Kollisionsf�lle implementiert werden
     		//arrayPos = bewegte Entity  //collPos = statische Entity 
     		//Goodplant Kollision:
-            if(isInstance(entArray[collPos], GoodPlant.class)){
+            if(isInstance(entArray[collPos], Plant.class)){
                 entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
-                entArray[collPos].updateEnergy(entArray[collPos].getEnergy()); //Energie auf 0 setzen
-            }
-            //Wall Kollision:
-            if(isInstance(entArray[collPos], Wall.class)){
-            	
-            }
-            //BadPlant Kollision:
-            if(isInstance(entArray[collPos], BadPlant.class)){
-            	
+                entArray[collPos].updateEnergy(-entArray[collPos].getEnergy()); //Energie auf 0 setzen
+                killAndReplace(entArray[collPos]);
             }
             //GoodBeast Kollision:
             if(isInstance(entArray[collPos], GoodBeast.class)){
-            	
+            	entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
+                killAndReplace(entArray[collPos]);
             }
             //BadBeast Kollision:
             if(isInstance(entArray[collPos], BadBeast.class)){
-            	
+            	entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
+                if(entArray[collPos].collCount<7)
+                    entArray[collPos].collCount++;
+                else
+                    killAndReplace(entArray[collPos]);
             }
             //MasterSquirrel Kollision
             if(isInstance(entArray[collPos], MasterSquirrel.class)){
@@ -134,14 +145,13 @@ public class EntitySet {
             }
             //MiniSquirrel Kollision:
             if(isInstance(entArray[collPos], MiniSquirrel.class)){
-            	
-            }
-            
-
-            for(int i = 0; i < delArray.length; i++){ //- Id an CollPos wird in delArray gespeichert
-                if(delArray[i] == ' '){
-                    delArray[i] = entArray[collPos].getId(); //-
-                return;
+                if(isInstance(entArray[arrayPos],MasterSquirrel.class)){
+                    if(((MasterSquirrel)entArray[arrayPos]).checkDescendant((MiniSquirrel)entArray[collPos])){
+                       entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
+                    }
+                    else
+                       entArray[arrayPos].updateEnergy(150);
+                delete(entArray[collPos].getId());
                 }
             }
     	}	
