@@ -1,7 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class Board {
 	
@@ -53,8 +52,7 @@ public EntitySet entSet;
     };
 
     private int[] randLoc(){
-        Random r = new Random();
-        return new int[]{r.nextInt(this.length),r.nextInt(this.width)};
+        return new int[]{(int)(((Math.random()*9)+1)),(int)(((Math.random()*9)+1))};
     }
     
 @Override

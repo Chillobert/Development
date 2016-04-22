@@ -10,6 +10,7 @@ public class Launcher {
 
             while(play){
                 Game game = new Game();
+                
                 game.run();
                 /*BadBeast meixner = new BadBeast(1,7,3);
                 GuidedMasterSquirrel max = new GuidedMasterSquirrel(2,2,2);

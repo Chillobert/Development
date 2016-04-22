@@ -2,7 +2,6 @@ package prog2_a3.fatsquirrel.core;
 
 import prog2_a3.interfaces.*;
 import java.util.Hashtable;
-import java.util.Random;
 
 
 
@@ -125,6 +124,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     miniSquirrel.updateEnergy(-1);
                 }
                 else if(entSet.isInstance(nextField, Wall.class)){
+                    miniSquirrel.updateEnergy(nextField.getEnergy());
                     miniSquirrel.setTimeout(3);
                     miniSquirrel.updateEnergy(-1);
                 }
@@ -160,14 +160,13 @@ public class FlattenedBoard implements BoardView, EntityContext {
         if(goodBeast.getTimeout()==0){
                     Entity nextField = getEntity(goodBeast.getLocation().getX() + actualMoveDirection.getX(), goodBeast.getLocation().getY() + actualMoveDirection.getY());
             if(nextField !=null ){
-                if((entSet.isInstance(nextField, Wall.class))){
+                if((!entSet.isInstance(nextField, Wall.class))){
                     vectorList.put(goodBeast.getId(), actualMoveDirection);
                     goodBeast.setTimeout(4);
                 }
                 else if(entSet.isInstance(nextField, Wall.class)){
-                    Random r = new Random();
                     //tryMove(goodBeast, new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
-                    tryMove(goodBeast, new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
+                    vectorList.put(goodBeast.getId(), new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
                 }
             }
             else{
@@ -211,8 +210,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     badBeast.setTimeout(4);
                 }
                 else if(entSet.isInstance(nextField, Wall.class)){
-                    Random r = new Random();
-                    tryMove(badBeast, new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
+                    vectorList.put(badBeast.getId(), new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
                 }
             }
             else{
