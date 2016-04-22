@@ -27,7 +27,7 @@ public abstract class MasterSquirrel extends PlayerEntity{
         
     @Override
     public void nextStep(XY vector){
-        
+        move(vector);
     }
         
 }

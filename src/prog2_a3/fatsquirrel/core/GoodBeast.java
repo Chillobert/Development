@@ -15,6 +15,6 @@ public class GoodBeast extends Entity{
         
     @Override
     public void nextStep(XY vector){
-        this.move(vector);
+        move(vector);
     }
 }

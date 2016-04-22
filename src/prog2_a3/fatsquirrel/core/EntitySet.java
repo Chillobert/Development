@@ -91,13 +91,13 @@ public class EntitySet {
         }
         
         //Nach Rundendurchlauf wird mit jeder ID(siehe mortalCombat) die in delArray gespeichert wurde die Delete Methode aufgerufen
-        for(int j = 0;deleteArray[j] != ' '; j++){
+        for(int j = 0;deleteArray[j] != 200; j++){
         	delete(deleteArray[j]);
         	
         }
         
         //Nach delete wird delArray geleert
-        Arrays.fill(deleteArray, ' ');
+        Arrays.fill(deleteArray, 200);
     }
 
     private void checkCollision(int arrayPos){
