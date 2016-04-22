@@ -10,7 +10,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
  
     private final Entity[][] flattenedBoard;
     XY size;
-    EntitySet entSet;
+    public EntitySet entSet;
     Hashtable<Integer, XY> vectorList;
     
     public FlattenedBoard(Entity[][] flattenedBoard, XY size, EntitySet entSet){

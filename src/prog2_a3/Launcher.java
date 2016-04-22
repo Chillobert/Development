@@ -1,6 +1,6 @@
 package prog2_a3;
 
-import prog2_a3.fatsquirrel.core.*;
+import prog2_a3.fatsquirrel.console.*;
 
 public class Launcher {
 
@@ -9,7 +9,7 @@ public class Launcher {
                 //EntitySet entSet = new EntitySet();
 
             while(play){
-                Game game = new Game();
+                GameImpl game = new GameImpl();
                 
                 game.run();
                 /*BadBeast meixner = new BadBeast(1,7,3);

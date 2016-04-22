@@ -18,7 +18,7 @@ public EntitySet entSet;
 	BoardConfig config = new BoardConfig();
 	this.length = config.getLength();
 	this.width = config.getWidth();
-        this.size = new XY(new int[]{length,width});
+        this.size = config.getSize();
         this.entSet = new EntitySet(size);
 	this.amountGoodBeasts = config.getAmountGoodBeasts();
 	this.amountBadBeasts = config.getAmountBadBeasts();
