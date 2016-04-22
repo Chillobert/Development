@@ -87,7 +87,7 @@ public class EntitySet {
             if(vectorList.containsKey(entArray[i].getId()))
                 entArray[i].nextStep(vectorList.get(entArray[i].getId()));
             
-             checkCollision(i);
+            checkCollision(i);
         }
         
         //Nach Rundendurchlauf wird mit jeder ID(siehe mortalCombat) die in delArray gespeichert wurde die Delete Methode aufgerufen
@@ -104,7 +104,6 @@ public class EntitySet {
         for(int i=0;entArray[i]!=null;i++){
             if((entArray[arrayPos].getLocation().getX()==entArray[i].getLocation().getX()&(entArray[arrayPos].getLocation().getY()==entArray[i].getLocation().getY()))){
                 mortalCombat(arrayPos,i);
-                return;
             }
         }
     }

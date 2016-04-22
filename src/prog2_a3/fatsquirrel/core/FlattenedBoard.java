@@ -157,16 +157,17 @@ public class FlattenedBoard implements BoardView, EntityContext {
         else if(nearestPlayerDistance<=6)
             actualMoveDirection = new XY(fleeVector);
         
-        Entity nextField = getEntity(goodBeast.getLocation().getX() + actualMoveDirection.getX(), goodBeast.getLocation().getY() + actualMoveDirection.getY());
         if(goodBeast.getTimeout()==0){
+                    Entity nextField = getEntity(goodBeast.getLocation().getX() + actualMoveDirection.getX(), goodBeast.getLocation().getY() + actualMoveDirection.getY());
             if(nextField !=null ){
-                if((!"Wall".equals(nextField.getName()))){
+                if((entSet.isInstance(nextField, Wall.class))){
                     vectorList.put(goodBeast.getId(), actualMoveDirection);
                     goodBeast.setTimeout(4);
                 }
-                else if("Wall".equals(nextField.getName())){
+                else if(entSet.isInstance(nextField, Wall.class)){
                     Random r = new Random();
-                    tryMove(goodBeast, new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
+                    //tryMove(goodBeast, new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
+                    tryMove(goodBeast, new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
                 }
             }
             else{
