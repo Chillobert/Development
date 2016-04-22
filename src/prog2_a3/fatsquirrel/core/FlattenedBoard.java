@@ -120,11 +120,11 @@ public class FlattenedBoard implements BoardView, EntityContext {
         //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
         if(miniSquirrel.getTimeout()==0){
             if(nextField !=null ){
-                if(!"Wall".equals(nextField.getName())){
+                if(!entSet.isInstance(nextField, Wall.class)){
                     vectorList.put(nextField.getId(), moveDirection);
                     miniSquirrel.updateEnergy(-1);
                 }
-                else if("Wall".equals(nextField.getName())){
+                else if(entSet.isInstance(nextField, Wall.class)){
                     miniSquirrel.setTimeout(3);
                     miniSquirrel.updateEnergy(-1);
                 }
@@ -206,13 +206,13 @@ public class FlattenedBoard implements BoardView, EntityContext {
         //Das Feld betrachten, in das das badBeast Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
         if(badBeast.getTimeout()==0){
             if(nextField !=null ){
-                if((!"Wall".equals(nextField.getName()))){
+                if((!entSet.isInstance(nextField, Wall.class))){
                     vectorList.put(badBeast.getId(), actualMoveDirection);
                     badBeast.setTimeout(4);
                 }
-                else if("Wall".equals(nextField.getName())){
+                else if(entSet.isInstance(nextField, Wall.class)){
                     Random r = new Random();
-                    tryMove(badBeast, new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
+                    tryMove(badBeast, new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
                 }
             }
             else{
@@ -229,11 +229,11 @@ public class FlattenedBoard implements BoardView, EntityContext {
         //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
         if(masterBot.getTimeout()==0){
             if(nextField !=null ){
-                if("Wall".equals(nextField.getName())){
+                if(entSet.isInstance(nextField, Wall.class)){
                     masterBot.updateEnergy(nextField.getEnergy());
                     masterBot.setTimeout(3);
                 }
-                else if(!"Wall".equals(nextField.getName()))
+                else if(!entSet.isInstance(nextField, Wall.class))
                     vectorList.put(masterBot.getId(),moveDirection);
                 /*else if(entSet.isInstance(nextField, Plant.class)){
                     masterBot.updateEnergy(nextField.getEnergy());
