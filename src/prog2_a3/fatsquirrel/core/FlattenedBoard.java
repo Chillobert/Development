@@ -75,15 +75,16 @@ public class FlattenedBoard implements BoardView, EntityContext {
         Entity[] entArray = entSet.getEntityArray();
         int minDistance = 30;
         int currentDistance;
-        String supName;
-        String supName2;
-        int k;
         PlayerEntity entityReturn=null;
         for(int i=0; i < entArray.length;i++){
             //Das Array aller Entitys durchgehen und für PlayerEntitys die Distanz zum Objekt mit aktuellem Minimum vergleichen
             if (entSet.isInstance(entArray[i], PlayerEntity.class)){
                 //Summe der Beträge, der X und Y Differenzen @_@
-                currentDistance = (Math.abs(position.getX() - entArray[i].getLocation().getX()) + Math.abs(position.getY() - entArray[i].getLocation().getY()));
+                int x0 = position.getX();
+                int x1 = entArray[i].getLocation().getX();
+                int y0 = position.getY();
+                int y1 = entArray[i].getLocation().getY();
+                currentDistance =  (Math.abs(x1-x0))>(Math.abs(y1-y0))?Math.abs(x1-x0):Math.abs(y1-y0);
                 if (currentDistance < minDistance){
                     minDistance = currentDistance;
                     entityReturn = (PlayerEntity) entArray[i];
@@ -91,6 +92,26 @@ public class FlattenedBoard implements BoardView, EntityContext {
             }
         }
         return entityReturn;
+    }
+    
+    public int nearestPlayerDistance(XY position){
+        Entity[] entArray = entSet.getEntityArray();
+        int minDistance = 30;
+        int currentDistance;
+        for(int i=0; i < entArray.length;i++){
+            //Das Array aller Entitys durchgehen und für PlayerEntitys die Distanz zum Objekt mit aktuellem Minimum vergleichen
+            if (entSet.isInstance(entArray[i], PlayerEntity.class)){
+                int x0 = position.getX();
+                int x1 = entArray[i].getLocation().getX();
+                int y0 = position.getY();
+                int y1 = entArray[i].getLocation().getY();
+                currentDistance =  (Math.abs(x1-x0))>(Math.abs(y1-y0))?Math.abs(x1-x0):Math.abs(y1-y0);
+                if (currentDistance < minDistance){
+                    minDistance = currentDistance;
+                }
+            }
+        }
+        return minDistance;
     }
     
     @Override
@@ -114,12 +135,33 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     @Override
     public void tryMove(GoodBeast goodBeast, XY moveDirection){
-        Entity nextField = getEntity(goodBeast.getLocation().getX() + moveDirection.getX(), goodBeast.getLocation().getY() + moveDirection.getY());
+        
+        int nearestPlayerDistance = nearestPlayerDistance(goodBeast.getLocation());
+        XY nearestPlayerLoc = nearestPlayerEntity(goodBeast.getLocation()).getLocation();
         //Das Feld betrachten, in das das Beast Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
+        XY actualMoveDirection = new XY(new int[]{0,0});
+        int[] fleeVector = new int[]{0,0};
+        int distX=goodBeast.getLocation().getX()-nearestPlayerLoc.getX();
+        int distY = goodBeast.getLocation().getY()-nearestPlayerLoc.getY();
+        if(distX==0 && distY==0)
+            fleeVector = new int[]{0,0};
+        else if(distX==0 && distY!=0)
+            fleeVector = new int[]{0,(distY/Math.abs(distY))};
+        else if(distX!=0 && distY==0)
+            fleeVector = new int[]{(distX/Math.abs(distX)),0};
+        else if(distX!=0 && distY!=0)
+            fleeVector = new int[]{(distX/Math.abs(distX)) , (distY/Math.abs(distY))};
+        
+        if(nearestPlayerDistance>6)
+            actualMoveDirection = moveDirection;
+        else if(nearestPlayerDistance<=6)
+            actualMoveDirection = new XY(fleeVector);
+        
+        Entity nextField = getEntity(goodBeast.getLocation().getX() + actualMoveDirection.getX(), goodBeast.getLocation().getY() + actualMoveDirection.getY());
         if(goodBeast.getTimeout()==0){
             if(nextField !=null ){
                 if((!"Wall".equals(nextField.getName()))){
-                    vectorList.put(goodBeast.getId(), moveDirection);
+                    vectorList.put(goodBeast.getId(), actualMoveDirection);
                     goodBeast.setTimeout(4);
                 }
                 else if("Wall".equals(nextField.getName())){
@@ -128,22 +170,43 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 }
             }
             else{
-                vectorList.put(goodBeast.getId(), moveDirection);
+                vectorList.put(goodBeast.getId(), actualMoveDirection);
                 goodBeast.setTimeout(4);
             }
         }
             else
                 goodBeast.setTimeout(goodBeast.getTimeout()-1);
-
     }
     @Override
     public void tryMove(BadBeast badBeast, XY moveDirection){
-        Entity nextField = getEntity(badBeast.getLocation().getX() + moveDirection.getX(), badBeast.getLocation().getY() + moveDirection.getY());
+        
+        int nearestPlayerDistance = nearestPlayerDistance(badBeast.getLocation());
+        XY nearestPlayerLoc = nearestPlayerEntity(badBeast.getLocation()).getLocation();
+        //Das Feld betrachten, in das das Beast Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
+        XY actualMoveDirection = new XY(new int[]{0,0});
+        int[] attackVector = new int[]{0,0};
+        int distX=nearestPlayerLoc.getX()-badBeast.getLocation().getX();
+        int distY = nearestPlayerLoc.getY()-badBeast.getLocation().getY();
+        if(distX==0 && distY==0)
+            attackVector = new int[]{0,0};
+        else if(distX==0 && distY!=0)
+            attackVector = new int[]{0,(distY/Math.abs(distY))};
+        else if(distX!=0 && distY==0)
+            attackVector = new int[]{(distX/Math.abs(distX)),0};
+        else if(distX!=0 && distY!=0)
+            attackVector = new int[]{(distX/Math.abs(distX)) , (distY/Math.abs(distY))};
+        
+        if(nearestPlayerDistance>6)
+            actualMoveDirection = moveDirection;
+        else if(nearestPlayerDistance<=6)
+            actualMoveDirection = new XY(attackVector);
+        
+        Entity nextField = getEntity(badBeast.getLocation().getX() + actualMoveDirection.getX(), badBeast.getLocation().getY() + actualMoveDirection.getY());
         //Das Feld betrachten, in das das badBeast Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
         if(badBeast.getTimeout()==0){
             if(nextField !=null ){
                 if((!"Wall".equals(nextField.getName()))){
-                    vectorList.put(badBeast.getId(), moveDirection);
+                    vectorList.put(badBeast.getId(), actualMoveDirection);
                     badBeast.setTimeout(4);
                 }
                 else if("Wall".equals(nextField.getName())){
@@ -152,7 +215,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 }
             }
             else{
-                vectorList.put(badBeast.getId(), moveDirection);
+                vectorList.put(badBeast.getId(), actualMoveDirection);
                 badBeast.setTimeout(4);
             }
         }

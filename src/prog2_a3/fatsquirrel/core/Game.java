@@ -1,8 +1,8 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.util.Random;
 import java.util.Scanner;
 import prog2_a3.*;
-import prog2_a3.interfaces.*;
 
 public class Game {
     public State state;
@@ -11,7 +11,6 @@ public class Game {
         state = new State();
     };
 
-
     public void run(){
 	while(true){
             render();
@@ -19,7 +18,6 @@ public class Game {
             update();
 	}
     }
-
 		
 //Darstellung des Spielzustands auf dem Ausgabemedium
 
@@ -46,6 +44,18 @@ public class Game {
 
     protected void update() {
         flattenedBoard = state.board.flatten();
+        Random r = new Random();
+        Entity[] entArray = state.board.entSet.getEntityArray();
+        for(int i=0;entArray[i]!=null;i++){
+            if("BadBeast".equals(entArray[i].getName()))
+                flattenedBoard.tryMove((BadBeast)entArray[i],new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
+            if("GoodBeast".equals(entArray[i].getName()))
+                flattenedBoard.tryMove((GoodBeast)entArray[i],new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
+            if("MiniSquirrel".equals(entArray[i].getName()))
+                flattenedBoard.tryMove((MiniSquirrel)entArray[i],new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
+            if(state.board.entSet.isInstance(entArray[i], MasterSquirrel.class))
+                flattenedBoard.tryMove((MasterSquirrel)entArray[i],new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));//Hier Eingabe als XY übergeben, statt random
+        }
         state.board.entSet.nextStepAll(flattenedBoard.getVectors());
     }	
 }

@@ -9,7 +9,14 @@ public class Launcher {
                 //EntitySet entSet = new EntitySet();
 
             while(play){
-                //BadBeast meixner = new BadBeast(0,7,6);
+                BadBeast meixner = new BadBeast(1,7,3);
+                GuidedMasterSquirrel max = new GuidedMasterSquirrel(2,2,2);
+                int x0 =meixner.getLocation().getX();
+                int x1 = max.getLocation().getX();
+                int y0 = meixner.getLocation().getY();
+                int y1 = max.getLocation().getY();
+                int currentDistance =  (Math.abs(x1-x0))>(Math.abs(y1-y0))?Math.abs(x1-x0):Math.abs(y1-y0);
+                System.out.println(currentDistance);
                 //BadBeast otto = new BadBeast(1,5,4);
                 //GoodBeast bla = new GoodBeast(2,3,4);
                 //entSet.add("GoodPlant",3,4);

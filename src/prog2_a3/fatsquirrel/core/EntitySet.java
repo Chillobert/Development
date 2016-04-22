@@ -86,7 +86,7 @@ public class EntitySet {
             //falls in der Vectorliste die Id des aktuellen Objekts vorliegt, move(XY vector) aufrufen
             if(vectorList.containsKey(entArray[i].getId()))
                 entArray[i].nextStep(vectorList.get(entArray[i].getId()));
-
+            
              checkCollision(i);
         }
         
@@ -110,9 +110,7 @@ public class EntitySet {
     }
     
     public boolean isInstance(Object o, Class c){
-    	
     return c.isInstance(o);
-
     }
 
     //equals methode(mit instanceof)?
@@ -123,7 +121,6 @@ public class EntitySet {
     		//Goodplant Kollision:
             if(isInstance(entArray[collPos], Plant.class)){
                 entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
-                entArray[collPos].updateEnergy(-entArray[collPos].getEnergy()); //Energie auf 0 setzen
                 killAndReplace(entArray[collPos]);
             }
             //GoodBeast Kollision:
@@ -133,15 +130,19 @@ public class EntitySet {
             }
             //BadBeast Kollision:
             if(isInstance(entArray[collPos], BadBeast.class)){
-            	entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
-                if(entArray[collPos].collCount<7)
-                    entArray[collPos].collCount++;
-                else
+                entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
+                entArray[collPos].collCount++;
+                if(entArray[collPos].collCount>=7)
                     killAndReplace(entArray[collPos]);
             }
             //MasterSquirrel Kollision
             if(isInstance(entArray[collPos], MasterSquirrel.class)){
-            	
+                if(isInstance(entArray[arrayPos],MiniSquirrel.class)){
+                    if(((MasterSquirrel)entArray[collPos]).checkDescendant((MiniSquirrel)entArray[arrayPos])){
+                        entArray[collPos].updateEnergy(entArray[arrayPos].getEnergy());
+                    }
+                delete(entArray[arrayPos].getId());
+                }
             }
             //MiniSquirrel Kollision:
             if(isInstance(entArray[collPos], MiniSquirrel.class)){
@@ -153,7 +154,10 @@ public class EntitySet {
                        entArray[arrayPos].updateEnergy(150);
                 delete(entArray[collPos].getId());
                 }
+                if(isInstance(entArray[arrayPos],MiniSquirrel.class)){
+                    delete(entArray[arrayPos].getId());
+                }
             }
-    	}	
+        }
     }
 }
