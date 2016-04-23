@@ -42,7 +42,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     @Override
     public String getEntityType(int x, int y){
-        return flattenedBoard[x][y].getName();
+        if(flattenedBoard[x][y]!=null)
+            return flattenedBoard[x][y].getName();
+        else return " ";
     }
     @Override
     public String getEntityType(XY loc){

@@ -5,14 +5,26 @@ import prog2_a3.fatsquirrel.core.*;
 
 public class GameImpl extends Game {
     ConsoleUI ui = new ConsoleUI();
-    XY vector;
+    int[] vector;
     public GameImpl(){
         super();
+        this.vector = new int[]{0,0};
     }
     
     @Override
     protected void processInput(){
-        super.input = ui.getCommand();
+        switch(ui.getCommand()){
+            case "a":vector[0]=-1;vector[1]=0;break;
+            case "s":vector[0]=0; vector[1]=1;break;
+            case "d":vector[0]=1; vector[1]=0;break;
+            case "w":vector[0]=0; vector[1]=-1;break;
+            case "q":vector[0]=-1;vector[1]=-1;break;
+            case "e":vector[0]=1;vector[1]=-1;break;
+            case "c":vector[0]=1;vector[1]=1;break;
+            case "y":vector[0]=-1;vector[1]=1;break;
+            default: System.out.println("Keine gültige Richtung");break;        
+        }
+        super.input = new XY(vector);
     }
     
     @Override
@@ -30,5 +42,10 @@ public class GameImpl extends Game {
                 flattenedBoard.tryMove((MasterSquirrel)entArray[i],this.input);
         }
         super.flattenedBoard.entSet.nextStepAll(flattenedBoard.getVectors());
+    }
+
+    @Override
+    protected void render() {
+        ui.render(flattenedBoard = state.board.flatten());
     }
 }

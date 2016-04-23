@@ -23,10 +23,7 @@ public abstract class Game {
 		
 //Darstellung des Spielzustands auf dem Ausgabemedium
 
-    protected void render(){
-        flattenedBoard = state.board.flatten();
-    	System.out.println(flattenedBoard.entSet.toString());
-    };
+    protected abstract void render();
 	
 //Verarbeitung von Benutzereingaben
 
@@ -34,8 +31,5 @@ public abstract class Game {
 	
 //Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang
 
-    protected void update() {
-        //flattenedBoard = state.board.flatten();
-
-    }
+    protected abstract void update();
 }
