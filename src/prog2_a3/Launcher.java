@@ -1,18 +1,52 @@
 package prog2_a3;
 
 import prog2_a3.fatsquirrel.console.*;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
-public class Launcher {
 
+public class Launcher extends TimerTask{
+private static int FPS = 60;
+private boolean isRunning;
+private static long timestamp_1;
+private static long timestamp_2;
+private GameImpl game = new GameImpl();
+
+
+	
 	public static void main(String[] args){
+			
             Boolean play=true;
-                //EntitySet entSet = new EntitySet();
+                //EntitySet entSet = new EntitySet(); 
 
-            while(play){
+            TimerTask task = new Launcher();
+    		Timer timer = new Timer(true);
+    		
+    		timer.scheduleAtFixedRate(task, 0, 1000 / FPS);
+    		System.out.println("TimerTask begins! :" + new Date());
+    		
+    		try {
+    			Thread.sleep(200);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
+    		timer.cancel();
+    		System.out.println("TimerTask cancelled! :" + new Date());
+    		try {
+    			Thread.sleep(300);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
+    		
+         
+            /*  while(play){
                 GameImpl game = new GameImpl();
                 
                 game.run();
-                /*BadBeast meixner = new BadBeast(1,7,3);
+                BadBeast meixner = new BadBeast(1,7,3);
                 GuidedMasterSquirrel max = new GuidedMasterSquirrel(2,2,2);
                 int x0 =meixner.getLocation().getX();
                 int x1 = max.getLocation().getX();
@@ -45,6 +79,20 @@ public class Launcher {
                 //  board.entSet.nextStepAll();
                 //System.out.println(board.entSet.toString());
                 //}
-            }
+            // }
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Start time:" + new Date());
+		startGame();
+		System.out.println("End time:" + new Date());
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private  void startGame(){
+		game.run();
+		
 	}
 }
