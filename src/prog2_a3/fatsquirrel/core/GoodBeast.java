@@ -1,7 +1,9 @@
 package prog2_a3.fatsquirrel.core;
 
+import prog2_a3.interfaces.EntityContext;
 
-public class GoodBeast extends Entity{
+
+public class GoodBeast extends Beast{
 
     public final static int energy = 200; 	
     public GoodBeast(int id, int x, int y) {
@@ -9,12 +11,7 @@ public class GoodBeast extends Entity{
 	}
 
     @Override
-    public void nextStep(){
-
-    }
-        
-    @Override
-    public void nextStep(XY vector){
-        move(vector);
-    }
+    public void nextStep(EntityContext entCon) {
+        entCon.tryMove(this, this.getLocation().getRandomVector());
+    } 
 }

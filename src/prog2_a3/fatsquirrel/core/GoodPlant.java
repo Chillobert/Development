@@ -1,5 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
+import prog2_a3.interfaces.EntityContext;
+
 
 public class GoodPlant extends Plant{
 	
@@ -11,10 +13,7 @@ public class GoodPlant extends Plant{
 	}
 
     @Override
-    public void nextStep() {
-    }
-    @Override
-    public void nextStep(XY vector){
-        
-    }
+    public void nextStep(EntityContext entCon) {
+       
+    } 
 }

@@ -2,18 +2,15 @@ package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
 import java.util.Hashtable;
+import prog2_a3.interfaces.*;
 
 public class EntitySet {
 
     private int numbOf=0;
-    private Entity[] entArray = new Entity[50];
-    private int[] deleteArray = new int[50];
+    private Entity[] entArray = new Entity[1000];
     private int idColl=0;
-    private final XY size;
     
     public EntitySet(XY size){   
-        Arrays.fill(deleteArray, 200);
-        this.size = size;
     }
     
     public void add(String entityTyp, int x, int y){
@@ -28,9 +25,10 @@ public class EntitySet {
     }
     
     public void delete(int id){
-        Entity[] copyArray = new Entity[50];
+        Entity[] copyArray = new Entity[1000];
         int j=0;
-        for(int i=0;entArray[i] != null;i++){
+        for(int i=0;entArray.length>i;i++){
+            if(entArray[i]!=null)
             if(!(entArray[i].getId() == id)){
                 copyArray[j] = entArray[i];
                 j++;
@@ -44,21 +42,6 @@ public class EntitySet {
         Arrays.fill(entArray, null); //Array leeren !
         for (int k = 0; copyArray[k]!=null; k++){ //Array mit neuen Werten f�llen
         	entArray[k] = copyArray[k];
-        }
-        
-        
-        numbOf--;
-    }
-    
-    public void killAndReplace(Entity entity){
-        delete(entity.getId());
-        add(entity.getName(),(int)(Math.random()*(size.getX()-1)),(int)(Math.random()*(size.getY()-1)));
-    }
-    
-    public void addDelete(Entity entity){
-        for(int i= 0; i < deleteArray.length;i++){
-            if(deleteArray[i]==200)
-                deleteArray[i]=entity.getId();
         }
     }
     
@@ -78,33 +61,16 @@ public class EntitySet {
         return(output);
     }
 
-    public void nextStepAll(Hashtable<Integer, XY> vectorList){
+    public void nextStepAll(EntityContext entContext, XY input){
         for(int i=0;entArray[i]!=null;i++){
-            //wenn Pflanze oder Wall nextStep() aufrufen
-            if(("GoodPlant").equals(entArray[i].getName())|"BadPlant".equals(entArray[i].getName())|"Wall".equals(entArray[i].getName()))
-                entArray[i].nextStep();
-            //falls in der Vectorliste die Id des aktuellen Objekts vorliegt, move(XY vector) aufrufen
-            if(vectorList.containsKey(entArray[i].getId()))
-                entArray[i].nextStep(vectorList.get(entArray[i].getId()));
-            
-            checkCollision(i);
-        }
-        
-        //Nach Rundendurchlauf wird mit jeder ID(siehe mortalCombat) die in delArray gespeichert wurde die Delete Methode aufgerufen
-        for(int j = 0;deleteArray[j] != 200; j++){
-        	delete(deleteArray[j]);
-        	
-        }
-        
-        //Nach delete wird delArray geleert
-        Arrays.fill(deleteArray, 200);
-    }
-
-    private void checkCollision(int arrayPos){
-        for(int i=0;entArray[i]!=null;i++){
-            if((entArray[arrayPos].getLocation().getX()==entArray[i].getLocation().getX()&(entArray[arrayPos].getLocation().getY()==entArray[i].getLocation().getY()))){
-                mortalCombat(arrayPos,i);
+            if(entArray[i].getTimeout()<=0){
+            if(isInstance(entArray[i],MasterSquirrel.class))
+                ((MasterSquirrel)entArray[i]).nextStep(entContext,input);
+            else
+                entArray[i].nextStep(entContext);
             }
+            else if(entArray[i].getTimeout()>0)
+                entArray[i].setTimeout(entArray[i].getTimeout()-1);
         }
     }
     
@@ -113,50 +79,5 @@ public class EntitySet {
     }
 
     //equals methode(mit instanceof)?
-    private void mortalCombat(int arrayPos,int collPos){
-    	if(isInstance(entArray[arrayPos],PlayerEntity.class)){
-    		//Hier m�ssen die verschiedenen Kollisionsf�lle implementiert werden
-    		//arrayPos = bewegte Entity  //collPos = statische Entity 
-    		//Goodplant Kollision:
-            if(isInstance(entArray[collPos], Plant.class)){
-                entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
-                killAndReplace(entArray[collPos]);
-            }
-            //GoodBeast Kollision:
-            if(isInstance(entArray[collPos], GoodBeast.class)){
-            	entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
-                killAndReplace(entArray[collPos]);
-            }
-            //BadBeast Kollision:
-            if(isInstance(entArray[collPos], BadBeast.class)){
-                entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
-                entArray[collPos].collCount++;
-                if(entArray[collPos].collCount>=7)
-                    killAndReplace(entArray[collPos]);
-            }
-            //MasterSquirrel Kollision
-            if(isInstance(entArray[collPos], MasterSquirrel.class)){
-                if(isInstance(entArray[arrayPos],MiniSquirrel.class)){
-                    if(((MasterSquirrel)entArray[collPos]).checkDescendant((MiniSquirrel)entArray[arrayPos])){
-                        entArray[collPos].updateEnergy(entArray[arrayPos].getEnergy());
-                    }
-                delete(entArray[arrayPos].getId());
-                }
-            }
-            //MiniSquirrel Kollision:
-            if(isInstance(entArray[collPos], MiniSquirrel.class)){
-                if(isInstance(entArray[arrayPos],MasterSquirrel.class)){
-                    if(((MasterSquirrel)entArray[arrayPos]).checkDescendant((MiniSquirrel)entArray[collPos])){
-                       entArray[arrayPos].updateEnergy(entArray[collPos].getEnergy());
-                    }
-                    else
-                       entArray[arrayPos].updateEnergy(150);
-                delete(entArray[collPos].getId());
-                }
-                if(isInstance(entArray[arrayPos],MiniSquirrel.class)){
-                    delete(entArray[arrayPos].getId());
-                }
-            }
-        }
-    }
+    
 }

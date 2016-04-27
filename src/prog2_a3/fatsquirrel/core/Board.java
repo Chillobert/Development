@@ -1,7 +1,5 @@
 package prog2_a3.fatsquirrel.core;
 
-import java.util.Arrays;
-
 public class Board {
 	
 private final int length;
@@ -12,10 +10,9 @@ private final int amountBadBeasts;
 private final int amountGoodPlants;
 private final int amountBadPlants;
 private int amountWalls;
-public EntitySet entSet;
+private EntitySet entSet; 
 
-    public Board(){
-	BoardConfig config = new BoardConfig();
+    public Board( BoardConfig config){
 	this.length = config.getLength();
 	this.width = config.getWidth();
         this.size = config.getSize();
@@ -24,7 +21,7 @@ public EntitySet entSet;
 	this.amountBadBeasts = config.getAmountBadBeasts();
 	this.amountGoodPlants = config.getAmountGoodPlants();
 	this.amountBadPlants = config.getAmountBadPlants();
-	fillBoard(2,0,0,0,0);
+	fillBoard(this.amountGoodBeasts,this.amountBadBeasts,this.amountGoodPlants,this.amountBadPlants,this.amountWalls);
     };
     
     //Erstellen aller Entitys an zufälligem Ort
@@ -51,8 +48,22 @@ public EntitySet entSet;
         }
     };
 
-    private int[] randLoc(){
-        return new int[]{(int)(((Math.random()*9)+1)),(int)(((Math.random()*9)+1))};
+    public int[] randLoc(){
+        int[] randVector = new int[]{((int)((Math.random()*9)+1)),((int)((Math.random()*9)+1))};
+        Entity[] entArray = entSet.getEntityArray();
+        boolean isTaken = false;
+            do{
+                for(int i = 0; entArray[i]!=null; i++){
+                    if(entArray[i].getLocation().getPos()==randVector){
+                        isTaken = true;
+                        randVector = new int[]{(int)(((Math.random()*9)+1)),(int)(((Math.random()*9)+1))};
+                        break;
+                    }
+                    else
+                        isTaken = false;
+                }
+            }while(isTaken);
+        return randVector;
     }
     
 @Override
@@ -64,15 +75,15 @@ public EntitySet entSet;
 	return entSet.getLatestId();
 	}
     
-    public FlattenedBoard flatten(){
-        Entity[] entArray = entSet.getEntityArray();
-        Entity[][] flattenedBoard = new Entity[this.length+1][this.width+1];
-        for(Entity[] row:flattenedBoard)
-            Arrays.fill(row, null);
-        for(int i = 0;entArray.length>i;i++){
-            if(entArray[i]!=null)
-                flattenedBoard[entArray[i].getLocation().getX()] [entArray[i].getLocation().getY()] = entArray[i];
-        }
-        return new FlattenedBoard(flattenedBoard,size,entSet);
+    public FlattenedBoard flatten(){ //Board übergeben und für flattendBoard nutzen
+        return new FlattenedBoard(this);
+    }
+    
+    public EntitySet getEntitySet(){
+        return this.entSet;
+    }
+    
+    public XY getSize(){
+        return this.size;
     }
 }

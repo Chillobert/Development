@@ -1,7 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
 import prog2_a3.interfaces.*;
-import java.util.Hashtable;
 
 
 
@@ -10,18 +9,27 @@ public class FlattenedBoard implements BoardView, EntityContext {
  
     private final Entity[][] flattenedBoard;
     XY size;
-    public EntitySet entSet;
-    Hashtable<Integer, XY> vectorList;
+    private EntitySet entSet;
+    Board board;
     
-    public FlattenedBoard(Entity[][] flattenedBoard, XY size, EntitySet entSet){
-        this.vectorList = new Hashtable<>();
-        this.flattenedBoard = flattenedBoard;
-        this.size = size;
-        this.entSet = entSet;
+    public FlattenedBoard(Board board){
+        this.board = board;
+        this.size = board.getSize();
+        this.entSet = board.getEntitySet();
+        Entity[] entArray = entSet.getEntityArray();
+        this.flattenedBoard = new Entity[this.size.getX()+1][this.size.getY()+1];
+        for(int i = 0;entArray.length>i;i++){
+            if(entArray[i]!=null)
+                this.flattenedBoard[entArray[i].getLocation().getX()] [entArray[i].getLocation().getY()] = entArray[i];
+        }
     }
     
     public Entity[][] getBoard(){
         return flattenedBoard;
+    }
+    
+    public EntitySet getEntitySet(){
+        return this.entSet;
     }
     
     @Override
@@ -63,7 +71,8 @@ public class FlattenedBoard implements BoardView, EntityContext {
     @Override
     public void killAndReplace(Entity entity){
         entSet.delete(entity.getId());
-        entSet.add(entity.getName(),(int)(Math.random()*(size.getX()-1)),(int)(Math.random()*(size.getY()-1)));
+        XY newLoc = new XY(board.randLoc());
+        entSet.add(entity.getName(),newLoc.getX(),newLoc.getY());
     }
     
     @Override
@@ -119,10 +128,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
     public void tryMove(MiniSquirrel miniSquirrel, XY moveDirection){
         Entity nextField = getEntity(miniSquirrel.getLocation().getX() + moveDirection.getX(), miniSquirrel.getLocation().getY() + moveDirection.getY());
         //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
-        if(miniSquirrel.getTimeout()==0){
             if(nextField !=null ){
                 if(!entSet.isInstance(nextField, Wall.class)){
-                    vectorList.put(nextField.getId(), moveDirection);
+                    miniSquirrel.move(moveDirection);
                     miniSquirrel.updateEnergy(-1);
                 }
                 else if(entSet.isInstance(nextField, Wall.class)){
@@ -130,22 +138,90 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     miniSquirrel.setTimeout(3);
                     miniSquirrel.updateEnergy(-1);
                 }
+                mortalCombat(miniSquirrel,nextField);
             }
-        }
-        else if(miniSquirrel.getTimeout()>0)
-            miniSquirrel.setTimeout(miniSquirrel.getTimeout()-1);
     }
     @Override
     public void tryMove(GoodBeast goodBeast, XY moveDirection){
         
         int nearestPlayerDistance = nearestPlayerDistance(goodBeast.getLocation());
-        XY nearestPlayerLoc = nearestPlayerEntity(goodBeast.getLocation()).getLocation();
+        
         //Das Feld betrachten, in das das Beast Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
         XY actualMoveDirection = new XY(new int[]{0,0});
+        if(nearestPlayerDistance>6)
+            actualMoveDirection = moveDirection;
+        else if(nearestPlayerDistance<=6)
+            actualMoveDirection = getFleeDirection(goodBeast);
+        
+            Entity nextField = getEntity(goodBeast.getLocation().getX() + actualMoveDirection.getX(), goodBeast.getLocation().getY() + actualMoveDirection.getY());
+            if(nextField !=null ){
+                if((!entSet.isInstance(nextField, Wall.class))){
+                    goodBeast.move(actualMoveDirection);
+                    goodBeast.setTimeout(4);
+                }
+                else if(entSet.isInstance(nextField, Wall.class)){
+                    //tryMove(goodBeast, new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
+                    goodBeast.getLocation().move(new int[]{-actualMoveDirection.getX(),-goodBeast.getLocation().getY()});
+                }
+                mortalCombat(goodBeast,nextField);
+            }
+            else{
+                goodBeast.move(actualMoveDirection);
+                goodBeast.setTimeout(4);
+            }
+    }
+    @Override
+    public void tryMove(BadBeast badBeast, XY moveDirection){
+        
+        int nearestPlayerDistance = nearestPlayerDistance(badBeast.getLocation());
+        XY actualMoveDirection = new XY(new int[]{0,0});
+       
+        if(nearestPlayerDistance>6)
+            actualMoveDirection = moveDirection;
+        else if(nearestPlayerDistance<=6)
+            actualMoveDirection = getFleeDirection(badBeast).reverse();
+        
+        Entity nextField = getEntity(badBeast.getLocation().getX() + actualMoveDirection.getX(), badBeast.getLocation().getY() + actualMoveDirection.getY());
+            if(nextField !=null ){
+                if((!entSet.isInstance(nextField, Wall.class))){
+                    badBeast.move(actualMoveDirection);
+                    badBeast.setTimeout(4);
+                }
+                else if(entSet.isInstance(nextField, Wall.class)){
+                    badBeast.move(new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
+                }
+                mortalCombat(badBeast,nextField);
+            }
+            else{
+                badBeast.move(actualMoveDirection);
+                badBeast.setTimeout(4);
+            }
+    }
+    
+    @Override
+    public void tryMove(MasterSquirrel masterBot, XY moveDirection){
+        Entity nextField = getEntity(masterBot.getLocation().getX() + moveDirection.getX(), masterBot.getLocation().getY() + moveDirection.getY());
+        //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
+            if(nextField !=null ){
+                if(entSet.isInstance(nextField, Wall.class)){
+                    masterBot.updateEnergy(nextField.getEnergy());
+                    masterBot.setTimeout(3);
+                }
+                else if(!entSet.isInstance(nextField, Wall.class))
+                    masterBot.move(moveDirection);
+                mortalCombat(masterBot,nextField);
+            }
+            else
+                masterBot.move(moveDirection);
+    }
+    
+    private XY getFleeDirection(Beast beast){
+        XY nearestPlayerLoc = nearestPlayerEntity(beast.getLocation()).getLocation();
         int[] fleeVector = new int[]{0,0};
-        int distX=goodBeast.getLocation().getX()-nearestPlayerLoc.getX();
-        int distY = goodBeast.getLocation().getY()-nearestPlayerLoc.getY();
-        if(distX==0 && distY==0)
+
+        int distX=beast.getLocation().getX()-nearestPlayerLoc.getX();
+        int distY = beast.getLocation().getY()-nearestPlayerLoc.getY();
+        if(distX==0 && distY==0) // in die XY verlagern
             fleeVector = new int[]{0,0};
         else if(distX==0 && distY!=0)
             fleeVector = new int[]{0,(distY/Math.abs(distY))};
@@ -154,124 +230,76 @@ public class FlattenedBoard implements BoardView, EntityContext {
         else if(distX!=0 && distY!=0)
             fleeVector = new int[]{(distX/Math.abs(distX)) , (distY/Math.abs(distY))};
         
-        if(nearestPlayerDistance>6)
-            actualMoveDirection = moveDirection;
-        else if(nearestPlayerDistance<=6)
-            actualMoveDirection = new XY(fleeVector);
-        
-        if(goodBeast.getTimeout()==0){
-                    Entity nextField = getEntity(goodBeast.getLocation().getX() + actualMoveDirection.getX(), goodBeast.getLocation().getY() + actualMoveDirection.getY());
-            if(nextField !=null ){
-                if((!entSet.isInstance(nextField, Wall.class))){
-                    vectorList.put(goodBeast.getId(), actualMoveDirection);
-                    goodBeast.setTimeout(4);
-                }
-                else if(entSet.isInstance(nextField, Wall.class)){
-                    //tryMove(goodBeast, new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
-                    vectorList.put(goodBeast.getId(), new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
-                }
-            }
-            else{
-                vectorList.put(goodBeast.getId(), actualMoveDirection);
-                goodBeast.setTimeout(4);
-            }
-        }
-            else
-                goodBeast.setTimeout(goodBeast.getTimeout()-1);
+        return new XY(fleeVector);
     }
+
     @Override
-    public void tryMove(BadBeast badBeast, XY moveDirection){
-        
-        int nearestPlayerDistance = nearestPlayerDistance(badBeast.getLocation());
-        XY nearestPlayerLoc = nearestPlayerEntity(badBeast.getLocation()).getLocation();
-        //Das Feld betrachten, in das das Beast Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
-        XY actualMoveDirection = new XY(new int[]{0,0});
-        int[] attackVector = new int[]{0,0};
-        int distX=nearestPlayerLoc.getX()-badBeast.getLocation().getX();
-        int distY = nearestPlayerLoc.getY()-badBeast.getLocation().getY();
-        if(distX==0 && distY==0)
-            attackVector = new int[]{0,0};
-        else if(distX==0 && distY!=0)
-            attackVector = new int[]{0,(distY/Math.abs(distY))};
-        else if(distX!=0 && distY==0)
-            attackVector = new int[]{(distX/Math.abs(distX)),0};
-        else if(distX!=0 && distY!=0)
-            attackVector = new int[]{(distX/Math.abs(distX)) , (distY/Math.abs(distY))};
-        
-        if(nearestPlayerDistance>6)
-            actualMoveDirection = moveDirection;
-        else if(nearestPlayerDistance<=6)
-            actualMoveDirection = new XY(attackVector);
-        
-        Entity nextField = getEntity(badBeast.getLocation().getX() + actualMoveDirection.getX(), badBeast.getLocation().getY() + actualMoveDirection.getY());
-        //Das Feld betrachten, in das das badBeast Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
-        if(badBeast.getTimeout()==0){
-            if(nextField !=null ){
-                if((!entSet.isInstance(nextField, Wall.class))){
-                    vectorList.put(badBeast.getId(), actualMoveDirection);
-                    badBeast.setTimeout(4);
-                }
-                else if(entSet.isInstance(nextField, Wall.class)){
-                    vectorList.put(badBeast.getId(), new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
-                }
-            }
-            else{
-                vectorList.put(badBeast.getId(), actualMoveDirection);
-                badBeast.setTimeout(4);
-            }
+    public int getSquirrelEnergy() {
+        int energy = 0;
+        Entity[] entArray = entSet.getEntityArray();
+        for(int i = 0;entArray.length > i; i++){
+            if(entSet.isInstance(entArray[i], MasterSquirrel.class))
+                energy = entArray[i].getEnergy();
         }
-            else
-                badBeast.setTimeout(badBeast.getTimeout()-1);
-    }
-    @Override
-    public void tryMove(MasterSquirrel masterBot, XY moveDirection){
-        Entity nextField = getEntity(masterBot.getLocation().getX() + moveDirection.getX(), masterBot.getLocation().getY() + moveDirection.getY());
-        //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
-        if(masterBot.getTimeout()==0){
-            if(nextField !=null ){
-                if(entSet.isInstance(nextField, Wall.class)){
-                    masterBot.updateEnergy(nextField.getEnergy());
-                    masterBot.setTimeout(3);
-                }
-                else if(!entSet.isInstance(nextField, Wall.class))
-                    vectorList.put(masterBot.getId(),moveDirection);
-                /*else if(entSet.isInstance(nextField, Plant.class)){
-                    masterBot.updateEnergy(nextField.getEnergy());
-                    killAndReplace(nextField);
-                    vectorList.put(masterBot.getId(), moveDirection);
-                }
-                else if("GoodBeast".equals(nextField.getName())){
-                    masterBot.updateEnergy(nextField.getEnergy());
-                    killAndReplace(nextField);
-                    vectorList.put(masterBot.getId(), moveDirection);
-                    }
-                else if("BadBeast".equals(nextField.getName())){
-                    masterBot.updateEnergy(nextField.getEnergy());
-                    if(nextField.collCount<7)
-                        nextField.collCount++;
-                    else
-                        killAndReplace(nextField);
-                    vectorList.put(masterBot.getId(), moveDirection);
-                }
-                else if("MiniSquirrel".equals(nextField.getName())){
-                    if(masterBot.checkDescendant((MiniSquirrel)nextField)){
-                        masterBot.updateEnergy(nextField.getEnergy());
-                    }
-                    else
-                        masterBot.updateEnergy(150);
-                    kill(nextField);
-                    vectorList.put(masterBot.getId(), moveDirection);
-                }*/
-            }
-            else
-                vectorList.put(masterBot.getId(), moveDirection);
-        }
-        else if(masterBot.getTimeout()>0)
-            masterBot.setTimeout(masterBot.getTimeout()-1);
+        return energy;
     }
     
-    @Override
-    public Hashtable<Integer,XY> getVectors(){
-        return vectorList;
+    private void mortalCombat(Entity moveEnt,Entity collEnt){
+        if((entSet.isInstance(collEnt, PlayerEntity.class))){
+            if (entSet.isInstance(moveEnt, BadBeast.class)){
+                    ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
+                    ((BadBeast)moveEnt).collCount++;
+                if(moveEnt.collCount>=7)
+                    killAndReplace(moveEnt);
+            }
+            if (entSet.isInstance(moveEnt, GoodBeast.class)){
+                ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
+                killAndReplace(moveEnt);
+            }
+        }
+        else if(entSet.isInstance(moveEnt, PlayerEntity.class)){
+    		//Hier m�ssen die verschiedenen Kollisionsf�lle implementiert werden
+    		//arrayPos = bewegte Entity  //collPos = statische Entity 
+    		//Goodplant Kollision:
+            if(entSet.isInstance(collEnt, Plant.class)){
+                moveEnt.updateEnergy(collEnt.getEnergy());
+                killAndReplace(collEnt);
+            }
+            //GoodBeast Kollision:
+            if(entSet.isInstance(collEnt, GoodBeast.class)){
+            	moveEnt.updateEnergy(collEnt.getEnergy());
+                killAndReplace(collEnt);
+            }
+            //BadBeast Kollision:
+            if(entSet.isInstance(collEnt, BadBeast.class)){
+                moveEnt.updateEnergy(collEnt.getEnergy());
+                collEnt.collCount++;
+                if(collEnt.collCount>=7)
+                    killAndReplace(collEnt);
+            }
+            //MasterSquirrel Kollision
+            if(entSet.isInstance(collEnt, MasterSquirrel.class)){
+                if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
+                    if(((MasterSquirrel)collEnt).checkDescendant((MiniSquirrel)moveEnt)){
+                        collEnt.updateEnergy(moveEnt.getEnergy());
+                    }
+                kill(moveEnt);
+                }
+            }
+            //MiniSquirrel Kollision:
+            if(entSet.isInstance(collEnt, MiniSquirrel.class)){
+                if(entSet.isInstance(moveEnt,MasterSquirrel.class)){
+                    if(((MasterSquirrel)moveEnt).checkDescendant((MiniSquirrel)collEnt)){
+                       moveEnt.updateEnergy(collEnt.getEnergy());
+                    }
+                    else
+                       moveEnt.updateEnergy(150);
+                kill(collEnt);
+                }
+                if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
+                    kill(moveEnt);
+                }
+            }
+        }
     }
 }

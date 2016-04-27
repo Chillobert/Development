@@ -3,9 +3,11 @@ import java.util.Random;
 
 public final class XY {
 	private final int[] loc;
+        Random r;
         
         public XY(int[]loc){
             this.loc = loc;
+            r = new Random();
         }
         
 	public XY move(int[] Vector){
@@ -13,9 +15,13 @@ public final class XY {
 	}
 
         public XY moveRandom(){
-            Random r = new Random();
             return move(new int[]{r.nextInt(3)-1,r.nextInt(3)-1});
         }
+        
+        public XY getRandomVector(){
+            return new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1});
+        }
+        
         public int getX(){
             return loc[0];
         }
@@ -28,6 +34,23 @@ public final class XY {
             return loc;
         }
         
-        // public XY add(XY xy) {
-        //    return new XY(x + xy.x, y + xy.y)
+        public XY moveUp(){
+            return move(new int[]{0,-1});
+        }
+        
+        public XY moveDown(){
+            return move(new int[]{0,1});
+        }
+        
+        public XY moveLeft(){
+            return move(new int[]{-1,0});
+        }
+        
+        public XY moveRight(){
+            return move(new int[]{1,0});
+        }
+        
+        public XY reverse(){
+            return new XY(new int[]{-this.getX(),-this.getY()});
+        }
 }

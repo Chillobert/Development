@@ -1,5 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
+import prog2_a3.interfaces.EntityContext;
+
 public abstract class MasterSquirrel extends PlayerEntity{
 
 	public static final int energy = 1000; 
@@ -19,16 +21,9 @@ public abstract class MasterSquirrel extends PlayerEntity{
 	public boolean checkDescendant(MiniSquirrel mini){
             return mini.getPatronId()==this.getId();
                     }
-
  
-    @Override
-    public void nextStep() {
+    public void nextStep(EntityContext entCon,XY direction){
+        entCon.tryMove(this, direction);
     }
-        
-    @Override
-    public void nextStep(XY vector){
-        move(vector);
-    }
-        
 }
 

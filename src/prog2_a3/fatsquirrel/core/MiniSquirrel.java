@@ -1,5 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
+import prog2_a3.interfaces.EntityContext;
+
 public class MiniSquirrel extends PlayerEntity{
 	private int patronId;
 
@@ -13,12 +15,7 @@ public class MiniSquirrel extends PlayerEntity{
     }
 
     @Override
-    public void nextStep(){
-    }
-        
-    @Override
-    public void nextStep(XY vector){
-        this.move(vector);
-    }
-        
+    public void nextStep(EntityContext entCon) {
+        entCon.tryMove(this, this.getLocation().getRandomVector());
+    } 
 }

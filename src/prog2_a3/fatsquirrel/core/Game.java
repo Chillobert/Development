@@ -1,8 +1,5 @@
 package prog2_a3.fatsquirrel.core;
 
-import java.util.Random;
-import java.util.Scanner;
-import prog2_a3.*;
 
 public abstract class Game {
     public State state;

@@ -1,5 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
+import prog2_a3.interfaces.*;
+
 
 public abstract class Entity{
 	
@@ -8,9 +10,7 @@ public abstract class Entity{
 	private XY loc;
         private int penalty;
 	public int collCount=0;
-        //Constructor
-        public Entity(){
-        };
+
 
         public Entity(int id, int energy, int x, int y){
 
@@ -35,13 +35,16 @@ public abstract class Entity{
 	energy = energy + charge;
         }
 
-        public abstract void nextStep(XY vector);
-        public abstract void nextStep();
+        public abstract void nextStep(EntityContext entCon);
         
         //Referenzcheck; true falls beide von gleicher Klasse abstammen
 
         public boolean checkInstance(Entity entity){
             return this.getClass().isInstance(entity);
+        }
+        
+        public boolean equals(Entity ent){
+            return((this.getId()==ent.getId())&&(this.getName().equals(ent.getName())));
         }
         
         public void randMove(){

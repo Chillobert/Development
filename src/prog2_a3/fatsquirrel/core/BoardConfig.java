@@ -6,7 +6,7 @@ private final int amountGoodBeasts = 2;
 private final int amountBadBeasts = 2;
 private final int amountGoodPlants = 2;
 private final int amountBadPlants = 2;
-private final int amountWalls = (2*size.getX() + 2*size.getY())-4;
+private final int amountWalls = 0;
 
 	public int getLength(){
             return size.getX();
