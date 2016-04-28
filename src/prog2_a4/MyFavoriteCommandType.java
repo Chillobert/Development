@@ -14,6 +14,7 @@ public enum  MyFavoriteCommandType implements CommandTypeInfo {
     private MyFavoriteCommandType(String name,String helpText){
         this.commandName = name;
         this.helpText = helpText;
+        
     }
     
     private MyFavoriteCommandType(String name, String helpText, Class Type1,Class Type2){
@@ -36,14 +37,4 @@ public enum  MyFavoriteCommandType implements CommandTypeInfo {
         return ParamTypes;
     }
     
-    @Override
-    public CommandTypeInfo[] getCommandTypeInfo(){
-        CommandTypeInfo[] returnCommandTypeInfo = new CommandTypeInfo[10];
-        for (MyFavoriteCommandType dir : MyFavoriteCommandType.values()){
-            for(int i=0; returnCommandTypeInfo.length>1; i++){
-                returnCommandTypeInfo[i]=dir;
-            }
-        }
-        return returnCommandTypeInfo;
-    }     
 }
