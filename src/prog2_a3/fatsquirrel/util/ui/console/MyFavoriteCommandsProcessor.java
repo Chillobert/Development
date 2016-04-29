@@ -1,4 +1,4 @@
-package prog2_a4;
+package prog2_a3.fatsquirrel.util.ui.console;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,32 +16,39 @@ public class MyFavoriteCommandsProcessor {
         CommandScanner commandScanner = new CommandScanner(MyFavoriteCommandType.values(), inputReader);
         Object[] params = null;
         while (true) { // the loop over all commands with one input line for every command
-           
             command = commandScanner.next();
-            if(command==null)
-                throw new ScanException("wrong input. use 'help' to show commands");
-            MyFavoriteCommandType commandType = (MyFavoriteCommandType) command.getCommandType();
-            if(commandType != MyFavoriteCommandType.EXIT && commandType != MyFavoriteCommandType.HELP)
-                params = command.getParams();
-
+            try{
+                if(command==null)
+                    throw new ScanException();
+            }
+            catch(ScanException ScEx){
+                System.out.println("wrong input. Please use 'help' to show commands");
+            }
+            if(command!=null){
+                MyFavoriteCommandType commandType = (MyFavoriteCommandType) command.getCommandType();
+           
+                if(commandType != MyFavoriteCommandType.EXIT && commandType != MyFavoriteCommandType.HELP)
+                    params = command.getParams();
+            
 
      
-            switch (commandType) {
-            case EXIT:
-                System.exit(0);
-            case HELP: 
-                help();
-                break;
-            case ADDI:
-                addi((int)params[0],(int)params[1]);
-                break;
-            case ADDF:
-                addf((float)params[0],(float)params[1]);
-                break;
-            case ECHO:
-                echo((String)params[0],(int)params[1]);
-                break;
-            default:break;
+                switch (commandType) {
+                case EXIT:
+                    System.exit(0);
+                case HELP: 
+                    help();
+                    break;
+                case ADDI:
+                    addi((int)params[0],(int)params[1]);
+                    break;
+                case ADDF:
+                    addf((float)params[0],(float)params[1]);
+                    break;
+                case ECHO:
+                    echo((String)params[0],(int)params[1]);
+                    break;
+                default:break;
+                }
             }
         }
     }
@@ -53,8 +60,9 @@ public class MyFavoriteCommandsProcessor {
     }
     
     private void addi(int int1, int int2){
-        outputStream.println("Ihre Zahl lautet: "+(int1+int2));
-        
+        int sum=0;
+            sum = int1+int2;
+            outputStream.println("Ihre Zahl lautet: "+(sum));
     }
     
     private void addf(float float1, float float2){

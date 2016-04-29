@@ -1,4 +1,4 @@
-package prog2_a4;
+package prog2_a3.fatsquirrel.util.ui.console;
 
 public enum  MyFavoriteCommandType implements CommandTypeInfo {
     HELP("help", "  * list all commands"),
