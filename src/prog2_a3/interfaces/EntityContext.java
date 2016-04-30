@@ -15,7 +15,7 @@ public interface EntityContext {
     PlayerEntity nearestPlayerEntity(XY pos);
     int getSquirrelEnergy();
     
-    void spawnChild(MasterSquirrel parent, XY direction, int energy);
+    void spawnChild(MasterSquirrel parent, XY direction, int energy) throws NotEnoughEnergyException;
     
     void kill(Entity entity);
     void killAndReplace(Entity entity);

@@ -76,8 +76,11 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     @Override
-    public void spawnChild(MasterSquirrel parent, XY direction, int energy){
-        parent.createDescendant(entSet.getLatestId(), energy, parent.getLocation().getX() + direction.getX(), parent.getLocation().getY() + direction.getY());
+    public void spawnChild(MasterSquirrel parent, XY direction, int energy)throws NotEnoughEnergyException{
+        if(energy>=this.getSquirrelEnergy())
+            throw new NotEnoughEnergyException("your squirrels energy is too low");
+        else
+            entSet.addMini(parent,energy,direction);
     }
     
     @Override

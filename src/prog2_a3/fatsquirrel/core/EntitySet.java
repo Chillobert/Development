@@ -1,12 +1,12 @@
 package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
-import java.util.Hashtable;
 import prog2_a3.interfaces.*;
 
 public class EntitySet {
 
     private int numbOf=0;
+    private int latestId=1;
     private Entity[] entArray = new Entity[1000];
     private int idColl=0;
     
@@ -21,7 +21,14 @@ public class EntitySet {
             case"BadBeast":entArray[numbOf++] = new BadBeast(numbOf,x,y);break;
             case"GuidedMasterSquirrel":entArray[numbOf++] = new GuidedMasterSquirrel(numbOf,x,y);break;
             case"Wall":entArray[numbOf++] = new Wall(numbOf,x,y);break;
+            default:break;
+            
         }
+        latestId++;
+    }
+    
+    public void addMini(MasterSquirrel master,int energy, XY direction){
+        entArray[numbOf++] = master.createDescendant(latestId,energy , direction.getX(), direction.getY());
     }
     
     public void delete(int id){
@@ -77,7 +84,5 @@ public class EntitySet {
     public boolean isInstance(Object o, Class c){
     return c.isInstance(o);
     }
-
-    //equals methode(mit instanceof)?
     
 }

@@ -18,8 +18,11 @@ private GameImpl game = new GameImpl();
 
 	
 	public static void main(String[] args){
-			
-            Boolean play=true;
+            Launcher launcher = new Launcher();
+            launcher.game.run();
+		/*	
+            while(true){
+                Boolean play=true;
                 //EntitySet entSet = new EntitySet(); 
 
             TimerTask task = new Launcher();
@@ -39,7 +42,7 @@ private GameImpl game = new GameImpl();
     			Thread.sleep(300);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
-    		}
+    		}}*/
     		
          
             /*  while(play){

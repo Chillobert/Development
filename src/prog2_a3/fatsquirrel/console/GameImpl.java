@@ -17,7 +17,8 @@ public class GameImpl extends Game {
     protected void processInput(){
         GameCommandType[] commandTypes = GameCommandType.values();
         Object[] params = null;
-        while (true) { // the loop over all commands with one input line for every command
+        XY inpWhile = this.input;
+        while (this.input == inpWhile) { // the loop over all commands with one input line for every command
             Command command = ui.getCommand();
             try{
                 if(command==null)
@@ -59,7 +60,12 @@ public class GameImpl extends Game {
                     System.out.println("Die aktuelle Energie unseres Squirrel ist: "+flattenedBoard.getSquirrelEnergy());
                     break;
                 case SPAWN_MINI:
+                    try{
                     flattenedBoard.spawnChild(flattenedBoard.getMasterSquirrel(), new XY(new int[]{(int)(Math.round((Math.random()*2)-1)),(int)(Math.round((Math.random()*2)-1))}), (int)command.getParams()[0]);
+                    }
+                    catch(NullPointerException | NotEnoughEnergyException NuEx){
+                        System.out.println("wrong input. Please refere to \"help\"");
+                    }
                     break;
                 default:break;
                 }
