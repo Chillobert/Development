@@ -29,9 +29,7 @@ public class MyFavoriteCommandsProcessor {
            
                 if(commandType != MyFavoriteCommandType.EXIT && commandType != MyFavoriteCommandType.HELP)
                     params = command.getParams();
-            
-
-     
+    
                 switch (commandType) {
                 case EXIT:
                     System.exit(0);

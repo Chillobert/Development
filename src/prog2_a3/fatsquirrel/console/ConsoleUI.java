@@ -1,18 +1,33 @@
 package prog2_a3.fatsquirrel.console;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 import prog2_a3.interfaces.*;
-import prog2_a3.fatsquirrel.core.*;
-
+import prog2_a3.fatsquirrel.util.ui.console.*;
 public class ConsoleUI implements UI {
 
+    private PrintStream outputStream;
+    private BufferedReader inputReader;
+    private Command command;
+    private GameCommandType[] commandTypes;
+
+    public ConsoleUI() {
+        this.outputStream = System.out;
+        this.inputReader = new BufferedReader(new InputStreamReader(System.in));
+        this.commandTypes = GameCommandType.values();
+    }
     
     @Override
-    public MoveCommand getCommand() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Wählen Sie eine Bewegungsrichtung für ihr Eichhörnchen: ");
-        input.hasNext();
-        return new MoveCommand(input.next());
+    public Command getCommand() {
+        try {
+            CommandScanner commandScanner = new CommandScanner(commandTypes,inputReader);
+            command = commandScanner.next();
+        } catch (IOException ioEx) {
+            outputStream.println("Das war keine gültige Eingabe. probier es mal mit help");
+        }
+        return command;
     }
 
     @Override
@@ -33,6 +48,11 @@ public class ConsoleUI implements UI {
             }
             System.out.println();
         }   
+    }
+
+    @Override
+    public void message(String message) {
+        System.out.println(message);
     }
     
 }

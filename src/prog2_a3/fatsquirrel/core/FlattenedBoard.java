@@ -302,4 +302,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
             }
         }
     }
+    
+    public MasterSquirrel getMasterSquirrel(){
+        Entity[] entArr = this.entSet.getEntityArray();
+        for (int i = 0; entArr[i]!=null;i++)
+            if(entSet.isInstance(entArr[i], MasterSquirrel.class))
+                return (MasterSquirrel)entArr[i];
+        return null;
+    }
 }

@@ -5,30 +5,30 @@ import prog2_a3.fatsquirrel.util.ui.console.*;
 public enum GameCommandType implements CommandTypeInfo{
     HELP("help"," * list all commands"),
     EXIT("exit"," * exit the game"),
-    ALL("all"," * i don't understand this command"),
+    ALL("all"," * does nothing, just looks great"),
     LEFT("a"," * master takes one step left"),
     UP("w"," * master takes one step up"),
     DOWN("s"," * master moves down"),
     RIGHT("d"," * master moves right"),
     MASTER_ENERGY("energy"," * shows master energy"),
-    SPAWN_MINI("mini","<energy> * spawns mini-squirrel", int.class);
+    SPAWN_MINI("mini","<energy> <direction> * spawns mini-squirrel", int.class, String.class);
     
-    private String name;
+    private String commandName;
     private String helpText;
-    private Class param1;
+    private Class<?>[] paramTypes = new Class[]{null};
     
     GameCommandType(String name, String helpText){
-        this.name = name;
+        this.commandName = name;
         this.helpText = helpText;
     }
-    GameCommandType(String name, String helpText, Class type1){
+    GameCommandType(String name, String helpText, Class type1, Class type2){
         this(name,helpText);
-        this.param1 = type1;
+        this.paramTypes = new Class[]{type1,type2};
     }
     
     @Override
     public String getName(){
-        return name;
+        return commandName;
     }
     
     @Override
@@ -38,6 +38,6 @@ public enum GameCommandType implements CommandTypeInfo{
 
     @Override
     public Class<?>[] getParamTypes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return paramTypes;
     }
 }
