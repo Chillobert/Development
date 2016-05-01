@@ -5,6 +5,7 @@ public abstract class Game {
     public State state;
     public FlattenedBoard flattenedBoard;
     public XY input;
+    public final int FPS = 60;
     public Game (){
         state = new State();
         input = new XY(new int[]{0,0});
