@@ -8,18 +8,32 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 
-public class Launcher extends TimerTask{
+public class Launcher{
 private static int FPS = 60;
 private boolean isRunning;
 private static long timestamp_1;
 private static long timestamp_2;
 private GameImpl game = new GameImpl();
+private Calendar calendar = new GregorianCalendar();
 
 
 	
 	public static void main(String[] args){
+
+		
+		
             Launcher launcher = new Launcher();
-            launcher.game.run();
+            launcher.startGame();
+ //           launcher.run();
+            
+
+            
+            
+            
+            
+            
+            
+            //launcher.game.run();
 		/*	
             while(true){
                 Boolean play=true;
@@ -84,18 +98,22 @@ private GameImpl game = new GameImpl();
                 //}
             // }
 	}
-
-	@Override
-	public void run() {
-		System.out.println("Start time:" + new Date());
-		startGame();
-		System.out.println("End time:" + new Date());
-		// TODO Auto-generated method stub
-		
-	}
+private void startGame() {
 	
-	private  void startGame(){
-		game.run();
+	Timer timer = new Timer();
+	timer.schedule(new TimerTask(){
+
+		@Override
+		public void run() {
+			timestamp_1 = calendar.getTimeInMillis();
+			game.run();
+			timestamp_2 = calendar.getTimeInMillis();
+			
+		}
 		
-	}
+	},1000, 1000 / game.getFPS() );
+	
+	
+}
+
 }
