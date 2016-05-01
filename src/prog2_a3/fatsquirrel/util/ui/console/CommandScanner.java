@@ -8,7 +8,7 @@ public class CommandScanner {
 
     private CommandTypeInfo[] commandTypeInfos;
     private BufferedReader inputReader;
-    private Class[] commandTypes = new Class[]{null};
+    private Class<?>[] commandTypes = new Class[]{null};
     
     public CommandScanner(CommandTypeInfo[] commandTypeInfos, BufferedReader inputReader){
         this.commandTypeInfos = commandTypeInfos;
@@ -16,6 +16,7 @@ public class CommandScanner {
     }
     
     public Command next() throws IOException{
+        int numberOfParams = 0;
         String input = inputReader.readLine();
         String[] inputArr = input.split(" ");
         String name = inputArr[0];
@@ -29,10 +30,12 @@ public class CommandScanner {
                         this.commandTypes = commandTypeInfos[i].getParamTypes();
                         for(int j = 0; commandTypes.length>j; j++){
                             try{
-                                Float d = Float.parseFloat(params[j]);
-                                if(commandTypes[j]==java.lang.Integer.class || commandTypes[j]==java.lang.Long.class){
-                                    paramsParse[j] = d.intValue();
+                                float d = Float.parseFloat(params[j]);
+                                if(commandTypes[j]==int.class || commandTypes[j]==long.class){
+                                    paramsParse[j] = (int)d;
                                 }
+                                else if(commandTypes[j]==float.class || commandTypes[j]==double.class)
+                                    paramsParse[j] = d;
                                 else
                                     paramsParse[j] = (commandTypes[j].cast(d));
                             }
@@ -42,10 +45,18 @@ public class CommandScanner {
                         }
                     }
                         catch(ArrayIndexOutOfBoundsException | NullPointerException ArrEx){
+                      
                         }
-                        command = new Command(commandTypeInfos[i],paramsParse);
-                    }
-                }
+                    for(int j = 0;paramsParse[j]!=null;j++)
+                        numberOfParams=j;
+                    
+                    Object[] returnParams = new Object[numberOfParams+1];
+                    for(int j = 0;paramsParse[j]!=null;j++)
+                        returnParams[j] = paramsParse[j];
+                    
+                    command = new Command(commandTypeInfos[i],returnParams);
+                }}
+                
         return command;
     }
 }

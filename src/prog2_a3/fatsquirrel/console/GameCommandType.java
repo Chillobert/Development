@@ -6,12 +6,12 @@ public enum GameCommandType implements CommandTypeInfo{
     HELP("help"," * list all commands"),
     EXIT("exit"," * exit the game"),
     ALL("all"," * list all Entities"),
-    LEFT("a"," * master takes one step left"),
-    UP("w"," * master takes one step up"),
-    DOWN("s"," * master moves down"),
-    RIGHT("d"," * master moves right"),
+    LEFT("left"," * master takes one step left"),
+    UP("up"," * master takes one step up"),
+    DOWN("down"," * master moves down"),
+    RIGHT("right"," * master moves right"),
     MASTER_ENERGY("energy"," * shows master energy"),
-    SPAWN_MINI("mini","<energy> <direction> * spawns mini-squirrel", Integer.class, String.class);
+    SPAWN_MINI("mini","<energy> <direction> * spawns mini-squirrel", int.class, String.class);
     
     private String commandName;
     private String helpText;
@@ -40,4 +40,5 @@ public enum GameCommandType implements CommandTypeInfo{
     public Class<?>[] getParamTypes() {
         return paramTypes;
     }
+    
 }

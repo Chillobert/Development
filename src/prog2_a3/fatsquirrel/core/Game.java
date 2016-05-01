@@ -14,7 +14,7 @@ public abstract class Game {
     public void run(){
 	while(true){
             render();
-//            processInput();
+            processInput();
             update();
 	}
     }

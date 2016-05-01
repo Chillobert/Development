@@ -1,12 +1,16 @@
 package prog2_a3.fatsquirrel.console;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import prog2_a3.fatsquirrel.core.*;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
-import prog2_a3.fatsquirrel.util.ui.console.MyFavoriteCommandType;
 import prog2_a3.fatsquirrel.util.ui.console.ScanException;
 
 public class GameImpl extends Game {
     private ConsoleUI ui;
+    private Command command;
     
     public GameImpl(){
         super();
@@ -19,7 +23,7 @@ public class GameImpl extends Game {
         Object[] params = null;
         XY inpWhile = this.input;
         while (this.input == inpWhile) { // the loop over all commands with one input line for every command
-            Command command = ui.getCommand();
+            command = ui.getCommand();
             try{
                 if(command==null)
                     throw new ScanException();
@@ -33,44 +37,67 @@ public class GameImpl extends Game {
                 if(commandType != GameCommandType.EXIT && commandType != GameCommandType.HELP)
                     params = command.getParams();
     
-                switch (commandType) {
-                case EXIT:
-                    System.exit(0);
-                case HELP: 
-                    for(int i=0;commandTypes.length>i;i++){
-                    System.out.println(commandTypes[i].getName()+commandTypes[i].getHelpText());
+                try{
+                        Method m1 = this.getClass().getDeclaredMethod(command.getCommandType().getName());
+                        m1.invoke(this);
+                    }catch(NoSuchMethodException NoSuEx){
+                        try{
+                            Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
+                            m0.invoke(this, params);
+                        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+                            System.out.println("Fehler bei Aufruf von m0");
+                    } catch (NoSuchMethodException | SecurityException ex) {
+                        Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    }            
+                        
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+                        System.out.println("Falsches Objekt bei Methodenaufruf m1");
                     }
-                    break;
-                case ALL:
-                    System.out.println(this.flattenedBoard.getEntitySet().toString());
-                    break;
-                case LEFT:
-                    this.input = flattenedBoard.getMasterSquirrel().getLocation().moveLeft();
-                    break;
-                case RIGHT:
-                    this.input = flattenedBoard.getMasterSquirrel().getLocation().moveRight();
-                    break;
-                case UP:
-                    this.input = flattenedBoard.getMasterSquirrel().getLocation().moveUp();
-                    break;
-                case DOWN:
-                    this.input = flattenedBoard.getMasterSquirrel().getLocation().moveDown();
-                    break;
-                case MASTER_ENERGY:
-                    System.out.println("Die aktuelle Energie unseres Squirrel ist: "+flattenedBoard.getSquirrelEnergy());
-                    break;
-                case SPAWN_MINI:
-                    try{
-                    flattenedBoard.spawnChild(flattenedBoard.getMasterSquirrel(), new XY(new int[]{(int)(Math.round((Math.random()*2)-1)),(int)(Math.round((Math.random()*2)-1))}), (int)command.getParams()[0]);
-                    }
-                    catch(NullPointerException | NotEnoughEnergyException NuEx){
-                        System.out.println("wrong input. Please refere to \"help\"");
-                    }
-                    break;
-                default:break;
                 }
             }
         }
+    
+    private void help(){
+        for(int i=0;GameCommandType.values().length>i;i++){
+            System.out.println(GameCommandType.values()[i].getName()+GameCommandType.values()[i].getHelpText());
+        }
+    }
+    
+    private void exit(){
+        System.exit(0);
+    }
+    
+    private void all (){
+        System.out.println(this.flattenedBoard.getEntitySet().toString());
+    }
+    
+    private void left(){
+        this.input = flattenedBoard.getMasterSquirrel().getLocation().moveLeft();
+    }
+    
+    private void right(){
+        this.input = flattenedBoard.getMasterSquirrel().getLocation().moveRight();
+    }
+    
+    public void up(){
+        this.input = flattenedBoard.getMasterSquirrel().getLocation().moveUp();
+    }
+    
+    public void down(){
+        this.input = flattenedBoard.getMasterSquirrel().getLocation().moveDown();
+    }
+    
+    public void energy(){
+        System.out.println("Die aktuelle Energie unseres Squirrel ist: "+flattenedBoard.getSquirrelEnergy());
+    }
+    
+    public void mini(){
+         try{
+            flattenedBoard.spawnChild(flattenedBoard.getMasterSquirrel(), new XY(new int[]{(int)(Math.round((Math.random()*2)-1)),(int)(Math.round((Math.random()*2)-1))}), (int)command.getParams()[0]);
+            }
+            catch(NullPointerException | NotEnoughEnergyException NuEx){
+                System.out.println("wrong input. Please refere to \"help\"");
+            }
     }
     
     @Override
@@ -85,5 +112,4 @@ public class GameImpl extends Game {
     public int getFPS(){
     	return this.FPS;
     }
-
 }

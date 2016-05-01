@@ -28,7 +28,7 @@ public class EntitySet {
     }
     
     public void addMini(MasterSquirrel master,int energy, XY direction){
-        entArray[numbOf++] = master.createDescendant(latestId,energy , direction.getX(), direction.getY());
+        entArray[numbOf++] = master.createDescendant(numbOf++,energy , direction.getX(), direction.getY());
     }
     
     public void delete(int id){
