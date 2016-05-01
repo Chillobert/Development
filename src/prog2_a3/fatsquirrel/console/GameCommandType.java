@@ -5,7 +5,7 @@ import prog2_a3.fatsquirrel.util.ui.console.*;
 public enum GameCommandType implements CommandTypeInfo{
     HELP("help"," * list all commands"),
     EXIT("exit"," * exit the game"),
-    ALL("all"," * does nothing, just looks great"),
+    ALL("all"," * list all Entities"),
     LEFT("a"," * master takes one step left"),
     UP("w"," * master takes one step up"),
     DOWN("s"," * master moves down"),

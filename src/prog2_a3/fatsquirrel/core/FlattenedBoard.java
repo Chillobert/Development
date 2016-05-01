@@ -129,6 +129,8 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     @Override
     public void tryMove(MiniSquirrel miniSquirrel, XY moveDirection){
+        while((moveDirection.getX()==0) && (moveDirection.getY()==0))
+            moveDirection = moveDirection.getRandomVector();
         Entity nextField = getEntity(miniSquirrel.getLocation().getX() + moveDirection.getX(), miniSquirrel.getLocation().getY() + moveDirection.getY());
         //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
             if(nextField !=null ){

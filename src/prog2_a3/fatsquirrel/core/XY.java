@@ -35,19 +35,19 @@ public final class XY {
         }
         
         public XY moveUp(){
-            return move(new int[]{0,-1});
+            return new XY(new int[]{0,-1});
         }
         
         public XY moveDown(){
-            return move(new int[]{0,1});
+            return new XY(new int[]{0,1});
         }
         
         public XY moveLeft(){
-            return move(new int[]{-1,0});
+            return new XY(new int[]{-1,0});
         }
         
         public XY moveRight(){
-            return move(new int[]{1,0});
+            return new XY(new int[]{1,0});
         }
         
         public XY reverse(){

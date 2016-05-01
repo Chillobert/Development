@@ -42,19 +42,19 @@ public class GameImpl extends Game {
                     }
                     break;
                 case ALL:
-                    
+                    System.out.println(this.flattenedBoard.getEntitySet().toString());
                     break;
                 case LEFT:
-                    this.input = new XY(new int[]{-1,0});
+                    this.input = flattenedBoard.getMasterSquirrel().getLocation().moveLeft();
                     break;
                 case RIGHT:
-                    this.input = new XY(new int[]{1,0});
+                    this.input = flattenedBoard.getMasterSquirrel().getLocation().moveRight();
                     break;
                 case UP:
-                    this.input = new XY(new int[]{0,-1});
+                    this.input = flattenedBoard.getMasterSquirrel().getLocation().moveUp();
                     break;
                 case DOWN:
-                    this.input = new XY(new int[]{0,1});
+                    this.input = flattenedBoard.getMasterSquirrel().getLocation().moveDown();
                     break;
                 case MASTER_ENERGY:
                     System.out.println("Die aktuelle Energie unseres Squirrel ist: "+flattenedBoard.getSquirrelEnergy());

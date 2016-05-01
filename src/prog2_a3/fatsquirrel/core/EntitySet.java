@@ -69,15 +69,17 @@ public class EntitySet {
     }
 
     public void nextStepAll(EntityContext entContext, XY input){
-        for(int i=0;entArray[i]!=null;i++){
-            if(entArray[i].getTimeout()<=0){
-            if(isInstance(entArray[i],MasterSquirrel.class))
-                ((MasterSquirrel)entArray[i]).nextStep(entContext,input);
-            else
-                entArray[i].nextStep(entContext);
+        for(int i=0;entArray.length>i;i++){
+            if(entArray[i]!=null){
+                if(entArray[i].getTimeout()<=0){
+                    if(isInstance(entArray[i],MasterSquirrel.class))
+                        ((MasterSquirrel)entArray[i]).nextStep(entContext,input);
+                    else
+                        entArray[i].nextStep(entContext);
+                }
+                else if(entArray[i].getTimeout()>0)
+                    entArray[i].setTimeout(entArray[i].getTimeout()-1);
             }
-            else if(entArray[i].getTimeout()>0)
-                entArray[i].setTimeout(entArray[i].getTimeout()-1);
         }
     }
     
