@@ -82,4 +82,8 @@ public class GameImpl extends Game {
     protected void render() {
         ui.render(flattenedBoard = state.getBoard().flatten());
     }
+    public int getFPS(){
+    	return this.FPS;
+    }
+
 }
