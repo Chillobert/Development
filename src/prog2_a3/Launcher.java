@@ -127,8 +127,7 @@ private void startGame() {
 		if(commandPuffer != null){
 			game.setPuffer(commandPuffer);
 			game.process();
-			commandPuffer = null;
-			game.setPuffer(commandPuffer);
+			game.setPuffer(commandPuffer = null);
 		}
 	//	game.setPuffer(game.getUI().savePuffer());
 		
