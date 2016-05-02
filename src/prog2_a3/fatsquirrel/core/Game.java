@@ -5,7 +5,7 @@ public abstract class Game {
     public State state;
     public FlattenedBoard flattenedBoard;
     public XY input;
-    public final int FPS = 60;
+    public final int FPS = 1;
     public Game (){
         state = new State();
         input = new XY(new int[]{0,0});
@@ -14,7 +14,7 @@ public abstract class Game {
     public void run(){
 	//while(true){
             render();
-            processInput();
+       //     processInput();
             update();
 	//}
     }

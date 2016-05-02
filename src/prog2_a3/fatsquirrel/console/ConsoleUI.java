@@ -12,6 +12,7 @@ public class ConsoleUI implements UI {
     private BufferedReader inputReader;
     private Command command;
     private GameCommandType[] commandTypes;
+    int counter = 0;
 
     public ConsoleUI() {
         this.outputStream = System.out;
@@ -32,6 +33,8 @@ public class ConsoleUI implements UI {
 
     @Override
     public void render(BoardView view) {
+    	counter = counter + 1;
+    	System.out.println("DurchlaufNr:" + counter); //testing
         for(int i = 0; i<=view.getSize().getY();i++){
             for(int j = 0;j<=view.getSize().getX();j++){
                 switch(view.getEntityType(j,i)){

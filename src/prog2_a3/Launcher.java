@@ -108,9 +108,18 @@ private void startGame() {
 			game.run();
 			timestamp_2 = calendar.getTimeInMillis();
 			
+			try {
+				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+Durchläufe/Sekunde - Endzeit
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
 		}
 		
-	},1000, 1000 / game.getFPS() );
+	},1000,1 );
 	
 	
 }
