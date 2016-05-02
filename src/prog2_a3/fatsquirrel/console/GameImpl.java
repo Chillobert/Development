@@ -9,6 +9,7 @@ import prog2_a3.fatsquirrel.util.ui.console.Command;
 import prog2_a3.fatsquirrel.util.ui.console.ScanException;
 
 public class GameImpl extends Game {
+	private Command puffer;
     private ConsoleUI ui;
     private Command command;
     
@@ -17,20 +18,20 @@ public class GameImpl extends Game {
         this.ui = new ConsoleUI();
     }
     
-    @Override
+ @Override
     protected void processInput(){
         GameCommandType[] commandTypes = GameCommandType.values();
         Object[] params = null;
         XY inpWhile = this.input;
         while (this.input == inpWhile) { // the loop over all commands with one input line for every command
-            command = ui.getCommand();
-            try{
-                if(command==null)
-                    throw new ScanException();
-            }
-            catch(ScanException ScEx){
-                System.out.println("wrong input. Please use 'help' to show commands");
-            }
+            command = this.getPuffer(); //ui.getCommand();
+           // try{
+             //   if(command==null)
+               //     throw new ScanException();
+           // }
+           // catch(ScanException ScEx){
+           //     System.out.println("wrong input. Please use 'help' to show commands");
+           // }
             if(command!=null){
                 GameCommandType commandType = (GameCommandType) command.getCommandType();
            
@@ -114,5 +115,11 @@ public class GameImpl extends Game {
     }
     public ConsoleUI getUI(){
     	return this.ui;
+    }
+    public void setPuffer(Command input){
+    	this.puffer = input;
+    }
+    public Command getPuffer(){
+    	return this.puffer;
     }
 }

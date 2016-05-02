@@ -32,13 +32,13 @@ public class ConsoleUI implements UI {
         return command;
     }
     
-    public Command getPuffer(){
-        CommandScanner commandScanner = new CommandScanner(commandTypes,inputReader);
+    public Command savePuffer(){
         try {
+        	CommandScanner commandScanner = new CommandScanner(commandTypes,inputReader);
 			commandPuffer = commandScanner.next();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			 outputStream.println("Das war keine gültige Eingabe. probier es mal mit help");
+			
 		}
     	
 		return commandPuffer;

@@ -31,12 +31,6 @@ private Command commandPuffer;
  //           launcher.run();
             
 
-            
-            
-            
-            
-            
-            
             //launcher.game.run();
 		/*	
             while(true){
@@ -128,7 +122,21 @@ private void startGame() {
 		
 	},1000,1 );
 	
-	
-}
+	while(true){
+		commandPuffer = game.getUI().savePuffer();
+		if(commandPuffer != null){
+			game.setPuffer(commandPuffer);
+			game.process();
+			commandPuffer = null;
+			game.setPuffer(commandPuffer);
+		}
+	//	game.setPuffer(game.getUI().savePuffer());
+		
+		//game.setPuffer(game.getUI().savePuffer());
+		
+		if( game.getPuffer() != null)
+		System.out.println(game.getPuffer().getCommandType().getName());
+	}
 
+}
 }

@@ -1,12 +1,13 @@
 package prog2_a3.fatsquirrel.core;
 
+
 import prog2_a3.interfaces.*;
 
 
 
 public class FlattenedBoard implements BoardView, EntityContext {
 
- 
+
     private final Entity[][] flattenedBoard;
     XY size;
     private EntitySet entSet;
