@@ -13,6 +13,7 @@ public class ConsoleUI implements UI {
     private Command command;
     private GameCommandType[] commandTypes;
     int counter = 0;
+    private Command commandPuffer;
 
     public ConsoleUI() {
         this.outputStream = System.out;
@@ -29,6 +30,19 @@ public class ConsoleUI implements UI {
             outputStream.println("Das war keine gültige Eingabe. probier es mal mit help");
         }
         return command;
+    }
+    
+    public Command getPuffer(){
+        CommandScanner commandScanner = new CommandScanner(commandTypes,inputReader);
+        try {
+			commandPuffer = commandScanner.next();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+		return commandPuffer;
+    	
     }
 
     @Override

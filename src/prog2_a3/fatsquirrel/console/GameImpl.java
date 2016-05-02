@@ -112,4 +112,7 @@ public class GameImpl extends Game {
     public int getFPS(){
     	return this.FPS;
     }
+    public ConsoleUI getUI(){
+    	return this.ui;
+    }
 }
