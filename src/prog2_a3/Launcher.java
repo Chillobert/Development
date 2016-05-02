@@ -9,7 +9,6 @@ import java.util.GregorianCalendar;
 
 
 public class Launcher{
-private static int FPS = 60;
 private boolean isRunning;
 private static long timestamp_1;
 private static long timestamp_2;

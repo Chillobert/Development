@@ -12,11 +12,11 @@ public abstract class Game {
     };
 
     public void run(){
-	while(true){
+	//while(true){
             render();
             processInput();
             update();
-	}
+	//}
     }
 		
 //Darstellung des Spielzustands auf dem Ausgabemedium
