@@ -4,14 +4,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import prog2_a3.Launcher;
 import prog2_a3.fatsquirrel.core.*;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
+import prog2_a3.fatsquirrel.util.ui.console.CommandTypeInfo;
 import prog2_a3.fatsquirrel.util.ui.console.ScanException;
 
 public class GameImpl extends Game {
 	private Command puffer;
     private ConsoleUI ui;
     private Command command;
+    private CommandTypeInfo dummyInfo;
+    private Command dummy;
     
     public GameImpl(){
         super();
@@ -23,16 +28,63 @@ public class GameImpl extends Game {
         GameCommandType[] commandTypes = GameCommandType.values();
         Object[] params = null;
         XY inpWhile = this.input;
+        
+        if(Launcher.switcher == false){
+            while (this.input == inpWhile) { // the loop over all commands with one input line for every command
+            	
+            	command = ui.getCommand();
+                try{
+                    if(command==null)
+                        throw new ScanException();
+                }
+                catch(ScanException ScEx){
+                    System.out.println("wrong input. Please use 'help' to show commands");
+                }
+            	
+                if(command!=null){
+                    GameCommandType commandType = (GameCommandType) command.getCommandType();
+               
+                    if(commandType != GameCommandType.EXIT && commandType != GameCommandType.HELP)
+                        params = command.getParams();
+        
+                    try{
+                            Method m1 = this.getClass().getDeclaredMethod(command.getCommandType().getName());
+                            m1.invoke(this);
+                        }catch(NoSuchMethodException NoSuEx){
+                            try{
+                                Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
+                                m0.invoke(this, params);
+                            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+                                System.out.println("Fehler bei Aufruf von m0");
+                        } catch (NoSuchMethodException | SecurityException ex) {
+                            Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
+                        }            
+                            
+                        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+                            System.out.println("Falsches Objekt bei Methodenaufruf m1");
+                        }
+                    }
+                }
+        		
+        }
+        
+        if(Launcher.switcher == true){
         while (this.input == inpWhile && this.getPuffer() != null) { // the loop over all commands with one input line for every command
+        	
+        	if(Launcher.switcher == true){
             command = this.getPuffer(); //ui.getCommand();
-            this.setPuffer(null);
-           // try{
-             //   if(command==null)
-               //     throw new ScanException();
-           // }
-           // catch(ScanException ScEx){
-           //     System.out.println("wrong input. Please use 'help' to show commands");
-           // }
+            this.setPuffer(null);}
+        	
+        	if(Launcher.switcher == false){
+        	command = ui.getCommand();
+            try{
+                if(command==null)
+                    throw new ScanException();
+            }
+            catch(ScanException ScEx){
+                System.out.println("wrong input. Please use 'help' to show commands");
+            }
+        	}
             if(command!=null){
                 GameCommandType commandType = (GameCommandType) command.getCommandType();
            
@@ -57,6 +109,9 @@ public class GameImpl extends Game {
                     }
                 }
             }
+        }
+        
+        
         }
     
     private void help(){
@@ -105,7 +160,8 @@ public class GameImpl extends Game {
     @Override
     protected void update(){
         super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
-        this.input = null;
+        if(Launcher.switcher == true){
+        this.input = null;}
 
     }
 

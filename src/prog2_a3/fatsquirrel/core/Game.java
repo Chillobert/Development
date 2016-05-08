@@ -1,5 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
+import prog2_a3.Launcher;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
 
 public abstract class Game {
@@ -13,11 +14,19 @@ public abstract class Game {
     };
 
     public void run(){
-	//while(true){
-            render();
-           // processInput();
-            update();
-	//}
+    	if(Launcher.switcher == false){
+    		while(true){
+    			render();
+    			processInput();
+    			update();
+    		}
+    	}
+    	
+    	if(Launcher.switcher == true){
+    		render();
+    		update();
+    	}
+    	
     }
     public void process(){
     	processInput();
