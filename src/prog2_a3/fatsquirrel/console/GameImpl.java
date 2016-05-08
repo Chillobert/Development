@@ -23,8 +23,9 @@ public class GameImpl extends Game {
         GameCommandType[] commandTypes = GameCommandType.values();
         Object[] params = null;
         XY inpWhile = this.input;
-        while (this.input == inpWhile) { // the loop over all commands with one input line for every command
+        while (this.input == inpWhile && this.getPuffer() != null) { // the loop over all commands with one input line for every command
             command = this.getPuffer(); //ui.getCommand();
+            this.setPuffer(null);
            // try{
              //   if(command==null)
                //     throw new ScanException();
@@ -104,6 +105,8 @@ public class GameImpl extends Game {
     @Override
     protected void update(){
         super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
+        this.input = null;
+
     }
 
     @Override
