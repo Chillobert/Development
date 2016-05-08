@@ -12,7 +12,11 @@ import java.util.GregorianCalendar;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -26,7 +30,7 @@ private Command commandPuffer;
 public static boolean switcher = true; //false = alt; //true = neu;
 public static boolean javafxmode = true; //javafxmode
 private BoardConfig boardConfig = new BoardConfig();
-private static Stage primaryStage = new Stage();
+private Stage primaryStage = new Stage();
 private FxUI fxUI;
 
 
@@ -68,9 +72,7 @@ private void startGame() {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-			
+								
 		}
 		
 	},1000,1 );
@@ -101,7 +103,11 @@ public void start(Stage primaryStage) throws Exception {
 	final Game game = new GameImpl();
 	
 	 primaryStage.setScene(fxUI);
-     primaryStage.setTitle("Diligent Squirrel");
+     primaryStage.setTitle("Game");
+     primaryStage.setHeight(500);
+     primaryStage.setWidth(500);
+     
+     
      fxUI.getWindow().setOnCloseRequest(new EventHandler() {
          public void handle(WindowEvent evt) {
              System.exit(-1);     
