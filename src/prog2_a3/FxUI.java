@@ -28,6 +28,7 @@ public class FxUI extends Scene implements UI {
         super(parent);
         this.boardCanvas = boardCanvas;
         this.msgLabel = msgLabel;
+
     }
     
     public static FxUI createInstance(BoardConfig boardConfig) {
