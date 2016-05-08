@@ -15,8 +15,7 @@ public class GameImpl extends Game {
 	private Command puffer;
     private ConsoleUI ui;
     private Command command;
-    private CommandTypeInfo dummyInfo;
-    private Command dummy;
+
     
     public GameImpl(){
         super();
@@ -69,22 +68,11 @@ public class GameImpl extends Game {
         }
         
         if(Launcher.switcher == true){
-        while (this.input == inpWhile && this.getPuffer() != null) { // the loop over all commands with one input line for every command
-        	
-        	if(Launcher.switcher == true){
+        while (this.input == inpWhile && this.getPuffer() != null) { // the loop over all commands with one input line for every command        	
             command = this.getPuffer(); //ui.getCommand();
-            this.setPuffer(null);}
+            this.setPuffer(null);
         	
-        	if(Launcher.switcher == false){
-        	command = ui.getCommand();
-            try{
-                if(command==null)
-                    throw new ScanException();
-            }
-            catch(ScanException ScEx){
-                System.out.println("wrong input. Please use 'help' to show commands");
-            }
-        	}
+
             if(command!=null){
                 GameCommandType commandType = (GameCommandType) command.getCommandType();
            

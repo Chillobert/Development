@@ -1,31 +1,43 @@
 package prog2_a3;
 
 import prog2_a3.fatsquirrel.console.*;
+import prog2_a3.fatsquirrel.core.BoardConfig;
+import prog2_a3.fatsquirrel.core.Game;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
-import prog2_a3.fatsquirrel.util.ui.console.CommandScanner;
-
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Scanner;
+
+import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 
-public class Launcher{
-private boolean isRunning;
+public class Launcher extends Application{
 private static long timestamp_1;
 private static long timestamp_2;
 private GameImpl game = new GameImpl();
 private Calendar calendar = new GregorianCalendar();
 private Command commandPuffer;
 public static boolean switcher = true; //false = alt; //true = neu;
+public static boolean javafxmode = true; //javafxmode
+private BoardConfig boardConfig = new BoardConfig();
+private static Stage primaryStage = new Stage();
+private FxUI fxUI;
 
 
 	
 	public static void main(String[] args){
-		
-		
+		if(javafxmode == true){
+		launch(args);
+			
+		}
+		else {
+					
 		if( switcher == true){
             Launcher launcher = new Launcher();
             launcher.startGame();
@@ -34,7 +46,7 @@ public static boolean switcher = true; //false = alt; //true = neu;
 			Launcher launcher = new Launcher();
 			launcher.game.run();
 		}
-
+		}
 	}
 	
 private void startGame() { 
@@ -79,5 +91,32 @@ private void startGame() {
 		System.out.println(game.getPuffer().getCommandType().getName());
 	}
 
+}
+
+@Override
+public void start(Stage primaryStage) throws Exception {
+	this.primaryStage = primaryStage;
+	// TODO Auto-generated method stub
+	FxUI fxUI = FxUI.createInstance(boardConfig);
+	final Game game = new GameImpl();
+	
+	 primaryStage.setScene(fxUI);
+     primaryStage.setTitle("Diligent Squirrel");
+     fxUI.getWindow().setOnCloseRequest(new EventHandler() {
+         public void handle(WindowEvent evt) {
+             System.exit(-1);     
+         }
+
+		@Override
+		public void handle(Event arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+     });
+     primaryStage.show();   
+     
+     //startGame();    	
+	
+	
 }
 }

@@ -1,7 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
 import prog2_a3.Launcher;
-import prog2_a3.fatsquirrel.util.ui.console.Command;
 
 public abstract class Game {
     public State state;
