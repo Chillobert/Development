@@ -72,9 +72,10 @@ public class EntitySet {
         for(int i=0;entArray.length>i;i++){
             if(entArray[i]!=null){
                 if(entArray[i].getTimeout()<=0){
-                    if(isInstance(entArray[i],MasterSquirrel.class))
+                    if(isInstance(entArray[i],MasterSquirrel.class)){
                     	if( input != null) ///////////////////////
-                        ((MasterSquirrel)entArray[i]).nextStep(entContext,input);
+                            ((MasterSquirrel)entArray[i]).nextStep(entContext,input);
+                    }
                     else
                         entArray[i].nextStep(entContext);
                 }

@@ -9,9 +9,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
 
 
     private final Entity[][] flattenedBoard;
-    XY size;
+    private XY size;
     private EntitySet entSet;
-    Board board;
+    private Board board;
     
     public FlattenedBoard(Board board){
         this.board = board;
@@ -167,7 +167,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 }
                 else if(entSet.isInstance(nextField, Wall.class)){
                     //tryMove(goodBeast, new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
-                    goodBeast.getLocation().move(new int[]{-actualMoveDirection.getX(),-goodBeast.getLocation().getY()});
+                    //goodBeast.getLocation().move(new int[]{-actualMoveDirection.getX(),-goodBeast.getLocation().getY()});
                 }
                 mortalCombat(goodBeast,nextField);
             }
@@ -194,7 +194,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     badBeast.setTimeout(4);
                 }
                 else if(entSet.isInstance(nextField, Wall.class)){
-                    badBeast.move(new XY(new int[]{-actualMoveDirection.getX(),-actualMoveDirection.getY()}));
+                    //XY randMove = badBeast.getLocation().getRandomVector();
+                    //while(entSet.isInstance(getEntity(badBeast.getLocation().getX() + randMove.getX(), badBeast.getLocation().getY() + actualMoveDirection.getY()), Wall.class))
+                    //    randMove = badBeast.getLocation().getRandomVector();
+                    //badBeast.move(randMove);
                 }
                 mortalCombat(badBeast,nextField);
             }

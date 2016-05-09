@@ -24,36 +24,41 @@ import javafx.stage.WindowEvent;
 public class Launcher extends Application{
 private static long timestamp_1;
 private static long timestamp_2;
-private GameImpl game = new GameImpl();
-private Calendar calendar = new GregorianCalendar();
+private GameImpl game;
+private Calendar calendar;
 private Command commandPuffer;
 public static boolean switcher = true; //false = alt; //true = neu;
-public static boolean javafxmode = true; //javafxmode
-private BoardConfig boardConfig = new BoardConfig();
-private Stage primaryStage = new Stage();
+public static boolean javafxmode = false; //javafxmode
+private BoardConfig boardConfig;
+
 private FxUI fxUI;
 
-
+    public Launcher(){        
+        this.boardConfig = new BoardConfig();
+        this.calendar = new GregorianCalendar();
+        this.game = new GameImpl();
+    }
 	
-	public static void main(String[] args){
+    public static void main(String[] args){
+            Launcher launcher = new Launcher();
 		if(javafxmode == true){
-		launch(args);
-			
+                    launch(args);
 		}
+                
 		else {
 					
-		if( switcher == true){
-            Launcher launcher = new Launcher();
-            launcher.startGame();
-		}
-		if (switcher == false) {
-			Launcher launcher = new Launcher();
+                    if( switcher == true){
+           
+                        launcher.startGame();
+                    }
+                    if (switcher == false) {
+			
 			launcher.game.run();
+                    }
 		}
-		}
-	}
+            }
 	
-private void startGame() { 
+    private void startGame() { 
 	
 	Timer timer = new Timer();
 	timer.schedule(new TimerTask(){
@@ -67,7 +72,7 @@ private void startGame() {
 				//do{
 				//	commandPuffer = game.getUI().getPuffer();								
 				//} while(commandPuffer == null || timestamp_1 + 1000 /game.getFPS() - timestamp_2 <= 10);
-				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+Durchläufe/Sekunde - Endzeit
+				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+Durchlï¿½ufe/Sekunde - Endzeit
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -95,14 +100,13 @@ private void startGame() {
 
 }
 
-@Override
-public void start(Stage primaryStage) throws Exception {
-	this.primaryStage = primaryStage;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 	// TODO Auto-generated method stub
-	FxUI fxUI = FxUI.createInstance(boardConfig);
-	final Game game = new GameImpl();
+	FxUI fxUI = FxUI.createInstance(boardConfig.getSize());
+	final Game game = new GameImpl(fxUI);
 	
-	 primaryStage.setScene(fxUI);
+     primaryStage.setScene(fxUI);
      primaryStage.setTitle("Game");
      primaryStage.setHeight(500);
      primaryStage.setWidth(500);

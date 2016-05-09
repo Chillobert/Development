@@ -27,6 +27,7 @@ public abstract class Game {
     	}
     	
     }
+    
     public void process(){
     	processInput();
     }

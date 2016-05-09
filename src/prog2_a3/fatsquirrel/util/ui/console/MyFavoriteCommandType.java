@@ -9,17 +9,14 @@ public enum  MyFavoriteCommandType implements CommandTypeInfo {
     
     private String commandName;
     private String helpText;
-    private Class<?>[] paramTypes = new Class[]{null};
+    private Class<?>[] paramTypes;
     
-    private MyFavoriteCommandType(String name,String helpText){
+    private MyFavoriteCommandType(String name,String helpText, Class... params){
         this.commandName = name;
         this.helpText = helpText;
+        paramTypes = params;
     }
     
-    private MyFavoriteCommandType(String name, String helpText, Class Type1,Class Type2){
-        this(name,helpText);
-        this.paramTypes = new Class[]{Type1,Type2}; 
-    }
 
     @Override
     public String getName() {

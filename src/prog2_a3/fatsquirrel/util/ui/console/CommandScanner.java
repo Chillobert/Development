@@ -29,7 +29,7 @@ public class CommandScanner {
                         try{
                         this.commandTypes = commandTypeInfos[i].getParamTypes();
                         for(int j = 0; commandTypes.length>j; j++){
-                            try{
+                            try{                                            //parse in private Methode auslagern
                                 float d = Float.parseFloat(params[j]);
                                 if(commandTypes[j]==int.class || commandTypes[j]==long.class){
                                     paramsParse[j] = (int)d;
@@ -55,7 +55,8 @@ public class CommandScanner {
                         returnParams[j] = paramsParse[j];
                     
                     command = new Command(commandTypeInfos[i],returnParams);
-                }}
+                }
+                }
                 
         return command;
     }

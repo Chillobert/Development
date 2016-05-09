@@ -5,10 +5,11 @@ public class State {
     private int highscore;
     private Board board;
     private FlattenedBoard flattenedBoard;
-    private BoardConfig config = new BoardConfig();
+    private BoardConfig config;
     private XY input;
         
     public State(){
+        this.config = new BoardConfig();
         this.board =new Board(this.config);
     }
 

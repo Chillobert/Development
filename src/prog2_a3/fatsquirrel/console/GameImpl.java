@@ -5,21 +5,27 @@ import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import prog2_a3.*;
 import prog2_a3.Launcher;
 import prog2_a3.fatsquirrel.core.*;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
-import prog2_a3.fatsquirrel.util.ui.console.CommandTypeInfo;
 import prog2_a3.fatsquirrel.util.ui.console.ScanException;
 
 public class GameImpl extends Game {
 	private Command puffer;
     private ConsoleUI ui;
     private Command command;
+    private FxUI fxui;
 
     
     public GameImpl(){
         super();
         this.ui = new ConsoleUI();
+    }
+    
+    public GameImpl (FxUI fxui){
+        super();
+        this.fxui = fxui;
     }
     
  @Override
@@ -43,25 +49,25 @@ public class GameImpl extends Game {
                 if(command!=null){
                     GameCommandType commandType = (GameCommandType) command.getCommandType();
                
-                    if(commandType != GameCommandType.EXIT && commandType != GameCommandType.HELP)
-                        params = command.getParams();
-        
-                    try{
-                            Method m1 = this.getClass().getDeclaredMethod(command.getCommandType().getName());
-                            m1.invoke(this);
-                        }catch(NoSuchMethodException NoSuEx){
-                            try{
-                                Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
-                                m0.invoke(this, params);
-                            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                                System.out.println("Fehler bei Aufruf von m0");
-                        } catch (NoSuchMethodException | SecurityException ex) {
-                            Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
-                        }            
-                            
+                if(commandType != GameCommandType.EXIT && commandType != GameCommandType.HELP)
+                    params = command.getParams();
+    
+                try{
+                        Method m1 = this.getClass().getDeclaredMethod(command.getCommandType().getName());
+                        m1.invoke(this);
+                    }catch(NoSuchMethodException NoSuEx){
+                        try{
+                            Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
+                            m0.invoke(this, params);
                         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                            System.out.println("Falsches Objekt bei Methodenaufruf m1");
-                        }
+                            System.out.println("Fehler bei Aufruf von m0");
+                    } catch (NoSuchMethodException | SecurityException ex) {
+                        Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    }            
+                        
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+                        System.out.println("Falsches Objekt bei Methodenaufruf m1");
+                    }
                     }
                 }
         		
@@ -147,7 +153,10 @@ public class GameImpl extends Game {
     
     @Override
     protected void update(){
-        super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
+        if(this.input==null)
+            super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
+        else
+            super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
         if(Launcher.switcher == true){
         this.input = null;}
 
@@ -155,11 +164,16 @@ public class GameImpl extends Game {
 
     @Override
     protected void render() {
-        ui.render(flattenedBoard = state.getBoard().flatten());
+        if(fxui==null)
+            ui.render(flattenedBoard = state.getBoard().flatten());
+        if(ui==null)
+            fxui.render(flattenedBoard);
+        
     }
     public int getFPS(){
     	return this.FPS;
     }
+    
     public ConsoleUI getUI(){
     	return this.ui;
     }

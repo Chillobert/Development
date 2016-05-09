@@ -24,15 +24,17 @@ public class FxUI extends Scene implements UI {
 	private Canvas boardCanvas;
 	private Label msgLabel;
 
-	public FxUI(Parent parent, Canvas boardCanvas, Label msgLabel) {
+    public FxUI(Parent parent, Canvas boardCanvas, Label msgLabel) {
         super(parent);
         this.boardCanvas = boardCanvas;
         this.msgLabel = msgLabel;
 
     }
     
-    public static FxUI createInstance(BoardConfig boardConfig) {
-		Canvas boardCanvas = new Canvas(boardConfig.getLength(), boardConfig.getWidth());
+    public static FxUI createInstance(XY boardSize) {
+        int length = boardSize.getX();
+        int width = boardSize.getY();
+	Canvas boardCanvas = new Canvas(length, width);
         Label statusLabel = new Label();
         VBox top = new VBox();
         top.getChildren().add(boardCanvas);
@@ -40,14 +42,13 @@ public class FxUI extends Scene implements UI {
         statusLabel.setText("das ist der Label Text");
         final FxUI fxUI = new FxUI(top, boardCanvas, statusLabel); 
         fxUI.setOnKeyPressed(
-                new EventHandler() {
-				@Override
-				public void handle(Event event) {
-					// TODO Auto-generated method stub
-					
-				}
-                }
-          );
+            new EventHandler() {
+		@Override
+		public void handle(Event event) {
+		// TODO Auto-generated method stub			
+		}
+            }
+        );
         return fxUI;
     }
 
