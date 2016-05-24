@@ -5,7 +5,7 @@ public class Command {
     private CommandTypeInfo commandType;
     private Object[] params;
     
-    public Command(CommandTypeInfo commandType, Object[] params){
+    public Command(CommandTypeInfo commandType, Object... params){
         this.commandType = commandType;
         this.params = params;
     }
@@ -19,6 +19,9 @@ public class Command {
     }
     
     public Object[] getParams(){
-        return this.params;
+        if(params[0] != null)
+            return this.params;
+        else
+            return null;
     }
 }

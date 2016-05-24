@@ -30,10 +30,8 @@ public class GameImpl extends Game {
         this.fxUI = fxUI;
     }
     
- @Override
+    @Override
     protected void processInput(){
-        GameCommandType[] commandTypes = GameCommandType.values();
-        Object[] params = null;
         XY inpWhile = this.input;
         
         if(Launcher.getSwitcher() == false){
@@ -46,74 +44,24 @@ public class GameImpl extends Game {
                 }
                 catch(ScanException ScEx){
                     System.out.println("wrong input. Please use 'help' to show commands");
-                }
-            	
-                if(command!=null){
-                    GameCommandType commandType = (GameCommandType) command.getCommandType();
-               
-                if(commandType != GameCommandType.EXIT && commandType != GameCommandType.HELP)
-                    params = command.getParams();
-    
-                try{
-                        Method m1 = this.getClass().getDeclaredMethod(command.getCommandType().getName());
-                        m1.invoke(this);
-                    }catch(NoSuchMethodException NoSuEx){
-                        try{
-                            Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
-                            m0.invoke(this, params);
-                        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                            System.out.println("Fehler bei Aufruf von m0");
-                    } catch (NoSuchMethodException | SecurityException ex) {
-                        Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
-                    }            
-                        
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                        System.out.println("Falsches Objekt bei Methodenaufruf m1");
-                    }
-                    }
-                }
-        		
-        }
-        
-        if(Launcher.getSwitcher() == true){
-        while (this.input == inpWhile && fxUI.giveCommand() != null) { // the loop over all commands with one input line for every command     // && this.getPuffer() != null
+                }           	
+                invokeCommand();
+            }
+        }     
+        else{
+            while (this.input == inpWhile && fxUI.giveCommand() != null) { // the loop over all commands with one input line for every command     // && this.getPuffer() != null
         	if (Launcher.getJavaFxMode() == true){
-        	command = fxUI.giveCommand();	
-        	fxUI.setCommand(null);
+                    command = fxUI.giveCommand();	
+                    fxUI.setCommand(null);
         	}
         	else{
-            command = this.getPuffer(); //ui.getCommand();
-            this.setPuffer(null);
+                    command = this.getPuffer(); //ui.getCommand();
+                    this.setPuffer(null);
         	}
-
-            if(command!=null){
-                GameCommandType commandType = (GameCommandType) command.getCommandType();
-           
-                if(commandType != GameCommandType.EXIT && commandType != GameCommandType.HELP)
-                    params = command.getParams();
-    
-                try{
-                        Method m1 = this.getClass().getDeclaredMethod(command.getCommandType().getName());
-                        m1.invoke(this);
-                    }catch(NoSuchMethodException NoSuEx){
-                        try{
-                            Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
-                            m0.invoke(this, params);
-                        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                            System.out.println("Fehler bei Aufruf von m0");
-                    } catch (NoSuchMethodException | SecurityException ex) {
-                        Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
-                    }            
-                        
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                        System.out.println("Falsches Objekt bei Methodenaufruf m1");
-                    }
-                }
+                invokeCommand();
             }
         }
-        
-        
-        }
+    }
     
     private void help(){
         for(int i=0;GameCommandType.values().length>i;i++){
@@ -179,10 +127,11 @@ public class GameImpl extends Game {
     	}
 
     }
+
     public int getFPS(){
     	return this.FPS;
     }
-    
+
     public ConsoleUI getUI(){
     	return this.ui;
     }
@@ -192,16 +141,24 @@ public class GameImpl extends Game {
     public Command getPuffer(){
     	return this.puffer;
     }
-    
+
     //Method to get the fxUI
     public FxUI setfxUI(FxUI fxUI){
     	return this.fxUI = fxUI;
     	
     }
     
-    	
-    	
-    	
-    	
+    private void invokeCommand(){
+        if(command!=null){
+            GameCommandType commandType = (GameCommandType) command.getCommandType();
+
+            try{
+                Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
+                m0.invoke(this, command.getParams());
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException ex) {
+                //error loggen;
+            }
+        }
     }
-    
+
+}
