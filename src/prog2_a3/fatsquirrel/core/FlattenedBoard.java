@@ -45,6 +45,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
             return output;
     }
     
+    @Override
     public Entity getEntity(int x, int y){
         return this.flattenedBoard[x][y];
     }

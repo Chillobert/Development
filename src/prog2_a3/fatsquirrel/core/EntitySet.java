@@ -8,8 +8,7 @@ public class EntitySet {
     private int numbOf=0;
     private int latestId=1;
     private Entity[] entArray = new Entity[1000];
-    private int idColl=0;
-    
+    private int idColl=0; 
     public EntitySet(XY size){   
     }
     
@@ -18,9 +17,10 @@ public class EntitySet {
             case"BadPlant": entArray[numbOf++] = new BadPlant(numbOf,x,y);break;
             case"GoodBeast":entArray[numbOf++] = new GoodBeast(numbOf,x,y);break;
             case"GoodPlant":entArray[numbOf++] = new GoodPlant(numbOf,x,y);break;
-            case"BadBeast":entArray[numbOf++] = new BadBeast(numbOf,x,y);break;
+            case"BadBeast":entArray[numbOf++] = new BadBeast(numbOf,x,y); break;
             case"GuidedMasterSquirrel":entArray[numbOf++] = new GuidedMasterSquirrel(numbOf,x,y);break;
             case"Wall":entArray[numbOf++] = new Wall(numbOf,x,y);break;
+            case"MasterSquirrelBot":entArray[numbOf++] = new MasterSquirrelBot(numbOf,x,y);break;
             default:break;
             
         }
@@ -72,9 +72,9 @@ public class EntitySet {
         for(int i=0;entArray.length>i;i++){
             if(entArray[i]!=null){
                 if(entArray[i].getTimeout()<=0){
-                    if(isInstance(entArray[i],MasterSquirrel.class)){
+                    if(isInstance(entArray[i],GuidedMasterSquirrel.class)){
                     	if( input != null) ///////////////////////
-                            ((MasterSquirrel)entArray[i]).nextStep(entContext,input);
+                            ((GuidedMasterSquirrel)entArray[i]).nextStep(entContext,input);
                     }
                     else
                         entArray[i].nextStep(entContext);

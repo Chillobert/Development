@@ -4,20 +4,38 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class CommandScanner {
+import prog2_a3.Launcher;
+import prog2_a3.fatsquirrel.console.GameCommandType;
 
+public class CommandScanner {
     private CommandTypeInfo[] commandTypeInfos;
     private BufferedReader inputReader;
     private Class<?>[] commandTypes = new Class[]{null};
+    private String input;
     
     public CommandScanner(CommandTypeInfo[] commandTypeInfos, BufferedReader inputReader){
         this.commandTypeInfos = commandTypeInfos;
         this.inputReader = inputReader;
     }
     
-    public Command next() throws IOException{
+
+	public CommandScanner(GameCommandType[] commandTypeInfos, String input) {
+		this.commandTypeInfos = commandTypeInfos;
+		this.input = input;
+		
+	}
+
+
+	public Command next() throws IOException{
         int numberOfParams = 0;
-        String input = inputReader.readLine();
+        String input = null;
+        if(Launcher.getJavaFxMode() == true){
+        	input = this.input;
+        };
+        if(Launcher.getJavaFxMode() == false){
+        	input = inputReader.readLine();
+        };
+        
         String[] inputArr = input.split(" ");
         String name = inputArr[0];
         Object[] paramsParse = new Object[5];

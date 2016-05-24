@@ -6,23 +6,26 @@ public abstract class Game {
     public State state;
     public FlattenedBoard flattenedBoard;
     public XY input;
-    public final int FPS = 1;
+    public final int FPS = 10;
     public Game (){
         state = new State();
         input = new XY(new int[]{0,0});
     };
 
-    public void run(){
-    	if(Launcher.switcher == false){
+    public void run(){  		
+    	 if(Launcher.getSwitcher() == false ){
     		while(true){
     			render();
     			processInput();
     			update();
     		}
+    	
     	}
     	
-    	if(Launcher.switcher == true){
+    	else if(Launcher.getSwitcher() == true|| Launcher.getJavaFxMode() == true){
     		render();
+    		if(Launcher.getJavaFxMode() == true)
+    		processInput();
     		update();
     	}
     	

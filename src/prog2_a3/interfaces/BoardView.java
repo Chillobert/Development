@@ -6,5 +6,7 @@ public interface BoardView {
 
     String getEntityType(int x, int y);
     
+    Entity getEntity(int x, int y);
+    
     XY getSize();
 }

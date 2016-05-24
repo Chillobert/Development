@@ -1,7 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
 public class BoardConfig {
-private final XY size = new XY(new int[]{10,10});
+private final XY size = new XY(new int[]{20,20});
 private final int amountGoodBeasts = 2;
 private final int amountBadBeasts = 2;
 private final int amountGoodPlants = 2;

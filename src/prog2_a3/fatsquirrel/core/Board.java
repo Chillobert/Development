@@ -27,6 +27,7 @@ private EntitySet entSet;
     //Erstellen aller Entitys an zufälligem Ort
     private void fillBoard(int amountGoodBeasts, int amountBadBeasts, int amountGoodPlants, int amountBadPlants, int amountWalls){
         this.entSet.add("GuidedMasterSquirrel", randLoc()[0], randLoc()[1]);
+        this.entSet.add("MasterSquirrelBot", randLoc()[0], randLoc()[1]);
         
     	for(int i = 0; i!=amountGoodBeasts;i++)
             this.entSet.add("GoodBeast", randLoc()[0], randLoc()[1]);
@@ -49,14 +50,14 @@ private EntitySet entSet;
     };
 
     public int[] randLoc(){
-        int[] randVector = new int[]{((int)((Math.random()*9)+1)),((int)((Math.random()*9)+1))};
+        int[] randVector = new int[]{((int)((Math.random()*(length-1))+1)),((int)((Math.random()*(width-1))+1))};
         Entity[] entArray = entSet.getEntityArray();
         boolean isTaken = false;
             do{
                 for(int i = 0; entArray[i]!=null; i++){
                     if(entArray[i].getLocation().getPos()==randVector){
                         isTaken = true;
-                        randVector = new int[]{(int)(((Math.random()*9)+1)),(int)(((Math.random()*9)+1))};
+                        randVector = new int[]{(int)(((Math.random()*(length-1))+1)),(int)(((Math.random()*(width-1))+1))};
                         break;
                     }
                     else

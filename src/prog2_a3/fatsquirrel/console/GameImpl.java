@@ -5,6 +5,8 @@ import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.sun.javafx.property.adapter.PropertyDescriptor.Listener;
+
 import prog2_a3.*;
 import prog2_a3.Launcher;
 import prog2_a3.fatsquirrel.core.*;
@@ -15,7 +17,7 @@ public class GameImpl extends Game {
 	private Command puffer;
     private ConsoleUI ui;
     private Command command;
-    private FxUI fxui;
+    private FxUI fxUI;
 
     
     public GameImpl(){
@@ -25,7 +27,7 @@ public class GameImpl extends Game {
     
     public GameImpl (FxUI fxui){
         super();
-        this.fxui = fxui;
+        this.fxUI = fxUI;
     }
     
  @Override
@@ -34,7 +36,7 @@ public class GameImpl extends Game {
         Object[] params = null;
         XY inpWhile = this.input;
         
-        if(Launcher.switcher == false){
+        if(Launcher.getSwitcher() == false){
             while (this.input == inpWhile) { // the loop over all commands with one input line for every command
             	
             	command = ui.getCommand();
@@ -73,11 +75,16 @@ public class GameImpl extends Game {
         		
         }
         
-        if(Launcher.switcher == true){
-        while (this.input == inpWhile && this.getPuffer() != null) { // the loop over all commands with one input line for every command        	
+        if(Launcher.getSwitcher() == true){
+        while (this.input == inpWhile && fxUI.giveCommand() != null) { // the loop over all commands with one input line for every command     // && this.getPuffer() != null
+        	if (Launcher.getJavaFxMode() == true){
+        	command = fxUI.giveCommand();	
+        	fxUI.setCommand(null);
+        	}
+        	else{
             command = this.getPuffer(); //ui.getCommand();
             this.setPuffer(null);
-        	
+        	}
 
             if(command!=null){
                 GameCommandType commandType = (GameCommandType) command.getCommandType();
@@ -157,18 +164,20 @@ public class GameImpl extends Game {
             super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
         else
             super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
-        if(Launcher.switcher == true){
+        if(Launcher.getSwitcher() == true){
         this.input = null;}
 
     }
 
     @Override
     protected void render() {
-        if(fxui==null)
+
+    	if(Launcher.getJavaFxMode() == false)
             ui.render(flattenedBoard = state.getBoard().flatten());
-        if(ui==null)
-            fxui.render(flattenedBoard);
-        
+    	if(Launcher.getJavaFxMode() == true){
+            fxUI.render(flattenedBoard = state.getBoard().flatten());
+    	}
+
     }
     public int getFPS(){
     	return this.FPS;
@@ -183,4 +192,16 @@ public class GameImpl extends Game {
     public Command getPuffer(){
     	return this.puffer;
     }
-}
+    
+    //Method to get the fxUI
+    public FxUI setfxUI(FxUI fxUI){
+    	return this.fxUI = fxUI;
+    	
+    }
+    
+    	
+    	
+    	
+    	
+    }
+    
