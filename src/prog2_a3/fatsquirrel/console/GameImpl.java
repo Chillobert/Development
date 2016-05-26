@@ -28,12 +28,13 @@ public class GameImpl extends Game {
     public GameImpl (FxUI fxui){
         super();
         this.fxUI = fxUI;
+       
     }
     
     @Override
     protected void processInput(){
         XY inpWhile = this.input;
-       
+        
         if(Launcher.getMode() == 1){
             while (this.input == inpWhile) { // the loop over all commands with one input line for every command
             	

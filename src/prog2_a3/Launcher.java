@@ -42,7 +42,7 @@ private static Level level = Level.FINE; //Level für Logging setzen
 private BoardConfig boardConfig = new BoardConfig();
 private Stage primaryStage;
 private FxUI fxUI;
-private static GameLogger gameLogger;
+public static GameLogger gameLogger;
 
     public Launcher(){ 
     	this.gameLogger = new GameLogger(level);
