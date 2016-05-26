@@ -35,16 +35,18 @@ private Calendar calendar;
 private Command commandPuffer;
 private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
 private BoardConfig boardConfig = new BoardConfig();
-private Stage primaryStage = new Stage();
+private Stage primaryStage;
 private FxUI fxUI;
 
-    public Launcher(){        
+    public Launcher(){ 
         this.boardConfig = new BoardConfig();
         this.calendar = new GregorianCalendar();
         if (gameMode != 3){
         	this.game = new GameImpl();
         };
-        //this.game = new GameImpl();
+        if (gameMode == 3){
+        	primaryStage = new Stage();
+        }
     }
 	
     public static void main(String[] args){
@@ -95,7 +97,7 @@ private FxUI fxUI;
 							if(commandPuffer != null){
 								game.setPuffer(commandPuffer);
 								game.process();
-								game.setPuffer(null); //commandPuffer = null
+								game.setPuffer(null); 
 								commandPuffer = null;
 							}
 		
