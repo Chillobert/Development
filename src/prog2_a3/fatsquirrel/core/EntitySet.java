@@ -1,6 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 import prog2_a3.interfaces.*;
 
 public class EntitySet {
@@ -68,9 +69,12 @@ public class EntitySet {
         return(output);
     }
 
-    public void nextStepAll(EntityContext entContext, XY input){
+    public void nextStepAll(EntityContext entContext, XY input) throws InterruptedException{
+        boolean masterExists = false;
         for(int i=0;entArray.length>i;i++){
             if(entArray[i]!=null){
+                if(isInstance(entArray[i],MasterSquirrel.class))
+                    masterExists = true;
                 if(entArray[i].getTimeout()<=0){
                     if(isInstance(entArray[i],GuidedMasterSquirrel.class)){
                     	if( input != null) ///////////////////////
@@ -82,6 +86,10 @@ public class EntitySet {
                 else if(entArray[i].getTimeout()>0)
                     entArray[i].setTimeout(entArray[i].getTimeout()-1);
             }
+        }
+        if(!masterExists){
+            JOptionPane.showMessageDialog(null,"you lost! Press OK to exit");
+            System.exit(0);
         }
     }
     

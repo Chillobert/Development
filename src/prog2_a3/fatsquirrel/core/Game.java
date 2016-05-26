@@ -13,18 +13,17 @@ public abstract class Game {
     };
 
     public void run(){  		
-    	 if(Launcher.getSwitcher() == false ){
+    	 if(Launcher.getMode() == 1 ){
     		while(true){
     			render();
     			processInput();
     			update();
     		}
-    	
     	}
     	
-    	else if(Launcher.getSwitcher() == true|| Launcher.getJavaFxMode() == true){
+    	else if(Launcher.getMode() == 2 || Launcher.getMode() == 3){
     		render();
-    		if(Launcher.getJavaFxMode() == true)
+    		if(Launcher.getMode() == 3)
     		processInput();
     		update();
     	}

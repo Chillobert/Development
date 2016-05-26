@@ -2,7 +2,10 @@ package prog2_a3.fatsquirrel.console;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import com.sun.javafx.property.adapter.PropertyDescriptor.Listener;
 
 import prog2_a3.*;
 import prog2_a3.Launcher;
@@ -22,42 +25,47 @@ public class GameImpl extends Game {
         this.ui = new ConsoleUI();
     }
     
-    public GameImpl (FxUI fxUi){
+    public GameImpl (FxUI fxui){
         super();
-        this.fxUI = fxUi;
+        this.fxUI = fxui;
+       
     }
     
     @Override
     protected void processInput(){
         XY inpWhile = this.input;
         
-        if(Launcher.getSwitcher() == false){
-            while (this.input == inpWhile) { // the loop over all commands with one input line for every command
-            	
-            	command = ui.getCommand();
-                try{
-                    if(command==null)
-                        throw new ScanException();
-                }
-                catch(ScanException ScEx){
-                    System.out.println("wrong input. Please use 'help' to show commands");
-                }           	
-                invokeCommand();
+            switch (Launcher.getMode()) {
+                case 1:
+                    while (this.input == inpWhile) { // the loop over all commands with one input line for every command
+                        
+                        command = ui.getCommand();
+                        try{
+                            if(command==null)
+                                throw new ScanException();
+                        }
+                        catch(ScanException ScEx){
+                            System.out.println("wrong input. Please use 'help' to show commands");
+                        }
+                        invokeCommand();
+                    }       break;
+                case 2:
+                    while (this.input == inpWhile) { // the loop over all commands with one input line for every command     // && this.getPuffer() != null
+                        command = this.getPuffer(); //ui.getCommand();
+                        this.setPuffer(null);
+                        
+                        invokeCommand();
+                    }       break;
+                case 3:
+                    while(fxUI.giveCommand() != null){
+                        command = fxUI.giveCommand();
+                        fxUI.setCommand(null);
+                        
+                        invokeCommand();
+                    }   break;
+                default:
+                    break;
             }
-        }     
-        else{
-            while (this.input == inpWhile && fxUI.giveCommand() != null) { // the loop over all commands with one input line for every command     // && this.getPuffer() != null
-        	if (Launcher.getJavaFxMode() == true){
-                    command = fxUI.giveCommand();	
-                    fxUI.setCommand(null);
-        	}
-        	else{
-                    command = this.getPuffer(); //ui.getCommand();
-                    this.setPuffer(null);
-        	}
-                invokeCommand();
-            }
-        }
     }
     
     private void help(){
@@ -113,14 +121,14 @@ public class GameImpl extends Game {
             System.out.println("you don't have this much energy to spare");
         }
     }
-    
+
     @Override
     protected void update(){
         if(this.input==null)
             super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
         else
             super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
-        if(Launcher.getSwitcher() == true){
+        if(Launcher.getMode() == 2 || Launcher.getMode() == 3){
         this.input = null;}
 
     }
@@ -128,9 +136,9 @@ public class GameImpl extends Game {
     @Override
     protected void render() {
 
-    	if(Launcher.getJavaFxMode() == false)
+    	if(Launcher.getMode() == 1 || Launcher.getMode() == 2)
             ui.render(flattenedBoard = state.getBoard().flatten());
-    	else{
+        else if(Launcher.getMode() == 3){
             fxUI.render(flattenedBoard = state.getBoard().flatten());
     	}
 

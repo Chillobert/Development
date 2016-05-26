@@ -11,7 +11,7 @@ public abstract class MasterSquirrel extends PlayerEntity{
 	
 	// Erstellt ein Minisquirrel
         public MiniSquirrel createDescendant(int latestId, int energy, int x, int y){
-            MiniSquirrel Norbert = new MiniSquirrel(latestId+1, energy, getLocation().getX()+x, getLocation().getY()+y, super.getId());
+            MiniSquirrelBot Norbert = new MiniSquirrelBot(latestId+1, energy, getLocation().getX()+x, getLocation().getY()+y, super.getId());
             this.updateEnergy(-energy);
             return Norbert;
 	}

@@ -59,7 +59,7 @@ public class ConsoleUI implements UI {
                     case "GoodBeast":System.out.print("GB");break;
                     case "GoodPlant":System.out.print("GP");break;
                     case "GuidedMasterSquirrel":System.out.print("GS");break;
-                    case "MiniSquirrel":System.out.print("MS");break;
+                    case "MiniSquirrel":case "MiniSquirrelBot":System.out.print("MS");break;
                     case "MasterSquirrelBot":System.out.print("SB");break;
                     default:System.out.print("FF");break;
                 }

@@ -88,7 +88,7 @@ public class FxUI extends Scene implements UI {
        		   					   break;
                 		   case D: fxUI.setInput("right");
 		   					       break;
-                		   case X: fxUI.setInput("mini <100> <down>");
+                		   case X: fxUI.setInput("mini 200 s");
                 		   		   break;
                 		   case H: fxUI.setInput("help");
                 		   		   break;
@@ -165,7 +165,7 @@ public class FxUI extends Scene implements UI {
             		health.valueOf(view.getEntity(row, column).getEnergy());
             		break;               		
 
-            	case "MiniSquirrel":
+            	case "MiniSquirrel":case"MiniSquirrelBot":
             		gc.setFill(Color.BLUE);
             		gc.fillRect(view.getEntity(row, column).getLocation().getX()*CELL_SIZE, view.getEntity(row, column).getLocation().getY()*CELL_SIZE, CELL_SIZE*0.5, CELL_SIZE*0.5);
             		break;
