@@ -33,8 +33,7 @@ private static long timestamp_2;
 private GameImpl game;
 private Calendar calendar;
 private Command commandPuffer;
-private static boolean switcher = true; //false = alt; //true = neu;
-private static boolean javafxmode = true; //javafxmode
+private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
 private BoardConfig boardConfig = new BoardConfig();
 private Stage primaryStage = new Stage();
 private FxUI fxUI;
@@ -42,29 +41,30 @@ private FxUI fxUI;
     public Launcher(){        
         this.boardConfig = new BoardConfig();
         this.calendar = new GregorianCalendar();
-        if (javafxmode == false){
+        if (gameMode != 3){
         	this.game = new GameImpl();
         };
         //this.game = new GameImpl();
     }
 	
     public static void main(String[] args){
-            
-		if(javafxmode == true){
-            launch(args);
-		}
-                
-		else if( switcher == true){
-            Launcher launcher = new Launcher();
-           
-            launcher.startGame(null, launcher.game);
-		}
-		else if (switcher == false) {
-			Launcher launcher = new Launcher();
-			launcher.game.run();
-                    }
-		
+       //Konsole_alt    
+    	if(gameMode == 1){
+    	Launcher launcher = new Launcher();
+    	launcher.game.run();
+    	}
+    	//Konsole_neu
+    	else if (gameMode == 2){
+    	Launcher launcher = new Launcher();
+    	launcher.startGame(null, launcher.game);
+    	}
+    	//javafx_GUI
+    	else if (gameMode == 3){
+    	launch(args);	
+    	}
+    	
             }
+    
 	//Diese Methode gibt den Spielablauf wieder. 
     //Die Methode game.run wird fortlaufend aufgerufen. Mithilfe von game.FPS kann die Geschwindigkeit reguliert werden
     private void startGame(FxUI fxUI, GameImpl game) { 
@@ -89,7 +89,7 @@ private FxUI fxUI;
 		}
 		
 	},1000,1 );
-		if(Launcher.javafxmode == false){
+		if(Launcher.gameMode == 1 || Launcher.gameMode == 2){
 				while(true){
 						commandPuffer = game.getUI().savePuffer();
 							if(commandPuffer != null){
@@ -135,13 +135,8 @@ public void start(Stage primaryStage) throws Exception {
 	
 }
 
-//Getter für den Bool JavaFX => Falls True wird die Gui-Variante geladen (Switcher muss ebenfalls true sein)
-public static boolean getJavaFxMode(){
-	return javafxmode;
-}
-
-//Getter für den Bool Switcher bzw. Ausgabe auf der Konsole => False = Alter Modus; True = Neuer Modus(Multithreading
-public static boolean getSwitcher(){
-	return switcher;
+//Getter für gameMode; 1== konsole_alt, 2==konsole_neu, 3==javafx_gui
+public static int getMode(){
+	return gameMode;
 }
 }

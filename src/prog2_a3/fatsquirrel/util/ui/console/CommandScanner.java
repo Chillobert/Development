@@ -29,10 +29,10 @@ public class CommandScanner {
 	public Command next() throws IOException{
         int numberOfParams = 0;
         String input = null;
-        if(Launcher.getJavaFxMode() == true){
+        if(Launcher.getMode() == 3){
         	input = this.input;
         };
-        if(Launcher.getJavaFxMode() == false){
+        if(Launcher.getMode() == 1 || Launcher.getMode() == 2){
         	input = inputReader.readLine();
         };
         

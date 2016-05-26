@@ -34,7 +34,7 @@ public class GameImpl extends Game {
     protected void processInput(){
         XY inpWhile = this.input;
         
-        if(Launcher.getSwitcher() == false){
+        if(Launcher.getMode() == 1){
             while (this.input == inpWhile) { // the loop over all commands with one input line for every command
             	
             	command = ui.getCommand();
@@ -47,19 +47,24 @@ public class GameImpl extends Game {
                 }           	
                 invokeCommand();
             }
-        }     
-        else{
-            while (this.input == inpWhile && fxUI.giveCommand() != null) { // the loop over all commands with one input line for every command     // && this.getPuffer() != null
-        	if (Launcher.getJavaFxMode() == true){
-                    command = fxUI.giveCommand();	
-                    fxUI.setCommand(null);
-        	}
-        	else{
+        }
+        
+        else if (Launcher.getMode() == 2){
+            while (this.input == inpWhile) { // the loop over all commands with one input line for every command     // && this.getPuffer() != null
                     command = this.getPuffer(); //ui.getCommand();
                     this.setPuffer(null);
-        	}
+        	
                 invokeCommand();
             }
+        }
+        
+        else if (Launcher.getMode() == 3){
+        	while(fxUI.giveCommand() != null){
+                    command = fxUI.giveCommand();	
+                    fxUI.setCommand(null);
+            	
+            	invokeCommand();
+        	}
         }
     }
     
@@ -112,7 +117,7 @@ public class GameImpl extends Game {
             super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
         else
             super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
-        if(Launcher.getSwitcher() == true){
+        if(Launcher.getMode() == 2 || Launcher.getMode() == 3){
         this.input = null;}
 
     }
@@ -120,9 +125,9 @@ public class GameImpl extends Game {
     @Override
     protected void render() {
 
-    	if(Launcher.getJavaFxMode() == false)
+    	if(Launcher.getMode() == 1 || Launcher.getMode() == 2)
             ui.render(flattenedBoard = state.getBoard().flatten());
-    	if(Launcher.getJavaFxMode() == true){
+    	if(Launcher.getMode() == 3){
             fxUI.render(flattenedBoard = state.getBoard().flatten());
     	}
 
