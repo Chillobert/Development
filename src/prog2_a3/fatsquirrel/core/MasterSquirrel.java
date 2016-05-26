@@ -13,7 +13,6 @@ public abstract class MasterSquirrel extends PlayerEntity{
         public MiniSquirrel createDescendant(int latestId, int energy, int x, int y){
             MiniSquirrel Norbert = new MiniSquirrel(latestId+1, energy, getLocation().getX()+x, getLocation().getY()+y, super.getId());
             this.updateEnergy(-energy);
-            //entityList.updateEnergy(energy) mit Hashtable. id als key
             return Norbert;
 	}
 	

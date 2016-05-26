@@ -248,7 +248,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
         int energy = 0;
         Entity[] entArray = entSet.getEntityArray();
         for(int i = 0;entArray.length > i; i++){
-            if(entSet.isInstance(entArray[i], MasterSquirrel.class))
+            if(entSet.isInstance(entArray[i], GuidedMasterSquirrel.class))
                 energy = entArray[i].getEnergy();
         }
         return energy;

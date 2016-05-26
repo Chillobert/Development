@@ -1,6 +1,5 @@
 package prog2_a3;
 
-import java.awt.TextField;
 import java.io.BufferedReader;
 import java.io.IOException;
 

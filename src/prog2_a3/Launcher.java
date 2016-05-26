@@ -13,6 +13,7 @@ import javax.xml.bind.Marshaller.Listener;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.event.Event;
@@ -25,6 +26,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.event.ActionEvent;
+import prog2_a3.fatsquirrel.util.LoggingConfig;
 
 
 public class Launcher extends Application{
@@ -33,10 +35,10 @@ private static long timestamp_2;
 private GameImpl game;
 private Calendar calendar;
 private Command commandPuffer;
-private static boolean switcher = true; //false = alt; //true = neu;
-private static boolean javafxmode = true; //javafxmode
+private static boolean switcher = false; //false = alt; //true = neu;
+private static boolean javafxmode = false; //javafxmode
 private BoardConfig boardConfig = new BoardConfig();
-private Stage primaryStage = new Stage();
+//private Stage primaryStage = new Stage();
 private FxUI fxUI;
 
     public Launcher(){        
@@ -44,7 +46,7 @@ private FxUI fxUI;
         this.calendar = new GregorianCalendar();
         if (javafxmode == false){
         	this.game = new GameImpl();
-        };
+        }
         //this.game = new GameImpl();
     }
 	
@@ -79,7 +81,7 @@ private FxUI fxUI;
 				game.run();
 				timestamp_2 = calendar.getTimeInMillis();	
 				
-				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+Durchläufe/Sekunde - Endzeit
+				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+Durchlaufe/Sekunde - Endzeit
 
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -108,8 +110,8 @@ private FxUI fxUI;
 
 }
 
-//Diese Methode wird von der Klasse Application überschrieben (siehe JAVAFX) 
-//Hier wird die GUI initalisiert und an die Methode run() übergeben.
+//Diese Methode wird von der Klasse Application uberschrieben (siehe JAVAFX) 
+//Hier wird die GUI initalisiert und an die Methode run() ubergeben.
 @Override
 public void start(Stage primaryStage) throws Exception {
 	this.primaryStage = primaryStage;
@@ -135,12 +137,12 @@ public void start(Stage primaryStage) throws Exception {
 	
 }
 
-//Getter für den Bool JavaFX => Falls True wird die Gui-Variante geladen (Switcher muss ebenfalls true sein)
+//Getter fur den Bool JavaFX => Falls True wird die Gui-Variante geladen (Switcher muss ebenfalls true sein)
 public static boolean getJavaFxMode(){
 	return javafxmode;
 }
 
-//Getter für den Bool Switcher bzw. Ausgabe auf der Konsole => False = Alter Modus; True = Neuer Modus(Multithreading
+//Getter fur den Bool Switcher bzw. Ausgabe auf der Konsole => False = Alter Modus; True = Neuer Modus(Multithreading
 public static boolean getSwitcher(){
 	return switcher;
 }

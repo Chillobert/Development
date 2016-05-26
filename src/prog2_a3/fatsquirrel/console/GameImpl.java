@@ -2,10 +2,7 @@ package prog2_a3.fatsquirrel.console;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import com.sun.javafx.property.adapter.PropertyDescriptor.Listener;
 
 import prog2_a3.*;
 import prog2_a3.Launcher;
@@ -25,9 +22,9 @@ public class GameImpl extends Game {
         this.ui = new ConsoleUI();
     }
     
-    public GameImpl (FxUI fxui){
+    public GameImpl (FxUI fxUi){
         super();
-        this.fxUI = fxUI;
+        this.fxUI = fxUi;
     }
     
     @Override
@@ -97,13 +94,24 @@ public class GameImpl extends Game {
         System.out.println("Die aktuelle Energie unseres Squirrel ist: "+flattenedBoard.getSquirrelEnergy());
     }
     
-    public void mini(){
-         try{
-            flattenedBoard.spawnChild(flattenedBoard.getMasterSquirrel(), new XY(new int[]{(int)(Math.round((Math.random()*2)-1)),(int)(Math.round((Math.random()*2)-1))}), (int)command.getParams()[0]);
-            }
-            catch(NullPointerException | NotEnoughEnergyException NuEx){
-                System.out.println("wrong input. Please refere to \"help\"");
-            }
+    public void mini(int energy, String direction){
+        XY spawnDirection;
+        switch(direction){
+            case "w": case "W": spawnDirection = new XY(new int[]{0,-1});break;
+            case "s": case "S": spawnDirection = new XY(new int[]{0,1});break;
+            case "a": case "A": spawnDirection = new XY(new int[]{-1,0});break;
+            case "d": case "D": spawnDirection = new XY(new int[]{1,0});break;
+            default: spawnDirection = new XY(new int[]{0,0});break;
+        }
+        try{
+            flattenedBoard.spawnChild(flattenedBoard.getMasterSquirrel(), spawnDirection, energy);
+        }
+        catch(NullPointerException NuEx){
+            System.out.println("wrong input. Please refere to \"help\"");
+        }
+        catch(NotEnoughEnergyException EnEx){
+            System.out.println("you don't have this much energy to spare");
+        }
     }
     
     @Override
@@ -122,7 +130,7 @@ public class GameImpl extends Game {
 
     	if(Launcher.getJavaFxMode() == false)
             ui.render(flattenedBoard = state.getBoard().flatten());
-    	if(Launcher.getJavaFxMode() == true){
+    	else{
             fxUI.render(flattenedBoard = state.getBoard().flatten());
     	}
 

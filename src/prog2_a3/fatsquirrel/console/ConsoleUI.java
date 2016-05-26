@@ -53,13 +53,14 @@ public class ConsoleUI implements UI {
             for(int j = 0;j<=view.getSize().getX();j++){
                 switch(view.getEntityType(j,i)){
                     case " ":System.out.print("--"); break;
-                    case "Wall":System.out.print("Wa"); break;
+                    case "Wall":System.out.print("WA"); break;
                     case "BadBeast":System.out.print("BB");break;
                     case "BadPlant":System.out.print("BP");break;
                     case "GoodBeast":System.out.print("GB");break;
                     case "GoodPlant":System.out.print("GP");break;
                     case "GuidedMasterSquirrel":System.out.print("GS");break;
                     case "MiniSquirrel":System.out.print("MS");break;
+                    case "MasterSquirrelBot":System.out.print("SB");break;
                     default:System.out.print("FF");break;
                 }
             }

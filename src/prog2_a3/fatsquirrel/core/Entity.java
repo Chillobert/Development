@@ -32,7 +32,7 @@ public abstract class Entity{
         }
 	
         public void updateEnergy(int charge){
-	energy = energy + charge;
+	energy += charge;
         }
 
         public abstract void nextStep(EntityContext entCon);
