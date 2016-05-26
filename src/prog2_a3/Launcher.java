@@ -16,8 +16,7 @@ import javax.xml.bind.Marshaller.Listener;
 
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import prog2_a3.fatsquirrel.core.GameLogger;
+import java.util.GregorianCalendar;;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -45,7 +44,7 @@ private FxUI fxUI;
 public static GameLogger gameLogger;
 
     public Launcher(){ 
-    	//this.gameLogger = new GameLogger(level);
+    	this.gameLogger = new GameLogger(level);
         this.boardConfig = new BoardConfig();
         this.calendar = new GregorianCalendar();
         if (gameMode != 3){
@@ -61,18 +60,18 @@ public static GameLogger gameLogger;
        //Konsole_alt    
     	if(gameMode == 1){
     	Launcher launcher = new Launcher();
-    	//gameLogger.log(level.INFO, "Spiel initialisieren: Modus = Konsole_alt");
+//    	gameLogger.log(level.INFO, "Spiel initialisieren: Modus = Konsole_alt");
     	launcher.game.run();
     	}
     	//Konsole_neu
     	else if (gameMode == 2){
     	Launcher launcher = new Launcher();
-    	//gameLogger.log(level.INFO, "Spiel initialisieren: Modus = Konsole_neu");
+//    	gameLogger.log(level.INFO, "Spiel initialisieren: Modus = Konsole_neu");
     	launcher.startGame(null, launcher.game);
     	}
     	//javafx_GUI
     	else if (gameMode == 3){
-        //gameLogger.log(level.INFO, "Spiel initialisieren: Modus = JavaFX_GUI");
+//        gameLogger.log(level.INFO, "Spiel initialisieren: Modus = JavaFX_GUI");
     	launch(args);	
     	}
     	

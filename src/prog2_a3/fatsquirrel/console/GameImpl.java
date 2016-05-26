@@ -125,9 +125,17 @@ public class GameImpl extends Game {
     @Override
     protected void update(){
         if(this.input==null)
-            super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
+            try {
+                super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         else
-            super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
+            try {
+                super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if(Launcher.getMode() == 2 || Launcher.getMode() == 3){
         this.input = null;}
 
