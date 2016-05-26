@@ -4,13 +4,17 @@ import prog2_a3.fatsquirrel.console.*;
 import prog2_a3.fatsquirrel.core.BoardConfig;
 import prog2_a3.fatsquirrel.core.FlattenedBoard;
 import prog2_a3.fatsquirrel.core.Game;
+import prog2_a3.fatsquirrel.core.GameLogger;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
 import prog2_a3.interfaces.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.Marshaller.Listener;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -33,12 +37,15 @@ private static long timestamp_2;
 private GameImpl game;
 private Calendar calendar;
 private Command commandPuffer;
-private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
+private static int gameMode = 1; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
+private static Level level = Level.FINE; //Level für Logging setzen
 private BoardConfig boardConfig = new BoardConfig();
 private Stage primaryStage;
 private FxUI fxUI;
+private static GameLogger gameLogger;
 
     public Launcher(){ 
+    	this.gameLogger = new GameLogger(level);
         this.boardConfig = new BoardConfig();
         this.calendar = new GregorianCalendar();
         if (gameMode != 3){
@@ -50,18 +57,22 @@ private FxUI fxUI;
     }
 	
     public static void main(String[] args){
+
        //Konsole_alt    
     	if(gameMode == 1){
     	Launcher launcher = new Launcher();
+    	gameLogger.log(level.INFO, "Spiel gestartet: Modus = Konsole_alt");
     	launcher.game.run();
     	}
     	//Konsole_neu
     	else if (gameMode == 2){
     	Launcher launcher = new Launcher();
+    	gameLogger.log(level.INFO, "Spiel gestartet: Modus = Konsole_neu");
     	launcher.startGame(null, launcher.game);
     	}
     	//javafx_GUI
     	else if (gameMode == 3){
+        gameLogger.log(level.INFO, "Spiel gestartet: Modus = JavaFX_GUI");
     	launch(args);	
     	}
     	
@@ -140,5 +151,9 @@ public void start(Stage primaryStage) throws Exception {
 //Getter für gameMode; 1== konsole_alt, 2==konsole_neu, 3==javafx_gui
 public static int getMode(){
 	return gameMode;
+	}
+//Getter für GameLogger;
+public static GameLogger logger(){
+	return gameLogger;
 }
 }

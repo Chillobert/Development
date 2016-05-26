@@ -19,7 +19,6 @@ public abstract class Game {
     			processInput();
     			update();
     		}
-    	
     	}
     	
     	else if(Launcher.getMode() == 2 || Launcher.getMode() == 3){

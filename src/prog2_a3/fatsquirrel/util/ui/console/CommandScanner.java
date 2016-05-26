@@ -29,6 +29,7 @@ public class CommandScanner {
 	public Command next() throws IOException{
         int numberOfParams = 0;
         String input = null;
+        
         if(Launcher.getMode() == 3){
         	input = this.input;
         };
