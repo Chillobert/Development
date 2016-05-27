@@ -53,4 +53,9 @@ public final class XY {
         public XY reverse(){
             return new XY(new int[]{-this.getX(),-this.getY()});
         }
+        
+        @Override
+        public String toString(){
+            return ("X: "+this.getX()+" Y: "+this.getY());
+        }
 }

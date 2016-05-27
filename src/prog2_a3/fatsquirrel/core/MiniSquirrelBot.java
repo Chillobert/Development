@@ -34,44 +34,36 @@ public class MiniSquirrelBot extends MiniSquirrel{
 
         @Override
         public XY getViewLowerLeft() {
-            return new XY(new int[]{MiniSquirrelBot.this.getLocation().getX()-1,MiniSquirrelBot.this.getLocation().getY()+1});
+            XY currentLocation = MiniSquirrelBot.this.getLocation();
+            int currentX = currentLocation.getX();
+            int currentY = currentLocation.getY();
+            XY fieldSize = entCon.getSize();
+            XY upperRight = currentLocation;
+            for(int i = 1;i<=10;i++){
+                if(currentX-i>=0)
+                    upperRight = new XY(new int[]{upperRight.getX()-1,upperRight.getY()});
+                if(currentY+i <= fieldSize.getY())
+                    upperRight = new XY(new int[]{upperRight.getX(),upperRight.getY()-1});
+            }
+            return upperRight;
         }
         
         @Override
         public XY getViewUpperRight() {
-            return new XY(new int[]{MiniSquirrelBot.this.getLocation().getX()+1,MiniSquirrelBot.this.getLocation().getY()-1});
+            XY currentLocation = MiniSquirrelBot.this.getLocation();
+            int currentX = currentLocation.getX();
+            int currentY = currentLocation.getY();
+            XY fieldSize = entCon.getSize();
+            XY upperRight = currentLocation;
+            for(int i = 1;i<=10;i++){
+                if(currentX+i<=fieldSize.getX())
+                    upperRight = new XY(new int[]{upperRight.getX()+1,upperRight.getY()});
+                if(currentY-i >= 0)
+                    upperRight = new XY(new int[]{upperRight.getX(),upperRight.getY()-1});
+            }
+            return upperRight;
         }
         
-        @Override
-        public XY getViewLowerRight(){
-            return new XY(new int[]{MiniSquirrelBot.this.getLocation().getX()+1,MiniSquirrelBot.this.getLocation().getY()+1});
-        }
-        
-        @Override
-        public XY getViewUpperLeft(){
-            return new XY(new int[]{MiniSquirrelBot.this.getLocation().getX()+1,MiniSquirrelBot.this.getLocation().getY()-1});
-        }
-        
-        @Override
-        public XY getViewLeft(){
-            return new XY(new int[]{MiniSquirrelBot.this.getLocation().getX()-1,MiniSquirrelBot.this.getLocation().getY()});
-        }
-        
-        @Override
-        public XY getViewRight(){
-            return new XY(new int[]{MiniSquirrelBot.this.getLocation().getX()+1,MiniSquirrelBot.this.getLocation().getY()});
-        }
-        
-        @Override
-        public XY getViewUp(){
-            return new XY(new int[]{MiniSquirrelBot.this.getLocation().getX(),MiniSquirrelBot.this.getLocation().getY()-1});
-        }
-        
-        @Override
-        public XY getViewDown(){
-              return new XY(new int[]{MiniSquirrelBot.this.getLocation().getX(),MiniSquirrelBot.this.getLocation().getY()+1});
-        }
-
         @Override
         public EntityType getEntityAt(XY xy) {
             if(entCon.getEntityType(xy)!=null){

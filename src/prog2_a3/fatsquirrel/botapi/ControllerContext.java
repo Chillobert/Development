@@ -4,26 +4,14 @@ import prog2_a3.fatsquirrel.core.XY;
 
 public interface ControllerContext {
 	XY getViewLowerLeft();
-	
+
 	XY getViewUpperRight();
-	
-        XY getViewLowerRight();
-        
-        XY getViewUpperLeft();
-        
-        XY getViewLeft();
-        
-        XY getViewRight();
-        
-        XY getViewUp();
-        
-        XY getViewDown();
-        
+
 	EntityType getEntityAt(XY xy);
-	
+
 	void move(XY direction);
-	
+
 	void spawnMiniBot(XY direction, int energy);
-	
+
 	int getEnergy();
 }

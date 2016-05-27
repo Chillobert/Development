@@ -36,7 +36,7 @@ private static long timestamp_2;
 private GameImpl game;
 private Calendar calendar;
 private Command commandPuffer;
-private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
+private static int gameMode = 1; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
 private static Level level = Level.FINE; //Level f�r Logging setzen
 private BoardConfig boardConfig = new BoardConfig();
 private Stage primaryStage;

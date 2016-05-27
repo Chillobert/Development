@@ -5,9 +5,11 @@ import java.util.Random;
 import prog2_a3.fatsquirrel.core.XY;
 
 public class BotControllerMasterImpl implements BotController{
-
+    int i = 0;
+    
     @Override
     public void nextStep(ControllerContext view) {
+        
         view.move(randVector());
     }
     
