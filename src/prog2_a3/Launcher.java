@@ -138,6 +138,7 @@ public void start(Stage primaryStage) throws Exception {
      fxUI.getWindow().setOnCloseRequest(new EventHandler() {
     	 @Override
          public void handle(Event evt) {
+    		 logger.log(Level.INFO, "Spiel beendet");
              System.exit(-1);     
          }
 
