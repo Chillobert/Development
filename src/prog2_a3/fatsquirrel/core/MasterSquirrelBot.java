@@ -22,7 +22,7 @@ public class MasterSquirrelBot extends MasterSquirrel{
 
     }
 
-class ControllerContextImpl implements ControllerContext{
+class ControllerContextImpl implements MasterBotControllerContext{
 
     EntityContext entCon;
     

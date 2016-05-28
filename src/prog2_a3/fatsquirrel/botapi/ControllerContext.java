@@ -11,7 +11,5 @@ public interface ControllerContext {
 
 	void move(XY direction);
 
-	void spawnMiniBot(XY direction, int energy);
-
 	int getEnergy();
 }

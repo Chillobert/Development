@@ -24,7 +24,7 @@ public class MiniSquirrelBot extends MiniSquirrel{
         botCon.nextStep(conConImp);
     }
 
-    class ControllerContextImpl implements ControllerContext{
+    class ControllerContextImpl implements MiniBotControllerContext{
 
         EntityContext entCon;
 
@@ -81,13 +81,18 @@ public class MiniSquirrelBot extends MiniSquirrel{
         }
 
         @Override
-        public void spawnMiniBot(XY direction, int energy) {
-            // fehler logging
+        public int getEnergy() {
+            return MiniSquirrelBot.this.getEnergy();
         }
 
         @Override
-        public int getEnergy() {
-            return MiniSquirrelBot.this.getEnergy();
+        public void implode(int radius) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public XY getDirectionToParent() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
     }
