@@ -10,7 +10,7 @@ public final class XY {
         public XY(int[]loc){
             this.loc = loc;
             r = new Random();
-            logger.log(Level.FINEST, "Objekt der XY Game wurde erstellt");
+            logger.log(Level.FINEST, "Objekt der Klasse XY wurde erstellt");
         }
         
 	public XY move(int[] Vector){
