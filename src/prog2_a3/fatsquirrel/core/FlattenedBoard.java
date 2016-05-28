@@ -141,13 +141,13 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 if(!entSet.isInstance(nextField, Wall.class)){
                     miniSquirrel.move(moveDirection);
                     miniSquirrel.updateEnergy(-1);
+                    mortalCombat(miniSquirrel,nextField);
                 }
                 else if(entSet.isInstance(nextField, Wall.class)){
                     miniSquirrel.updateEnergy(nextField.getEnergy());
                     miniSquirrel.setTimeout(3);
                     miniSquirrel.updateEnergy(-1);
                 }
-                mortalCombat(miniSquirrel,nextField);
             }
             else{
                 miniSquirrel.move(moveDirection);
@@ -201,10 +201,6 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     badBeast.setTimeout(4);
                 }
                 else if(entSet.isInstance(nextField, Wall.class)){
-                    //XY randMove = badBeast.getLocation().getRandomVector();
-                    //while(entSet.isInstance(getEntity(badBeast.getLocation().getX() + randMove.getX(), badBeast.getLocation().getY() + actualMoveDirection.getY()), Wall.class))
-                    //    randMove = badBeast.getLocation().getRandomVector();
-                    //badBeast.move(randMove);
                 }
                 mortalCombat(badBeast,nextField);
             }
@@ -226,9 +222,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     masterBot.updateEnergy(nextField.getEnergy());
                     masterBot.setTimeout(3);
                 }
-                else if(!entSet.isInstance(nextField, Wall.class))
+                else if(!entSet.isInstance(nextField, Wall.class)){
                     masterBot.move(moveDirection);
-                mortalCombat(masterBot,nextField);
+                    mortalCombat(masterBot,nextField);
+                }
             }
             else
                 masterBot.move(moveDirection);
@@ -264,19 +261,8 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     private void mortalCombat(Entity moveEnt,Entity collEnt){
-        if((entSet.isInstance(collEnt, PlayerEntity.class))){
-            if (entSet.isInstance(moveEnt, BadBeast.class)){
-                    ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
-                    ((BadBeast)moveEnt).collCount++;
-                if(moveEnt.collCount>=7)
-                    killAndReplace(moveEnt);
-            }
-            if (entSet.isInstance(moveEnt, GoodBeast.class)){
-                ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
-                killAndReplace(moveEnt);
-            }
-        }
-        else if(entSet.isInstance(moveEnt, PlayerEntity.class)){
+
+        if(entSet.isInstance(moveEnt, PlayerEntity.class)){
     		//Hier m�ssen die verschiedenen Kollisionsf�lle implementiert werden
     		//arrayPos = bewegte Entity  //collPos = statische Entity 
     		//Goodplant Kollision:
@@ -318,6 +304,18 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
                     kill(moveEnt);
                 }
+            }
+        }
+        else if((entSet.isInstance(collEnt, PlayerEntity.class))){
+            if (entSet.isInstance(moveEnt, BadBeast.class)){
+                    ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
+                    ((BadBeast)moveEnt).collCount++;
+                if(moveEnt.collCount>=7)
+                    killAndReplace(moveEnt);
+            }
+            if (entSet.isInstance(moveEnt, GoodBeast.class)){
+                ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
+                killAndReplace(moveEnt);
             }
         }
     }

@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javax.swing.JOptionPane;
 import prog2_a3.fatsquirrel.console.GameCommandType;
 import prog2_a3.fatsquirrel.core.BoardConfig;
 import prog2_a3.fatsquirrel.core.XY;
@@ -88,7 +89,9 @@ public class FxUI extends Scene implements UI {
        		   					   break;
                 		   case D: fxUI.setInput("right");
 		   					       break;
-                		   case X: fxUI.setInput("mini 200 s");
+                		   case X:  String energyInput = JOptionPane.showInputDialog(null,"Wieviel Energie möchten Sie auf ihr MiniSquirrel übertragen?");
+                                            String direction = JOptionPane.showInputDialog(null,"In welche Richtung soll ihr MiniSquirrel Spawnen?(w,a,s,d)");
+                                            fxUI.setInput("mini "+energyInput+" "+direction);
                 		   		   break;
                 		   case H: fxUI.setInput("help");
                 		   		   break;

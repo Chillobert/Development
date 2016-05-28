@@ -83,19 +83,19 @@ public class GameImpl extends Game {
     }
     
     private void left(){
-        this.input = flattenedBoard.getMasterSquirrel().getLocation().moveLeft();
+        this.input = new XY(new int[]{-1,0});
     }
     
     private void right(){
-        this.input = flattenedBoard.getMasterSquirrel().getLocation().moveRight();
+        this.input = new XY(new int[]{1,0});
     }
     
     public void up(){
-        this.input = flattenedBoard.getMasterSquirrel().getLocation().moveUp();
+        this.input = new XY(new int[]{0,-1});
     }
     
     public void down(){
-        this.input = flattenedBoard.getMasterSquirrel().getLocation().moveDown();
+        this.input = new XY(new int[]{0,1});;
     }
     
     public void energy(){

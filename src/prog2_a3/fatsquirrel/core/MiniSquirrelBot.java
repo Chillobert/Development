@@ -38,14 +38,14 @@ public class MiniSquirrelBot extends MiniSquirrel{
             int currentX = currentLocation.getX();
             int currentY = currentLocation.getY();
             XY fieldSize = entCon.getSize();
-            XY upperRight = currentLocation;
+            XY lowerLeft = currentLocation;
             for(int i = 1;i<=10;i++){
                 if(currentX-i>=0)
-                    upperRight = new XY(new int[]{upperRight.getX()-1,upperRight.getY()});
+                    lowerLeft = lowerLeft.moveLeft();
                 if(currentY+i <= fieldSize.getY())
-                    upperRight = new XY(new int[]{upperRight.getX(),upperRight.getY()-1});
+                    lowerLeft = lowerLeft.moveDown();
             }
-            return upperRight;
+            return lowerLeft;
         }
         
         @Override
@@ -55,11 +55,11 @@ public class MiniSquirrelBot extends MiniSquirrel{
             int currentY = currentLocation.getY();
             XY fieldSize = entCon.getSize();
             XY upperRight = currentLocation;
-            for(int i = 1;i<=10;i++){
+            for(int i = 1;i<=11;i++){
                 if(currentX+i<=fieldSize.getX())
-                    upperRight = new XY(new int[]{upperRight.getX()+1,upperRight.getY()});
+                    upperRight = upperRight.moveRight();
                 if(currentY-i >= 0)
-                    upperRight = new XY(new int[]{upperRight.getX(),upperRight.getY()-1});
+                    upperRight = upperRight.moveUp();
             }
             return upperRight;
         }
