@@ -1,15 +1,19 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.util.logging.Level;
+
 import prog2_a3.Launcher;
 
 public abstract class Game {
     public State state;
     public FlattenedBoard flattenedBoard;
     public XY input;
-    public final int FPS = 10;
+    public final int FPS = 5;
+    private static final GameLogger logger = new GameLogger();
     public Game (){
         state = new State();
         input = new XY(new int[]{0,0});
+        logger.log(Level.FINEST, "Objekt der Klasse Game wurde erstellt");
     };
 
     public void run(){  		

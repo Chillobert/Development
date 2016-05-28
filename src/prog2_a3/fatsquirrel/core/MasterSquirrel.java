@@ -1,12 +1,15 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.util.logging.Level;
+
 import prog2_a3.interfaces.EntityContext;
 
 public abstract class MasterSquirrel extends PlayerEntity{
-
+	private static final GameLogger logger = new GameLogger();
 	public static final int energy = 1000; 
 	public MasterSquirrel(int id, int x, int y) {
-		super(id, energy, x, y);             
+		super(id, energy, x, y);
+		logger.log(Level.FINEST, "Objekt der Klasse MasterSquirrel wurde erstellt");
 	}
 	
 	// Erstellt ein Minisquirrel

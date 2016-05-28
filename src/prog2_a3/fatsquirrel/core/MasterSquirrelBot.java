@@ -7,11 +7,13 @@ import prog2_a3.interfaces.*;
 import prog2_a3.fatsquirrel.botapi.*;
 
 public class MasterSquirrelBot extends MasterSquirrel{
-
+	private static final GameLogger logger = new GameLogger();
+	
     public MasterSquirrelBot(int id, int x, int y) {
         super(id, x, y);
         BotControllerFactory BotFact = new BotControllerFactoryImpl();
         BotController BotCon = BotFact.createMasterBotController();
+        logger.log(Level.FINEST, "Objekt der Klasse MasterSquirrelBot wurde erstellt");
     }
 
     @Override

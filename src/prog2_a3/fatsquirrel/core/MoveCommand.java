@@ -1,9 +1,14 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.util.logging.Level;
+
 public class MoveCommand {
-    
+	private static final GameLogger logger = new GameLogger();
     String input;
     
+public MoveCommand(){
+	logger.log(Level.FINEST, "Objekt der Klasse MoveCommand wurde erstellt");
+}
     public MoveCommand(String input){
         this.input = input;
     }

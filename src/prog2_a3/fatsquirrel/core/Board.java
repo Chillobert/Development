@@ -1,5 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.util.logging.Level;
+
 public class Board {
 	
 private final int length;
@@ -11,7 +13,7 @@ private final int amountGoodPlants;
 private final int amountBadPlants;
 private int amountWalls;
 private EntitySet entSet; 
-
+private static final GameLogger logger = new GameLogger();
     public Board( BoardConfig config){
 	this.length = config.getLength();
 	this.width = config.getWidth();
@@ -22,6 +24,7 @@ private EntitySet entSet;
 	this.amountGoodPlants = config.getAmountGoodPlants();
 	this.amountBadPlants = config.getAmountBadPlants();
 	fillBoard(this.amountGoodBeasts,this.amountBadBeasts,this.amountGoodPlants,this.amountBadPlants,this.amountWalls);
+	logger.log(Level.FINEST, "Object der Klasse Board erstellt");
     };
     
     //Erstellen aller Entitys an zufälligem Ort

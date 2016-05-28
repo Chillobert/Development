@@ -2,6 +2,8 @@ package prog2_a3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.application.Platform;
 import javafx.beans.property.StringProperty;
@@ -17,6 +19,7 @@ import javafx.scene.paint.Color;
 import javax.swing.JOptionPane;
 import prog2_a3.fatsquirrel.console.GameCommandType;
 import prog2_a3.fatsquirrel.core.BoardConfig;
+import prog2_a3.fatsquirrel.core.GameLogger;
 import prog2_a3.fatsquirrel.core.XY;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
 import prog2_a3.fatsquirrel.util.ui.console.CommandScanner;
@@ -37,13 +40,17 @@ public class FxUI extends Scene implements UI {
 	private static String health;
 	private String caster;
 	private static StringProperty valueProperty;
-
+	private static final GameLogger logger = new GameLogger();
+	
     public FxUI(Parent parent, Canvas boardCanvas, Label msgLabel) {
         super(parent);
         this.commandTypes = GameCommandType.values();
         this.boardCanvas = boardCanvas;
         this.msgLabel = msgLabel;
         this.keyEvent = keyEvent;
+        logger.log(Level.FINEST, "Object der Klasse FxUI erstellt");
+        Logger.getLogger("java.awt").setLevel(Level.OFF);
+        Logger.getLogger("java.fx").setLevel(Level.OFF);
 
     }
     
@@ -202,6 +209,8 @@ public class FxUI extends Scene implements UI {
                     CommandScanner commandScanner = new CommandScanner(commandTypes, input); //inputReader wird zum Input aus CASE W A S D
                     command = commandScanner.next();
                 } catch (IOException ioEx) {
+                	//MasterSquirrel falsche EIngabe U NO
+                	logger.log(Level.WARNING, "Warnung: FxUI.getCommand(); Ungültige Eingabe des Spielers");
                     System.out.println("Das war keine gÃ¼ltige Eingabe. probier es mal mit help");
                 }
             return command;

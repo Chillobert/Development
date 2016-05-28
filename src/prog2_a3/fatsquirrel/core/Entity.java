@@ -1,5 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.util.logging.Level;
+
 import prog2_a3.interfaces.*;
 
 
@@ -10,13 +12,14 @@ public abstract class Entity{
 	private XY loc;
         private int penalty;
 	public int collCount=0;
-
+	private static final GameLogger logger = new GameLogger();
 
         public Entity(int id, int energy, int x, int y){
 
 	this.id = id;
 	this.energy = energy;
 	this.loc = new XY(new int[]{x,y});
+	logger.log(Level.FINEST, "Object der Klasse Entity erstellt");
         };
 
         public int getId(){

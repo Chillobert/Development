@@ -1,13 +1,16 @@
 package prog2_a3.fatsquirrel.core;
 import java.util.Random;
+import java.util.logging.Level;
 
 public final class XY {
 	private final int[] loc;
+	private static final GameLogger logger = new GameLogger();
         Random r;
         
         public XY(int[]loc){
             this.loc = loc;
             r = new Random();
+            logger.log(Level.FINEST, "Objekt der XY Game wurde erstellt");
         }
         
 	public XY move(int[] Vector){

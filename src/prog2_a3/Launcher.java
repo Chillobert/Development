@@ -16,7 +16,7 @@ import javax.xml.bind.Marshaller.Listener;
 
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.GregorianCalendar;;
+import java.util.GregorianCalendar;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -41,10 +41,10 @@ private static Level level = Level.FINE; //Level f�r Logging setzen
 private BoardConfig boardConfig = new BoardConfig();
 private Stage primaryStage;
 private FxUI fxUI;
-public static GameLogger gameLogger;
+private static final GameLogger logger = new GameLogger();
 
-    public Launcher(){ 
-    	this.gameLogger = new GameLogger(level);
+
+    public Launcher(){  	
         this.boardConfig = new BoardConfig();
         this.calendar = new GregorianCalendar();
         if (gameMode != 3){
@@ -53,25 +53,26 @@ public static GameLogger gameLogger;
         if (gameMode == 3){
         	primaryStage = new Stage();
         }
+        logger.log(Level.FINEST, "Object der Klasse Launcher erstellt");
     }
 	
     public static void main(String[] args){
-
+        logger.log(Level.INFO, "Spiel gestartet");
        //Konsole_alt    
     	if(gameMode == 1){
     	Launcher launcher = new Launcher();
-    	gameLogger.log(level.INFO, "Spiel initialisieren: Modus = Konsole_alt");
+    	logger.log(level.CONFIG, "Spiel initialisieren: Modus = Konsole_alt");
     	launcher.game.run();
     	}
     	//Konsole_neu
     	else if (gameMode == 2){
     	Launcher launcher = new Launcher();
-    	gameLogger.log(level.INFO, "Spiel initialisieren: Modus = Konsole_neu");
+    	logger.log(level.CONFIG, "Spiel initialisieren: Modus = Konsole_neu");
     	launcher.startGame(null, launcher.game);
     	}
     	//javafx_GUI
     	else if (gameMode == 3){
- //       gameLogger.log(level.INFO, "Spiel initialisieren: Modus = JavaFX_GUI");
+        logger.log(level.CONFIG, "Spiel initialisieren: Modus = JavaFX_GUI");
     	launch(args);	
     	}
     	
@@ -94,6 +95,7 @@ public static GameLogger gameLogger;
 				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+Durchl�ufe/Sekunde - Endzeit
 
 			} catch (InterruptedException e) {
+				logger.log(Level.SEVERE, "Fehler: Launcher.startGame.run(); InterrupedException");
 				e.printStackTrace();
 			}
 		
@@ -135,6 +137,7 @@ public void start(Stage primaryStage) throws Exception {
      fxUI.getWindow().setOnCloseRequest(new EventHandler() {
     	 @Override
          public void handle(Event evt) {
+    		 logger.log(Level.INFO, "Spiel beendet");
              System.exit(-1);     
          }
 
@@ -151,8 +154,5 @@ public void start(Stage primaryStage) throws Exception {
 public static int getMode(){
 	return gameMode;
 	}
-//Getter f�r GameLogger;
-public static GameLogger logger(){
-	return gameLogger;
-}
+
 }

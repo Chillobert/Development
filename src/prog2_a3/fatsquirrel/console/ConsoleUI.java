@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.logging.Level;
+
 import prog2_a3.interfaces.*;
+import prog2_a3.fatsquirrel.core.GameLogger;
 import prog2_a3.fatsquirrel.util.ui.console.*;
 public class ConsoleUI implements UI {
 
@@ -14,11 +17,12 @@ public class ConsoleUI implements UI {
     private GameCommandType[] commandTypes;
     int counter = 0;
     private Command commandPuffer;
-
+    private static final GameLogger logger = new GameLogger();
     public ConsoleUI() {
         this.outputStream = System.out;
         this.inputReader = new BufferedReader(new InputStreamReader(System.in));
         this.commandTypes = GameCommandType.values();
+        logger.log(Level.FINEST, "Object der Klasse ConsoleUI erstellt");
     }
     
     @Override
@@ -27,6 +31,7 @@ public class ConsoleUI implements UI {
             CommandScanner commandScanner = new CommandScanner(commandTypes,inputReader);
             command = commandScanner.next();
         } catch (IOException ioEx) {
+        	logger.log(Level.WARNING, "Warnung: ConsoleUI.getCommand(); Ungültige Eingabe des Spielers");
             outputStream.println("Das war keine gÃ¼ltige Eingabe. probier es mal mit help");
         }
         return command;
@@ -37,6 +42,7 @@ public class ConsoleUI implements UI {
         	CommandScanner commandScanner = new CommandScanner(commandTypes,inputReader);
 			commandPuffer = commandScanner.next();
 		} catch (IOException e) {
+		     logger.log(Level.WARNING, "Warnung: ConsoleUI.getCommand(); Ungültige Eingabe des Spielers");
 			 outputStream.println("Das war keine gÃ¼ltige Eingabe. probier es mal mit help");
 			
 		}

@@ -9,10 +9,11 @@ import prog2_a3.interfaces.*;
 
 
 public class MiniSquirrelBot extends MiniSquirrel{
-
+	private static final GameLogger logger = new GameLogger();
     //private int energy;
     public MiniSquirrelBot(int id, int energy, int x, int y, int patronId) {
         super(id, energy, x, y, patronId);
+        logger.log(Level.FINEST, "Objekt der Klasse MiniSquirrelBot wurde erstellt");
         //this.energy = energy;
     }
 
