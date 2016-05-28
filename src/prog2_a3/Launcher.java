@@ -45,7 +45,6 @@ private static final GameLogger logger = new GameLogger();
 
 
     public Launcher(){  	
-    	logger.log(Level.INFO, "Spiel gestartet");
         this.boardConfig = new BoardConfig();
         this.calendar = new GregorianCalendar();
         if (gameMode != 3){
@@ -58,7 +57,7 @@ private static final GameLogger logger = new GameLogger();
     }
 	
     public static void main(String[] args){
-    	
+        logger.log(Level.INFO, "Spiel gestartet");
        //Konsole_alt    
     	if(gameMode == 1){
     	Launcher launcher = new Launcher();

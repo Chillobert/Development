@@ -3,6 +3,7 @@ package prog2_a3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.application.Platform;
 import javafx.beans.property.StringProperty;
@@ -48,6 +49,8 @@ public class FxUI extends Scene implements UI {
         this.msgLabel = msgLabel;
         this.keyEvent = keyEvent;
         logger.log(Level.FINEST, "Object der Klasse FxUI erstellt");
+        Logger.getLogger("java.awt").setLevel(Level.OFF);
+        Logger.getLogger("java.fx").setLevel(Level.OFF);
 
     }
     

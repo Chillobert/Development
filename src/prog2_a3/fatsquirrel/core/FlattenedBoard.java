@@ -275,26 +275,35 @@ public class FlattenedBoard implements BoardView, EntityContext {
             if(entSet.isInstance(collEnt, Plant.class)){
                 moveEnt.updateEnergy(collEnt.getEnergy());
                 killAndReplace(collEnt);
+                logger.log(Level.FINE, "GoodPlant wurde von " + moveEnt.getName() + " gefressen");
+                logger.log(Level.FINE, "Eine neue GoodPlant ist gewachsen");
             }
             //GoodBeast Kollision:
             if(entSet.isInstance(collEnt, GoodBeast.class)){
             	moveEnt.updateEnergy(collEnt.getEnergy());
                 killAndReplace(collEnt);
+                logger.log(Level.FINE, "GoodBeast wurde von " + moveEnt.getName() + " gefressen");
+                logger.log(Level.FINE, "Ein neues GoodBeast erwacht");
             }
             //BadBeast Kollision:
             if(entSet.isInstance(collEnt, BadBeast.class)){
                 moveEnt.updateEnergy(collEnt.getEnergy());
+                logger.log(Level.FINE, "BadBeast kollidiert mit " + moveEnt.getName() + ";" + moveEnt.getName() + " verliert 150 Energie");
                 collEnt.collCount++;
                 if(collEnt.collCount>=7)
                     killAndReplace(collEnt);
+                	logger.log(Level.FINE, "BadBeast bricht zusammen (Lebenszeit erloschen)");
+                	logger.log(Level.FINE, "Ein neues BadBeast erwacht");
             }
-            //MasterSquirrel Kollision
+            //MasterSquirrel Kollision für MiniSquirrel fremdes/eigenes
             if(entSet.isInstance(collEnt, MasterSquirrel.class)){
                 if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
                     if(((MasterSquirrel)collEnt).checkDescendant((MiniSquirrel)moveEnt)){
                         collEnt.updateEnergy(moveEnt.getEnergy());
-                    }
+                        logger.log(Level.FINER, "Eigenes MiniSquirrel wurde von Mastersquirrel aufgenommen (Mini kommt zu Master)");
+                    }  
                 kill(moveEnt);
+                logger.log(Level.FINE, "Fremdes MiniSquirrel wurde von einem MasterSquirrel aufgefressen (Mini kommt zu Master)");
                 }
             }
             //MiniSquirrel Kollision:
@@ -302,13 +311,16 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 if(entSet.isInstance(moveEnt,MasterSquirrel.class)){
                     if(((MasterSquirrel)moveEnt).checkDescendant((MiniSquirrel)collEnt)){
                        moveEnt.updateEnergy(collEnt.getEnergy());
+                       logger.log(Level.FINER, "Eigenes MiniSquirrel wurde von Mastersquirrel aufgenommen (Master kommt zu Mini)");
                     }
                     else
-                       moveEnt.updateEnergy(150);
-                kill(collEnt);
+                       moveEnt.updateEnergy(150);              
+                       kill(collEnt);
+                       logger.log(Level.FINE, "Fremdes MiniSquirrel wurde von einem MasterSquirrel aufgefressen (Mini kommt zu Master)");
                 }
                 if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
                     kill(moveEnt);
+                      logger.log(Level.FINE, "Minisquirrel läuft auf anderes Minisquirrel und stirbt");
                 }
             }
         }
@@ -318,10 +330,14 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     ((BadBeast)moveEnt).collCount++;
                 if(moveEnt.collCount>=7)
                     killAndReplace(moveEnt);
+                	logger.log(Level.FINE, "BadBeast bricht zusammen (Lebenszeit erloschen)");
+                	logger.log(Level.FINE, "Ein neues BadBeast erwacht");
             }
             if (entSet.isInstance(moveEnt, GoodBeast.class)){
                 ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
                 killAndReplace(moveEnt);
+                	logger.log(Level.FINE, "GoodBeast wird von " + moveEnt.getName() + " aufgefressen");
+                	logger.log(Level.FINE, "Ein neues GoodBeast erwacht");
             }
         }
     }
