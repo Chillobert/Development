@@ -1,6 +1,8 @@
 package prog2_a3.fatsquirrel.core;
 
 
+import java.util.logging.Level;
+
 import prog2_a3.interfaces.*;
 
 
@@ -12,6 +14,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     private XY size;
     private EntitySet entSet;
     private Board board;
+    private static final GameLogger logger = new GameLogger();
     
     public FlattenedBoard(Board board){
         this.board = board;
@@ -23,6 +26,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
             if(entArray[i]!=null)
                 this.flattenedBoard[entArray[i].getLocation().getX()] [entArray[i].getLocation().getY()] = entArray[i];
         }
+        logger.log(Level.FINEST, "Objekt der Klasse FlattenedBoard wurde erstellt");
     }
     
     public Entity[][] getBoard(){
@@ -79,8 +83,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     @Override
     public void spawnChild(MasterSquirrel parent, XY direction, int energy)throws NotEnoughEnergyException{
-        if(energy>=this.getSquirrelEnergy())
+        if(energy>=this.getSquirrelEnergy()){
+        	logger.log(Level.WARNING, "FlattenBoard.spawnChild: Nicht genügend Energie für Spawn");
             throw new NotEnoughEnergyException("your squirrels energy is too low");
+            }
         else
             entSet.addMini(parent,energy,direction);
     }

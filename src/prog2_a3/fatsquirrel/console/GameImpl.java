@@ -18,16 +18,18 @@ public class GameImpl extends Game {
     private ConsoleUI ui;
     private Command command;
     private FxUI fxUI;
-
+    private static final GameLogger logger = new GameLogger();
     
     public GameImpl(){
         super();
         this.ui = new ConsoleUI();
+        logger.log(Level.FINEST, "Object der Klasse GameImpl erstellt");
     }
     
     public GameImpl (FxUI fxui){
         super();
         this.fxUI = fxui;
+        logger.log(Level.FINEST, "Object der Klasse GameImpl erstellt");
        
     }
     
@@ -45,6 +47,7 @@ public class GameImpl extends Game {
                                 throw new ScanException();
                         }
                         catch(ScanException ScEx){
+                        	logger.log(Level.WARNING, "Warnung: GameImpl.prcessInput(); Falsche Eingabe des Spielers");
                             System.out.println("wrong input. Please use 'help' to show commands");
                         }
                         invokeCommand();
@@ -113,11 +116,14 @@ public class GameImpl extends Game {
         }
         try{
             flattenedBoard.spawnChild(flattenedBoard.getMasterSquirrel(), spawnDirection, energy);
+            logger.log(Level.FINE, "Minisquirrel wurde erstellt");
         }
         catch(NullPointerException NuEx){
+        	logger.log(Level.WARNING, "Warnung: Falsche Eingabe des Spielers");
             System.out.println("wrong input. Please refere to \"help\"");
         }
         catch(NotEnoughEnergyException EnEx){
+        	logger.log(Level.WARNING, "Warnung: MasterSquirrel hat nicht genügend Energie für Spawn");
             System.out.println("you don't have this much energy to spare");
         }
     }
@@ -128,13 +134,13 @@ public class GameImpl extends Game {
             try {
                 super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
         } catch (InterruptedException ex) {
-            Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
+        	logger.log(Level.SEVERE, "Fehler: GameImpl.update(); InterrupedException");
         }
         else
             try {
                 super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
         } catch (InterruptedException ex) {
-            Logger.getLogger(GameImpl.class.getName()).log(Level.SEVERE, null, ex);
+        	logger.log(Level.SEVERE, "Fehler: GameImpl.update(); InterrupedException");
         }
         if(Launcher.getMode() == 2 || Launcher.getMode() == 3){
         this.input = null;}
@@ -180,7 +186,7 @@ public class GameImpl extends Game {
                 Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
                 m0.invoke(this, command.getParams());
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException ex) {
-                //error loggen;
+                logger.log(Level.SEVERE, "Fehler: GameImpl.invokeCommand(); Fehler bei Invoke");
             }
         }
     }

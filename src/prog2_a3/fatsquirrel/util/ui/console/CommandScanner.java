@@ -3,19 +3,23 @@ package prog2_a3.fatsquirrel.util.ui.console;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
 
 import prog2_a3.Launcher;
 import prog2_a3.fatsquirrel.console.GameCommandType;
+import prog2_a3.fatsquirrel.core.GameLogger;
 
 public class CommandScanner {
     private CommandTypeInfo[] commandTypeInfos;
     private BufferedReader inputReader;
     private Class<?>[] commandTypes = new Class[]{null};
     private String input;
+    private static final GameLogger logger = new GameLogger();
     
     public CommandScanner(CommandTypeInfo[] commandTypeInfos, BufferedReader inputReader){
         this.commandTypeInfos = commandTypeInfos;
         this.inputReader = inputReader;
+        logger.log(Level.FINEST, "Objekt der Klasse CommandScanner wurde erstellt");
     }
     
 
@@ -64,6 +68,7 @@ public class CommandScanner {
                         }
                     }
                         catch(ArrayIndexOutOfBoundsException | NullPointerException ArrEx){
+                        	logger.log(Level.SEVERE, "Fehler:CommandScanner.next(); Zugriff auf Array auﬂerhalb der Addresierung");
                       
                         }
                     for(int j = 0;paramsParse[j]!=null;j++)

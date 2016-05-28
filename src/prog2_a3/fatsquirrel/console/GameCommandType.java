@@ -1,5 +1,8 @@
 package prog2_a3.fatsquirrel.console;
 
+import java.util.logging.Level;
+
+import prog2_a3.fatsquirrel.core.GameLogger;
 import prog2_a3.fatsquirrel.util.ui.console.*;
 
 public enum GameCommandType implements CommandTypeInfo{
@@ -21,6 +24,7 @@ public enum GameCommandType implements CommandTypeInfo{
         this.commandName = name;
         this.helpText = helpText;
         this.paramTypes = params;
+
     }
 
     @Override

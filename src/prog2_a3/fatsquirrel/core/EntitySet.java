@@ -1,6 +1,9 @@
 package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import prog2_a3.interfaces.*;
 
@@ -10,7 +13,9 @@ public class EntitySet {
     private int latestId=1;
     private Entity[] entArray = new Entity[1000];
     private int idColl=0; 
+    private static final GameLogger logger = new GameLogger();
     public EntitySet(XY size){   
+    logger.log(Level.FINEST, "Object der Klasse EntitySet erstellt");
     }
     
     public void add(String entityTyp, int x, int y){
@@ -88,6 +93,7 @@ public class EntitySet {
             }
         }
         if(!masterExists){
+        	logger.log(Level.INFO, "Spiel beendet");
             JOptionPane.showMessageDialog(null,"you lost! Press OK to exit");
             System.exit(0);
         }
