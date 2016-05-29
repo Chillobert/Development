@@ -6,7 +6,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class InvocationHandlerImpl implements InvocationHandler  {
     private ControllerContext context; // Proxy für ControllerContext
@@ -20,7 +19,7 @@ public class InvocationHandlerImpl implements InvocationHandler  {
 
         logger.log(Level.INFO, "* calling method " + method + " with params ");
 
-        // übergebene Argumente ausgeben
+        //Argumente ausgeben
         for (int i = 0; i < args.length; i++)
             logger.log(Level.INFO, " " + args[i]);
 
@@ -33,8 +32,8 @@ public class InvocationHandlerImpl implements InvocationHandler  {
         } catch(InvocationTargetException ex)  {
             logger.log(Level.SEVERE, "Fehler: InvocationHandlerImpl.invoke(); getTargetException");
             throw ex.getTargetException();
-        }
-        // Ergebnis d. Methoden ausgeben, falls alles gepasst hat kommt kein null raus
+        	}
+        // Ergebnis d. Methoden wird gelogt
         logger.log(Level.INFO, (String) result);
 
         return result;
