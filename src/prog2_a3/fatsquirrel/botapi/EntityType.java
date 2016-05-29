@@ -18,7 +18,7 @@ public enum EntityType {
         this.position = pos;
     }
     
-    public Class returnPosition(){
+    public Class getPosition(){
         return position;
     }
 }

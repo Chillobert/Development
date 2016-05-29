@@ -1,12 +1,9 @@
 package prog2_a3.fatsquirrel.core;
 
-import java.util.HashMap;
 import prog2_a3.fatsquirrel.botapi.BotControllerMiniImpl;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import prog2_a3.fatsquirrel.botapi.*;
 import prog2_a3.interfaces.*;
-
 
 public class MiniSquirrelBot extends MiniSquirrel{
 	private static final GameLogger logger = new GameLogger();
@@ -25,7 +22,7 @@ public class MiniSquirrelBot extends MiniSquirrel{
         botCon.nextStep(conConImp);
     }
 
-    class ControllerContextImpl implements MiniBotControllerContext{
+    class ControllerContextImpl implements ControllerContext{
 
         EntityContext entCon;
 
@@ -82,18 +79,39 @@ public class MiniSquirrelBot extends MiniSquirrel{
         }
 
         @Override
+        public void spawnMiniBot(XY direction, int energy) {
+            // fehler logging
+        }
+
+        @Override
         public int getEnergy() {
             return MiniSquirrelBot.this.getEnergy();
         }
 
         @Override
-        public void implode(int radius) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        public void implode(int impactRadius) {
+            int energy = MiniSquirrelBot.this.getEnergy();
+            int patronId = MiniSquirrelBot.this.getPatronId();
+            XY position = MiniSquirrelBot.this.getLocation();
+            int currentX = position.getX();
+            int currentY = position.getY();
+            
+            for(int i = 1; i<=impactRadius;i++){
+                //das Feld vom Squirrel aus in alle Richtungen durchgehen und Entitys suchen
+                if(getEntityAt(new XY(new int[]{currentX+i,currentY}))!= null){
+                    //Abstand berechnen und Formel anwenden
+                    entCon.
+                }
+            }
+            
+            
         }
 
         @Override
         public XY getDirectionToParent() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            entCon.
+            int patronId = MiniSquirrelBot.this.getId();
+            return null; //Master finden und richtung ausgeben schleife über komplettes Feld?
         }
 
     }

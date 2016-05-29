@@ -24,7 +24,7 @@ public class MasterSquirrelBot extends MasterSquirrel{
 
     }
 
-class ControllerContextImpl implements MasterBotControllerContext{
+class ControllerContextImpl implements ControllerContext{
 
     EntityContext entCon;
     
@@ -32,37 +32,37 @@ class ControllerContextImpl implements MasterBotControllerContext{
         this.entCon = entCon;
     }
         
-        @Override
-        public XY getViewLowerLeft() {
-            XY currentLocation = MasterSquirrelBot.this.getLocation();
-            int currentX = currentLocation.getX();
-            int currentY = currentLocation.getY();
-            XY fieldSize = entCon.getSize();
-            XY lowerLeft = currentLocation;
-            for(int i = 1;i<=15;i++){
-                if(currentX-i>=0)
-                    lowerLeft = lowerLeft.moveLeft();
-                if(currentY+i <= fieldSize.getY())
-                    lowerLeft = lowerLeft.moveDown();
-            }
-            return lowerLeft;
+    @Override
+    public XY getViewLowerLeft() {
+        XY currentLocation = MasterSquirrelBot.this.getLocation();
+        int currentX = currentLocation.getX();
+        int currentY = currentLocation.getY();
+        XY fieldSize = entCon.getSize();
+        XY lowerLeft = currentLocation;
+        for(int i = 1;i<=15;i++){
+            if(currentX-i>=0)
+                lowerLeft = lowerLeft.moveLeft();
+            if(currentY+i <= fieldSize.getY())
+                lowerLeft = lowerLeft.moveDown();
         }
-        
-        @Override
-        public XY getViewUpperRight() {
-            XY currentLocation = MasterSquirrelBot.this.getLocation();
-            int currentX = currentLocation.getX();
-            int currentY = currentLocation.getY();
-            XY fieldSize = entCon.getSize();
-            XY upperRight = currentLocation;
-            for(int i = 1;i<=16;i++){
-                if(currentX+i<=fieldSize.getX())
-                    upperRight = upperRight.moveRight();
-                if(currentY-i >= 0)
-                    upperRight = upperRight.moveUp();
-            }
-            return upperRight;
+        return lowerLeft;
+    }
+
+    @Override
+    public XY getViewUpperRight() {
+        XY currentLocation = MasterSquirrelBot.this.getLocation();
+        int currentX = currentLocation.getX();
+        int currentY = currentLocation.getY();
+        XY fieldSize = entCon.getSize();
+        XY upperRight = currentLocation;
+        for(int i = 1;i<=16;i++){
+            if(currentX+i<=fieldSize.getX())
+                upperRight = upperRight.moveRight();
+            if(currentY-i >= 0)
+                upperRight = upperRight.moveUp();
         }
+        return upperRight;
+    }
         
     @Override
     public EntityType getEntityAt(XY xy) {
@@ -94,6 +94,17 @@ class ControllerContextImpl implements MasterBotControllerContext{
     @Override
     public int getEnergy() {
         return MasterSquirrelBot.this.getEnergy();
+    }
+
+    @Override
+    public void implode(int radius) {
+        logger.log(Level.WARNING,"Es wurde versucht implode() in MasterSquirrelBot aufzurufen");
+    }
+
+    @Override
+    public XY getDirectionToParent() {
+        logger.log(Level.WARNING,"Es wurde versucht getDirectionToParent() in MasterSquirrelBot aufzurufen");
+        return null;
     }
 
     }
