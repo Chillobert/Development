@@ -8,11 +8,11 @@ public class ContextControllerProxy {
 	   ControllerContext ctrlContProx;
 	    InvocationHandlerImpl handler;
 
-	    public ContextControllerProxy(ControllerContext CtrlContOrig) {
+	    public ContextControllerProxy(ControllerContext ContrlCont) {
 
-		handler = new InvocationHandlerImpl(CtrlContOrig);
+		handler = new InvocationHandlerImpl(ContrlCont);
 		ctrlContProx = (ControllerContext) Proxy.newProxyInstance(
-			ControllerContext.class.getClassLoader(),
+                        ControllerContext.class.getClassLoader(),
 			new Class[] { ControllerContext.class }, handler); // Proxy
 									   // erstellen
 	    }

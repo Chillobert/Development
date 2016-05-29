@@ -84,7 +84,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     @Override
     public void spawnChild(MasterSquirrel parent, XY direction, int energy)throws NotEnoughEnergyException{
         if(energy>=this.getSquirrelEnergy()){
-        	logger.log(Level.WARNING, "FlattenBoard.spawnChild: Nicht genügend Energie für Spawn");
+        	logger.log(Level.WARNING, "FlattenBoard.spawnChild: Nicht genï¿½gend Energie fï¿½r Spawn");
             throw new NotEnoughEnergyException("your squirrels energy is too low");
             }
         else
@@ -117,7 +117,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     public int nearestPlayerDistance(XY position){
         Entity[] entArray = entSet.getEntityArray();
-        int minDistance = 30;
+        int minDistance = 100;
         int currentDistance;
         for(int i=0; i < entArray.length;i++){
             //Das Array aller Entitys durchgehen und fÃ¼r PlayerEntitys die Distanz zum Objekt mit aktuellem Minimum vergleichen
@@ -295,7 +295,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 	logger.log(Level.FINE, "BadBeast bricht zusammen (Lebenszeit erloschen)");
                 	logger.log(Level.FINE, "Ein neues BadBeast erwacht");
             }
-            //MasterSquirrel Kollision für MiniSquirrel fremdes/eigenes
+            //MasterSquirrel Kollision fï¿½r MiniSquirrel fremdes/eigenes
             if(entSet.isInstance(collEnt, MasterSquirrel.class)){
                 if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
                     if(((MasterSquirrel)collEnt).checkDescendant((MiniSquirrel)moveEnt)){
@@ -315,12 +315,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     }
                     else
                        moveEnt.updateEnergy(150);              
-                       kill(collEnt);
-                       logger.log(Level.FINE, "Fremdes MiniSquirrel wurde von einem MasterSquirrel aufgefressen (Mini kommt zu Master)");
+                    kill(collEnt);
+                    logger.log(Level.FINE, "Fremdes MiniSquirrel wurde von einem MasterSquirrel aufgefressen (Mini kommt zu Master)");
                 }
                 if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
                     kill(moveEnt);
-                      logger.log(Level.FINE, "Minisquirrel läuft auf anderes Minisquirrel und stirbt");
+                      logger.log(Level.FINE, "Minisquirrel lï¿½uft auf anderes Minisquirrel und stirbt");
                 }
             }
         }
