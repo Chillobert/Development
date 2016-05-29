@@ -49,8 +49,8 @@ public class FxUI extends Scene implements UI {
         this.msgLabel = msgLabel;
         this.keyEvent = keyEvent;
         logger.log(Level.FINEST, "Object der Klasse FxUI erstellt");
-        Logger.getLogger("java.awt").setLevel(Level.OFF);
-        Logger.getLogger("java.fx").setLevel(Level.OFF);
+        Logger.getLogger("java.awt").setLevel(Level.OFF); //gui meldungen deaktivieren
+        Logger.getLogger("java.fx").setLevel(Level.OFF);  //gui meldungen deaktivieren
 
     }
     

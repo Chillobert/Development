@@ -37,7 +37,7 @@ private GameImpl game;
 private Calendar calendar;
 private Command commandPuffer;
 private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
-private static Level level = Level.FINE; //Level fï¿½r Logging setzen
+private static Level level; //Level fuer Logging (= Level.FINE)
 private BoardConfig boardConfig = new BoardConfig();
 private Stage primaryStage;
 private FxUI fxUI;
@@ -92,7 +92,7 @@ private static final GameLogger logger = new GameLogger();
 				game.run();
 				timestamp_2 = calendar.getTimeInMillis();	
 				
-				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+Durchlï¿½ufe/Sekunde - Endzeit
+				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+1000ms/gewünschteFPS - Endzeit
 
 			} catch (InterruptedException e) {
 				logger.log(Level.SEVERE, "Fehler: Launcher.startGame.run(); InterrupedException");
@@ -103,9 +103,9 @@ private static final GameLogger logger = new GameLogger();
 		}
 		
 	},1000,1 );
-		if(Launcher.gameMode == 1 || Launcher.gameMode == 2){
+		if(Launcher.gameMode == 2){ //Launcher.gameMode == 1 || 
 				while(true){
-						commandPuffer = game.getUI().savePuffer();
+						commandPuffer = game.getUI().getCommand();
 							if(commandPuffer != null){
 								game.setPuffer(commandPuffer);
 								game.process();
@@ -145,7 +145,7 @@ public void start(Stage primaryStage) throws Exception {
      
    primaryStage.show();   
    Launcher launcher = new Launcher(); 
-   launcher.startGame(fxUI, game);    //fxui? 	
+   launcher.startGame(fxUI, game);    	
 	
 	
 }

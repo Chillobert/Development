@@ -39,4 +39,8 @@ public GameLogger(){
 public void log(Level level, String name){
 	logger.log(level, name);
 }
+
+public void proxyLog(Level level, Object o){
+	logger.log(level, (String) o);
+}
 }
