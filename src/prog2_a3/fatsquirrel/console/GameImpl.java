@@ -47,7 +47,7 @@ public class GameImpl extends Game {
                                 throw new ScanException();
                         }
                         catch(ScanException ScEx){
-                        	logger.log(Level.WARNING, "Warnung: GameImpl.prcessInput(); Falsche Eingabe des Spielers");
+                        	logger.log(Level.WARNING, "Warnung: GameImpl.processInput(); Falsche Eingabe des Spielers");
                             System.out.println("wrong input. Please use 'help' to show commands");
                         }
                         invokeCommand();

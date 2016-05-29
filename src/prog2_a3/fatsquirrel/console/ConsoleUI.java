@@ -37,19 +37,6 @@ public class ConsoleUI implements UI {
         return command;
     }
     
-    public Command savePuffer(){
-        try {
-        	CommandScanner commandScanner = new CommandScanner(commandTypes,inputReader);
-			commandPuffer = commandScanner.next();
-		} catch (IOException e) {
-		     logger.log(Level.WARNING, "Warnung: ConsoleUI.getCommand(); Ungültige Eingabe des Spielers");
-			 outputStream.println("Das war keine gÃ¼ltige Eingabe. probier es mal mit help");
-			
-		}
-    	
-		return commandPuffer;
-    	
-    }
 
     @Override
     public void render(BoardView view) {
