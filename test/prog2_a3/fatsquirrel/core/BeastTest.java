@@ -18,7 +18,7 @@ public class BeastTest {
             this.board = new Board(boardConfig);
         }
 	@Test
-	public void BadBeastShouldMoveWhenPenaltyIsZero() {
+	public void BeastsShouldMoveWhenPenaltyIsZero() {
 		FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)
                         .withConstructor(board)
                         .createMock();
