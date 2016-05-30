@@ -9,8 +9,8 @@ import org.easymock.*;
 import static org.easymock.EasyMock.createMockBuilder;
 import org.junit.Assert;
 
-//Diese TestCase überprüft ob der PenaltyCounter des BadBeasts durch den Aufruf der NextStepAll Methode richtig dekrementiert wird und die Bewegung bei Penalty = 0 durchgeführt wird:
-//Bei jedem Aufruf der nextStepAll wird der PenaltyCounter des BadBeasts um 1 verringert. 
+//Diese TestCase überprüft ob der PenaltyCounter der Beasts durch den Aufruf der NextStepAll Methode richtig dekrementiert wird und die Bewegung bei Penalty = 0 durchgeführt wird:
+//Bei jedem Aufruf der nextStepAll wird der PenaltyCounter der Beasts um 1 verringert. 
 public class BeastTest {
         private Board board;
         public BeastTest(){
@@ -37,6 +37,7 @@ public class BeastTest {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			//Mann könnte hier ebenfalls noch die Location abfragen ==> vor nextStepAll abspeicher und danach => dann assertEquals => falls beides gleich haben sie sich nicht bewegt
 			assertEquals(i, entitySet.getEntityArray()[0].getTimeout());	
 			assertEquals(i, entitySet.getEntityArray()[1].getTimeout());	
 		}
