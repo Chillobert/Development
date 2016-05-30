@@ -36,7 +36,7 @@ private static long timestamp_2;
 private GameImpl game;
 private Calendar calendar;
 private Command commandPuffer;
-private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
+private static int gameMode = 2; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
 private static Level level; //Level fuer Logging (= Level.FINE)
 private BoardConfig boardConfig = new BoardConfig();
 private Stage primaryStage;
@@ -58,6 +58,8 @@ private static final GameLogger logger = new GameLogger();
 	
     public static void main(String[] args){
         logger.log(Level.INFO, "Spiel gestartet");
+
+        
        //Konsole_alt    
     	if(gameMode == 1){
     	Launcher launcher = new Launcher();
@@ -103,13 +105,15 @@ private static final GameLogger logger = new GameLogger();
 		}
 		
 	},1000,1 );
-		if(Launcher.gameMode == 2){ //Launcher.gameMode == 1 || 
+    	//Für Variante 2 (TimerThread_Konsole) wird eine Puffervariable commandPuffer eingeführt
+    	//Diese Puffervariabe wird über die Konsole eingelesen und anschließend in der GameImpl game gesetzt
+    	//In der GameImpl wird mithilfe des commandPuffers der zugehörige Command ausgelesen und invoked
+		if(Launcher.gameMode == 2){ 
 				while(true){
 						commandPuffer = game.getUI().getCommand();
 							if(commandPuffer != null){
 								game.setPuffer(commandPuffer);
 								game.process();
-								game.setPuffer(null); 
 								commandPuffer = null;
 							}
 		

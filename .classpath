@@ -4,15 +4,14 @@
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/easymock-3.4/easymock-3.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/easymock-3.4/easymock-3.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/easymock-3.4/easymock-3.4-samples.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/easymock-3.4/easymock-3.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/easymock-3.4/easymock-3.4-tests.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/easymock-3.4/original-easymock-3.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/easymock-3.4/original-easymock-3.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/objenesis-2.3/objenesis-2.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/objenesis-2.3/objenesis-2.3-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pichl_000/Desktop/objenesis-2.3/objenesis-2.3-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/easymock-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/easymock-3.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/easymock-3.4-samples.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/easymock-3.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/easymock-3.4-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/objenesis-2.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/objenesis-2.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/original-easymock-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pichl/git/Development/ExternalJARS/original-easymock-3.4-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
