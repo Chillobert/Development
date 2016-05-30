@@ -17,20 +17,45 @@ public class BeastTest {
             this.board = new Board(boardConfig);
         }
 	@Test
-	public void BadBeastShouldMoveUp() {
+	public void BadBeastShouldMoveWithPenaltyIsZero() {
 		FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)
                         .withConstructor(board)
                         .createMock();
+		
+		EntitySet entitySet = new EntitySet();
+		
 		BadBeast badTest = new BadBeast(IdCounter++, 2, 2);
 		int[] ResultLoc = new int[]{2,1}; //Vermeintlicher Zielvektor 
 		
-		//badTest.move(new XY(new int[]{0, -1}));
-		flattenedBoard.tryMove(badTest, new XY(new int[]{0,-1})); //Bewege BadBeast nach oben
-		System.out.println(badTest.getLocation().getX()+","+badTest.getLocation().getY());
-                
-		badTest.nextStep(flattenedBoard);
-                System.out.println(badTest.getLocation().getX()+","+badTest.getLocation().getY());
+		//System.out.println(badTest.getLocation().getX()+","+badTest.getLocation().getY());
+		badTest.setTimeout(0);
+		//System.out.println(badTest.getTimeout());
+		//flattenedBoard.tryMove(badTest, new XY(new int[]{0,-1})); //Bewege BadBeast nach oben
 		
+		entitySet.add("BadBeast", 2, 2);
+		
+		
+		for (int i = 3; i >=0; i--) {
+			
+			
+			try {				
+				entitySet.nextStepAll(flattenedBoard, null);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			assertEquals(i, entitySet.getEntityArray()[0].getTimeout());
+			
+
+		//	badTest.nextStep(flattenedBoard);
+		//	System.out.println(badTest.getTimeout());
+			
+		}
+	
+                
+		//badTest.nextStep(flattenedBoard);
+        //System.out.println(badTest.getLocation().getX()+","+badTest.getLocation().getY());
 		Assert.assertArrayEquals(ResultLoc, badTest.getLocation().getPos());
 		
 		//badTest.setTimeout(4);
