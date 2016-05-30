@@ -2,7 +2,6 @@ package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import prog2_a3.interfaces.*;
@@ -14,11 +13,12 @@ public class EntitySet {
     private Entity[] entArray = new Entity[1000];
     private int idColl=0; 
     private static final GameLogger logger = new GameLogger();
-    public EntitySet(XY size){   
+    public EntitySet(){   
     logger.log(Level.FINEST, "Object der Klasse EntitySet erstellt");
     }
     
     public void add(String entityTyp, int x, int y){
+
         switch(entityTyp){
             case"BadPlant": entArray[numbOf++] = new BadPlant(numbOf,x,y);break;
             case"GoodBeast":entArray[numbOf++] = new GoodBeast(numbOf,x,y);break;
