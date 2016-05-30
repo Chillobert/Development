@@ -92,9 +92,9 @@ public class EntitySet {
                     entArray[i].setTimeout(entArray[i].getTimeout()-1);
             }
         }
-        if(!masterExists){
-        	logger.log(Level.INFO, "Spiel beendet");
+        if(!masterExists){     	
             JOptionPane.showMessageDialog(null,"you lost! Press OK to exit");
+            logger.log(Level.INFO, "Spiel beendet");
             System.exit(0);
         }
     }
