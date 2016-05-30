@@ -15,8 +15,8 @@ public class ControllerContextProxy {
 		ctrlContProx = (ControllerContext) Proxy.newProxyInstance(ControllerContext.class.getClassLoader(),new Class[] { ControllerContext.class }, invocHandler); 
 	    }
 	    
-	  // nur den Proxy returnen, den Rest erledigt invoke() v. InvoHandler
-	    public ControllerContext invoke() { 
+	  // nur den Proxy returnen, den Rest erledigt getProxy() v. InvoHandler
+	    public ControllerContext getProxy() { 
 		return ctrlContProx;
 	    }
 

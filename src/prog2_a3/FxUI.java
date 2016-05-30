@@ -47,7 +47,6 @@ public class FxUI extends Scene implements UI {
         this.commandTypes = GameCommandType.values();
         this.boardCanvas = boardCanvas;
         this.msgLabel = msgLabel;
-        this.keyEvent = keyEvent;
         logger.log(Level.FINEST, "Object der Klasse FxUI erstellt");
         Logger.getLogger("java.awt").setLevel(Level.OFF); //gui meldungen deaktivieren
         Logger.getLogger("java.fx").setLevel(Level.OFF);  //gui meldungen deaktivieren
@@ -105,8 +104,7 @@ public class FxUI extends Scene implements UI {
                 		   case E: fxUI.setInput("exit");
                 		   		   break;	
                 	   }
-                	   
-                	   
+                	                  	   
                 	  fxUI.getCommand();                 
                    }
                 }
@@ -210,7 +208,7 @@ public class FxUI extends Scene implements UI {
                     command = commandScanner.next();
                 } catch (IOException ioEx) {
                 	//MasterSquirrel falsche EIngabe U NO
-                	logger.log(Level.WARNING, "Warnung: FxUI.getCommand(); Ungültige Eingabe des Spielers");
+                	logger.log(Level.WARNING, "Warnung: FxUI.getCommand(); Ungï¿½ltige Eingabe des Spielers");
                     System.out.println("Das war keine gÃ¼ltige Eingabe. probier es mal mit help");
                 }
             return command;

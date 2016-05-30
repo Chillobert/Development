@@ -21,14 +21,11 @@ public class CommandScanner {
         this.inputReader = inputReader;
         logger.log(Level.FINEST, "Objekt der Klasse CommandScanner wurde erstellt");
     }
-    
 
 	public CommandScanner(GameCommandType[] commandTypeInfos, String input) {
 		this.commandTypeInfos = commandTypeInfos;
-		this.input = input;
-		
+		this.input = input;	
 	}
-
 
 	public Command next() throws IOException{
         int numberOfParams = 0;
@@ -68,7 +65,7 @@ public class CommandScanner {
                         }
                     }
                         catch(ArrayIndexOutOfBoundsException | NullPointerException ArrEx){
-                        	logger.log(Level.SEVERE, "Fehler:CommandScanner.next(); Zugriff auf Array außerhalb der Addresierung");
+                        	logger.log(Level.SEVERE, "Fehler:CommandScanner.next(); Zugriff auf Array auï¿½erhalb der Addresierung");
                       
                         }
                     for(int j = 0;paramsParse[j]!=null;j++)

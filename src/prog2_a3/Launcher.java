@@ -1,33 +1,21 @@
 package prog2_a3;
 
 import prog2_a3.fatsquirrel.console.*;
-import prog2_a3.fatsquirrel.core.BoardConfig;
-import prog2_a3.fatsquirrel.core.FlattenedBoard;
-import prog2_a3.fatsquirrel.core.Game;
-import prog2_a3.fatsquirrel.core.GameLogger;
+import prog2_a3.fatsquirrel.core.*;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
-import prog2_a3.interfaces.*;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javax.xml.bind.Marshaller.Listener;
 
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.FlowPane;
+
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import javafx.event.ActionEvent;
+
 
 
 public class Launcher extends Application{
@@ -87,38 +75,31 @@ private static final GameLogger logger = new GameLogger();
 
 		@Override
 		public void run() {
-			try {
-				timestamp_1 = calendar.getTimeInMillis();
-				game.run();
-				timestamp_2 = calendar.getTimeInMillis();	
-				
-				Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+1000ms/gewünschteFPS - Endzeit
+                    try {
+                        timestamp_1 = calendar.getTimeInMillis();
+                        game.run();
+                        timestamp_2 = calendar.getTimeInMillis();	
 
-			} catch (InterruptedException e) {
-				logger.log(Level.SEVERE, "Fehler: Launcher.startGame.run(); InterrupedException");
-				e.printStackTrace();
-			}
-		
+                        Thread.sleep((timestamp_1 + 1000 /game.getFPS()) - timestamp_2); //schlafe Startzeit+1000ms/gewï¿½nschteFPS - Endzeit
 
-		}
-		
-	},1000,1 );
+                    } catch (InterruptedException e) {
+                        logger.log(Level.SEVERE, "Fehler: Launcher.startGame.run(); InterrupedException");
+                        e.printStackTrace();
+                    }
+		}		
+	},1000,1 ); // Delay = 1000, period = 1
 		if(Launcher.gameMode == 2){ //Launcher.gameMode == 1 || 
-				while(true){
-						commandPuffer = game.getUI().getCommand();
-							if(commandPuffer != null){
-								game.setPuffer(commandPuffer);
-								game.process();
-								game.setPuffer(null); 
-								commandPuffer = null;
-							}
-		
-		if( game.getPuffer() != null)
-			System.out.println(game.getPuffer().getCommandType().getName());
-		
-	}
+                    while(true){
+                        commandPuffer = game.getUI().getCommand();
+                        if(commandPuffer != null){
+                            game.setPuffer(commandPuffer);
+                            game.process();
+                            game.setPuffer(null); 
+                            commandPuffer = null;
+                        }
+                    }
 
-	}
+                }
 
 }
 
@@ -143,11 +124,9 @@ public void start(Stage primaryStage) throws Exception {
 
      });
      
-   primaryStage.show();   
-   Launcher launcher = new Launcher(); 
-   launcher.startGame(fxUI, game);    	
-	
-	
+   primaryStage.show();
+   Launcher launcher = new Launcher();
+   launcher.startGame(fxUI, game);
 }
 
 //Getter fï¿½r gameMode; 1== konsole_alt, 2==konsole_neu, 3==javafx_gui

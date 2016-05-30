@@ -37,7 +37,8 @@ public class InvocationHandlerImpl implements InvocationHandler  {
             throw ex.getTargetException();
         	}
         // returnValue zum nachvollziehen loggen
-        logger.log(Level.INFO, (String) returnValue);
+        if(returnValue != null)
+            logger.log(Level.INFO, (String) returnValue);
 
         return returnValue;
     }

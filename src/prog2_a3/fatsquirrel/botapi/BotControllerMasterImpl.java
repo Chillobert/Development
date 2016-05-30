@@ -11,7 +11,7 @@ public class BotControllerMasterImpl implements BotController{
     @Override
     public void nextStep(ControllerContext view) {
         ControllerContextProxy contControllerProxy = new ControllerContextProxy(view);
-        ControllerContext contController = contControllerProxy.invoke();
+        ControllerContext contController = contControllerProxy.getProxy();
         contController.move(randVector());
             //view.move(randVector());
     }
