@@ -23,13 +23,13 @@ public class GameImpl extends Game {
     public GameImpl(){
         super();
         this.ui = new ConsoleUI();
-        logger.log(Level.FINEST, "Object der Klasse GameImpl erstellt");
+        logger.log(Level.FINEST, "Object der Klasse GameImpl- ConsoleUI - erstellt");
     }
     
     public GameImpl (FxUI fxui){
         super();
         this.fxUI = fxui;
-        logger.log(Level.FINEST, "Object der Klasse GameImpl erstellt");
+        logger.log(Level.FINEST, "Object der Klasse GameImpl - FxUI - erstellt");
        
     }
     
