@@ -107,10 +107,10 @@ public class MiniSquirrelBot extends MiniSquirrel{
                     testY = entArray[i].getLocation().getY();
                     // Berechnen des Abstands zu unserem Mini
                     distance = (Math.abs(testX-currentX))>(Math.abs(testY-currentY))?Math.abs(testX-currentX):Math.abs(testY-currentY);
-                    //Bei passendem Abstand Formel anwenden
-                    if(distance < impactRadius && !entArray[i].equals(patron)){
+                    //Bei passendem Abstand und gültigem Ziel (nicht patron, nicht selbst) Formel anwenden
+                    if(distance < impactRadius && !entArray[i].equals(patron) && !entArray[i].equals(MiniSquirrelBot.this)){
                         energyLoss = (-200) * (energy / (int)((Math.pow(impactRadius, 2)*(Math.PI))+0.5)* (1 - distance / impactRadius));
-                        //falls das Ziel über genügend Energie verfügt und nicht der eigene Master ist
+                        //falls das Ziel über genügend Energie verfügt
                         if(entArray[i].getEnergy() > energyLoss){
                             entArray[i].updateEnergy(-energyLoss);
                             patron.updateEnergy(energyLoss);

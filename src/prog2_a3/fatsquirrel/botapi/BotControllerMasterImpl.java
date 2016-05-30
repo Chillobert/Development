@@ -3,14 +3,17 @@ package prog2_a3.fatsquirrel.botapi;
 
 import java.util.Random;
 import prog2_a3.fatsquirrel.core.XY;
+import prog2_a3.fatsquirrel.proxy.*;
 
 public class BotControllerMasterImpl implements BotController{
     int i = 0;
     
     @Override
     public void nextStep(ControllerContext view) {
-        
-        view.move(randVector());
+        ControllerContextProxy contControllerProxy = new ControllerContextProxy(view);
+        ControllerContext contController = contControllerProxy.invoke();
+        contController.move(randVector());
+            //view.move(randVector());
     }
     
     private XY randVector(){

@@ -20,26 +20,26 @@ public class InvocationHandlerImpl implements InvocationHandler  {
     // Das einzige was man hier aendern darf sind die sysouts/loggings der Rest ist allgemein g�ltig
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable  {  // Methode um allgemein Methoden auszuf�hren
-
+        //Die aufgerufene Methode loggen
         logger.log(Level.INFO, "* calling method " + method + " with params ");
 
-        //Argumente ausgeben
+        //und alle zugehörigen Argumente
         for (int i = 0; i < args.length; i++)
             logger.log(Level.INFO, " " + args[i]);
 
-        Object result = null; // das zu returnende Objekt, welches den Wert der zu aufrufenden Methode bekommt
+        Object returnValue = null; // das zu returnende Objekt, welches den Wert der aufgerufenen Methode bekommt. Bei Void bleibt es null
         try  {
-            result = method.invoke(context, args); // die �bergebende Methode aufrufen und dessen R�ckgabe result zuweisen
+            returnValue = method.invoke(context, args); // die �bergebende Methode aufrufen und dessen R�ckgabe result zuweisen
             // Die Fehler die auftretten k�nnen abfangen wie z.B. das die Methode void ist oder private
         } catch(IllegalAccessException ex)  {
         } catch(InvocationTargetException ex)  {
-            logger.log(Level.SEVERE, "Fehler: InvocationHandlerImpl.invoke(); getTargetException");
+            logger.log(Level.SEVERE, "Fehler: InvocationHandlerImpl.invoke(); TargetException");
             throw ex.getTargetException();
         	}
-        // Ergebnis d. Methoden wird gelogt
-        logger.log(Level.INFO, (String) result);
+        // returnValue zum nachvollziehen loggen
+        logger.log(Level.INFO, (String) returnValue);
 
-        return result;
+        return returnValue;
     }
 }
 
