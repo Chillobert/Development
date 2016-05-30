@@ -12,10 +12,13 @@ public final static int energy = -150;
     public BadBeast(int id, int x, int y) {
 		super(id, energy, x, y);
 		logger.log(Level.FINEST, "Object der Klasse BadBeast erstellt");        
+		super.setTimeout(4);
 	}
         
 @Override
     public void nextStep(EntityContext entCon) {
-        entCon.tryMove(this, this.getLocation().getRandomVector());
+
+			entCon.tryMove(this, this.getLocation().getRandomVector());
+
     }        
 }

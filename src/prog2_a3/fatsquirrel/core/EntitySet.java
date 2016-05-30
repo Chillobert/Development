@@ -80,6 +80,7 @@ public class EntitySet {
             if(entArray[i]!=null){
                 if(isInstance(entArray[i],MasterSquirrel.class))
                     masterExists = true;
+                
                 if(entArray[i].getTimeout()<=0){
                 if(isInstance(entArray[i],GuidedMasterSquirrel.class)){
                     if( input != null) 
