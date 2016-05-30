@@ -4,26 +4,29 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import prog2_a3.interfaces.EntityContext;
+
 import org.easymock.*;
 public class BeastTest {
+	private int IdCounter = 0;
 
 	@Test
-	public void BadBeastNextStepPenaltyCheck() {
-		FlattenedBoard flattenedBoard = EasyMock.createMock(FlattenedBoard.class);
-		BadBeast badTest = new BadBeast(1, 1, 1);
+	public void BadBeastShouldMoveUp() {
+		EntityContext flattenedBoard = (EntityContext)EasyMock.createMock(FlattenedBoard.class);
+		BadBeast badTest = new BadBeast(IdCounter++, 2, 2);
+		int[] ResultLoc = new int[]{2,1}; //Vermeintlicher Zielvektor 
+		
+		badTest.move(new XY(new int[]{0, -1}));
+		//flattenedBoard.tryMove(badTest, new XY(new int[]{0,-1})); //Bewege BadBeast nach oben
+		
+		badTest.nextStep(flattenedBoard);
+		
+		assertEquals(ResultLoc, badTest.getLocation());
+		
 		//badTest.setTimeout(4);
 		
-        for (int j = 0; j <= 20; ++j) {		
-		badTest.nextStep(flattenedBoard);
-//		System.out.println(badTest.getLocation().getX());
-//		System.out.println(badTest.getLocation().getY());
-//		System.out.println("/////////////");
-        }
-		badTest.getEnergy();
 		
-		//badTest.
-		
-		fail("Not yet implemented");
+
 	}
 
 }
