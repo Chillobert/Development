@@ -103,7 +103,7 @@ public class EntityMovementTest {
 
 
 	}
-//Diese Methode überprüft das Bewegungsverhalten des MasterSquirrels, im Falle einer Kollision mit einer Mauer	
+//Diese Methode überprüft das Bewegungsverhalten des MasterSquirrels, im Falle einer Kollision mit einer Mauer sollte es sich 3 Runden lang nicht mehr bewegen können
 	@Test
 	public void SquirrelShouldWaitThreeRoundsAfterWallCollisionTillMovement(){
 		FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)
@@ -131,6 +131,7 @@ public class EntityMovementTest {
 			
 		//MasterSquirrel Penalty sollte mit jedem nextStepAll um 1 verringert werden	
 		input = new XY(new int[]{0, 1}); //Squirrel Bewegung wird in die entgegengesetzte Richtung gesetzt
+		flattenedBoard.getEntitySet().getEntityArray()[0].setTimeout(3); //setze Timeout auf 3 (Simuliert Kollision mit Wand)
 		int penalty_Counter = 3;
 		for (int j = 0; j < 3; j++){
 			try {
@@ -139,8 +140,8 @@ public class EntityMovementTest {
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				assertEquals(penalty_Counter, flattenedBoard.getEntitySet().getEntityArray()[0].getTimeout()); //Timeout soll pro Schleifendurchlauf um 1 verringert werden
 			}
+			assertEquals(penalty_Counter, flattenedBoard.getEntitySet().getEntityArray()[0].getTimeout()); //Timeout soll pro Schleifendurchlauf um 1 verringert werden
 			
 		};
 

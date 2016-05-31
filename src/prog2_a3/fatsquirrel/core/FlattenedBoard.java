@@ -136,7 +136,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     @Override
-    public void tryMove(MiniSquirrel miniSquirrel, XY moveDirection){
+    public boolean tryMove(MiniSquirrel miniSquirrel, XY moveDirection){
         if (miniSquirrel.getEnergy()<=0)
             this.kill(miniSquirrel);
         while((moveDirection.getX()==0) && (moveDirection.getY()==0))
@@ -159,6 +159,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 miniSquirrel.move(moveDirection);
                 miniSquirrel.updateEnergy(-1);
             }
+			return true;
     }
     @Override
     public void tryMove(GoodBeast goodBeast, XY moveDirection){
@@ -190,7 +191,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
             }
     }
     @Override
-    public void tryMove(BadBeast badBeast, XY moveDirection){
+    public boolean tryMove(BadBeast badBeast, XY moveDirection){
         
         int nearestPlayerDistance = nearestPlayerDistance(badBeast.getLocation());
         XY actualMoveDirection = new XY(new int[]{0,0});
@@ -214,6 +215,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 badBeast.move(actualMoveDirection);
                 badBeast.setTimeout(4);
             }
+			return true;
     }
     
     @Override
