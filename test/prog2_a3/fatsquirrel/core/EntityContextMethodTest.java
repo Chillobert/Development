@@ -47,7 +47,9 @@ public class EntityContextMethodTest {
 		
 		EasyMock.replay(entityContext);
 		
-		badBeast.nextStep(entityContext);
+		entityContext.getEntitySet().getEntityArray()[0].nextStep(entityContext);
+		
+		//badBeast.nextStep(entityContext);
 		EasyMock.expectLastCall().once();
 		//EasyMock.expectLastCall().anyTimes();
 
