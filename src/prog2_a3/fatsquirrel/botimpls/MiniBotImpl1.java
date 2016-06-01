@@ -1,10 +1,12 @@
 
-package prog2_a3.fatsquirrel.botapi;
+package prog2_a3.fatsquirrel.botimpls;
 
 import java.util.Random;
+import prog2_a3.fatsquirrel.botapi.BotController;
+import prog2_a3.fatsquirrel.botapi.ControllerContext;
 import prog2_a3.fatsquirrel.core.XY;
 
-public class BotControllerMiniImpl implements BotController{
+public class MiniBotImpl1 implements BotController{
 
     @Override
     public void nextStep(ControllerContext view) {

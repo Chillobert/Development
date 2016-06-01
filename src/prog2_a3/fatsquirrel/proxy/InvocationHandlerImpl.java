@@ -32,6 +32,7 @@ public class InvocationHandlerImpl implements InvocationHandler  {
             returnValue = method.invoke(context, args); // die �bergebende Methode aufrufen und dessen R�ckgabe result zuweisen
             // Die Fehler die auftretten k�nnen abfangen wie z.B. das die Methode void ist oder private
         } catch(IllegalAccessException ex)  {
+            
         } catch(InvocationTargetException ex)  {
             logger.log(Level.SEVERE, "Fehler: InvocationHandlerImpl.invoke(); TargetException");
             throw ex.getTargetException();

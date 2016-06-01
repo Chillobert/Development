@@ -10,6 +10,8 @@ private final int amountGoodPlants = 2;
 private final int amountBadPlants = 2;
 private final int amountWalls = 0;
 private static final GameLogger logger = new GameLogger();
+private final String[] MasterBotImpls = new String[]{"MasterBotImpl1","MasterBotImpl2"};
+private final String[] MiniBotImpl = new String[]{"MiniBotImpl1"};
 
 public BoardConfig(){
 	logger.log(Level.FINEST, "Object der Klasse BoardConfig erstellt");
@@ -39,4 +41,7 @@ public BoardConfig(){
 	public int getAmountWalls(){
             return amountWalls;
 	}
+        public String[] getMasterBotImpls(){
+            return this.MasterBotImpls;
+        }
 }

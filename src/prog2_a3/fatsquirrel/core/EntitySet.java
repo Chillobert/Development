@@ -1,6 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
-import java.util.Arrays;
+import java.util.Vector;
 import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
@@ -10,8 +10,8 @@ public class EntitySet {
 
     private int numbOf=0;
     private int latestId=1;
-    private Entity[] entArray = new Entity[1000];
-    private int idColl=0; 
+    private Vector<Entity> entArray = new Vector();
+    private int idColl=0;
     private static final GameLogger logger = new GameLogger();
     public EntitySet(){   
     logger.log(Level.FINEST, "Object der Klasse EntitySet erstellt");
@@ -20,41 +20,27 @@ public class EntitySet {
     public void add(String entityTyp, int x, int y){
 
         switch(entityTyp){
-            case"BadPlant": entArray[numbOf++] = new BadPlant(numbOf,x,y);break;
-            case"GoodBeast":entArray[numbOf++] = new GoodBeast(numbOf,x,y);break;
-            case"GoodPlant":entArray[numbOf++] = new GoodPlant(numbOf,x,y);break;
-            case"BadBeast":entArray[numbOf++] = new BadBeast(numbOf,x,y); break;
-            case"GuidedMasterSquirrel":entArray[numbOf++] = new GuidedMasterSquirrel(numbOf,x,y);break;
-            case"Wall":entArray[numbOf++] = new Wall(numbOf,x,y);break;
-            case"MasterSquirrelBot":entArray[numbOf++] = new MasterSquirrelBot(numbOf,x,y);break;
-            default:break;
-            
+            case"BadPlant": entArray.add(new BadPlant(numbOf++,x,y));break;
+            case"GoodBeast":entArray.add(new GoodBeast(numbOf++,x,y));break;
+            case"GoodPlant":entArray.add(new GoodPlant(numbOf++,x,y));break;
+            case"BadBeast":entArray.add(new BadBeast(numbOf++,x,y)); break;
+            case"GuidedMasterSquirrel":entArray.add(new GuidedMasterSquirrel(numbOf++,x,y));break;
+            case"Wall":entArray.add(new Wall(numbOf++,x,y));break;
+            case"MasterSquirrelBot":entArray.add(new MasterSquirrelBot(numbOf++,x,y));break;
+            default:break;           
         }
         latestId++;
     }
     
     public void addMini(MasterSquirrel master,int energy, XY direction){
-        entArray[numbOf++] = master.createDescendant(numbOf++,energy , direction.getX(), direction.getY());
+         entArray.add(master.createDescendant(numbOf++,energy , direction.getX(), direction.getY()));
     }
     
     public void delete(int id){
-        Entity[] copyArray = new Entity[1000];
-        int j=0;
-        for(int i=0;entArray.length>i;i++){
-            if(entArray[i]!=null)
-            if(!(entArray[i].getId() == id)){
-                copyArray[j] = entArray[i];
-                j++;
-                //Da immer nur eine ID �bergeben, wird es nie mehr als einen Eintrag weniger geben
-            }
-            /* for(int k=0;k<copyArray.length;k++){
-                if(entArray[k]!=null)
-                entArray[k]=copyArray[k];} */
-        }
         
-        Arrays.fill(entArray, null); //Array leeren !
-        for (int k = 0; copyArray[k]!=null; k++){ //Array mit neuen Werten f�llen
-        	entArray[k] = copyArray[k];
+        for(int i = 0; entArray.size()>i;i++){
+            if (entArray.get(i).getId() == id)
+                entArray.removeElementAt(i);
         }
     }
     
@@ -62,36 +48,36 @@ public class EntitySet {
         return numbOf;
     }
     
-    public Entity[] getEntityArray(){
+    public Vector getEntityArray(){
         return entArray;
     }
     @Override
     public String toString(){
         String output="";
-        for(int i=0;entArray[i]!=null;i++){
-            output += entArray[i].getName() + "," + entArray[i].toString() + '\n';
+        for(int i=0;entArray.size()<i;i++){
+            output += entArray.get(i).getName() + "," + entArray.get(i).toString() + '\n';
         }
         return(output);
     }
 
     public void nextStepAll(EntityContext entContext, XY input) throws InterruptedException{
         boolean masterExists = false;
-        for(int i=0;entArray.length>i;i++){
-            if(entArray[i]!=null){
-                if(isInstance(entArray[i],MasterSquirrel.class))
+        for(int i=0;entArray.size()>i;i++){
+            //if(entArray.get(i)!=null){
+                if(isInstance(entArray.get(i),MasterSquirrel.class))
                     masterExists = true;
                 
-                if(entArray[i].getTimeout()<=0){
-                if(isInstance(entArray[i],GuidedMasterSquirrel.class)){
+                if(entArray.get(i).getTimeout()<=0){
+                if(isInstance(entArray.get(i),GuidedMasterSquirrel.class)){
                     if( input != null) 
-                        ((GuidedMasterSquirrel)entArray[i]).nextStep(entContext,input);
+                        ((GuidedMasterSquirrel)entArray.get(i)).nextStep(entContext,input);
                     }
                     else
-                        entArray[i].nextStep(entContext);
+                        entArray.get(i).nextStep(entContext);
                 }
-                else if(entArray[i].getTimeout()>0)
-                    entArray[i].setTimeout(entArray[i].getTimeout()-1);
-            }
+                else if(entArray.get(i).getTimeout()>0)
+                    entArray.get(i).setTimeout(entArray.get(i).getTimeout()-1);
+            //}
         }
         if(!masterExists){     	
             JOptionPane.showMessageDialog(null,"you lost! Press OK to exit");

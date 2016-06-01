@@ -1,6 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
-import prog2_a3.fatsquirrel.botapi.BotControllerMasterImpl;
+import prog2_a3.fatsquirrel.botimpls.MasterBotImpl1;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import prog2_a3.interfaces.*;
@@ -19,12 +19,12 @@ public class MasterSquirrelBot extends MasterSquirrel{
     @Override
     public void nextStep(EntityContext entCon) {
         ControllerContextImpl conConImp = new ControllerContextImpl(entCon);
-        BotControllerMasterImpl botCon = new BotControllerMasterImpl();
+        MasterBotImpl1 botCon = new MasterBotImpl1();
         botCon.nextStep(conConImp);
 
     }
 
-class ControllerContextImpl implements ControllerContext{
+    class ControllerContextImpl implements ControllerContext{
 
     EntityContext entCon;
     

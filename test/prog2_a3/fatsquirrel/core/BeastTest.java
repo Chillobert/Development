@@ -23,12 +23,11 @@ public class BeastTest {
                         .createMock();
 		BadBeast badTest = new BadBeast(IdCounter++, 2, 2);
 		int[] ResultLoc = new int[]{2,1}; //Vermeintlicher Zielvektor 
-		
+		System.out.println(badTest.getLocation().getX()+","+badTest.getLocation().getY());
 		//badTest.move(new XY(new int[]{0, -1}));
 		flattenedBoard.tryMove(badTest, new XY(new int[]{0,-1})); //Bewege BadBeast nach oben
-		System.out.println(badTest.getLocation().getX()+","+badTest.getLocation().getY());
-                
-		badTest.nextStep(flattenedBoard);
+
+		//badTest.nextStep(flattenedBoard);
                 System.out.println(badTest.getLocation().getX()+","+badTest.getLocation().getY());
 		
 		Assert.assertArrayEquals(ResultLoc, badTest.getLocation().getPos());

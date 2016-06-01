@@ -3,9 +3,6 @@ package prog2_a3.fatsquirrel.console;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.sun.javafx.property.adapter.PropertyDescriptor.Listener;
 
 import prog2_a3.*;
 import prog2_a3.Launcher;
@@ -123,7 +120,7 @@ public class GameImpl extends Game {
             System.out.println("wrong input. Please refere to \"help\"");
         }
         catch(NotEnoughEnergyException EnEx){
-        	logger.log(Level.WARNING, "Warnung: MasterSquirrel hat nicht genügend Energie für Spawn");
+        	logger.log(Level.WARNING, "Warnung: MasterSquirrel hat nicht genï¿½gend Energie fï¿½r Spawn");
             System.out.println("you don't have this much energy to spare");
         }
     }

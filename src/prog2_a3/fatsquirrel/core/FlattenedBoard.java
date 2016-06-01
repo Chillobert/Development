@@ -1,6 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
 
+import java.util.Vector;
 import java.util.logging.Level;
 
 import prog2_a3.interfaces.*;
@@ -20,11 +21,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
         this.board = board;
         this.size = board.getSize();
         this.entSet = board.getEntitySet();
-        Entity[] entArray = entSet.getEntityArray();
+        Vector<Entity> entArray = entSet.getEntityArray();
         this.flattenedBoard = new Entity[this.size.getX()+1][this.size.getY()+1];
-        for(int i = 0;entArray.length>i;i++){
-            if(entArray[i]!=null)
-                this.flattenedBoard[entArray[i].getLocation().getX()] [entArray[i].getLocation().getY()] = entArray[i];
+        for(int i = 0;entArray.size()>i;i++){
+                this.flattenedBoard[entArray.get(i).getLocation().getX()] [entArray.get(i).getLocation().getY()] = entArray.get(i);
         }
         logger.log(Level.FINEST, "Objekt der Klasse FlattenedBoard wurde erstellt");
     }
@@ -93,22 +93,22 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     @Override
     public PlayerEntity nearestPlayerEntity(XY position){
-        Entity[] entArray = entSet.getEntityArray();
+        Vector<Entity> entArray = entSet.getEntityArray();
         int minDistance = 30;
         int currentDistance;
         PlayerEntity entityReturn=null;
-        for(int i=0; i < entArray.length;i++){
+        for(int i=0; i < entArray.size();i++){
             //Das Array aller Entitys durchgehen und für PlayerEntitys die Distanz zum Objekt mit aktuellem Minimum vergleichen
-            if (entSet.isInstance(entArray[i], PlayerEntity.class)){
+            if (entSet.isInstance(entArray.get(i), PlayerEntity.class)){
                 //Summe der Beträge, der X und Y Differenzen @_@
                 int x0 = position.getX();
-                int x1 = entArray[i].getLocation().getX();
+                int x1 = entArray.get(i).getLocation().getX();
                 int y0 = position.getY();
-                int y1 = entArray[i].getLocation().getY();
+                int y1 = entArray.get(i).getLocation().getY();
                 currentDistance =  (Math.abs(x1-x0))>(Math.abs(y1-y0))?Math.abs(x1-x0):Math.abs(y1-y0);
                 if (currentDistance < minDistance){
                     minDistance = currentDistance;
-                    entityReturn = (PlayerEntity) entArray[i];
+                    entityReturn = (PlayerEntity) entArray.get(i);
                 }
             }
         }
@@ -116,16 +116,16 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     public int nearestPlayerDistance(XY position){
-        Entity[] entArray = entSet.getEntityArray();
+        Vector<Entity> entArray = entSet.getEntityArray();
         int minDistance = 100;
         int currentDistance;
-        for(int i=0; i < entArray.length;i++){
+        for(int i=0; i < entArray.size();i++){
             //Das Array aller Entitys durchgehen und für PlayerEntitys die Distanz zum Objekt mit aktuellem Minimum vergleichen
-            if (entSet.isInstance(entArray[i], PlayerEntity.class)){
+            if (entSet.isInstance(entArray.get(i), PlayerEntity.class)){
                 int x0 = position.getX();
-                int x1 = entArray[i].getLocation().getX();
+                int x1 = entArray.get(i).getLocation().getX();
                 int y0 = position.getY();
-                int y1 = entArray[i].getLocation().getY();
+                int y1 = entArray.get(i).getLocation().getY();
                 currentDistance =  (Math.abs(x1-x0))>(Math.abs(y1-y0))?Math.abs(x1-x0):Math.abs(y1-y0);
                 if (currentDistance < minDistance){
                     minDistance = currentDistance;
@@ -258,10 +258,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
     @Override
     public int getSquirrelEnergy() {
         int energy = 0;
-        Entity[] entArray = entSet.getEntityArray();
-        for(int i = 0;entArray.length > i; i++){
-            if(entSet.isInstance(entArray[i], GuidedMasterSquirrel.class))
-                energy = entArray[i].getEnergy();
+        Vector<Entity> entArray = entSet.getEntityArray();
+        for(int i = 0;entArray.size() > i; i++){
+            if(entSet.isInstance(entArray.get(i), GuidedMasterSquirrel.class))
+                energy = entArray.get(i).getEnergy();
         }
         return energy;
     }
@@ -343,10 +343,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     public MasterSquirrel getMasterSquirrel(){
-        Entity[] entArr = this.entSet.getEntityArray();
-        for (int i = 0; entArr[i]!=null;i++)
-            if(entSet.isInstance(entArr[i], MasterSquirrel.class))
-                return (MasterSquirrel)entArr[i];
+        Vector<Entity> entArr = this.entSet.getEntityArray();
+        for (int i = 0; entArr.size()>i;i++)
+            if(entSet.isInstance(entArr.get(i), MasterSquirrel.class))
+                return (MasterSquirrel)entArr.get(i);
         return null;
     }
 }

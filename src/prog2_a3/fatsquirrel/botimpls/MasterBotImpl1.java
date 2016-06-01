@@ -1,11 +1,13 @@
 
-package prog2_a3.fatsquirrel.botapi;
+package prog2_a3.fatsquirrel.botimpls;
 
 import java.util.Random;
+import prog2_a3.fatsquirrel.botapi.BotController;
+import prog2_a3.fatsquirrel.botapi.ControllerContext;
 import prog2_a3.fatsquirrel.core.XY;
 import prog2_a3.fatsquirrel.proxy.*;
 
-public class BotControllerMasterImpl implements BotController{
+public class MasterBotImpl1 implements BotController{
     int i = 0;
     
     @Override

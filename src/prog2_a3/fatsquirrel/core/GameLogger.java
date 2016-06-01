@@ -3,7 +3,6 @@ package prog2_a3.fatsquirrel.core;
 import java.util.logging.*;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

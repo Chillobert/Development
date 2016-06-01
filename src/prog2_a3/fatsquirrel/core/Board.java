@@ -1,5 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.util.Vector;
 import java.util.logging.Level;
 
 public class Board {
@@ -54,11 +55,11 @@ private static final GameLogger logger = new GameLogger();
 
     public int[] randLoc(){
         int[] randVector = new int[]{((int)((Math.random()*(length-1))+1)),((int)((Math.random()*(width-1))+1))};
-        Entity[] entArray = entSet.getEntityArray();
+        Vector<Entity> entArray = entSet.getEntityArray();
         boolean isTaken = false;
             do{
-                for(int i = 0; entArray[i]!=null; i++){
-                    if(entArray[i].getLocation().getPos()==randVector){
+                for(int i = 0; entArray.size()<i; i++){
+                    if(entArray.get(i).getLocation().getPos()==randVector){
                         isTaken = true;
                         randVector = new int[]{(int)(((Math.random()*(length-1))+1)),(int)(((Math.random()*(width-1))+1))};
                         break;

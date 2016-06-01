@@ -1,6 +1,7 @@
 package prog2_a3.fatsquirrel.core;
 
-import prog2_a3.fatsquirrel.botapi.BotControllerMiniImpl;
+import java.util.Vector;
+import prog2_a3.fatsquirrel.botimpls.MiniBotImpl1;
 import java.util.logging.Level;
 import prog2_a3.fatsquirrel.botapi.*;
 import prog2_a3.interfaces.*;
@@ -18,7 +19,7 @@ public class MiniSquirrelBot extends MiniSquirrel{
     @Override
     public void nextStep(EntityContext entCon){
         ControllerContextImpl conConImp = new ControllerContextImpl(entCon);
-        BotControllerMiniImpl botCon = new BotControllerMiniImpl();
+        MiniBotImpl1 botCon = new MiniBotImpl1();
         botCon.nextStep(conConImp);
     }
 
@@ -97,32 +98,34 @@ public class MiniSquirrelBot extends MiniSquirrel{
             int currentY = position.getY();
             int testX = 0;
             int testY = 0;
-            Entity[] entArray = ((FlattenedBoard)entCon).getEntitySet().getEntityArray();
+            Vector<Entity> entArray = ((FlattenedBoard)entCon).getEntitySet().getEntityArray();
             int distance = 0;
             int energyLoss = 0;
+            
+            
             if(impactRadius >= 2 && impactRadius <= 10){
-                for(int i = 0; i < entArray.length; i++){
+                for(int i = 0; i < entArray.size(); i++){
                     //ganzes Feld oder Liste der Entitys durchgehen und den Abstand zum Squirrel berechnen
-                    testX = entArray[i].getLocation().getX();
-                    testY = entArray[i].getLocation().getY();
+                    testX = entArray.get(i).getLocation().getX();
+                    testY = entArray.get(i).getLocation().getY();
                     // Berechnen des Abstands zu unserem Mini
                     distance = (Math.abs(testX-currentX))>(Math.abs(testY-currentY))?Math.abs(testX-currentX):Math.abs(testY-currentY);
                     //Bei passendem Abstand und gültigem Ziel (nicht patron, nicht selbst) Formel anwenden
-                    if(distance < impactRadius && !entArray[i].equals(patron) && !entArray[i].equals(MiniSquirrelBot.this)){
+                    if(distance < impactRadius && !entArray.get(i).equals(patron) && !entArray.get(i).equals(MiniSquirrelBot.this)){
                         energyLoss = (-200) * (energy / (int)((Math.pow(impactRadius, 2)*(Math.PI))+0.5)* (1 - distance / impactRadius));
                         //falls das Ziel über genügend Energie verfügt
-                        if(entArray[i].getEnergy() > energyLoss){
-                            entArray[i].updateEnergy(-energyLoss);
+                        if(entArray.get(i).getEnergy() > energyLoss){
+                            entArray.get(i).updateEnergy(-energyLoss);
                             patron.updateEnergy(energyLoss);
                         }
                         //falls das Ziel nicht über genügend Energie verfügt und nicht der eigene Master ist
-                        if(entArray[i].getEnergy() <= energyLoss){
-                            entArray[i].updateEnergy(-entArray[i].getEnergy());
-                            patron.updateEnergy(entArray[i].getEnergy());
-                            if(entArray[i].getName().contains("Squirrel"))
-                                ((FlattenedBoard)entCon).kill(entArray[i]);
+                        if(entArray.get(i).getEnergy() <= energyLoss){
+                            entArray.get(i).updateEnergy(-entArray.get(i).getEnergy());
+                            patron.updateEnergy(entArray.get(i).getEnergy());
+                            if(entArray.get(i).getName().contains("Squirrel"))
+                                ((FlattenedBoard)entCon).kill(entArray.get(i));
                             else
-                                ((FlattenedBoard)entCon).killAndReplace(entArray[i]);
+                                ((FlattenedBoard)entCon).killAndReplace(entArray.get(i));
                         }
                     }
                 }
