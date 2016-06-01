@@ -1,4 +1,4 @@
-package prog2_a3.fatsquirrel.core;
+package prog2_a3.fatsquirrel.core_Unit;
 
 import static org.junit.Assert.*;
 
@@ -9,6 +9,11 @@ import org.junit.*;
 import org.junit.Test;
 
 import prog2_a3.fatsquirrel.core.FlattenedBoard;
+import prog2_a3.fatsquirrel.core.GoodBeast;
+import prog2_a3.fatsquirrel.core.GuidedMasterSquirrel;
+import prog2_a3.fatsquirrel.core.MiniSquirrel;
+import prog2_a3.fatsquirrel.core.XY;
+import prog2_a3.fatsquirrel.core.BadBeast;
 import prog2_a3.fatsquirrel.core.Board;
 import prog2_a3.fatsquirrel.core.BoardConfig;
 import prog2_a3.interfaces.EntityContext;

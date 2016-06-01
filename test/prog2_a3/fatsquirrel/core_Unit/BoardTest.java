@@ -1,9 +1,13 @@
-package prog2_a3.fatsquirrel.core;
+package prog2_a3.fatsquirrel.core_Unit;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import prog2_a3.fatsquirrel.core.Board;
+import prog2_a3.fatsquirrel.core.BoardConfig;
+import prog2_a3.fatsquirrel.core.FlattenedBoard;
 
 public class BoardTest {
 	

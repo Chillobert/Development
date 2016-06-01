@@ -9,7 +9,11 @@ import com.sun.javafx.property.adapter.PropertyDescriptor.Listener;
 
 import prog2_a3.*;
 import prog2_a3.Launcher;
-import prog2_a3.fatsquirrel.core.*;
+import prog2_a3.fatsquirrel.core.Game;
+import prog2_a3.fatsquirrel.core.GameLogger;
+import prog2_a3.fatsquirrel.core.NotEnoughEnergyException;
+import prog2_a3.fatsquirrel.core.XY;
+import prog2_a3.fatsquirrel.core_Unit.*;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
 import prog2_a3.fatsquirrel.util.ui.console.ScanException;
 

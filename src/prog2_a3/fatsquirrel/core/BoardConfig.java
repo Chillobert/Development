@@ -3,7 +3,7 @@ package prog2_a3.fatsquirrel.core;
 import java.util.logging.Level;
 
 public class BoardConfig {
-private final XY size = new XY(new int[]{20,20});
+private XY size = new XY(new int[]{20,20});
 private final int amountGoodBeasts = 2;
 private final int amountBadBeasts = 2;
 private final int amountGoodPlants = 2;
@@ -39,4 +39,6 @@ public BoardConfig(){
 	public int getAmountWalls(){
             return size.getX()*2 + size.getY()*2;
 	}
+	
+
 }

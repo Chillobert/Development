@@ -27,6 +27,7 @@ public class EntitySet {
             case"GuidedMasterSquirrel":entArray[numbOf++] = new GuidedMasterSquirrel(numbOf,x,y);break;
             case"Wall":entArray[numbOf++] = new Wall(numbOf,x,y);break;
             case"MasterSquirrelBot":entArray[numbOf++] = new MasterSquirrelBot(numbOf,x,y);break;
+            case"MiniSquirrel":entArray[numbOf++] = new MiniSquirrel(numbOf++, 200, x, y, 1); //Zum testen
             default:break;
             
         }

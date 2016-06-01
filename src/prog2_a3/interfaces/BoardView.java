@@ -1,6 +1,8 @@
 package prog2_a3.interfaces;
 
-import prog2_a3.fatsquirrel.core.*;
+import prog2_a3.fatsquirrel.core.Entity;
+import prog2_a3.fatsquirrel.core.XY;
+import prog2_a3.fatsquirrel.core_Unit.*;
         
 public interface BoardView {
 

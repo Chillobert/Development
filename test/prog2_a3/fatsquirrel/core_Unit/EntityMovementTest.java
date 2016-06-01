@@ -1,9 +1,14 @@
-package prog2_a3.fatsquirrel.core;
+package prog2_a3.fatsquirrel.core_Unit;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import prog2_a3.fatsquirrel.core.Board;
+import prog2_a3.fatsquirrel.core.BoardConfig;
+import prog2_a3.fatsquirrel.core.EntitySet;
+import prog2_a3.fatsquirrel.core.FlattenedBoard;
+import prog2_a3.fatsquirrel.core.XY;
 import prog2_a3.interfaces.EntityContext;
 import org.easymock.*;
 import static org.easymock.EasyMock.createMockBuilder;
