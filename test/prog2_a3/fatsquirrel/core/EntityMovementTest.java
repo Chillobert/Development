@@ -8,14 +8,20 @@ import prog2_a3.interfaces.EntityContext;
 import org.easymock.*;
 import static org.easymock.EasyMock.createMockBuilder;
 import org.junit.Assert;
+import org.junit.Before;
 
 //Dieser Testcase überprüft die Bewegungen der verschiedenen Entitys 
 public class EntityMovementTest {
-        private Board board;
-        public EntityMovementTest(){
-            BoardConfig boardConfig = new BoardConfig();
-            this.board = new Board(boardConfig);            
-        }
+    private BoardConfig boardConfig;
+    private Board board;	
+    
+    
+    @Before
+    public void setup() {
+        boardConfig = new BoardConfig();
+        board = new Board(boardConfig);
+
+    }
         
         
 //Diese Methode überprüft das Bewegunsverhalten der Beasts, diese dürfen sich nur alle 4 Runden bewegen        
