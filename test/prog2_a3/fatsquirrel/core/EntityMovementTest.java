@@ -103,7 +103,7 @@ public class EntityMovementTest {
 
 
 	}
-//Diese Methode überprüft das Bewegungsverhalten des MasterSquirrels, im Falle einer Kollision mit einer Mauer sollte es sich 3 Runden lang nicht mehr bewegen können
+//Diese Methode überprüft das Bewegungsverhalten des MasterSquirrels im Falle einer Kollision mit einer Mauer sollte es sich 3 Runden lang nicht mehr bewegen können
 	@Test
 	public void SquirrelShouldWaitThreeRoundsAfterWallCollisionTillMovement(){
 		FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)

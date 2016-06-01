@@ -37,6 +37,6 @@ public BoardConfig(){
             return amountBadPlants;
 	}
 	public int getAmountWalls(){
-            return amountWalls;
+            return size.getX()*2 + size.getY()*2;
 	}
 }

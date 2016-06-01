@@ -7,9 +7,9 @@ public interface EntityContext {
 
     XY getSize();
     
-    boolean tryMove(MiniSquirrel miniSquirrel, XY moveDirection);
+    void tryMove(MiniSquirrel miniSquirrel, XY moveDirection);
     void tryMove(GoodBeast goodBeast, XY moveDirection);
-    boolean tryMove(BadBeast badBeast, XY moveDirection);
+    void tryMove(BadBeast badBeast, XY moveDirection);
     void tryMove(MasterSquirrel masterBot, XY moveDirection);
     
     PlayerEntity nearestPlayerEntity(XY pos);

@@ -30,9 +30,10 @@ public class EntityContextMethodTest {
     BadBeast badBeast = new BadBeast(1,1, 1);
     GoodBeast goodBeast = new GoodBeast(2,3,3);
     GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(3,5,5);
+    MiniSquirrel miniSquirrel = new MiniSquirrel(4, 100, 6, 6, 3);
     
     
-    //Diese Methode soll überprüfen ob beim Aufruf der nextStepAll Methode auch die richtigen tryMove Methoden im EntityContext(flattenedBoard) aufgerufen werden
+    //Diese Methode soll überprüfen ob beim Aufruf der nextStep Methoden der verschiedenen Entitys auch die dazugehörige tryMove Methode im Entity Context aufgerufen wird
 	@Test
 	public void checkRightMethodCalls() {
         FlattenedBoard entityContext = EasyMock
@@ -40,26 +41,26 @@ public class EntityContextMethodTest {
                 .withConstructor(board)
                 //.addMockedMethod
                 .createNiceMock();
-        
-		boolean fu = false;
-		
+
+		//Überprüfe BadBeast
 		badBeast.setTimeout(0);
+		badBeast.nextStep(entityContext);
+		assertEquals("tryMove(BadBeast badBeast, XY moveDirection)", entityContext.getParams());
 		
-		EasyMock.replay(entityContext);
-		
-		entityContext.getEntitySet().getEntityArray()[0].nextStep(entityContext);
-		
-		//badBeast.nextStep(entityContext);
-		EasyMock.expectLastCall().once();
-		//EasyMock.expectLastCall().anyTimes();
+		//Überprüfe GoodBeast
+		goodBeast.setTimeout(0);
+		goodBeast.nextStep(entityContext);
+		assertEquals("tryMove(GoodBeast goodBeast, XY moveDirection)", entityContext.getParams());
 
+		//Überprüfe MasterSquirrel
+		XY direction = new XY(new int[]{0,-1});
+		masterSquirrel.nextStep(entityContext, direction);
+		assertEquals("tryMove(Mastersquirrel masterBot, XY moveDirection)", entityContext.getParams());
 		
+		//Überprüfe MiniSquirrel
+		miniSquirrel.nextStep(entityContext);
+		assertEquals("tryMove(MiniSquirrel miniSquirrel, XY moveDirection)", entityContext.getParams());
 
-		
-		
-		
- 		//entityContext.tryMove((BadBeast)EasyMock.anyObject(), EasyMock.anyObject());
-		//EasyMock.expectLastCall();
 
 		
 

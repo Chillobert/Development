@@ -15,6 +15,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     private EntitySet entSet;
     private Board board;
     private static final GameLogger logger = new GameLogger();
+    private String params;
     
     public FlattenedBoard(Board board){
         this.board = board;
@@ -31,6 +32,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     public Entity[][] getBoard(){
         return flattenedBoard;
+    }
+    public Board getCreatorBoard(){
+    	return board;
     }
     
     public EntitySet getEntitySet(){
@@ -136,7 +140,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     @Override
-    public boolean tryMove(MiniSquirrel miniSquirrel, XY moveDirection){
+    public void tryMove(MiniSquirrel miniSquirrel, XY moveDirection){
         if (miniSquirrel.getEnergy()<=0)
             this.kill(miniSquirrel);
         while((moveDirection.getX()==0) && (moveDirection.getY()==0))
@@ -159,7 +163,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 miniSquirrel.move(moveDirection);
                 miniSquirrel.updateEnergy(-1);
             }
-			return true;
+            this.setParams("tryMove(MiniSquirrel miniSquirrel, XY moveDirection)");
     }
     @Override
     public void tryMove(GoodBeast goodBeast, XY moveDirection){
@@ -189,9 +193,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 goodBeast.move(actualMoveDirection);
                 goodBeast.setTimeout(4);
             }
+            this.setParams("tryMove(GoodBeast goodBeast, XY moveDirection)");
     }
     @Override
-    public boolean tryMove(BadBeast badBeast, XY moveDirection){
+    public void tryMove(BadBeast badBeast, XY moveDirection){
         
         int nearestPlayerDistance = nearestPlayerDistance(badBeast.getLocation());
         XY actualMoveDirection = new XY(new int[]{0,0});
@@ -215,7 +220,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 badBeast.move(actualMoveDirection);
                 badBeast.setTimeout(4);
             }
-			return true;
+		this.setParams("tryMove(BadBeast badBeast, XY moveDirection)");
     }
     
     @Override
@@ -237,6 +242,8 @@ public class FlattenedBoard implements BoardView, EntityContext {
             }
             else
                 masterBot.move(moveDirection);
+            
+            this.setParams("tryMove(Mastersquirrel masterBot, XY moveDirection)");
     }
     
     private XY getFleeDirection(Beast beast){
@@ -350,5 +357,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
             if(entSet.isInstance(entArr[i], MasterSquirrel.class))
                 return (MasterSquirrel)entArr[i];
         return null;
+    }
+    public void setParams(String string){
+    	this.params = string;
+    	
+    }
+    public String getParams(){
+    	return this.params;
     }
 }
