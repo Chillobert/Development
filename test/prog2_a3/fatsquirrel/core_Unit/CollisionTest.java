@@ -60,6 +60,32 @@ public class CollisionTest {
 		
 		
 	}
+	
+	//Diese Methode überprüft die Kollision zwischen einem BadBeast und einem MasterSquirrel
+	@Test
+	public void CollisionBetweenBadBeastandMaster(){
+	    BadBeast badBeast = new BadBeast(1,3,4);
+	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(2,3,3);
+	    
+    	boardConfig = new BoardConfig();
+    	board = new Board(boardConfig,masterSquirrel,null,null,badBeast,null,null,null);
+		
+    	
+		FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)
+                .withConstructor(board)
+                .createMock();
+		
+		flattenedBoard.getEntitySet().getEntityArray()[1].setTimeout(0); // Setze TimeOut von BadBeast auf 0 damit es sich beim ersten Aufruf bewegt
+		try {
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, null);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	//Sofern eine Kollision erfolgt is muss das GuidedMasterSquirrel 150 Energie verloren haben und das BadBeast -150 Energie haben
+		assertEquals(850, flattenedBoard.getEntitySet().getEntityArray()[0].getEnergy());
+		assertEquals(-150,flattenedBoard.getEntitySet().getEntityArray()[1].getEnergy());
+				
+	}
 
 	
 	//Diese Methode überprüft die Kollision zwischen einem Mastersquirrel und einem GoodBeast

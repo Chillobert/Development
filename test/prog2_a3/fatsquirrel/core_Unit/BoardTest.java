@@ -31,8 +31,8 @@ public class BoardTest {
 	//Überprüfe ob die Methode randLoc ein zufälliges int array zurückliefert
 	@Test
 	public void checkRandLoc(){
-		int[] random_one = board.randLoc();	
-		assertNotNull(random_one);	
+		int[] random_One = board.randLoc();	
+		assertNotNull(random_One);	
 	}
 	
 	//Überprüfe ob die Methode getEntityCount die richtige Anzahl an Entitys übergibt
