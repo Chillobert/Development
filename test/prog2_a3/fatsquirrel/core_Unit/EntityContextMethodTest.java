@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.easymock.EasyMock;
 import org.easymock.TestSubject;
-import org.hamcrest.core.IsAnything;
 import org.junit.*;
 import org.junit.Test;
 
@@ -17,7 +16,7 @@ import prog2_a3.fatsquirrel.core.BadBeast;
 import prog2_a3.fatsquirrel.core.Board;
 import prog2_a3.fatsquirrel.core.BoardConfig;
 import prog2_a3.interfaces.EntityContext;
-//Dieser Testcase soll überprüfen ob die richtigen Methoden im EntityContext aufgerufen werden => tryMove mit richtigen Parametern
+//Dieser Testcase soll ï¿½berprï¿½fen ob die richtigen Methoden im EntityContext aufgerufen werden => tryMove mit richtigen Parametern
 public class EntityContextMethodTest {
 
     private BoardConfig boardConfig;
@@ -38,7 +37,7 @@ public class EntityContextMethodTest {
     MiniSquirrel miniSquirrel = new MiniSquirrel(4, 100, 6, 6, 3);
     
     
-    //Diese Methode soll überprüfen ob beim Aufruf der nextStep Methoden der verschiedenen Entitys auch die dazugehörige tryMove Methode im Entity Context aufgerufen wird
+    //Diese Methode soll ï¿½berprï¿½fen ob beim Aufruf der nextStep Methoden der verschiedenen Entitys auch die dazugehï¿½rige tryMove Methode im Entity Context aufgerufen wird
 	@Test
 	public void checkRightMethodCalls() {
         FlattenedBoard flattenedBoard = EasyMock
@@ -46,23 +45,23 @@ public class EntityContextMethodTest {
                 .withConstructor(board)
                 .createNiceMock();
 
-		//Überprüfe BadBeast
+		//ï¿½berprï¿½fe BadBeast
 		badBeast.setTimeout(0);
-		badBeast.nextStep(flattenedBoard);
+		badBeast.nextStep(flattenedBoard,null);
 		assertEquals("tryMove(BadBeast badBeast, XY moveDirection)", flattenedBoard.getParams());
 		
-		//Überprüfe GoodBeast
+		//ï¿½berprï¿½fe GoodBeast
 		goodBeast.setTimeout(0);
-		goodBeast.nextStep(flattenedBoard);
+		goodBeast.nextStep(flattenedBoard,null);
 		assertEquals("tryMove(GoodBeast goodBeast, XY moveDirection)", flattenedBoard.getParams());
 
-		//Überprüfe MasterSquirrel
+		//ï¿½berprï¿½fe MasterSquirrel
 		XY direction = new XY(new int[]{0,-1});
 		masterSquirrel.nextStep(flattenedBoard, direction);
 		assertEquals("tryMove(Mastersquirrel masterBot, XY moveDirection)", flattenedBoard.getParams());
 		
-		//Überprüfe MiniSquirrel
-		miniSquirrel.nextStep(flattenedBoard);
+		//ï¿½berprï¿½fe MiniSquirrel
+		miniSquirrel.nextStep(flattenedBoard,null);
 		assertEquals("tryMove(MiniSquirrel miniSquirrel, XY moveDirection)", flattenedBoard.getParams());
 
 

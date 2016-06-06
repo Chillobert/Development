@@ -12,9 +12,9 @@ public class GoodBeast extends Beast{
 		super(id, energy, x, y);
 		logger.log(Level.FINEST, "Objekt der Klasse GoodBeast wurde erstellt");
 	}
-
+    
     @Override
-    public void nextStep(EntityContext entCon) {
-        entCon.tryMove(this, this.getLocation().getRandomVector());
-    } 
+    public void nextStep(EntityContext entCon, XY input) {
+	entCon.tryMove((GoodBeast)this, this.getLocation().getRandomVector());
+    }
 }

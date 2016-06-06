@@ -15,7 +15,7 @@ public class Wall extends Entity{
 	}
 
     @Override
-    public void nextStep(EntityContext entCon) {
+    public void nextStep(EntityContext entCon,XY input) {
     } 
 
 }

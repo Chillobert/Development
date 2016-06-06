@@ -13,9 +13,4 @@ public class GoodPlant extends Plant{
 		super(id, energy, x, y);
 		logger.log(Level.FINEST, "Objekt der Klasse GoodPlant wurde erstellt");
 	}
-
-    @Override
-    public void nextStep(EntityContext entCon) {
-       
-    } 
 }

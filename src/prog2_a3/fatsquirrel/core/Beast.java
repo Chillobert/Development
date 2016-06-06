@@ -11,5 +11,4 @@ public abstract class Beast extends Entity {
         super(id,energy,x,y);
         logger.log(Level.FINEST, "Object der Klasse Beast erstellt");
     }
-    
 }

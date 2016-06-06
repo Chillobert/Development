@@ -8,7 +8,7 @@ public abstract class Game {
     public State state;
     public FlattenedBoard flattenedBoard;
     public XY input;
-    public final int FPS =8;
+    public final int FPS = 12;
     private static final GameLogger logger = new GameLogger();
     public Game (){
         state = new State();

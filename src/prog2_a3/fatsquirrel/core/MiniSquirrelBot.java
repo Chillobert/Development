@@ -17,7 +17,7 @@ public class MiniSquirrelBot extends MiniSquirrel{
 
 
     @Override
-    public void nextStep(EntityContext entCon){
+    public void nextStep(EntityContext entCon,XY input){
         ControllerContextImpl conConImp = new ControllerContextImpl(entCon);
         MiniBotImpl1 botCon = new MiniBotImpl1();
         botCon.nextStep(conConImp);

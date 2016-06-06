@@ -2,7 +2,6 @@ package prog2_a3.fatsquirrel.console;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Vector;
 import java.util.logging.Level;
 
 import prog2_a3.*;
@@ -10,8 +9,6 @@ import prog2_a3.Launcher;
 import prog2_a3.fatsquirrel.core.EntitySet;
 import prog2_a3.fatsquirrel.core.Game;
 import prog2_a3.fatsquirrel.core.GameLogger;
-import prog2_a3.fatsquirrel.core.MasterSquirrel;
-import prog2_a3.fatsquirrel.core.MiniSquirrel;
 import prog2_a3.fatsquirrel.core.NotEnoughEnergyException;
 import prog2_a3.fatsquirrel.core.XY;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
@@ -25,6 +22,7 @@ public class GameImpl extends Game {
     private static final GameLogger logger = new GameLogger();
     int aktuelleRunde =0;
     private EntitySet entSet;
+    private int currentSteps=0;
     
     public GameImpl(){
         super();
@@ -83,6 +81,7 @@ public class GameImpl extends Game {
     }
     
     private void exit(){
+        state.getHighscore();
         System.exit(0);
     }
     
@@ -149,8 +148,13 @@ public class GameImpl extends Game {
         	logger.log(Level.SEVERE, "Fehler: GameImpl.update(); InterrupedException");
         }
         if(Launcher.getMode() == 2 || Launcher.getMode() == 3){
-            this.input = null;}
-        
+            this.input = null;
+        }
+        currentSteps++;
+        if(currentSteps >= this.state.getBoard().getConfig().getStepsPerRounds()){
+            state.update();
+            currentSteps=0;
+        }
     }
 
     @Override

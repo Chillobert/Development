@@ -18,7 +18,7 @@ public class MiniSquirrel extends PlayerEntity{
     }
 
     @Override
-    public void nextStep(EntityContext entCon) {
+    public void nextStep(EntityContext entCon, XY input) {
         entCon.tryMove(this, this.getLocation().getRandomVector());
     } 
 }

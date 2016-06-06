@@ -24,7 +24,7 @@ public class MasterSquirrelBot extends MasterSquirrel{
     }
 
     @Override
-    public void nextStep(EntityContext entCon) {
+    public void nextStep(EntityContext entCon, XY input) {
         ControllerContextImpl conConImp = new ControllerContextImpl(entCon);
         botCon.nextStep(conConImp);
     }

@@ -13,7 +13,7 @@ public class BotControllerFactoryImpl implements BotControllerFactory {
         BotController[] botControllerArray = new BotController[masterImpls.length];
         for(int i = 0; i < masterImpls.length; i++){
             try {
-                botControllerArray[i] = (BotController)Class.forName("prog2_a3.fatsquirrel.botimpls."+masterImpls[i]).newInstance();
+                botControllerArray[i] = (BotController)Class.forName(masterImpls[i]).newInstance();
             } catch (ClassNotFoundException ex) {
                 System.out.println("Invoke Class not Found in BotControllerFactory");
             } catch(InstantiationException ex){

@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import prog2_a3.fatsquirrel.console.GameCommandType;
 import prog2_a3.fatsquirrel.core.BoardConfig;
 import prog2_a3.fatsquirrel.core.GameLogger;
+import prog2_a3.fatsquirrel.core.MasterSquirrelBot;
 import prog2_a3.fatsquirrel.core.XY;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
 import prog2_a3.fatsquirrel.util.ui.console.CommandScanner;
@@ -172,7 +173,7 @@ public class FxUI extends Scene implements UI {
             		gc.setFill(Color.BLUE);
             		gc.fillRect(view.getEntity(row, column).getLocation().getX()*CELL_SIZE, view.getEntity(row, column).getLocation().getY()*CELL_SIZE, CELL_SIZE, CELL_SIZE);
             		this.health = String.valueOf(view.getEntity(row, column).getEnergy());
-                        message("aktuelle Energie ihres Squirrels: "+health);
+                        //System.out.println("aktuelle Energie ihres Squirrels: "+health);
             		break;               		
 
             	case "MiniSquirrel":case"MiniSquirrelBot":
@@ -184,7 +185,7 @@ public class FxUI extends Scene implements UI {
                     gc.setFill(Color.BLUE);
             		gc.fillRect(view.getEntity(row, column).getLocation().getX()*CELL_SIZE, view.getEntity(row, column).getLocation().getY()*CELL_SIZE, CELL_SIZE, CELL_SIZE);
             		this.health = String.valueOf(view.getEntity(row, column).getEnergy());
-                        message("aktuelle Energie ihres Bots: "+health);
+                        //System.out.println("aktuelle Energie von "+((MasterSquirrelBot)view.getEntity(row, column)).getImplName()+" ist: "+health);
             		break;        
             	}
             	   

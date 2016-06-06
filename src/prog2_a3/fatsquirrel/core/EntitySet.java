@@ -2,8 +2,8 @@ package prog2_a3.fatsquirrel.core;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import prog2_a3.interfaces.*;
@@ -16,16 +16,16 @@ public class EntitySet {
     private static final GameLogger logger = new GameLogger();
     private int stepsThisRound;
     private int remainingSteps;
-    HashMap<String,LinkedList<Integer>> hashMap;
+    Map<String,LinkedList<Integer>> highscore;
     
     public EntitySet(){  
-        this.hashMap = new HashMap();
+        this.highscore = new HashMap();
         //für jeden MasterSquirrel eine LinkedList in der HashMap initialisieren
         for(int i = 0; entArray.size()>i;i++){
             if(isInstance(entArray.get(i),GuidedMasterSquirrel.class))
-                hashMap.put(entArray.get(i).getName(), new LinkedList<Integer>());
+                highscore.put(entArray.get(i).getName(), new LinkedList<Integer>());
             if(isInstance(entArray.get(i),MasterSquirrelBot.class))
-                hashMap.put(((MasterSquirrelBot)entArray.get(i)).getImplName(), new LinkedList<Integer>());
+                highscore.put(((MasterSquirrelBot)entArray.get(i)).getImplName(), new LinkedList<Integer>());
         }
         logger.log(Level.FINEST, "Object der Klasse EntitySet erstellt");
     }
@@ -106,7 +106,7 @@ public class EntitySet {
                         }
                     }
                     else
-                        entArray.get(i).nextStep(entContext);
+                        entArray.get(i).nextStep(entContext,null);
                 }
                 else if(entArray.get(i).getTimeout()>0)
                     entArray.get(i).setTimeout(entArray.get(i).getTimeout()-1);
@@ -115,47 +115,47 @@ public class EntitySet {
         //Pause, wenn die gewünschte Anzahl an Schritten in dieser Runde abgelaufen sind
         else{
             
-            Vector<Entity> entArr = getEntityVector();
-            LinkedList<Integer> ls = new LinkedList();
-            LinkedList<Integer> lsBot = new LinkedList();
-            for(int i = 0; i<entArr.size();i++){
-                if(isInstance(entArr.get(i),GuidedMasterSquirrel.class)){
-                    if(hashMap.containsKey(entArr.get(i).getName()))
-                        ls = hashMap.get(((MasterSquirrel)entArr.get(i)).getName());
-                    else
-                        ls = new LinkedList<Integer>();
-                    
-                    ls.add(entArr.get(i).getEnergy());
-                    hashMap.put(((MasterSquirrel)entArr.get(i)).getName(), ls);
-                    ((MasterSquirrel)entArr.get(i)).updateEnergy(1000-(entArr.get(i)).getEnergy());
-                }
-                if(isInstance(entArr.get(i),MasterSquirrelBot.class)){
-                    if(hashMap.containsKey(((MasterSquirrelBot)entArr.get(i)).getImplName()))
-                        lsBot = hashMap.get(((MasterSquirrelBot)entArr.get(i)).getImplName());
-                    else
-                        lsBot = new LinkedList<Integer>();
-                    lsBot.add(entArr.get(i).getEnergy());
-                    hashMap.put(((MasterSquirrelBot)entArr.get(i)).getImplName(),lsBot);
-                    ((MasterSquirrel)entArr.get(i)).updateEnergy(1000-(entArr.get(i)).getEnergy());
-                }
-                else if(isInstance(entArr.get(i), MiniSquirrel.class)){
-                    delete((entArr.get(i)).getId());
-                }
-            }
-            Object[] names = hashMap.keySet().toArray();
-            for(int i = 0; i<names.length;i++){
-                    ls = hashMap.get(names[i]);
-                Object[] lsArr = ls.toArray();
-                
-                System.out.print(names[i]+": ");
-                Arrays.sort(lsArr);
-                System.out.println(Arrays.toString(lsArr));
-                logger.log(Level.INFO, names[i].toString()+": "+ Arrays.toString(lsArr));
-            }
-            stepsThisRound = 0;
+//            Vector<Entity> entArr = getEntityVector();
+//            LinkedList<Integer> ls = new LinkedList();
+//            LinkedList<Integer> lsBot = new LinkedList();
+//            for(int i = 0; i<entArr.size();i++){
+//                if(isInstance(entArr.get(i),GuidedMasterSquirrel.class)){
+//                    if(highscore.containsKey(entArr.get(i).getName()))
+//                        ls = highscore.get(((MasterSquirrel)entArr.get(i)).getName());
+//                    else
+//                        ls = new LinkedList<Integer>();
+//                    
+//                    ls.add(entArr.get(i).getEnergy());
+//                    highscore.put(((MasterSquirrel)entArr.get(i)).getName(), ls);
+//                    ((MasterSquirrel)entArr.get(i)).updateEnergy(1000-(entArr.get(i)).getEnergy());
+//                }
+//                if(isInstance(entArr.get(i),MasterSquirrelBot.class)){
+//                    if(highscore.containsKey(((MasterSquirrelBot)entArr.get(i)).getImplName()))
+//                        lsBot = highscore.get(((MasterSquirrelBot)entArr.get(i)).getImplName());
+//                    else
+//                        lsBot = new LinkedList<Integer>();
+//                    lsBot.add(entArr.get(i).getEnergy());
+//                    highscore.put(((MasterSquirrelBot)entArr.get(i)).getImplName(),lsBot);
+//                    ((MasterSquirrel)entArr.get(i)).updateEnergy(1000-(entArr.get(i)).getEnergy());
+//                }
+//                else if(isInstance(entArr.get(i), MiniSquirrel.class)){
+//                    delete((entArr.get(i)).getId());
+//                }
+//            }
+//            Object[] names = highscore.keySet().toArray();
+//            for(int i = 0; i<names.length;i++){
+//                    ls = highscore.get(names[i]);
+//                Object[] lsArr = ls.toArray();
+//                
+//                System.out.print(names[i]+": ");
+//                Arrays.sort(lsArr);
+//                System.out.println(Arrays.toString(lsArr));
+//                logger.log(Level.INFO, names[i].toString()+": "+ Arrays.toString(lsArr));
+//            }
+//            stepsThisRound = 0;
         }
-        this.stepsThisRound++;
-        this.remainingSteps = stepsPerRound - stepsThisRound;
+//        this.stepsThisRound++;
+//        this.remainingSteps = stepsPerRound - stepsThisRound;
     }
     
     public boolean isInstance(Object o, Class c){

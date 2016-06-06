@@ -10,6 +10,7 @@ private final int amountGoodPlants = 2;
 private final int amountBadPlants = 2;
 private final int amountWalls = 0;
 private static final GameLogger logger = new GameLogger();
+private final String masterBotImplsLocation = "prog2_a3.fatsquirrel.botimpls.";
 private final String[] masterBotImpls = new String[]{"MasterBotImpl1","MasterBotImpl2"};
 private final int stepsPerRound = 100;
 
@@ -42,7 +43,11 @@ public BoardConfig(){
             return size.getX()*2 + size.getY()*2;
 	}
         public String[] getMasterBotImpls(){
-            return masterBotImpls;
+            String[] output = new String[masterBotImpls.length];
+            for(int i = 0; i < masterBotImpls.length;i++){
+                output[i] = this.masterBotImplsLocation+masterBotImpls[i];
+            }
+            return output;
         }
         public int getStepsPerRounds(){
             return stepsPerRound;

@@ -38,7 +38,7 @@ public abstract class Entity{
 	energy += charge;
         }
 
-        public abstract void nextStep(EntityContext entCon);
+        public abstract void nextStep(EntityContext entCon, XY input);
         
         //Referenzcheck; true falls beide von gleicher Klasse abstammen
 
@@ -65,7 +65,7 @@ public abstract class Entity{
         public String getName(){
             String name = this.getClass().getName();
             int i = name.lastIndexOf(".");
-            name = name.substring(i+1,name.length());
+            name = name.substring(i+1);
             return name;
         }
         

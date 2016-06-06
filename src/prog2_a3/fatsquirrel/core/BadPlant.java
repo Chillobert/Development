@@ -14,8 +14,5 @@ public class BadPlant extends Plant{
 		// TODO Auto-generated constructor stub
 	}
 
-@Override
-    public void nextStep(EntityContext entCon) {
-    } 
 
 }

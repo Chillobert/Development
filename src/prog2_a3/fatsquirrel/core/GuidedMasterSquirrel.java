@@ -11,11 +11,5 @@ public class GuidedMasterSquirrel extends MasterSquirrel {
     public GuidedMasterSquirrel(int id, int x, int y){
         super(id,x,y);
         logger.log(Level.FINEST, "Objekt der Klasse GuidedMasterSquirrel wurde erstellt");
-    }
-    
-    @Override
-        public void nextStep(EntityContext entCon) {
-    } 
-        
-        
+    }    
 }

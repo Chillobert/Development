@@ -15,8 +15,8 @@ public class MasterBotImpl1 implements BotController{
         ControllerContextProxy contControllerProxy = new ControllerContextProxy(view);
         ControllerContext contController = contControllerProxy.getProxy();
         contController.move(randVector());
-//        if(i%10 ==0)
-//            System.out.println("remaining Steps: "+contController.getRemainingSteps());
+        if(i%10 ==0)
+            System.out.println("remaining Steps: "+view.getRemainingSteps());
         i++;
             //view.move(randVector());
     }
