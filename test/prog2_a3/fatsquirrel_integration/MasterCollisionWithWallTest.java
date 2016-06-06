@@ -1,14 +1,16 @@
-package prog2_a3.fatsquirrel.core_component_modul;
+package prog2_a3.fatsquirrel_integration;
 
 import static org.easymock.EasyMock.createMockBuilder;
 import static org.junit.Assert.*;
 
+import org.easymock.TestSubject;
 import org.junit.Before;
 import org.junit.Test;
 
 import prog2_a3.fatsquirrel.core.Board;
 import prog2_a3.fatsquirrel.core.BoardConfig;
 import prog2_a3.fatsquirrel.core.FlattenedBoard;
+import prog2_a3.fatsquirrel.core.GuidedMasterSquirrel;
 import prog2_a3.fatsquirrel.core.XY;
 
 
@@ -20,10 +22,14 @@ public class MasterCollisionWithWallTest {
     @Before
     public void setup(){
     	boardConfig = new BoardConfig();
-    	board = new Board(boardConfig);
+    	board = new Board(boardConfig,masterSquirrel,null,null,null,null,null,null);
+
     }
 
-	//Diese Methode überprüft das Bewegungsverhalten des MasterSquirrels im Falle einer Kollision mit einer Mauer sollte es sich 3 Runden lang nicht mehr bewegen können
+    @TestSubject
+    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(1,3,3);
+    
+	//Diese Methode ï¿½berprï¿½ft das Bewegungsverhalten des MasterSquirrels im Falle einer Kollision mit einer Mauer sollte es sich 3 Runden lang nicht mehr bewegen kï¿½nnen
 		@Test
 		public void SquirrelShouldWaitThreeRoundsAfterWallCollisionTillMovement(){
 			FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)
@@ -43,9 +49,8 @@ public class MasterCollisionWithWallTest {
 					}
 				}
 				try {
-					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input);
+					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input,1000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			};
@@ -56,10 +61,9 @@ public class MasterCollisionWithWallTest {
 			int penalty_Counter = 3;
 			for (int j = 0; j < 3; j++){
 				try {
-					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input);
+					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input,1000);
 					penalty_Counter = penalty_Counter - 1;
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				assertEquals(penalty_Counter, flattenedBoard.getEntitySet().getEntityArray()[0].getTimeout()); //Timeout soll pro Schleifendurchlauf um 1 verringert werden
@@ -67,19 +71,18 @@ public class MasterCollisionWithWallTest {
 			};
 
 			
-			//Wenn MasterSquirrel Penalty gleich 0 ist sollte das MasterSquirrel beim nächsten Aufruf von nextStepAll seine Location ändern;
+			//Wenn MasterSquirrel Penalty gleich 0 ist sollte das MasterSquirrel beim nï¿½chsten Aufruf von nextStepAll seine Location ï¿½ndern;
 			assertEquals(0, flattenedBoard.getEntitySet().getEntityArray()[0].getTimeout());
 			
 			try {
 				int[] oldLoc_Master = new int[]{flattenedBoard.getEntitySet().getEntityArray()[0].getLocation().getX(),flattenedBoard.getEntitySet().getEntityArray()[0].getLocation().getY()};
-				flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input);
+				flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input,1000);
 				int[] newLoc_Master = new int[]{flattenedBoard.getEntitySet().getEntityArray()[0].getLocation().getX(),flattenedBoard.getEntitySet().getEntityArray()[0].getLocation().getY()};
 				
 				assertNotNull(newLoc_Master); //neue Loc sollte nicht null sein
 				assertNotEquals(oldLoc_Master, newLoc_Master); //Location sollte unterschiedlich sein
 				
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			

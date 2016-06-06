@@ -98,7 +98,7 @@ public class MiniSquirrelBot extends MiniSquirrel{
             int currentY = position.getY();
             int testX = 0;
             int testY = 0;
-            Vector<Entity> entArray = ((FlattenedBoard)entCon).getEntitySet().getEntityArray();
+            Vector<Entity> entArray = ((FlattenedBoard)entCon).getEntitySet().getEntityVector();
             int distance = 0;
             int energyLoss = 0;
             

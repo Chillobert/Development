@@ -47,6 +47,20 @@ public class EntitySet {
         numbOf++;
     }
     
+    public void add(String entityTyp, int x, int y){
+                switch(entityTyp){
+            case"BadPlant": entArray.add(new BadPlant(numbOf++,x,y));break;
+            case"GoodBeast":entArray.add(new GoodBeast(numbOf++,x,y));break;
+            case"GoodPlant":entArray.add(new GoodPlant(numbOf++,x,y));break;
+            case"BadBeast":entArray.add(new BadBeast(numbOf++,x,y)); break;
+            case"GuidedMasterSquirrel":entArray.add(new GuidedMasterSquirrel(numbOf++,x,y));break;
+            case"Wall":entArray.add(new Wall(numbOf++,x,y));break;
+            case"MiniSquirrel":entArray.add(new MiniSquirrel(numbOf++, 200, x, y, 0)); //Zum testen
+            default:break;
+            
+        }
+    }
+    
     public void addMini(MasterSquirrel master,int energy, XY direction){
          entArray.add(master.createDescendant(numbOf++,energy , direction.getX(), direction.getY()));
     }
@@ -63,10 +77,16 @@ public class EntitySet {
         return numbOf;
     }
     
-    public Vector getEntityArray(){
+    public Vector getEntityVector(){
         return entArray;
     }
-    
+    public Entity[] getEntityArray(){
+        Entity[] entArr = new Entity[entArray.size()];
+        for(int i =0; i< entArray.size();i++){
+            entArr[i] = entArray.get(i);
+        }
+        return entArr;
+    }
     @Override
     public String toString(){
         String output="";
@@ -95,7 +115,7 @@ public class EntitySet {
         //Pause, wenn die gewünschte Anzahl an Schritten in dieser Runde abgelaufen sind
         else{
             
-            Vector<Entity> entArr = getEntityArray();
+            Vector<Entity> entArr = getEntityVector();
             LinkedList<Integer> ls = new LinkedList();
             LinkedList<Integer> lsBot = new LinkedList();
             for(int i = 0; i<entArr.size();i++){

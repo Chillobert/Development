@@ -24,7 +24,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
         this.board = board;
         this.size = board.getSize();
         this.entSet = board.getEntitySet();
-        Vector<Entity> entArray = entSet.getEntityArray();
+        Vector<Entity> entArray = entSet.getEntityVector();
         this.flattenedBoard = new Entity[this.size.getX()+1][this.size.getY()+1];
         for(int i = 0;entArray.size()>i;i++){
                 this.flattenedBoard[entArray.get(i).getLocation().getX()] [entArray.get(i).getLocation().getY()] = entArray.get(i);
@@ -112,7 +112,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     @Override
     public PlayerEntity nearestPlayerEntity(XY position){
-        Vector<Entity> entArray = entSet.getEntityArray();
+        Vector<Entity> entArray = entSet.getEntityVector();
         int minDistance = 30;
         int currentDistance;
         PlayerEntity entityReturn=null;
@@ -135,7 +135,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     public int nearestPlayerDistance(XY position){
-        Vector<Entity> entArray = entSet.getEntityArray();
+        Vector<Entity> entArray = entSet.getEntityVector();
         int minDistance = 100;
         int currentDistance;
         for(int i=0; i < entArray.size();i++){
@@ -282,7 +282,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     @Override
     public int getSquirrelEnergy() {
         int energy = 0;
-        Vector<Entity> entArray = entSet.getEntityArray();
+        Vector<Entity> entArray = entSet.getEntityVector();
         for(int i = 0;entArray.size() > i; i++){
             if(entSet.isInstance(entArray.get(i), GuidedMasterSquirrel.class))
                 energy = entArray.get(i).getEnergy();
@@ -367,7 +367,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     public MasterSquirrel getMasterSquirrel(){
-        Vector<Entity> entArr = this.entSet.getEntityArray();
+        Vector<Entity> entArr = this.entSet.getEntityVector();
         for (int i = 0; entArr.size()>i;i++)
             if(entSet.isInstance(entArr.get(i), GuidedMasterSquirrel.class))
                 return (MasterSquirrel)entArr.get(i);
