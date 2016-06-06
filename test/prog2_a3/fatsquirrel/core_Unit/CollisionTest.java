@@ -31,7 +31,8 @@ public class CollisionTest {
 	    BadBeast badBeast = new BadBeast(1,3,3);
 	    GoodBeast goodBeast = new GoodBeast(2,3,3);
 	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(3,4,3);
-	    MiniSquirrel miniSquirrel = new MiniSquirrel(4, 100, 6, 6, 3);
+	    MiniSquirrel miniSquirrel = new MiniSquirrel(4, 100, 6, 6, 1);
+	    MiniSquirrel miniSquirrel_Foreign = new MiniSquirrel (5,100,6,6,2);
 	    
 	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und einem BadBeast    
 	@Test
@@ -169,7 +170,7 @@ public class CollisionTest {
 	
 	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und SEINEM MiniSquirrel
 	@Test
-	public void CollisionBetweenMasterAndMini(){
+	public void CollisionBetweenMasterAndOwnMini(){
 		MiniSquirrel miniSquirrel = new MiniSquirrel(1,200,3,3,1);
 	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(2,3,4);
 	    
@@ -191,5 +192,32 @@ public class CollisionTest {
 		assertEquals(1200, flattenedBoard.getEntitySet().getEntityArray()[0].getEnergy());
 		assertEquals("Wall", flattenedBoard.getEntitySet().getEntityArray()[1].getName());
 		
-	}	
+	}
+	
+	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und einem FREMDEN MiniSquirrel
+	@Test
+	public void CollisionBetweenMasterAndForeignMini(){
+		MiniSquirrel miniSquirrel = new MiniSquirrel(1,200,3,3,1);
+	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(1,3,4);
+	    
+    	boardConfig = new BoardConfig();
+    	board = new Board(boardConfig,masterSquirrel,null,null,null,null,null,miniSquirrel);
+    	
+    	XY moveUp = new XY(new int[]{0,-1});	
+    	
+		FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)
+                .withConstructor(board)
+                .createMock();
+
+		
+		try {
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//Sofern eine Kollision erfolgt is muss das GuidedMasterSquirrel weiterhin 1000 Energie haben und das miniSquirrel muss tot sein.
+		assertEquals(1000, flattenedBoard.getEntitySet().getEntityArray()[0].getEnergy());
+		assertEquals("Wall", flattenedBoard.getEntitySet().getEntityArray()[1].getName());
+		
+	}		
 }

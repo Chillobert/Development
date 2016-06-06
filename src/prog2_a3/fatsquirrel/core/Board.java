@@ -69,6 +69,7 @@ private static final GameLogger logger = new GameLogger();
     	if(miniSquirrel != null){
     		this.entSet.add("MiniSquirrel", miniSquirrel.getLocation().getX(), miniSquirrel.getLocation().getY());
     	}
+
     	//Walls 
         for(int i = 1; i<this.width;i++){
             this.entSet.add("Wall", 0, i);
