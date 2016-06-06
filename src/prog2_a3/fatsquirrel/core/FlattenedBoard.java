@@ -1,8 +1,10 @@
 package prog2_a3.fatsquirrel.core;
 
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Vector;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import prog2_a3.interfaces.*;
 
@@ -16,6 +18,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     private EntitySet entSet;
     private Board board;
     private static final GameLogger logger = new GameLogger();
+    private String params;
     
     public FlattenedBoard(Board board){
         this.board = board;
@@ -29,8 +32,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
         logger.log(Level.FINEST, "Objekt der Klasse FlattenedBoard wurde erstellt");
     }
     
-    public Entity[][] getBoard(){
+    public Entity[][] getEntBoard(){
         return flattenedBoard;
+    }
+    
+    public Board getBoard(){
+    	return board;
     }
     
     public EntitySet getEntitySet(){
@@ -78,7 +85,19 @@ public class FlattenedBoard implements BoardView, EntityContext {
     public void killAndReplace(Entity entity){
         entSet.delete(entity.getId());
         XY newLoc = new XY(board.randLoc());
-        entSet.add(entity.getName(),newLoc.getX(),newLoc.getY());
+        try {
+            entSet.add((Entity)entity.getClass().getDeclaredConstructor(int.class, int.class, int.class).newInstance(entSet.getLatestId(),newLoc.getX(),newLoc.getY()));
+        } catch (InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(FlattenedBoard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(FlattenedBoard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(FlattenedBoard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(FlattenedBoard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(FlattenedBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override
@@ -159,6 +178,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 miniSquirrel.move(moveDirection);
                 miniSquirrel.updateEnergy(-1);
             }
+            this.setParams("tryMove(MiniSquirrel miniSquirrel, XY moveDirection)");
     }
     @Override
     public void tryMove(GoodBeast goodBeast, XY moveDirection){
@@ -188,6 +208,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 goodBeast.move(actualMoveDirection);
                 goodBeast.setTimeout(4);
             }
+            this.setParams("tryMove(GoodBeast goodBeast, XY moveDirection)");
     }
     @Override
     public void tryMove(BadBeast badBeast, XY moveDirection){
@@ -214,13 +235,14 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 badBeast.move(actualMoveDirection);
                 badBeast.setTimeout(4);
             }
+		this.setParams("tryMove(BadBeast badBeast, XY moveDirection)");
     }
     
     @Override
     public void tryMove(MasterSquirrel masterBot, XY moveDirection){
         // solange es noch nur einen Master gibt
-        if(masterBot.getEnergy()<=0)
-            kill(masterBot);
+//        if(masterBot.getEnergy()<=0)
+//            kill(masterBot);
         Entity nextField = getEntity(masterBot.getLocation().getX() + moveDirection.getX(), masterBot.getLocation().getY() + moveDirection.getY());
         //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
             if(nextField !=null ){
@@ -235,6 +257,8 @@ public class FlattenedBoard implements BoardView, EntityContext {
             }
             else
                 masterBot.move(moveDirection);
+            
+            this.setParams("tryMove(Mastersquirrel masterBot, XY moveDirection)");
     }
     
     private XY getFleeDirection(Beast beast){
@@ -345,8 +369,18 @@ public class FlattenedBoard implements BoardView, EntityContext {
     public MasterSquirrel getMasterSquirrel(){
         Vector<Entity> entArr = this.entSet.getEntityArray();
         for (int i = 0; entArr.size()>i;i++)
-            if(entSet.isInstance(entArr.get(i), MasterSquirrel.class))
+            if(entSet.isInstance(entArr.get(i), GuidedMasterSquirrel.class))
                 return (MasterSquirrel)entArr.get(i);
         return null;
     }
+    
+    public void setParams(String string){
+    	this.params = string;
+    	
+    }
+    
+    public String getParams(){
+    	return this.params;
+    }
+    
 }

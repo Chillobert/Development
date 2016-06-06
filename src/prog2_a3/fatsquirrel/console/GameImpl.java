@@ -2,20 +2,29 @@ package prog2_a3.fatsquirrel.console;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Vector;
 import java.util.logging.Level;
 
 import prog2_a3.*;
 import prog2_a3.Launcher;
-import prog2_a3.fatsquirrel.core.*;
+import prog2_a3.fatsquirrel.core.EntitySet;
+import prog2_a3.fatsquirrel.core.Game;
+import prog2_a3.fatsquirrel.core.GameLogger;
+import prog2_a3.fatsquirrel.core.MasterSquirrel;
+import prog2_a3.fatsquirrel.core.MiniSquirrel;
+import prog2_a3.fatsquirrel.core.NotEnoughEnergyException;
+import prog2_a3.fatsquirrel.core.XY;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
 import prog2_a3.fatsquirrel.util.ui.console.ScanException;
 
 public class GameImpl extends Game {
-	private Command puffer;
+    private Command puffer;
     private ConsoleUI ui;
     private Command command;
     private FxUI fxUI;
     private static final GameLogger logger = new GameLogger();
+    int aktuelleRunde =0;
+    private EntitySet entSet;
     
     public GameImpl(){
         super();
@@ -27,7 +36,6 @@ public class GameImpl extends Game {
         super();
         this.fxUI = fxui;
         logger.log(Level.FINEST, "Object der Klasse GameImpl - FxUI - erstellt");
-       
     }
     
     @Override
@@ -127,21 +135,22 @@ public class GameImpl extends Game {
 
     @Override
     protected void update(){
+        this.entSet = this.flattenedBoard.getEntitySet();       
         if(this.input==null)
             try {
-                super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
+                entSet.nextStepAll(flattenedBoard,new XY(new int[]{0,0}),flattenedBoard.getBoard().getConfig().getStepsPerRounds());
         } catch (InterruptedException ex) {
         	logger.log(Level.SEVERE, "Fehler: GameImpl.update(); InterrupedException");
         }
         else
             try {
-                super.flattenedBoard.getEntitySet().nextStepAll(flattenedBoard,this.input);
+                entSet.nextStepAll(flattenedBoard,this.input,flattenedBoard.getBoard().getConfig().getStepsPerRounds());
         } catch (InterruptedException ex) {
         	logger.log(Level.SEVERE, "Fehler: GameImpl.update(); InterrupedException");
         }
         if(Launcher.getMode() == 2 || Launcher.getMode() == 3){
-        this.input = null;}
-
+            this.input = null;}
+        
     }
 
     @Override

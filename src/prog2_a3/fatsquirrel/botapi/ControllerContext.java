@@ -18,4 +18,6 @@ public interface ControllerContext {
         void implode(int radius);
         
         XY getDirectionToParent();
+        
+        int getRemainingSteps();
 }

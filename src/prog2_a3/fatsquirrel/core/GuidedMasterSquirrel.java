@@ -17,4 +17,5 @@ public class GuidedMasterSquirrel extends MasterSquirrel {
         public void nextStep(EntityContext entCon) {
     } 
         
+        
 }

@@ -1,8 +1,10 @@
-package prog2_a3.fatsquirrel.core;
+package prog2_a3.fatsquirrel.core_Unit;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import prog2_a3.fatsquirrel.core.XY;
 
 public class XYTest {
 	private int[] locTest;

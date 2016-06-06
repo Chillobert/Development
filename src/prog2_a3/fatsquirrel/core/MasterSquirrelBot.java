@@ -1,6 +1,5 @@
 package prog2_a3.fatsquirrel.core;
 
-import prog2_a3.fatsquirrel.botimpls.MasterBotImpl1;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import prog2_a3.interfaces.*;
@@ -8,20 +7,26 @@ import prog2_a3.fatsquirrel.botapi.*;
 
 public class MasterSquirrelBot extends MasterSquirrel{
 	private static final GameLogger logger = new GameLogger();
+        BotController botCon;
 	
-    public MasterSquirrelBot(int id, int x, int y) {
+    public MasterSquirrelBot(int id, int x, int y, BotController botCon) {
         super(id, x, y);
         BotControllerFactory BotFact = new BotControllerFactoryImpl();
-        BotController BotCon = BotFact.createMasterBotController();
         logger.log(Level.FINEST, "Objekt der Klasse MasterSquirrelBot wurde erstellt");
+        this.botCon = botCon;
+    }
+    
+    public String getImplName(){
+        String name = botCon.getClass().getCanonicalName();
+        int index = name.lastIndexOf(".");
+        name = name.substring(index+1);
+        return name;
     }
 
     @Override
     public void nextStep(EntityContext entCon) {
         ControllerContextImpl conConImp = new ControllerContextImpl(entCon);
-        MasterBotImpl1 botCon = new MasterBotImpl1();
         botCon.nextStep(conConImp);
-
     }
 
     class ControllerContextImpl implements ControllerContext{
@@ -106,6 +111,11 @@ public class MasterSquirrelBot extends MasterSquirrel{
         logger.log(Level.WARNING,"Es wurde versucht getDirectionToParent() in MasterSquirrelBot aufzurufen");
         return null;
     }
+
+    @Override
+    public int getRemainingSteps() {
+        return ((FlattenedBoard)entCon).getEntitySet().getRemainingSteps();
+        }
 
     }
 }

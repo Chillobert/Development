@@ -3,15 +3,15 @@ package prog2_a3.fatsquirrel.core;
 import java.util.logging.Level;
 
 public class BoardConfig {
-private final XY size = new XY(new int[]{20,20});
+private XY size = new XY(new int[]{20,20});
 private final int amountGoodBeasts = 2;
 private final int amountBadBeasts = 2;
 private final int amountGoodPlants = 2;
 private final int amountBadPlants = 2;
 private final int amountWalls = 0;
 private static final GameLogger logger = new GameLogger();
-private final String[] MasterBotImpls = new String[]{"MasterBotImpl1","MasterBotImpl2"};
-private final String[] MiniBotImpl = new String[]{"MiniBotImpl1"};
+private final String[] masterBotImpls = new String[]{"MasterBotImpl1","MasterBotImpl2"};
+private final int stepsPerRound = 100;
 
 public BoardConfig(){
 	logger.log(Level.FINEST, "Object der Klasse BoardConfig erstellt");
@@ -39,9 +39,12 @@ public BoardConfig(){
             return amountBadPlants;
 	}
 	public int getAmountWalls(){
-            return amountWalls;
+            return size.getX()*2 + size.getY()*2;
 	}
         public String[] getMasterBotImpls(){
-            return this.MasterBotImpls;
+            return masterBotImpls;
+        }
+        public int getStepsPerRounds(){
+            return stepsPerRound;
         }
 }

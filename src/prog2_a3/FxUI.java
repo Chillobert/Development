@@ -72,7 +72,7 @@ public class FxUI extends Scene implements UI {
     		   				"W,A,S,D for moving your Squirrel" + "\n" +
     		   				"X for Spawn MiniSquirrel" + "\n" +
     		   				"E for Exit" + "\n" +
-    		   				"H for more details");
+    		   				"H for more details\n");
         
         
         final FxUI fxUI = new FxUI(top, boardCanvas, statusLabel); 
@@ -136,6 +136,7 @@ public class FxUI extends Scene implements UI {
         // dummy for rendering a board snapshot, TODO: change it!
         
         // FlattenedBoard wird gescannt 
+        
         for (int row = 0; row <= view.getSize().getX(); row++) {
             for (int column = 0; column <= view.getSize().getY(); column++) {
             	switch (view.getEntityType(row, column)){
@@ -170,25 +171,28 @@ public class FxUI extends Scene implements UI {
             	case "GuidedMasterSquirrel":
             		gc.setFill(Color.BLUE);
             		gc.fillRect(view.getEntity(row, column).getLocation().getX()*CELL_SIZE, view.getEntity(row, column).getLocation().getY()*CELL_SIZE, CELL_SIZE, CELL_SIZE);
-            		health.valueOf(view.getEntity(row, column).getEnergy());
+            		this.health = String.valueOf(view.getEntity(row, column).getEnergy());
+                        message("aktuelle Energie ihres Squirrels: "+health);
             		break;               		
 
             	case "MiniSquirrel":case"MiniSquirrelBot":
             		gc.setFill(Color.BLUE);
             		gc.fillRect(view.getEntity(row, column).getLocation().getX()*CELL_SIZE, view.getEntity(row, column).getLocation().getY()*CELL_SIZE, CELL_SIZE*0.5, CELL_SIZE*0.5);
             		break;
+                        
                 case "MasterSquirrelBot":
-                        gc.setFill(Color.BLUE);
-                        gc.fillRect(view.getEntity(row, column).getLocation().getX()*CELL_SIZE, view.getEntity(row, column).getLocation().getY()*CELL_SIZE, CELL_SIZE, CELL_SIZE);
-                        break;
-            	};	
+                    gc.setFill(Color.BLUE);
+            		gc.fillRect(view.getEntity(row, column).getLocation().getX()*CELL_SIZE, view.getEntity(row, column).getLocation().getY()*CELL_SIZE, CELL_SIZE, CELL_SIZE);
+            		this.health = String.valueOf(view.getEntity(row, column).getEnergy());
+                        message("aktuelle Energie ihres Bots: "+health);
+            		break;        
+            	}
             	   
             }
         }
 
     }
     
-
     @Override
     public void message(final String msg) {
         Platform.runLater(new Runnable() {

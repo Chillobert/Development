@@ -1,6 +1,14 @@
 package prog2_a3.interfaces;
 
-import prog2_a3.fatsquirrel.core.*;
+import prog2_a3.fatsquirrel.core.BadBeast;
+import prog2_a3.fatsquirrel.core.Entity;
+import prog2_a3.fatsquirrel.core.GoodBeast;
+import prog2_a3.fatsquirrel.core.MasterSquirrel;
+import prog2_a3.fatsquirrel.core.MiniSquirrel;
+import prog2_a3.fatsquirrel.core.NotEnoughEnergyException;
+import prog2_a3.fatsquirrel.core.PlayerEntity;
+import prog2_a3.fatsquirrel.core.XY;
+
 
 
 public interface EntityContext {

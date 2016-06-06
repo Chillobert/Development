@@ -164,7 +164,7 @@ public class MiniSquirrelBot extends MiniSquirrel{
 
         private MasterSquirrel getMaster(){
             //Geht das komplette Board durch und checkt für jedes MasterSquirrel, ob das Mini von ihm ist
-            Entity[][] board = ((FlattenedBoard)entCon).getBoard();
+            Entity[][] board = ((FlattenedBoard)entCon).getEntBoard();
 
             for(int i=0; i< board.length;i++){
                 for(int j=0; j<board[i].length;i++){
@@ -175,6 +175,11 @@ public class MiniSquirrelBot extends MiniSquirrel{
                 }
             }
             return null;
+        }
+
+        @Override
+        public int getRemainingSteps() {
+            return ((FlattenedBoard)entCon).getEntitySet().getRemainingSteps();
         }
     }
 }

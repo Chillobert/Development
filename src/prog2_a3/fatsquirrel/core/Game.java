@@ -27,8 +27,8 @@ public abstract class Game {
     	
     	else if(Launcher.getMode() == 2 || Launcher.getMode() == 3){
     		render();
-    		if(Launcher.getMode() == 3)
-    		processInput();
+                    if(Launcher.getMode() == 3)
+                        processInput();
     		update();
     	}
     	

@@ -1,7 +1,8 @@
 package prog2_a3;
 
 import prog2_a3.fatsquirrel.console.*;
-import prog2_a3.fatsquirrel.core.*;
+import prog2_a3.fatsquirrel.core.BoardConfig;
+import prog2_a3.fatsquirrel.core.GameLogger;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
 import java.util.Timer;
 import java.util.TimerTask;
