@@ -40,14 +40,13 @@ public class EntityMovementTest {
 		entitySet.add("BadBeast", 2, 2);
 		entitySet.add("GoodBeast", 4, 4);
 		
-		entitySet.getEntityArray()[1].setTimeout(4);
+		entitySet.getEntityArray()[1].setTimeout(4); //setze auf 4 damit beides in einer Schleife abgehandelt werden kann, Funktion ist die selbe
 		
 		//Prüfe ob Penalty richtig dekrementiert wird
 		for (int i = 3; i >=0; i--) {
 			try {				
 				entitySet.nextStepAll(flattenedBoard, null);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			//Mann könnte hier ebenfalls noch die Location abfragen ==> vor nextStepAll abspeicher und danach => dann assertEquals => falls beides gleich haben sie sich nicht bewegt
@@ -104,7 +103,6 @@ public class EntityMovementTest {
 				assertNotEquals(oldLoc_Master, newLoc_Master); //Prüfe ob oldLoc != newLoc (Falls ja => Bewegung durchgeführt)
 				
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			

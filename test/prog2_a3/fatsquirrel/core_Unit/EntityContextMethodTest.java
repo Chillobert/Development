@@ -41,30 +41,29 @@ public class EntityContextMethodTest {
     //Diese Methode soll überprüfen ob beim Aufruf der nextStep Methoden der verschiedenen Entitys auch die dazugehörige tryMove Methode im Entity Context aufgerufen wird
 	@Test
 	public void checkRightMethodCalls() {
-        FlattenedBoard entityContext = EasyMock
+        FlattenedBoard flattenedBoard = EasyMock
                 .createMockBuilder(FlattenedBoard.class)
                 .withConstructor(board)
-                //.addMockedMethod
                 .createNiceMock();
 
 		//Überprüfe BadBeast
 		badBeast.setTimeout(0);
-		badBeast.nextStep(entityContext);
-		assertEquals("tryMove(BadBeast badBeast, XY moveDirection)", entityContext.getParams());
+		badBeast.nextStep(flattenedBoard);
+		assertEquals("tryMove(BadBeast badBeast, XY moveDirection)", flattenedBoard.getParams());
 		
 		//Überprüfe GoodBeast
 		goodBeast.setTimeout(0);
-		goodBeast.nextStep(entityContext);
-		assertEquals("tryMove(GoodBeast goodBeast, XY moveDirection)", entityContext.getParams());
+		goodBeast.nextStep(flattenedBoard);
+		assertEquals("tryMove(GoodBeast goodBeast, XY moveDirection)", flattenedBoard.getParams());
 
 		//Überprüfe MasterSquirrel
 		XY direction = new XY(new int[]{0,-1});
-		masterSquirrel.nextStep(entityContext, direction);
-		assertEquals("tryMove(Mastersquirrel masterBot, XY moveDirection)", entityContext.getParams());
+		masterSquirrel.nextStep(flattenedBoard, direction);
+		assertEquals("tryMove(Mastersquirrel masterBot, XY moveDirection)", flattenedBoard.getParams());
 		
 		//Überprüfe MiniSquirrel
-		miniSquirrel.nextStep(entityContext);
-		assertEquals("tryMove(MiniSquirrel miniSquirrel, XY moveDirection)", entityContext.getParams());
+		miniSquirrel.nextStep(flattenedBoard);
+		assertEquals("tryMove(MiniSquirrel miniSquirrel, XY moveDirection)", flattenedBoard.getParams());
 
 
 		

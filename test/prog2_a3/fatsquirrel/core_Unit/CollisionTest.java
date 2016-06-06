@@ -20,13 +20,8 @@ import prog2_a3.fatsquirrel.core.XY;
 
 public class CollisionTest {
 	 private BoardConfig boardConfig;
-	    private Board board;		
+	 private Board board;		
 
-	    @Before
-	    public void setup(){
-
-	    }
-	    
 	    @TestSubject
 	    BadBeast badBeast = new BadBeast(1,3,3);
 	    GoodBeast goodBeast = new GoodBeast(2,3,3);
@@ -195,6 +190,32 @@ public class CollisionTest {
 		assertEquals("Wall", flattenedBoard.getEntitySet().getEntityArray()[1].getName());
 		
 	}
+	
+	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und einer Wall
+	@Test
+	public void CollisionBetweenMasterAndWall(){
+
+	    masterSquirrel = new GuidedMasterSquirrel(2,3,1);
+	    
+    	boardConfig = new BoardConfig();
+    	board = new Board(boardConfig,masterSquirrel,null,null,null,null,null,null);
+    	
+		FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)
+                .withConstructor(board)
+                .createMock();
+		
+		XY moveUp = new XY(new int[]{0,-1});		
+		
+		try {
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//Sofern eine Kollision erfolgt is muss das GuidedMasterSquirrel 10 Energie verloren haben und für 3 Runden betäubt sein
+		assertEquals(990, flattenedBoard.getEntitySet().getEntityArray()[0].getEnergy());
+		assertEquals(3, flattenedBoard.getEntitySet().getEntityArray()[0].getTimeout());
+		
+	}	
 	
 	
 }

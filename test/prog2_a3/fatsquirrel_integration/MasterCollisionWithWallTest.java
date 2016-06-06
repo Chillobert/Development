@@ -1,4 +1,4 @@
-package prog2_a3.fatsquirrel.core_component_modul;
+package prog2_a3.fatsquirrel_integration;
 
 import static org.easymock.EasyMock.createMockBuilder;
 import static org.junit.Assert.*;
@@ -51,7 +51,6 @@ public class MasterCollisionWithWallTest {
 				try {
 					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			};
@@ -65,7 +64,6 @@ public class MasterCollisionWithWallTest {
 					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input);
 					penalty_Counter = penalty_Counter - 1;
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				assertEquals(penalty_Counter, flattenedBoard.getEntitySet().getEntityArray()[0].getTimeout()); //Timeout soll pro Schleifendurchlauf um 1 verringert werden
@@ -85,7 +83,6 @@ public class MasterCollisionWithWallTest {
 				assertNotEquals(oldLoc_Master, newLoc_Master); //Location sollte unterschiedlich sein
 				
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
