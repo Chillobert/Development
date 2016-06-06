@@ -3,12 +3,14 @@ package prog2_a3.fatsquirrel.core_component_modul;
 import static org.easymock.EasyMock.createMockBuilder;
 import static org.junit.Assert.*;
 
+import org.easymock.TestSubject;
 import org.junit.Before;
 import org.junit.Test;
 
 import prog2_a3.fatsquirrel.core.Board;
 import prog2_a3.fatsquirrel.core.BoardConfig;
 import prog2_a3.fatsquirrel.core.FlattenedBoard;
+import prog2_a3.fatsquirrel.core.GuidedMasterSquirrel;
 import prog2_a3.fatsquirrel.core.XY;
 
 
@@ -20,9 +22,13 @@ public class MasterCollisionWithWallTest {
     @Before
     public void setup(){
     	boardConfig = new BoardConfig();
-    	board = new Board(boardConfig);
+    	board = new Board(boardConfig,masterSquirrel,null,null,null,null,null,null);
+
     }
 
+    @TestSubject
+    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(1,3,3);
+    
 	//Diese Methode überprüft das Bewegungsverhalten des MasterSquirrels im Falle einer Kollision mit einer Mauer sollte es sich 3 Runden lang nicht mehr bewegen können
 		@Test
 		public void SquirrelShouldWaitThreeRoundsAfterWallCollisionTillMovement(){

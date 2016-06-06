@@ -30,6 +30,8 @@ public class CollisionTest {
 	    @TestSubject
 	    BadBeast badBeast = new BadBeast(1,3,3);
 	    GoodBeast goodBeast = new GoodBeast(2,3,3);
+	    GoodPlant goodPlant = new GoodPlant(6,4,4);
+	    BadPlant badPlant = new BadPlant(7,5,5);
 	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(3,4,3);
 	    MiniSquirrel miniSquirrel = new MiniSquirrel(4, 100, 6, 6, 1);
 	    MiniSquirrel miniSquirrel_Foreign = new MiniSquirrel (5,100,6,6,2);
@@ -37,8 +39,8 @@ public class CollisionTest {
 	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und einem BadBeast    
 	@Test
 	public void CollisionBetweenMasterAndBadBeast() {
-	    BadBeast badBeast = new BadBeast(1,3,3);
-	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(3,3,4);
+	    badBeast = new BadBeast(1,3,3);
+	    masterSquirrel = new GuidedMasterSquirrel(3,3,4);
 	    
     	boardConfig = new BoardConfig();
     	board = new Board(boardConfig,masterSquirrel,null,null,badBeast,null,null,null);
@@ -65,8 +67,8 @@ public class CollisionTest {
 	//Diese Methode überprüft die Kollision zwischen einem BadBeast und einem MasterSquirrel
 	@Test
 	public void CollisionBetweenBadBeastandMaster(){
-	    BadBeast badBeast = new BadBeast(1,3,4);
-	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(2,3,3);
+	    badBeast = new BadBeast(1,3,4);
+	    masterSquirrel = new GuidedMasterSquirrel(2,3,3);
 	    
     	boardConfig = new BoardConfig();
     	board = new Board(boardConfig,masterSquirrel,null,null,badBeast,null,null,null);
@@ -92,8 +94,8 @@ public class CollisionTest {
 	//Diese Methode überprüft die Kollision zwischen einem Mastersquirrel und einem GoodBeast
 	@Test
 	public void CollisionBetweenMasterandGoodBeast(){
-	    GoodBeast goodBeast = new GoodBeast(1,3,3);
-	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(3,3,4);
+	    goodBeast = new GoodBeast(1,3,3);
+	    masterSquirrel = new GuidedMasterSquirrel(3,3,4);
 	    
     	boardConfig = new BoardConfig();
     	board = new Board(boardConfig,masterSquirrel,null,goodBeast,null,null,null,null);
@@ -118,8 +120,8 @@ public class CollisionTest {
 	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und einer GoodPlant
 	@Test
 	public void CollisionBetweenMasterAndGoodPlant(){
-	    GoodPlant goodPlant = new GoodPlant(1,3,3);
-	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(3,3,4);
+	    goodPlant = new GoodPlant(1,3,3);
+	    masterSquirrel = new GuidedMasterSquirrel(3,3,4);
 	    
     	boardConfig = new BoardConfig();
     	board = new Board(boardConfig,masterSquirrel,null,null,null,goodPlant,null,null);
@@ -144,8 +146,8 @@ public class CollisionTest {
 	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und einer BadPlant
 	@Test
 	public void CollisionBetweenMasterAndBadPlant(){
-		BadPlant badPlant = new BadPlant(1,3,3);
-	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(3,3,4);
+		badPlant = new BadPlant(1,3,3);
+	    masterSquirrel = new GuidedMasterSquirrel(3,3,4);
 	    
     	boardConfig = new BoardConfig();
     	board = new Board(boardConfig,masterSquirrel,null,null,null,null,badPlant,null);
@@ -168,11 +170,11 @@ public class CollisionTest {
 	}	
 	
 	
-	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und SEINEM MiniSquirrel
+	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und seinem MiniSquirrel(MiniSquirrel hat 200Energie bei der Erzeugung)
 	@Test
 	public void CollisionBetweenMasterAndOwnMini(){
-		MiniSquirrel miniSquirrel = new MiniSquirrel(1,200,3,3,1);
-	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(2,3,4);
+		miniSquirrel = new MiniSquirrel(1,200,3,3,1);
+	    masterSquirrel = new GuidedMasterSquirrel(2,3,4);
 	    
     	boardConfig = new BoardConfig();
     	board = new Board(boardConfig,masterSquirrel,null,null,null,null,null,miniSquirrel);
@@ -194,30 +196,5 @@ public class CollisionTest {
 		
 	}
 	
-	//Diese Methode überprüft die Kollision zwischen einem MasterSquirrel und einem FREMDEN MiniSquirrel
-	@Test
-	public void CollisionBetweenMasterAndForeignMini(){
-		MiniSquirrel miniSquirrel = new MiniSquirrel(1,200,3,3,1);
-	    GuidedMasterSquirrel masterSquirrel = new GuidedMasterSquirrel(1,3,4);
-	    
-    	boardConfig = new BoardConfig();
-    	board = new Board(boardConfig,masterSquirrel,null,null,null,null,null,miniSquirrel);
-    	
-    	XY moveUp = new XY(new int[]{0,-1});	
-    	
-		FlattenedBoard flattenedBoard = createMockBuilder(FlattenedBoard.class)
-                .withConstructor(board)
-                .createMock();
-
-		
-		try {
-			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		//Sofern eine Kollision erfolgt is muss das GuidedMasterSquirrel weiterhin 1000 Energie haben und das miniSquirrel muss tot sein.
-		assertEquals(1000, flattenedBoard.getEntitySet().getEntityArray()[0].getEnergy());
-		assertEquals("Wall", flattenedBoard.getEntitySet().getEntityArray()[1].getName());
-		
-	}		
+	
 }

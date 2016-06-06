@@ -71,6 +71,11 @@ private static final GameLogger logger = new GameLogger();
     	}
 
     	//Walls 
+        for(int i = 0; i<= this.length;i++){
+            this.entSet.add("Wall", i, 0);
+            this.entSet.add("Wall", i, this.width);
+        }
+        
         for(int i = 1; i<this.width;i++){
             this.entSet.add("Wall", 0, i);
             this.entSet.add("Wall", this.length, i);
