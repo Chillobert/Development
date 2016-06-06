@@ -17,6 +17,5 @@ public final static int energy = -150;
     @Override
     public void nextStep(EntityContext entCon, XY input) {
 	entCon.tryMove((BadBeast)this, this.getLocation().getRandomVector());
-
     }
 }

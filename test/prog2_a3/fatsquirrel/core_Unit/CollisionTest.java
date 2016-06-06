@@ -48,7 +48,7 @@ public class CollisionTest {
     	
 		
 		try {
-			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp,1000);
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -75,7 +75,7 @@ public class CollisionTest {
 		
 		flattenedBoard.getEntitySet().getEntityArray()[1].setTimeout(0); // Setze TimeOut von BadBeast auf 0 damit es sich beim ersten Aufruf bewegt
 		try {
-			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, null,1000);
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, null);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -102,7 +102,7 @@ public class CollisionTest {
 		XY moveUp = new XY(new int[]{0,-1});	
     	
 		try {
-			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp,1000);
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -128,7 +128,7 @@ public class CollisionTest {
 		XY moveUp = new XY(new int[]{0,-1});		
 		
 		try {
-			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp,1000);
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -154,7 +154,7 @@ public class CollisionTest {
 		XY moveUp = new XY(new int[]{0,-1});		
 		
 		try {
-			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp,1000);
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -181,7 +181,7 @@ public class CollisionTest {
 		XY moveUp = new XY(new int[]{0,-1});		
 		
 		try {
-			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp,1000);
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -207,7 +207,7 @@ public class CollisionTest {
 		XY moveUp = new XY(new int[]{0,-1});		
 		
 		try {
-			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp,1000);
+			flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, moveUp);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

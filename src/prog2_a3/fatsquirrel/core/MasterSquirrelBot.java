@@ -8,6 +8,7 @@ import prog2_a3.fatsquirrel.botapi.*;
 public class MasterSquirrelBot extends MasterSquirrel{
 	private static final GameLogger logger = new GameLogger();
         BotController botCon;
+        protected int currentStepsInRound = 0;
 	
     public MasterSquirrelBot(int id, int x, int y, BotController botCon) {
         super(id, x, y);
@@ -27,6 +28,10 @@ public class MasterSquirrelBot extends MasterSquirrel{
     public void nextStep(EntityContext entCon, XY input) {
         ControllerContextImpl conConImp = new ControllerContextImpl(entCon);
         botCon.nextStep(conConImp);
+                if(conConImp.getRemainingSteps()<=0){
+            this.currentStepsInRound = 0;
+        }
+        this.currentStepsInRound++;
     }
 
     class ControllerContextImpl implements ControllerContext{
@@ -114,7 +119,7 @@ public class MasterSquirrelBot extends MasterSquirrel{
 
     @Override
     public int getRemainingSteps() {
-        return ((FlattenedBoard)entCon).getEntitySet().getRemainingSteps();
+        return ((FlattenedBoard)entCon).getBoard().getConfig().getStepsPerRounds() - MasterSquirrelBot.this.currentStepsInRound;
         }
 
     }

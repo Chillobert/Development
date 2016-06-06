@@ -10,7 +10,7 @@ public abstract class Entity{
 	private int id;
 	private int energy;
 	private XY loc;
-    private int penalty;
+        private int penalty;
 	public int collCount=0;
 	private static final GameLogger logger = new GameLogger();
 

@@ -1,13 +1,15 @@
 package prog2_a3.fatsquirrel.core;
 
-import java.util.Vector;
+import java.util.List;
 import prog2_a3.fatsquirrel.botimpls.MiniBotImpl1;
 import java.util.logging.Level;
 import prog2_a3.fatsquirrel.botapi.*;
 import prog2_a3.interfaces.*;
 
 public class MiniSquirrelBot extends MiniSquirrel{
-	private static final GameLogger logger = new GameLogger();
+    
+    protected int currentStepsInRound = 0;
+    private static final GameLogger logger = new GameLogger();
     //private int energy;
     public MiniSquirrelBot(int id, int energy, int x, int y, int patronId) {
         super(id, energy, x, y, patronId);
@@ -21,6 +23,10 @@ public class MiniSquirrelBot extends MiniSquirrel{
         ControllerContextImpl conConImp = new ControllerContextImpl(entCon);
         MiniBotImpl1 botCon = new MiniBotImpl1();
         botCon.nextStep(conConImp);
+        this.currentStepsInRound++;
+        if(conConImp.getRemainingSteps()<=0){
+            this.currentStepsInRound = 0;
+        }
     }
 
     class ControllerContextImpl implements ControllerContext{
@@ -98,7 +104,7 @@ public class MiniSquirrelBot extends MiniSquirrel{
             int currentY = position.getY();
             int testX = 0;
             int testY = 0;
-            Vector<Entity> entArray = ((FlattenedBoard)entCon).getEntitySet().getEntityVector();
+            List<Entity> entArray = ((FlattenedBoard)entCon).getEntitySet().getEntityVector();
             int distance = 0;
             int energyLoss = 0;
             
@@ -179,7 +185,7 @@ public class MiniSquirrelBot extends MiniSquirrel{
 
         @Override
         public int getRemainingSteps() {
-            return ((FlattenedBoard)entCon).getEntitySet().getRemainingSteps();
+            return ((FlattenedBoard)entCon).getBoard().getConfig().getStepsPerRounds() - MiniSquirrelBot.this.currentStepsInRound;
         }
     }
 }

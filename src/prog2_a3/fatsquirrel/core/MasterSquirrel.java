@@ -26,7 +26,6 @@ public abstract class MasterSquirrel extends PlayerEntity{
  
     public void nextStep(EntityContext entCon,XY direction){
         entCon.tryMove(this, direction);
-        
     }
 }
 

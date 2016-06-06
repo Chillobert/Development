@@ -49,7 +49,7 @@ public class MasterCollisionWithWallTest {
 					}
 				}
 				try {
-					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input,1000);
+					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -61,7 +61,7 @@ public class MasterCollisionWithWallTest {
 			int penalty_Counter = 3;
 			for (int j = 0; j < 3; j++){
 				try {
-					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input,1000);
+					flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input);
 					penalty_Counter = penalty_Counter - 1;
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -76,7 +76,7 @@ public class MasterCollisionWithWallTest {
 			
 			try {
 				int[] oldLoc_Master = new int[]{flattenedBoard.getEntitySet().getEntityArray()[0].getLocation().getX(),flattenedBoard.getEntitySet().getEntityArray()[0].getLocation().getY()};
-				flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input,1000);
+				flattenedBoard.getEntitySet().nextStepAll(flattenedBoard, input);
 				int[] newLoc_Master = new int[]{flattenedBoard.getEntitySet().getEntityArray()[0].getLocation().getX(),flattenedBoard.getEntitySet().getEntityArray()[0].getLocation().getY()};
 				
 				assertNotNull(newLoc_Master); //neue Loc sollte nicht null sein

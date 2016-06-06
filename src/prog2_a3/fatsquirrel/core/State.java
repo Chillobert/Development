@@ -3,6 +3,7 @@ package prog2_a3.fatsquirrel.core;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -13,8 +14,7 @@ public class State {
     private FlattenedBoard flattenedBoard;
     private BoardConfig config;
     private XY input;
-    private Vector<Entity> entArr;
-    private int remainingSteps;
+    private List<Entity> entArr;
     private static final GameLogger logger = new GameLogger();
     
     public State(){
@@ -84,8 +84,5 @@ public class State {
     
     public Board getBoard(){
         return this.board;
-    }
-    public int getRemainingSteps(){
-        return remainingSteps;
     }
 }

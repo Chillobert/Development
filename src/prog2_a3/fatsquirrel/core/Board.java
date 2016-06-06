@@ -1,5 +1,6 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.util.LinkedList;
 import java.util.Vector;
 import java.util.logging.Level;
 import prog2_a3.fatsquirrel.botapi.*;
@@ -122,7 +123,7 @@ private static final GameLogger logger = new GameLogger();
 
     public int[] randLoc(){
         int[] randVector = new int[]{((int)((Math.random()*(length-1))+1)),((int)((Math.random()*(width-1))+1))};
-        Vector<Entity> entArray = entSet.getEntityVector();
+        LinkedList<Entity> entArray = entSet.getEntityVector();
         boolean isTaken = false;
             do{
                 for(int i = 0; entArray.size()<i; i++){

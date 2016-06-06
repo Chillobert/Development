@@ -137,13 +137,13 @@ public class GameImpl extends Game {
         this.entSet = this.flattenedBoard.getEntitySet();       
         if(this.input==null)
             try {
-                entSet.nextStepAll(flattenedBoard,new XY(new int[]{0,0}),flattenedBoard.getBoard().getConfig().getStepsPerRounds());
+                entSet.nextStepAll(flattenedBoard,new XY(new int[]{0,0}));
         } catch (InterruptedException ex) {
         	logger.log(Level.SEVERE, "Fehler: GameImpl.update(); InterrupedException");
         }
         else
             try {
-                entSet.nextStepAll(flattenedBoard,this.input,flattenedBoard.getBoard().getConfig().getStepsPerRounds());
+                entSet.nextStepAll(flattenedBoard,this.input);
         } catch (InterruptedException ex) {
         	logger.log(Level.SEVERE, "Fehler: GameImpl.update(); InterrupedException");
         }
@@ -153,7 +153,7 @@ public class GameImpl extends Game {
         currentSteps++;
         if(currentSteps >= this.state.getBoard().getConfig().getStepsPerRounds()){
             state.update();
-            currentSteps=0;
+            currentSteps = 0;
         }
     }
 

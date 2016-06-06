@@ -46,7 +46,7 @@ public class EntityMovementTest {
 		//Pr�fe ob Penalty richtig dekrementiert wird
 		for (int i = 3; i >=0; i--) {
 			try {				
-				entitySet.nextStepAll(flattenedBoard, null,1000);
+				entitySet.nextStepAll(flattenedBoard, null);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -65,7 +65,7 @@ public class EntityMovementTest {
 		int[] oldLoc_Bad = new int[]{entitySet.getEntityArray()[0].getLocation().getX(),entitySet.getEntityArray()[0].getLocation().getY()};
 		int[] oldLoc_Good = new int[]{entitySet.getEntityArray()[1].getLocation().getX(),entitySet.getEntityArray()[1].getLocation().getY()};
 		try {
-			entitySet.nextStepAll(flattenedBoard, null,1000);
+			entitySet.nextStepAll(flattenedBoard, null);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -97,7 +97,7 @@ public class EntityMovementTest {
 		for (int i = 0; i < 5; i++) {
 			try {
 				int[] oldLoc_Master = new int[]{((Entity)entitySet.getEntityArray()[0]).getLocation().getX(),entitySet.getEntityArray()[0].getLocation().getY()};
-				entitySet.nextStepAll(flattenedBoard, input,1000);
+				entitySet.nextStepAll(flattenedBoard, input);
 				int[] newLoc_Master = new int[]{((Entity)entitySet.getEntityArray()[0]).getLocation().getX(),entitySet.getEntityArray()[0].getLocation().getY()};
 				
 				assertNotNull(newLoc_Master); //Pr�fe ob neue Location nicht Null ist

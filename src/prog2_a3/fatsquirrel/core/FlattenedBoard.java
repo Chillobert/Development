@@ -2,6 +2,7 @@ package prog2_a3.fatsquirrel.core;
 
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +25,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
         this.board = board;
         this.size = board.getSize();
         this.entSet = board.getEntitySet();
-        Vector<Entity> entArray = entSet.getEntityVector();
+        List<Entity> entArray = entSet.getEntityVector();
         this.flattenedBoard = new Entity[this.size.getX()+1][this.size.getY()+1];
         for(int i = 0;entArray.size()>i;i++){
                 this.flattenedBoard[entArray.get(i).getLocation().getX()] [entArray.get(i).getLocation().getY()] = entArray.get(i);
@@ -112,13 +113,13 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     @Override
     public PlayerEntity nearestPlayerEntity(XY position){
-        Vector<Entity> entArray = entSet.getEntityVector();
+        List<Entity> entArray = entSet.getEntityVector();
         int minDistance = 30;
         int currentDistance;
         PlayerEntity entityReturn=null;
         for(int i=0; i < entArray.size();i++){
             //Das Array aller Entitys durchgehen und für PlayerEntitys die Distanz zum Objekt mit aktuellem Minimum vergleichen
-            if (entSet.isInstance(entArray.get(i), PlayerEntity.class)){
+            if (PlayerEntity.class.isInstance(entArray.get(i))){
                 //Summe der Beträge, der X und Y Differenzen @_@
                 int x0 = position.getX();
                 int x1 = entArray.get(i).getLocation().getX();
@@ -135,12 +136,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     public int nearestPlayerDistance(XY position){
-        Vector<Entity> entArray = entSet.getEntityVector();
+        List<Entity> entArray = entSet.getEntityVector();
         int minDistance = 100;
         int currentDistance;
         for(int i=0; i < entArray.size();i++){
             //Das Array aller Entitys durchgehen und für PlayerEntitys die Distanz zum Objekt mit aktuellem Minimum vergleichen
-            if (entSet.isInstance(entArray.get(i), PlayerEntity.class)){
+            if (PlayerEntity.class.isInstance(entArray.get(i))){
                 int x0 = position.getX();
                 int x1 = entArray.get(i).getLocation().getX();
                 int y0 = position.getY();
@@ -163,12 +164,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
         Entity nextField = getEntity(miniSquirrel.getLocation().getX() + moveDirection.getX(), miniSquirrel.getLocation().getY() + moveDirection.getY());
         //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
             if(nextField !=null ){
-                if(!entSet.isInstance(nextField, Wall.class)){
+                if(!Wall.class.isInstance(nextField)){
                     miniSquirrel.move(moveDirection);
                     miniSquirrel.updateEnergy(-1);
                     mortalCombat(miniSquirrel,nextField);
                 }
-                else if(entSet.isInstance(nextField, Wall.class)){
+                else if(Wall.class.isInstance(nextField)){
                     miniSquirrel.updateEnergy(nextField.getEnergy());
                     miniSquirrel.setTimeout(3);
                     miniSquirrel.updateEnergy(-1);
@@ -193,11 +194,11 @@ public class FlattenedBoard implements BoardView, EntityContext {
         
             Entity nextField = getEntity(goodBeast.getLocation().getX() + actualMoveDirection.getX(), goodBeast.getLocation().getY() + actualMoveDirection.getY());
             if(nextField !=null ){
-                if((!entSet.isInstance(nextField, Wall.class))){
+                if((!Wall.class.isInstance(nextField))){
                     goodBeast.move(actualMoveDirection);
                     goodBeast.setTimeout(4);
                 }
-                else if(entSet.isInstance(nextField, Wall.class)){
+                else if(Wall.class.isInstance(nextField)){
                     //tryMove(goodBeast, new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1}));
                     //goodBeast.getLocation().move(new int[]{-actualMoveDirection.getX(),-goodBeast.getLocation().getY()});
                 }
@@ -221,11 +222,11 @@ public class FlattenedBoard implements BoardView, EntityContext {
         
         Entity nextField = getEntity(badBeast.getLocation().getX() + actualMoveDirection.getX(), badBeast.getLocation().getY() + actualMoveDirection.getY());
             if(nextField !=null ){
-                if((!entSet.isInstance(nextField, Wall.class))){
+                if((!Wall.class.isInstance(nextField))){
                     badBeast.move(actualMoveDirection);
                     badBeast.setTimeout(4);
                 }
-                else if(entSet.isInstance(nextField, Wall.class)){
+                else if(Wall.class.isInstance(nextField)){
                 }
                 mortalCombat(badBeast,nextField);
             }
@@ -243,11 +244,11 @@ public class FlattenedBoard implements BoardView, EntityContext {
         Entity nextField = getEntity(masterBot.getLocation().getX() + moveDirection.getX(), masterBot.getLocation().getY() + moveDirection.getY());
         //Das Feld betrachten, in das das Squirrel Laufen möchte und falls dort keine Wall steht, kann es sich bewegen.
             if(nextField !=null ){
-                if(entSet.isInstance(nextField, Wall.class)){
+                if(Wall.class.isInstance(nextField)){
                     masterBot.updateEnergy(nextField.getEnergy());
                     masterBot.setTimeout(3);
                 }
-                else if(!entSet.isInstance(nextField, Wall.class)){
+                else if(!Wall.class.isInstance(nextField)){
                     masterBot.move(moveDirection);
                     mortalCombat(masterBot,nextField);
                 }
@@ -278,9 +279,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
     @Override
     public int getSquirrelEnergy() {
         int energy = 0;
-        Vector<Entity> entArray = entSet.getEntityVector();
+        List<Entity> entArray = entSet.getEntityVector();
         for(int i = 0;entArray.size() > i; i++){
-            if(entSet.isInstance(entArray.get(i), GuidedMasterSquirrel.class))
+            if(GuidedMasterSquirrel.class.isInstance(entArray.get(i)))
                 energy = entArray.get(i).getEnergy();
         }
         return energy;
@@ -288,25 +289,25 @@ public class FlattenedBoard implements BoardView, EntityContext {
     
     private void mortalCombat(Entity moveEnt,Entity collEnt){
 
-        if(entSet.isInstance(moveEnt, PlayerEntity.class)){
+        if(PlayerEntity.class.isInstance(moveEnt)){
     		//Hier m�ssen die verschiedenen Kollisionsf�lle implementiert werden
     		//arrayPos = bewegte Entity  //collPos = statische Entity 
     		//Goodplant Kollision:
-            if(entSet.isInstance(collEnt, Plant.class)){
+            if(Plant.class.isInstance(collEnt)){
                 moveEnt.updateEnergy(collEnt.getEnergy());
                 killAndReplace(collEnt);
                 logger.log(Level.FINE, "GoodPlant wurde von " + moveEnt.getName() + " gefressen");
                 logger.log(Level.FINE, "Eine neue GoodPlant ist gewachsen");
             }
             //GoodBeast Kollision:
-            if(entSet.isInstance(collEnt, GoodBeast.class)){
+            if(GoodBeast.class.isInstance(collEnt)){
             	moveEnt.updateEnergy(collEnt.getEnergy());
                 killAndReplace(collEnt);
                 logger.log(Level.FINE, "GoodBeast wurde von " + moveEnt.getName() + " gefressen");
                 logger.log(Level.FINE, "Ein neues GoodBeast erwacht");
             }
             //BadBeast Kollision:
-            if(entSet.isInstance(collEnt, BadBeast.class)){
+            if(BadBeast.class.isInstance(collEnt)){
                 moveEnt.updateEnergy(collEnt.getEnergy());
                 logger.log(Level.FINE, "BadBeast kollidiert mit " + moveEnt.getName() + ";" + moveEnt.getName() + " verliert 150 Energie");
                 collEnt.collCount++;
@@ -316,8 +317,8 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 	logger.log(Level.FINE, "Ein neues BadBeast erwacht");
             }
             //MasterSquirrel Kollision f�r MiniSquirrel fremdes/eigenes
-            if(entSet.isInstance(collEnt, MasterSquirrel.class)){
-                if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
+            if(MasterSquirrel.class.isInstance(collEnt)){
+                if(MiniSquirrel.class.isInstance(moveEnt)){
                     if(((MasterSquirrel)collEnt).checkDescendant((MiniSquirrel)moveEnt)){
                         collEnt.updateEnergy(moveEnt.getEnergy());
                         logger.log(Level.FINER, "Eigenes MiniSquirrel wurde von Mastersquirrel aufgenommen (Mini kommt zu Master)");
@@ -327,8 +328,8 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 }
             }
             //MiniSquirrel Kollision:
-            if(entSet.isInstance(collEnt, MiniSquirrel.class)){
-                if(entSet.isInstance(moveEnt,MasterSquirrel.class)){
+            if(MiniSquirrel.class.isInstance(collEnt)){
+                if(MasterSquirrel.class.isInstance(moveEnt)){
                     if(((MasterSquirrel)moveEnt).checkDescendant((MiniSquirrel)collEnt)){
                        moveEnt.updateEnergy(collEnt.getEnergy());
                        logger.log(Level.FINER, "Eigenes MiniSquirrel wurde von Mastersquirrel aufgenommen (Master kommt zu Mini)");
@@ -338,14 +339,14 @@ public class FlattenedBoard implements BoardView, EntityContext {
                     kill(collEnt);
                     logger.log(Level.FINE, "Fremdes MiniSquirrel wurde von einem MasterSquirrel aufgefressen (Mini kommt zu Master)");
                 }
-                if(entSet.isInstance(moveEnt,MiniSquirrel.class)){
+                if(MiniSquirrel.class.isInstance(moveEnt)){
                     kill(moveEnt);
                       logger.log(Level.FINE, "Minisquirrel l�uft auf anderes Minisquirrel und stirbt");
                 }
             }
         }
-        else if((entSet.isInstance(collEnt, PlayerEntity.class))){
-            if (entSet.isInstance(moveEnt, BadBeast.class)){
+        else if((PlayerEntity.class.isInstance(collEnt))){
+            if (BadBeast.class.isInstance(moveEnt)){
                     ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
                     ((BadBeast)moveEnt).collCount++;
                 if(moveEnt.collCount>=7)
@@ -353,7 +354,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 	logger.log(Level.FINE, "BadBeast bricht zusammen (Lebenszeit erloschen)");
                 	logger.log(Level.FINE, "Ein neues BadBeast erwacht");
             }
-            if (entSet.isInstance(moveEnt, GoodBeast.class)){
+            if (GoodBeast.class.isInstance(moveEnt)){
                 ((PlayerEntity)collEnt).updateEnergy(moveEnt.getEnergy());
                 killAndReplace(moveEnt);
                 	logger.log(Level.FINE, "GoodBeast wird von " + moveEnt.getName() + " aufgefressen");
@@ -363,9 +364,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     public MasterSquirrel getMasterSquirrel(){
-        Vector<Entity> entArr = this.entSet.getEntityVector();
+        List<Entity> entArr = this.entSet.getEntityVector();
         for (int i = 0; entArr.size()>i;i++)
-            if(entSet.isInstance(entArr.get(i), GuidedMasterSquirrel.class))
+            if(GuidedMasterSquirrel.class.isInstance(entArr.get(i)))
                 return (MasterSquirrel)entArr.get(i);
         return null;
     }
