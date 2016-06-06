@@ -178,7 +178,6 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 miniSquirrel.move(moveDirection);
                 miniSquirrel.updateEnergy(-1);
             }
-            this.setParams("tryMove(MiniSquirrel miniSquirrel, XY moveDirection)");
     }
     @Override
     public void tryMove(GoodBeast goodBeast, XY moveDirection){
@@ -208,7 +207,6 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 goodBeast.move(actualMoveDirection);
                 goodBeast.setTimeout(4);
             }
-            this.setParams("tryMove(GoodBeast goodBeast, XY moveDirection)");
     }
     @Override
     public void tryMove(BadBeast badBeast, XY moveDirection){
@@ -235,7 +233,6 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 badBeast.move(actualMoveDirection);
                 badBeast.setTimeout(4);
             }
-		this.setParams("tryMove(BadBeast badBeast, XY moveDirection)");
     }
     
     @Override
@@ -258,7 +255,6 @@ public class FlattenedBoard implements BoardView, EntityContext {
             else
                 masterBot.move(moveDirection);
             
-            this.setParams("tryMove(Mastersquirrel masterBot, XY moveDirection)");
     }
     
     private XY getFleeDirection(Beast beast){

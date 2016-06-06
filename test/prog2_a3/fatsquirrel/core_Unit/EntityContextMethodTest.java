@@ -38,6 +38,7 @@ public class EntityContextMethodTest {
     MiniSquirrel miniSquirrel = new MiniSquirrel(4, 100, 6, 6, 3);
     
     
+    
     //Diese Methode soll überprüfen ob beim Aufruf der nextStep Methoden der verschiedenen Entitys auch die dazugehörige tryMove Methode im Entity Context aufgerufen wird
 	@Test
 	public void checkRightMethodCalls() {
@@ -45,29 +46,20 @@ public class EntityContextMethodTest {
                 .createMockBuilder(FlattenedBoard.class)
                 .withConstructor(board)
                 .createNiceMock();
-
+        
+        EntityMethodProxy proxy = new EntityMethodProxy();
+        
 		//Überprüfe BadBeast
-		badBeast.setTimeout(0);
-		badBeast.nextStep(flattenedBoard);
-		assertEquals("tryMove(BadBeast badBeast, XY moveDirection)", flattenedBoard.getParams());
+        assertEquals("BadBeast", proxy.generateNextStep(badBeast)); 
 		
 		//Überprüfe GoodBeast
-		goodBeast.setTimeout(0);
-		goodBeast.nextStep(flattenedBoard);
-		assertEquals("tryMove(GoodBeast goodBeast, XY moveDirection)", flattenedBoard.getParams());
-
-		//Überprüfe MasterSquirrel
-		XY direction = new XY(new int[]{0,-1});
-		masterSquirrel.nextStep(flattenedBoard, direction);
-		assertEquals("tryMove(Mastersquirrel masterBot, XY moveDirection)", flattenedBoard.getParams());
+        assertEquals("GoodBeast", proxy.generateNextStep(goodBeast));
+        
+        //Überprüfe MasterSquirrel
+		assertEquals("MasterSquirrel", proxy.generateNextStep(masterSquirrel));
 		
 		//Überprüfe MiniSquirrel
-		miniSquirrel.nextStep(flattenedBoard);
-		assertEquals("tryMove(MiniSquirrel miniSquirrel, XY moveDirection)", flattenedBoard.getParams());
-
-
-		
-
+		assertEquals("MiniSquirrel", proxy.generateNextStep(miniSquirrel));
 	}
 
 }
