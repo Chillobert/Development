@@ -13,6 +13,13 @@ import prog2_a3.fatsquirrel.core.NotEnoughEnergyException;
 import prog2_a3.fatsquirrel.core.XY;
 import prog2_a3.fatsquirrel.util.ui.console.Command;
 import prog2_a3.fatsquirrel.util.ui.console.ScanException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Set;
 
 public class GameImpl extends Game {
     private Command puffer;
@@ -80,8 +87,24 @@ public class GameImpl extends Game {
         }
     }
     
-    private void exit(){
-        state.getHighscore();
+    private void exit() throws IOException{
+        LinkedList ls;
+        File highscoreDatei = new File("highscore.txt");
+        FileWriter writer = new FileWriter(highscoreDatei);
+        HashMap<String,LinkedList> highscoreMap = state.getHighscore();
+        String highscoreOut = "";
+        Object[] keys = (highscoreMap.keySet().toArray());
+        for(int i = 0; i<keys.length;i++){
+            ls = highscoreMap.get((String)keys[i]);
+            highscoreOut += keys[i] + ": ";
+            for(int j = 0; j<ls.size();j++){
+                highscoreOut += ls.toArray()[j]+", ";
+            }
+            highscoreOut+="\n";
+        }
+        writer.write(highscoreOut);
+        writer.close();
+        
         System.exit(0);
     }
     

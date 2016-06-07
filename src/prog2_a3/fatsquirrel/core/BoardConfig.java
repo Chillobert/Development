@@ -2,6 +2,7 @@ package prog2_a3.fatsquirrel.core;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Properties;
 
 public class BoardConfig {
@@ -18,9 +19,7 @@ public class BoardConfig {
 	private int stepsPerRound;
 	
 	public BoardConfig(){
-
 		this.getProps();
-		
 	}
 
 	public void getProps(){
@@ -44,7 +43,7 @@ public class BoardConfig {
 		} catch (IOException ex) {
 			BoardConfig_old backup = new BoardConfig_old();
 			//hier setter verwenden
-			System.out.println("FUUUUUUU");
+			System.out.println("Fehler beim Laden der properties");
 		} finally {
 			if (input != null) {
 				try {
@@ -67,7 +66,7 @@ public class BoardConfig {
 		System.out.println("walls:" + this.amountWalls);
 		System.out.println("stepsPerRound" + this.stepsPerRound);
 		System.out.println("masterBotLocation" + this.masterBotImplsLocation);
-		System.out.println("masterBots:" + this.masterBotImpls.toString());
+		System.out.println("masterBots:" + Arrays.toString(this.masterBotImpls));
 		
 	}
 	

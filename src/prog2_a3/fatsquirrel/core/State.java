@@ -5,11 +5,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 import java.util.logging.Level;
 
 public class State {
-    Map<String,LinkedList<Integer>> highscore;
+    HashMap<String,LinkedList<Integer>> highscore;
     private Board board;
     private FlattenedBoard flattenedBoard;
     private BoardConfig config;
@@ -32,7 +31,7 @@ public class State {
         }
     }
 
-    public Map getHighscore(){
+    public HashMap getHighscore(){
         return highscore;
         
     }
