@@ -88,6 +88,7 @@ public class GameImpl extends Game {
     }
     
     private void exit() throws IOException{
+        //Neue highscore.txt datei erstellen, String vorbereiten und reinschreiben
         LinkedList ls;
         File highscoreDatei = new File("highscore.txt");
         FileWriter writer = new FileWriter(highscoreDatei);
@@ -104,7 +105,7 @@ public class GameImpl extends Game {
         }
         writer.write(highscoreOut);
         writer.close();
-        
+       //Programm beenden 
         System.exit(0);
     }
     
