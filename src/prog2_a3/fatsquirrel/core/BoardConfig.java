@@ -3,6 +3,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.logging.Level;
 
 public class BoardConfig {
 	Properties prop = new Properties();
@@ -16,6 +17,7 @@ public class BoardConfig {
 	private String masterBotImplsLocation;
 	private String[] masterBotImpls;
 	private int stepsPerRound;
+	private GameLogger log = new GameLogger();
 	
 	public BoardConfig(){
 
@@ -39,25 +41,24 @@ public class BoardConfig {
 			this.setStepsPerRound(Integer.parseInt(prop.getProperty("stepsPerRound")));
 			this.setMasterBotImplsLocation(prop.getProperty("masterBotImplsLocation"));
 			this.setMasterBotImpls(prop.getProperty("masterBotImpls"));
-			
-
 		} catch (IOException ex) {
+			log.log(Level.WARNING, "config.properties konnte nicht geladen werden, alternativ-Klasse wird geladen");
 			BoardConfig_old alternative = new BoardConfig_old();
-			//hier setter verwenden
-			this.setSize(Integer.parseInt(prop.getProperty("size_length")), Integer.parseInt(prop.getProperty("size_width")));
-			this.setAmountGoodBeasts(Integer.parseInt(prop.getProperty("amountGoodBeasts")));
-			this.setAmountBadBeasts(Integer.parseInt(prop.getProperty("amountBadBeasts")));
-			this.setAmountGoodPlants(Integer.parseInt(prop.getProperty("amountGoodPlants")));
-			this.setAmountBadPlants(Integer.parseInt(prop.getProperty("amountBadPlants")));
+			this.setSize(alternative.getSize().getX(), alternative.getSize().getY());
+			this.setAmountGoodBeasts(alternative.getAmountGoodBeasts());
+			this.setAmountBadBeasts(alternative.getAmountBadBeasts());
+			this.setAmountGoodPlants(alternative.getAmountGoodPlants());
+			this.setAmountBadPlants(alternative.getAmountBadPlants());
 			this.setAmountWalls();
-			this.setStepsPerRound(Integer.parseInt(prop.getProperty("stepsPerRound")));
-			this.setMasterBotImplsLocation(prop.getProperty("masterBotImplsLocation"));
-			this.setMasterBotImpls(prop.getProperty("masterBotImpls"));
-			System.out.println("FUUUUUUU");
+			this.setStepsPerRound(alternative.getStepsPerRounds());
+			this.setMasterBotImplsLocation(alternative.getMasterBotImplsLocation());
+			this.setMasterBotImpls(alternative.getMasterBotImpls());
+			log.log(Level.INFO, "alternativ-Klasse erfolgreich geladen");
 		} finally {
 			if (input != null) {
 				try {
 					input.close();
+					log.log(Level.INFO, "config.properties erfolgreich geladen");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
