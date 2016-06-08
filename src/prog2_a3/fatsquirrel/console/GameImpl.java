@@ -1,5 +1,8 @@
 package prog2_a3.fatsquirrel.console;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
@@ -81,7 +84,7 @@ public class GameImpl extends Game {
     }
     
     private void exit(){
-        state.getHighscore();
+    	state.save();
         System.exit(0);
     }
     
@@ -196,6 +199,7 @@ public class GameImpl extends Game {
                 Method m0 = this.getClass().getDeclaredMethod(command.getCommandType().getName(), command.getCommandType().getParamTypes());
                 m0.invoke(this, command.getParams());
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException ex) {
+            	ex.getCause();
                 logger.log(Level.SEVERE, "Fehler: GameImpl.invokeCommand(); Fehler bei Invoke");
             }
         }

@@ -1,9 +1,16 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -76,6 +83,43 @@ public class State {
                 System.out.println(Arrays.toString(lsArr));
                 logger.log(Level.INFO, names[i].toString()+": "+ Arrays.toString(lsArr));
             }
+    }
+
+    
+    //Diese Methode speichert die Highscore der aktuellen Spielrunden in die Highscore.txt (Pfad: RootDirectory)
+    public void save(){
+    	
+        File score = new File("Highscore.txt"); 
+
+        if(!score.exists())
+			try {
+				score.createNewFile();
+				logger.log(Level.INFO, "Created Highscore.txt");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+				logger.log(Level.SEVERE, "Error at creating File Highscore.txt");
+			}
+        
+        	try {
+				FileWriter fstream = new FileWriter("Highscore.txt",true);
+				BufferedWriter out = new BufferedWriter(fstream);
+				
+				String timeStamp = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date());
+				String helper = this.getHighscore().toString();	
+				
+				out.write("Date: " + timeStamp );
+				out.newLine();
+				out.write("Result:" + helper );
+				out.newLine();
+				out.close();
+				logger.log(Level.INFO, "Added new Highscore to File Highscore.txt");
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+				logger.log(Level.SEVERE, "Error at writing File Highscore.txt");
+			}
+	
+    	
     }
     
     public FlattenedBoard flattenedBoard(){
