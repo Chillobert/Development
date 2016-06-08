@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c721bb97-ffdb-449f-8873-f42c6f8471ee" name="UN0" url="http://unifiedneumaier.com">
+        <fileTransfer host="unifiedneumaier.com" port="1698" rootFolder="/Projects/IN-Prog2/final/deployment" accessType="SFTP" password="df89dfe4dfc3dfc4dfebdf93df9bdf90dfd9dfd3dfc4dfc5dfc6dfc5dfcddfd3" username="christophN">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="1698" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

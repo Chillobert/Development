@@ -1,0 +1,230 @@
+Jun 08, 2016 3:28:31 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: Spiel gestartet
+Jun 08, 2016 3:28:31 PM java.util.logging.LogManager$RootLogger log
+KONFIGURATION: Spiel initialisieren: Modus = JavaFX_GUI
+Jun 08, 2016 3:28:31 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: config.properties erfolgreich geladen
+Jun 08, 2016 3:28:31 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: config.properties erfolgreich geladen
+Jun 08, 2016 3:28:31 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: config.properties erfolgreich geladen
+Jun 08, 2016 3:28:32 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: config.properties erfolgreich geladen
+Jun 08, 2016 3:28:32 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: config.properties erfolgreich geladen
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 0
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 0
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 0
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: 1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+FEIN: GoodBeast wurde von MasterSquirrelBot gefressen
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+FEIN: Ein neues GoodBeast erwacht
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 0
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 0
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: -1
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:33 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: 0
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: 0
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 0
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+FEIN: BadBeast bricht zusammen (Lebenszeit erloschen)
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+FEIN: Ein neues BadBeast erwacht
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+FEIN: BadBeast bricht zusammen (Lebenszeit erloschen)
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+FEIN: Ein neues BadBeast erwacht
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: 1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: 1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 0
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 0
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: -1 Y: -1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 1
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:34 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 0
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: 1
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: -1
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+FEIN: BadBeast kollidiert mit MasterSquirrelBot;MasterSquirrelBot verliert 150 Energie
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+FEIN: BadBeast bricht zusammen (Lebenszeit erloschen)
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+FEIN: Ein neues BadBeast erwacht
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 1
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: -1
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 0 Y: 1
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: * calling method public abstract void de.hsa.games.fatsquirrel.botapi.ControllerContext.move(de.hsa.games.fatsquirrel.XY) with params 
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION:  X: 1 Y: -1
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+FEIN: BadBeast bricht zusammen (Lebenszeit erloschen)
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+FEIN: Ein neues BadBeast erwacht
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+FEIN: BadBeast bricht zusammen (Lebenszeit erloschen)
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+FEIN: Ein neues BadBeast erwacht
+Jun 08, 2016 3:28:35 PM java.util.logging.LogManager$RootLogger log
+INFORMATION: Spiel beendet
