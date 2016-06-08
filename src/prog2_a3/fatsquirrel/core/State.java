@@ -107,6 +107,7 @@ public class State {
 				String timeStamp = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date());
 				String helper = this.getHighscore().toString();	
 				
+				out.newLine();
 				out.write("Date: " + timeStamp );
 				out.newLine();
 				out.write("Result:" + helper );
