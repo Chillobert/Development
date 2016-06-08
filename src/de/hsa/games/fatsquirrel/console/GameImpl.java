@@ -18,28 +18,59 @@ import de.hsa.games.fatsquirrel.util.ui.console.ScanException;
 import de.hsa.games.util.ui.gui.FxUI;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GameImpl.
+ */
 public class GameImpl extends Game {
+    
+    /** The puffer. */
     private Command puffer;
+    
+    /** The ui. */
     private ConsoleUI ui;
+    
+    /** The command. */
     private Command command;
+    
+    /** The fx ui. */
     private FxUI fxUI;
+    
+    /** The Constant logger. */
     private static final GameLogger logger = new GameLogger();
+    
+    /** The aktuelle runde. */
     int aktuelleRunde =0;
+    
+    /** The ent set. */
     private EntitySet entSet;
+    
+    /** The current steps. */
     private int currentSteps=0;
     
+    /**
+     * Instantiates a new game impl.
+     */
     public GameImpl(){
         super();
         this.ui = new ConsoleUI();
         logger.log(Level.FINEST, "Object der Klasse GameImpl- ConsoleUI - erstellt");
     }
     
+    /**
+     * Instantiates a new game impl.
+     *
+     * @param fxui the fxui
+     */
     public GameImpl (FxUI fxui){
         super();
         this.fxUI = fxui;
         logger.log(Level.FINEST, "Object der Klasse GameImpl - FxUI - erstellt");
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.Game#processInput()
+     */
     @Override
     protected void processInput(){
         XY inpWhile = this.input;
@@ -78,41 +109,71 @@ public class GameImpl extends Game {
             }
     }
     
+    /**
+     * Help.
+     */
     private void help(){
         for(int i=0;GameCommandType.values().length>i;i++){
             System.out.println(GameCommandType.values()[i].getName()+GameCommandType.values()[i].getHelpText());
         }
     }
     
+    /**
+     * Exit.
+     */
     private void exit(){
     	state.save();
         System.exit(0);
     }
     
+    /**
+     * All.
+     */
     private void all (){
         System.out.println(this.flattenedBoard.getEntitySet().toString());
     }
     
+    /**
+     * Left.
+     */
     private void left(){
         this.input = new XY(new int[]{-1,0});
     }
     
+    /**
+     * Right.
+     */
     private void right(){
         this.input = new XY(new int[]{1,0});
     }
     
+    /**
+     * Up.
+     */
     public void up(){
         this.input = new XY(new int[]{0,-1});
     }
     
+    /**
+     * Down.
+     */
     public void down(){
         this.input = new XY(new int[]{0,1});;
     }
     
+    /**
+     * Energy.
+     */
     public void energy(){
         System.out.println("Die aktuelle Energie unseres Squirrel ist: "+flattenedBoard.getSquirrelEnergy());
     }
     
+    /**
+     * Mini.
+     *
+     * @param energy the energy
+     * @param direction the direction
+     */
     public void mini(int energy, String direction){
         XY spawnDirection;
         switch(direction){
@@ -136,6 +197,9 @@ public class GameImpl extends Game {
         }
     }
 
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.Game#update()
+     */
     @Override
     protected void update(){
         this.entSet = this.flattenedBoard.getEntitySet();       
@@ -161,6 +225,9 @@ public class GameImpl extends Game {
         }
     }
 
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.Game#render()
+     */
     @Override
     protected void render() {
 
@@ -172,26 +239,57 @@ public class GameImpl extends Game {
 
     }
 
+    /**
+     * Gets the fps.
+     *
+     * @return the fps
+     */
     public int getFPS(){
     	return this.FPS;
     }
 
+    /**
+     * Gets the ui.
+     *
+     * @return the ui
+     */
     public ConsoleUI getUI(){
     	return this.ui;
     }
+    
+    /**
+     * Sets the puffer.
+     *
+     * @param input the new puffer
+     */
     public void setPuffer(Command input){
     	this.puffer = input;
     }
+    
+    /**
+     * Gets the puffer.
+     *
+     * @return the puffer
+     */
     public Command getPuffer(){
     	return this.puffer;
     }
 
+    /**
+     * Setfx ui.
+     *
+     * @param fxUI the fx ui
+     * @return the fx ui
+     */
     //Method to get the fxUI
     public FxUI setfxUI(FxUI fxUI){
     	return this.fxUI = fxUI;
     	
     }
     
+    /**
+     * Invoke command.
+     */
     private void invokeCommand(){
         if(command!=null){
             GameCommandType commandType = (GameCommandType) command.getCommandType();

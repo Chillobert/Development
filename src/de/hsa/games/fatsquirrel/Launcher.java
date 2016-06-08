@@ -20,20 +20,49 @@ import javafx.stage.Stage;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Launcher.
+ */
 public class Launcher extends Application{
+
+/** The timestamp_1. */
 private static long timestamp_1;
+
+/** The timestamp_2. */
 private static long timestamp_2;
+
+/** The game. */
 private GameImpl game;
+
+/** The calendar. */
 private Calendar calendar;
+
+/** The command puffer. */
 private Command commandPuffer;
+
+/** The game mode. */
 private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
+
+/** The level. */
 private static Level level; //Level fuer Logging (= Level.FINE)
+
+/** The board config. */
 private BoardConfig boardConfig = new BoardConfig();
+
+/** The primary stage. */
 private Stage primaryStage;
+
+/** The fx ui. */
 private FxUI fxUI;
+
+/** The Constant logger. */
 private static final GameLogger logger = new GameLogger();
 
 
+    /**
+     * Instantiates a new launcher.
+     */
     public Launcher(){  	
         this.boardConfig = new BoardConfig();
         this.calendar = new GregorianCalendar();
@@ -46,6 +75,11 @@ private static final GameLogger logger = new GameLogger();
         logger.log(Level.FINEST, "Object der Klasse Launcher erstellt");
     }
 	
+    /**
+     * The main method.
+     *
+     * @param args the arguments
+     */
     public static void main(String[] args){
         logger.log(Level.INFO, "Spiel gestartet");
 
@@ -71,7 +105,13 @@ private static final GameLogger logger = new GameLogger();
             }
     
 	//Diese Methode gibt den Spielablauf wieder. 
-    //Die Methode game.run wird fortlaufend aufgerufen. Mithilfe von game.FPS kann die Geschwindigkeit reguliert werden
+    /**
+	 * Start game.
+	 *
+	 * @param fxUI the fx ui
+	 * @param game the game
+	 */
+	//Die Methode game.run wird fortlaufend aufgerufen. Mithilfe von game.FPS kann die Geschwindigkeit reguliert werden
     private void startGame(FxUI fxUI, GameImpl game) { 
     	game.setfxUI(fxUI);
     	Timer timer = new Timer();
@@ -108,6 +148,9 @@ private static final GameLogger logger = new GameLogger();
 }
 
 //Diese Methode wird von der Klasse Application �berschrieben (siehe JAVAFX) 
+/* (non-Javadoc)
+ * @see javafx.application.Application#start(javafx.stage.Stage)
+ */
 //Hier wird die GUI initalisiert und an die Methode run() �bergeben.
 @Override
 public void start(Stage primaryStage) throws Exception {
@@ -133,6 +176,11 @@ public void start(Stage primaryStage) throws Exception {
    launcher.startGame(fxUI, game);
 }
 
+/**
+ * Gets the mode.
+ *
+ * @return the mode
+ */
 //Getter f�r gameMode; 1== konsole_alt, 2==konsole_neu, 3==javafx_gui
 public static int getMode(){
 	return gameMode;

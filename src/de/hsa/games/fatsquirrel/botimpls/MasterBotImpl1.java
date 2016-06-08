@@ -8,9 +8,18 @@ import de.hsa.games.fatsquirrel.botapi.BotController;
 import de.hsa.games.fatsquirrel.botapi.ControllerContext;
 import de.hsa.games.fatsquirrel.proxy.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MasterBotImpl1.
+ */
 public class MasterBotImpl1 implements BotController{
+    
+    /** The i. */
     int i = 0;
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.botapi.BotController#nextStep(de.hsa.games.fatsquirrel.botapi.ControllerContext)
+     */
     @Override
     public void nextStep(ControllerContext view) {
         ControllerContextProxy contControllerProxy = new ControllerContextProxy(view);
@@ -22,6 +31,11 @@ public class MasterBotImpl1 implements BotController{
             //view.move(randVector());
     }
     
+    /**
+     * Rand vector.
+     *
+     * @return the xy
+     */
     private XY randVector(){
         Random r = new Random();
         return new XY(new int[]{r.nextInt(3)-1,r.nextInt(3)-1});

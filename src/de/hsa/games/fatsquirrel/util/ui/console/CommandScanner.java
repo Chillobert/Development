@@ -9,24 +9,56 @@ import de.hsa.games.fatsquirrel.Launcher;
 import de.hsa.games.fatsquirrel.console.GameCommandType;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CommandScanner.
+ */
 public class CommandScanner {
+    
+    /** The command type infos. */
     private CommandTypeInfo[] commandTypeInfos;
+    
+    /** The input reader. */
     private BufferedReader inputReader;
+    
+    /** The command types. */
     private Class<?>[] commandTypes = new Class[]{null};
+    
+    /** The input. */
     private String input;
+    
+    /** The Constant logger. */
     private static final GameLogger logger = new GameLogger();
     
+    /**
+     * Instantiates a new command scanner.
+     *
+     * @param commandTypeInfos the command type infos
+     * @param inputReader the input reader
+     */
     public CommandScanner(CommandTypeInfo[] commandTypeInfos, BufferedReader inputReader){
         this.commandTypeInfos = commandTypeInfos;
         this.inputReader = inputReader;
         logger.log(Level.FINEST, "Objekt der Klasse CommandScanner wurde erstellt");
     }
 
+	/**
+	 * Instantiates a new command scanner.
+	 *
+	 * @param commandTypeInfos the command type infos
+	 * @param input the input
+	 */
 	public CommandScanner(GameCommandType[] commandTypeInfos, String input) {
 		this.commandTypeInfos = commandTypeInfos;
 		this.input = input;	
 	}
 
+	/**
+	 * Next.
+	 *
+	 * @return the command
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public Command next() throws IOException{
         int numberOfParams = 0;
         String input = null;

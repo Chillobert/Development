@@ -20,16 +20,36 @@ import de.hsa.games.fatsquirrel.Wall;
 import de.hsa.games.fatsquirrel.XY;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FlattenedBoard.
+ */
 public class FlattenedBoard implements BoardView, EntityContext {
 
 
+    /** The flattened board. */
     private final Entity[][] flattenedBoard;
+    
+    /** The size. */
     private XY size;
+    
+    /** The ent set. */
     private EntitySet entSet;
+    
+    /** The board. */
     private Board board;
+    
+    /** The Constant logger. */
     private static final GameLogger logger = new GameLogger();
+    
+    /** The params. */
     private String params;
     
+    /**
+     * Instantiates a new flattened board.
+     *
+     * @param board the board
+     */
     public FlattenedBoard(Board board){
         this.board = board;
         this.size = board.getSize();
@@ -42,18 +62,36 @@ public class FlattenedBoard implements BoardView, EntityContext {
         logger.log(Level.FINEST, "Objekt der Klasse FlattenedBoard wurde erstellt");
     }
     
+    /**
+     * Gets the ent board.
+     *
+     * @return the ent board
+     */
     public Entity[][] getEntBoard(){
         return flattenedBoard;
     }
     
+    /**
+     * Gets the board.
+     *
+     * @return the board
+     */
     public Board getBoard(){
     	return board;
     }
     
+    /**
+     * Gets the entity set.
+     *
+     * @return the entity set
+     */
     public EntitySet getEntitySet(){
         return this.entSet;
     }
     
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString(){
     	String output = "";
@@ -66,31 +104,51 @@ public class FlattenedBoard implements BoardView, EntityContext {
             return output;
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.BoardView#getEntity(int, int)
+     */
     @Override
     public Entity getEntity(int x, int y){
         return this.flattenedBoard[x][y];
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.BoardView#getEntityType(int, int)
+     */
     @Override
     public String getEntityType(int x, int y){
         if(flattenedBoard[x][y]!=null)
             return flattenedBoard[x][y].getName();
         else return " ";
     }
+    
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#getEntityType(de.hsa.games.fatsquirrel.XY)
+     */
     @Override
     public String getEntityType(XY loc){
         return flattenedBoard[loc.getX()][loc.getY()].getName();
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.BoardView#getSize()
+     */
     @Override
     public XY getSize(){  
         return size;
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#kill(de.hsa.games.fatsquirrel.Entity)
+     */
     @Override
     public void kill(Entity entity){
         entSet.delete(entity.getId());
     }
+    
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#killAndReplace(de.hsa.games.fatsquirrel.Entity)
+     */
     @Override
     public void killAndReplace(Entity entity){
         entSet.delete(entity.getId());
@@ -110,6 +168,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
         }
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#spawnChild(de.hsa.games.fatsquirrel.MasterSquirrel, de.hsa.games.fatsquirrel.XY, int)
+     */
     @Override
     public void spawnChild(MasterSquirrel parent, XY direction, int energy)throws NotEnoughEnergyException{
         if(energy>=this.getSquirrelEnergy()){
@@ -120,6 +181,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
             entSet.addMini(parent,energy,direction);
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#nearestPlayerEntity(de.hsa.games.fatsquirrel.XY)
+     */
     @Override
     public PlayerEntity nearestPlayerEntity(XY position){
         List<Entity> entArray = entSet.getEntityVector();
@@ -144,6 +208,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
         return entityReturn;
     }
     
+    /**
+     * Nearest player distance.
+     *
+     * @param position the position
+     * @return the int
+     */
     public int nearestPlayerDistance(XY position){
         List<Entity> entArray = entSet.getEntityVector();
         int minDistance = 100;
@@ -164,6 +234,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
         return minDistance;
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#tryMove(de.hsa.games.fatsquirrel.MiniSquirrel, de.hsa.games.fatsquirrel.XY)
+     */
     @Override
     public void tryMove(MiniSquirrel miniSquirrel, XY moveDirection){
         if (miniSquirrel.getEnergy()<=0)
@@ -189,6 +262,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 miniSquirrel.updateEnergy(-1);
             }
     }
+    
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#tryMove(de.hsa.games.fatsquirrel.GoodBeast, de.hsa.games.fatsquirrel.XY)
+     */
     @Override
     public void tryMove(GoodBeast goodBeast, XY moveDirection){
         
@@ -218,6 +295,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
                 goodBeast.setTimeout(4);
             }
     }
+    
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#tryMove(de.hsa.games.fatsquirrel.BadBeast, de.hsa.games.fatsquirrel.XY)
+     */
     @Override
     public void tryMove(BadBeast badBeast, XY moveDirection){
         
@@ -245,6 +326,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
             }
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#tryMove(de.hsa.games.fatsquirrel.MasterSquirrel, de.hsa.games.fatsquirrel.XY)
+     */
     @Override
     public void tryMove(MasterSquirrel masterBot, XY moveDirection){
         // solange es noch nur einen Master gibt
@@ -267,6 +351,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
             
     }
     
+    /**
+     * Gets the flee direction.
+     *
+     * @param beast the beast
+     * @return the flee direction
+     */
     private XY getFleeDirection(Beast beast){
         XY nearestPlayerLoc = nearestPlayerEntity(beast.getLocation()).getLocation();
         int[] fleeVector = new int[]{0,0};
@@ -285,6 +375,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
         return new XY(fleeVector);
     }
 
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.core.EntityContext#getSquirrelEnergy()
+     */
     @Override
     public int getSquirrelEnergy() {
         int energy = 0;
@@ -296,6 +389,12 @@ public class FlattenedBoard implements BoardView, EntityContext {
         return energy;
     }
     
+    /**
+     * Mortal combat.
+     *
+     * @param moveEnt the move ent
+     * @param collEnt the coll ent
+     */
     private void mortalCombat(Entity moveEnt,Entity collEnt){
 
         if(PlayerEntity.class.isInstance(moveEnt)){
@@ -372,6 +471,11 @@ public class FlattenedBoard implements BoardView, EntityContext {
         }
     }
     
+    /**
+     * Gets the master squirrel.
+     *
+     * @return the master squirrel
+     */
     public MasterSquirrel getMasterSquirrel(){
         List<Entity> entArr = this.entSet.getEntityVector();
         for (int i = 0; entArr.size()>i;i++)
@@ -380,11 +484,21 @@ public class FlattenedBoard implements BoardView, EntityContext {
         return null;
     }
     
+    /**
+     * Sets the params.
+     *
+     * @param string the new params
+     */
     public void setParams(String string){
     	this.params = string;
     	
     }
     
+    /**
+     * Gets the params.
+     *
+     * @return the params
+     */
     public String getParams(){
     	return this.params;
     }

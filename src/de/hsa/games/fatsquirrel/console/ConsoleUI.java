@@ -10,15 +10,37 @@ import de.hsa.games.fatsquirrel.UI;
 import de.hsa.games.fatsquirrel.core.BoardView;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 import de.hsa.games.fatsquirrel.util.ui.console.*;
+// TODO: Auto-generated Javadoc
+
+/**
+ * The Class ConsoleUI.
+ */
 public class ConsoleUI implements UI {
 
+    /** The output stream. */
     private PrintStream outputStream;
+    
+    /** The input reader. */
     private BufferedReader inputReader;
+    
+    /** The command. */
     private Command command;
+    
+    /** The command types. */
     private GameCommandType[] commandTypes;
+    
+    /** The counter. */
     int counter = 0;
+    
+    /** The command puffer. */
     private Command commandPuffer;
+    
+    /** The Constant logger. */
     private static final GameLogger logger = new GameLogger();
+    
+    /**
+     * Instantiates a new console ui.
+     */
     public ConsoleUI() {
         this.outputStream = System.out;
         this.inputReader = new BufferedReader(new InputStreamReader(System.in));
@@ -26,6 +48,9 @@ public class ConsoleUI implements UI {
         logger.log(Level.FINEST, "Object der Klasse ConsoleUI erstellt");
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.UI#getCommand()
+     */
     @Override
     public Command getCommand() {
         try {
@@ -39,6 +64,9 @@ public class ConsoleUI implements UI {
     }
     
 
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.UI#render(de.hsa.games.fatsquirrel.core.BoardView)
+     */
     @Override
     public void render(BoardView view) {
     	counter = counter + 1;
@@ -62,6 +90,9 @@ public class ConsoleUI implements UI {
         }   
     }
 
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.UI#message(java.lang.String)
+     */
     @Override
     public void message(String message) {
         System.out.println(message);

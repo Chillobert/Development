@@ -28,22 +28,55 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 import de.hsa.games.fatsquirrel.util.ui.console.Command;
 import de.hsa.games.fatsquirrel.util.ui.console.CommandScanner;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FxUI.
+ */
 public class FxUI extends Scene implements UI {
 
+	/** The cell size. */
 	private static int CELL_SIZE = 20;
+	
+	/** The key event. */
 	private KeyEvent keyEvent;
+	
+	/** The board canvas. */
 	private Canvas boardCanvas;
+	
+	/** The msg label. */
 	private Label msgLabel;
+	
+	/** The input. */
 	private String input;
+	
+	/** The command. */
 	private Command command;
+	
+	/** The command types. */
 	private GameCommandType[] commandTypes;
+	
+	/** The input reader. */
 	private BufferedReader inputReader;
 	
+	/** The health. */
 	private static String health;
+	
+	/** The caster. */
 	private String caster;
+	
+	/** The value property. */
 	private static StringProperty valueProperty;
+	
+	/** The Constant logger. */
 	private static final GameLogger logger = new GameLogger();
 	
+    /**
+     * Instantiates a new fx ui.
+     *
+     * @param parent the parent
+     * @param boardCanvas the board canvas
+     * @param msgLabel the msg label
+     */
     public FxUI(Parent parent, Canvas boardCanvas, Label msgLabel) {
         super(parent);
         this.commandTypes = GameCommandType.values();
@@ -55,6 +88,12 @@ public class FxUI extends Scene implements UI {
 
     }
     
+    /**
+     * Creates the instance.
+     *
+     * @param boardConfig the board config
+     * @return the fx ui
+     */
     //Diese Methode erstellt eine FxUI Instanz (GUI) Anschlie�end werden verschiedene Elemente der UI initialisiert
     public static FxUI createInstance(BoardConfig boardConfig) {
 	   Canvas boardCanvas = new Canvas(boardConfig.getLength()*(CELL_SIZE + 1), boardConfig.getWidth()*(CELL_SIZE + 1));
@@ -114,6 +153,9 @@ public class FxUI extends Scene implements UI {
         return fxUI;
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.UI#render(de.hsa.games.fatsquirrel.core.BoardView)
+     */
     //Render Methode aus dem Interface UI
     @Override
     public void render(final BoardView view) {
@@ -129,6 +171,11 @@ public class FxUI extends Scene implements UI {
     }
     
     //Diese Methode rendert die GUI neu, hierf�r wird aus der BoardView das Spielfeld (flattenedBoard) abgescannt und die entsprechennden
+    /**
+     * Repaint board canvas.
+     *
+     * @param view the view
+     */
     //Entitys mit verschiedenen Grafischen Elementen dargestellt.
     private void repaintBoardCanvas(BoardView view) {//boardview view
         GraphicsContext gc = boardCanvas.getGraphicsContext2D();
@@ -195,6 +242,9 @@ public class FxUI extends Scene implements UI {
 
     }
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.UI#message(java.lang.String)
+     */
     @Override
     public void message(final String msg) {
         Platform.runLater(new Runnable() {
@@ -205,6 +255,9 @@ public class FxUI extends Scene implements UI {
         });         
     }
 
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.UI#getCommand()
+     */
     //Diese Methode lie�t anhand der Inputvariable input den dazugeh�rigen Command mithilfe des Commandscanners aus (sofern dieser vorhanden)
 	@Override
 	public Command getCommand() {
@@ -222,16 +275,31 @@ public class FxUI extends Scene implements UI {
         return null;
 	}
 	
+	/**
+	 * Sets the command.
+	 *
+	 * @param command the new command
+	 */
 	//Diese Methode erm�glicht es den Command manuell zu setzen (Wird ben�tigt um in der GameImpl.processInput die Variable zu clearen)
 	public void setCommand(Command command){
 		this.command = command;
 	}
 	
+	/**
+	 * Give command.
+	 *
+	 * @return the command
+	 */
 	//Diese Methode �bergibt den Command der mithilfe der getCommand() Methode ermittelt wird.
 	public Command giveCommand(){
 		return command;
 	}
 	
+	/**
+	 * Sets the input.
+	 *
+	 * @param input the new input
+	 */
 	//Diese Methode speichert die Eingabe des Benutzers in den String input
 	private void setInput(String input){
 		this.input = input;

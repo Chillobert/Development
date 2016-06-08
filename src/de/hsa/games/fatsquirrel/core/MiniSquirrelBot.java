@@ -13,10 +13,27 @@ import de.hsa.games.fatsquirrel.botimpls.MiniBotImpl1;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MiniSquirrelBot.
+ */
 public class MiniSquirrelBot extends MiniSquirrel{
     
+    /** The current steps in round. */
     protected int currentStepsInRound = 0;
+    
+    /** The Constant logger. */
     private static final GameLogger logger = new GameLogger();
+    
+    /**
+     * Instantiates a new mini squirrel bot.
+     *
+     * @param id the id
+     * @param energy the energy
+     * @param x the x
+     * @param y the y
+     * @param patronId the patron id
+     */
     //private int energy;
     public MiniSquirrelBot(int id, int energy, int x, int y, int patronId) {
         super(id, energy, x, y, patronId);
@@ -25,6 +42,9 @@ public class MiniSquirrelBot extends MiniSquirrel{
     }
 
 
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.MiniSquirrel#nextStep(de.hsa.games.fatsquirrel.core.EntityContext, de.hsa.games.fatsquirrel.XY)
+     */
     @Override
     public void nextStep(EntityContext entCon,XY input){
         ControllerContextImpl conConImp = new ControllerContextImpl(entCon);
@@ -36,14 +56,26 @@ public class MiniSquirrelBot extends MiniSquirrel{
         }
     }
 
+    /**
+     * The Class ControllerContextImpl.
+     */
     class ControllerContextImpl implements ControllerContext{
 
+        /** The ent con. */
         EntityContext entCon;
 
+        /**
+         * Instantiates a new controller context impl.
+         *
+         * @param entCon the ent con
+         */
         public ControllerContextImpl(EntityContext entCon){
             this.entCon = entCon;
         }
 
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#getViewLowerLeft()
+         */
         @Override
         public XY getViewLowerLeft() {
             XY currentLocation = MiniSquirrelBot.this.getLocation();
@@ -60,6 +92,9 @@ public class MiniSquirrelBot extends MiniSquirrel{
             return lowerLeft;
         }
         
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#getViewUpperRight()
+         */
         @Override
         public XY getViewUpperRight() {
             XY currentLocation = MiniSquirrelBot.this.getLocation();
@@ -76,6 +111,9 @@ public class MiniSquirrelBot extends MiniSquirrel{
             return upperRight;
         }
         
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#getEntityAt(de.hsa.games.fatsquirrel.XY)
+         */
         @Override
         public EntityType getEntityAt(XY xy) {
             if(entCon.getEntityType(xy)!=null){
@@ -87,21 +125,33 @@ public class MiniSquirrelBot extends MiniSquirrel{
             return null;
         }
 
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#move(de.hsa.games.fatsquirrel.XY)
+         */
         @Override
         public void move(XY direction) {
                 entCon.tryMove(MiniSquirrelBot.this,direction);
         }
 
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#spawnMiniBot(de.hsa.games.fatsquirrel.XY, int)
+         */
         @Override
         public void spawnMiniBot(XY direction, int energy) {
             // fehler logging
         }
 
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#getEnergy()
+         */
         @Override
         public int getEnergy() {
             return MiniSquirrelBot.this.getEnergy();
         }
 
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#implode(int)
+         */
         @Override
         public void implode(int impactRadius) {
             int energy = MiniSquirrelBot.this.getEnergy();
@@ -147,6 +197,9 @@ public class MiniSquirrelBot extends MiniSquirrel{
                 logger.log(Level.WARNING, "implode in MiniSquirrelBot mit falschem Radius aufgerufen");
         }
 
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#getDirectionToParent()
+         */
         @Override
         public XY getDirectionToParent() {
                         
@@ -157,6 +210,13 @@ public class MiniSquirrelBot extends MiniSquirrel{
             return direction;
         }
         
+        /**
+         * Gets the direction to.
+         *
+         * @param subject the subject
+         * @param follower the follower
+         * @return the direction to
+         */
         private XY getDirectionTo(XY subject, XY follower){
             
         int[] fleeVector = new int[]{0,0};
@@ -175,6 +235,11 @@ public class MiniSquirrelBot extends MiniSquirrel{
         return new XY(fleeVector);
     }
 
+        /**
+         * Gets the master.
+         *
+         * @return the master
+         */
         private MasterSquirrel getMaster(){
             //Geht das komplette Board durch und checkt für jedes MasterSquirrel, ob das Mini von ihm ist
             Entity[][] board = ((FlattenedBoard)entCon).getEntBoard();
@@ -190,6 +255,9 @@ public class MiniSquirrelBot extends MiniSquirrel{
             return null;
         }
 
+        /* (non-Javadoc)
+         * @see de.hsa.games.fatsquirrel.botapi.ControllerContext#getRemainingSteps()
+         */
         @Override
         public int getRemainingSteps() {
             return ((FlattenedBoard)entCon).getBoard().getConfig().getStepsPerRounds() - MiniSquirrelBot.this.currentStepsInRound;

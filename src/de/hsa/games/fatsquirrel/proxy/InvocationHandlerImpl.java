@@ -8,16 +8,32 @@ import java.util.logging.Level;
 import de.hsa.games.fatsquirrel.botapi.ControllerContext;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class InvocationHandlerImpl.
+ */
 public class InvocationHandlerImpl implements InvocationHandler  {
+    
+    /** The context. */
     private ControllerContext context; // Proxy f�r ControllerContext
+    
+    /** The Constant logger. */
     //private static Logger log = Logger.getLogger(InvocationHandlerImpl.class.getName());
     private static final GameLogger logger = new GameLogger();
 
+    /**
+     * Instantiates a new invocation handler impl.
+     *
+     * @param context the context
+     */
     public InvocationHandlerImpl(ControllerContext context)
         {
             this.context = context; 
         }  // Konstruktor
 
+    /* (non-Javadoc)
+     * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
+     */
     // Das einzige was man hier aendern darf sind die sysouts/loggings der Rest ist allgemein g�ltig
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable  {  // Methode um allgemein Methoden auszuf�hren

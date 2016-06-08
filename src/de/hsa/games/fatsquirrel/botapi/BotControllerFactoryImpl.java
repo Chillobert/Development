@@ -5,10 +5,17 @@ import java.util.logging.Logger;
 
 import de.hsa.games.fatsquirrel.botimpls.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BotControllerFactoryImpl.
+ */
 public class BotControllerFactoryImpl implements BotControllerFactory {
 
     //MasterBotController erstellen
     
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.botapi.BotControllerFactory#createMasterBotController(java.lang.String[])
+     */
     @Override
     public BotController[] createMasterBotController(String[] masterImpls) {
         BotController[] botControllerArray = new BotController[masterImpls.length];
@@ -28,6 +35,9 @@ public class BotControllerFactoryImpl implements BotControllerFactory {
         return botControllerArray;
     }
 
+    /* (non-Javadoc)
+     * @see de.hsa.games.fatsquirrel.botapi.BotControllerFactory#createMiniBotController()
+     */
     //MiniBotController erstellen
     @Override
     public BotController createMiniBotController() {

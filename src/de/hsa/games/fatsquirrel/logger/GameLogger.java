@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// TODO: Auto-generated Javadoc
 //TODO: Irgendwie eine Handler-Config Datei erstellen damit das Outputfile logfile.txt ein lesbares Format hat.
 //LOGGER LEVELS UND DEREN VERWENDUNG:
 //SEVERE = Fehler
@@ -16,9 +17,16 @@ import java.util.logging.Logger;
 //FINER = WEitere Informationen zu Entitys
 //FINEST = Mooore details
 
+/**
+ * The Class GameLogger.
+ */
 public class GameLogger {
-	 private static final LogManager logManager = LogManager.getLogManager();
-	 private static final Logger logger = Logger.getLogger("");
+	 
+ 	/** The Constant logManager. */
+ 	private static final LogManager logManager = LogManager.getLogManager();
+	 
+ 	/** The Constant logger. */
+ 	private static final Logger logger = Logger.getLogger("");
 	 static{
 		 try{
 			 logManager.readConfiguration(new FileInputStream("./logging.properties"));
@@ -29,16 +37,31 @@ public class GameLogger {
 
 	 }
 
+/**
+ * Instantiates a new game logger.
+ */
 public GameLogger(){
 	logger.log(Level.FINEST, "Objekt der Klasse GameLogger wurde erstellt");
 }
 
 
 
+/**
+ * Log.
+ *
+ * @param level the level
+ * @param name the name
+ */
 public void log(Level level, String name){
 	logger.log(level, name);
 }
 
+/**
+ * Proxy log.
+ *
+ * @param level the level
+ * @param o the o
+ */
 public void proxyLog(Level level, Object o){
 	logger.log(level, (String) o);
 }

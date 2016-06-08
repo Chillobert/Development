@@ -21,15 +21,36 @@ import de.hsa.games.fatsquirrel.core.FlattenedBoard;
 import de.hsa.games.fatsquirrel.core.MasterSquirrelBot;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class State.
+ */
 public class State {
+    
+    /** The highscore. */
     Map<String,LinkedList<Integer>> highscore;
+    
+    /** The board. */
     private Board board;
+    
+    /** The flattened board. */
     private FlattenedBoard flattenedBoard;
+    
+    /** The config. */
     private BoardConfig config;
+    
+    /** The input. */
     private XY input;
+    
+    /** The ent arr. */
     private List<Entity> entArr;
+    
+    /** The Constant logger. */
     private static final GameLogger logger = new GameLogger();
     
+    /**
+     * Instantiates a new state.
+     */
     public State(){
         this.config = new BoardConfig();
         this.board =new Board(this.config);
@@ -45,6 +66,11 @@ public class State {
         }
     }
 
+    /**
+     * Gets the highscore.
+     *
+     * @return the highscore
+     */
     public Map getHighscore(){
         return highscore;
         
@@ -135,10 +161,20 @@ public class State {
     	
     }
     
+    /**
+     * Flattened board.
+     *
+     * @return the flattened board
+     */
     public FlattenedBoard flattenedBoard(){
         return this.flattenedBoard = board.flatten();
     }
     
+    /**
+     * Gets the board.
+     *
+     * @return the board
+     */
     public Board getBoard(){
         return this.board;
     }

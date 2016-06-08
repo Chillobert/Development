@@ -16,20 +16,50 @@ import de.hsa.games.fatsquirrel.XY;
 import de.hsa.games.fatsquirrel.botapi.*;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Board.
+ */
 public class Board {
 	
+/** The length. */
 private final int length;
+
+/** The width. */
 private final int width;
+
+/** The size. */
 private final XY size;
+
+/** The amount good beasts. */
 private final int amountGoodBeasts;
+
+/** The amount bad beasts. */
 private final int amountBadBeasts;
+
+/** The amount good plants. */
 private final int amountGoodPlants;
+
+/** The amount bad plants. */
 private final int amountBadPlants;
+
+/** The amount walls. */
 private int amountWalls;
+
+/** The ent set. */
 private EntitySet entSet;
+
+/** The board config. */
 private BoardConfig boardConfig;
+
+/** The Constant logger. */
 private static final GameLogger logger = new GameLogger();
 
+    /**
+     * Instantiates a new board.
+     *
+     * @param config the config
+     */
     public Board(BoardConfig config){
 	this.length = config.getLength();
 	this.width = config.getWidth();
@@ -45,6 +75,18 @@ private static final GameLogger logger = new GameLogger();
     };
     
     
+    /**
+     * Instantiates a new board.
+     *
+     * @param config the config
+     * @param masterSquirrel the master squirrel
+     * @param masterBot the master bot
+     * @param goodBeast the good beast
+     * @param badBeast the bad beast
+     * @param goodPlant the good plant
+     * @param badPlant the bad plant
+     * @param miniSquirrel the mini squirrel
+     */
     public Board(BoardConfig config, GuidedMasterSquirrel masterSquirrel, MasterSquirrelBot masterBot, GoodBeast goodBeast, BadBeast badBeast, GoodPlant goodPlant, BadPlant badPlant, MiniSquirrel miniSquirrel){
 	this.length = config.getLength();
 	this.width = config.getWidth();
@@ -58,6 +100,17 @@ private static final GameLogger logger = new GameLogger();
 	logger.log(Level.FINEST, "Testobject der Klasse Board erstellt");
     };
         
+    /**
+     * Prep board.
+     *
+     * @param masterSquirrel the master squirrel
+     * @param masterBot the master bot
+     * @param goodBeast the good beast
+     * @param badBeast the bad beast
+     * @param goodPlant the good plant
+     * @param badPlant the bad plant
+     * @param miniSquirrel the mini squirrel
+     */
     // Methode um gezielt Entiys auf vorgegebene Stellen zu platzieren um Testcases zu erm�glichen (Ersatz f�r fillBoard)
     private void prepBoard(GuidedMasterSquirrel masterSquirrel, MasterSquirrelBot masterBot, GoodBeast goodBeast, BadBeast badBeast, GoodPlant goodPlant, BadPlant badPlant, MiniSquirrel miniSquirrel){
     	if(masterSquirrel != null){
@@ -98,6 +151,16 @@ private static final GameLogger logger = new GameLogger();
         }
     }
     
+    /**
+     * Fill board.
+     *
+     * @param amountGoodBeasts the amount good beasts
+     * @param amountBadBeasts the amount bad beasts
+     * @param amountGoodPlants the amount good plants
+     * @param amountBadPlants the amount bad plants
+     * @param amountWalls the amount walls
+     * @param masterBotImpls the master bot impls
+     */
     //Erstellen aller Entitys an zufälligem Ort
     private void fillBoard(int amountGoodBeasts, int amountBadBeasts, int amountGoodPlants, int amountBadPlants, int amountWalls, String[] masterBotImpls){
         
@@ -132,6 +195,11 @@ private static final GameLogger logger = new GameLogger();
         }
     };
 
+    /**
+     * Rand loc.
+     *
+     * @return the int[]
+     */
     public int[] randLoc(){
         int[] randVector = new int[]{((int)((Math.random()*(length-1))+1)),((int)((Math.random()*(width-1))+1))};
         LinkedList<Entity> entArray = entSet.getEntityVector();
@@ -150,27 +218,55 @@ private static final GameLogger logger = new GameLogger();
         return randVector;
     }
     
+/* (non-Javadoc)
+ * @see java.lang.Object#toString()
+ */
 @Override
     public String toString(){
     	return entSet.toString();
     }
 
+    /**
+     * Gets the entity count.
+     *
+     * @return the entity count
+     */
     public int getEntityCount() {
 	return entSet.getLatestId();
 	}
     
+    /**
+     * Flatten.
+     *
+     * @return the flattened board
+     */
     public FlattenedBoard flatten(){ //Board übergeben und für flattendBoard nutzen
         return new FlattenedBoard(this);
     }
     
+    /**
+     * Gets the entity set.
+     *
+     * @return the entity set
+     */
     public EntitySet getEntitySet(){
         return this.entSet;
     }
     
+    /**
+     * Gets the size.
+     *
+     * @return the size
+     */
     public XY getSize(){
         return this.size;
     }
     
+    /**
+     * Gets the config.
+     *
+     * @return the config
+     */
     public BoardConfig getConfig(){
         return this.boardConfig;
     }

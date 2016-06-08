@@ -19,15 +19,33 @@ import de.hsa.games.fatsquirrel.Wall;
 import de.hsa.games.fatsquirrel.XY;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class EntitySet.
+ */
 public class EntitySet {
 
+    /** The numb of. */
     private int numbOf=0;
+    
+    /** The ent array. */
     private LinkedList<Entity> entArray;
+    
+    /** The id coll. */
     private int idColl=0;
+    
+    /** The Constant logger. */
     private static final GameLogger logger = new GameLogger();
+    
+    /** The current steps. */
     private int currentSteps;
+    
+    /** The highscore. */
     Map<String,LinkedList<Integer>> highscore;
     
+    /**
+     * Instantiates a new entity set.
+     */
     public EntitySet(){  
         this.entArray = new LinkedList();
         this.highscore = new HashMap();
@@ -41,6 +59,11 @@ public class EntitySet {
         logger.log(Level.FINEST, "Object der Klasse EntitySet erstellt");
     }
     
+    /**
+     * Adds the.
+     *
+     * @param entity the entity
+     */
     public void add(Entity entity){
         entArray.add(entity);
 //        switch(entityTyp){
@@ -58,6 +81,13 @@ public class EntitySet {
         numbOf++;
     }
     
+    /**
+     * Adds the.
+     *
+     * @param entityTyp the entity typ
+     * @param x the x
+     * @param y the y
+     */
     public void add(String entityTyp, int x, int y){
                 switch(entityTyp){
             case"BadPlant": entArray.add(new BadPlant(numbOf++,x,y));break;
@@ -72,10 +102,22 @@ public class EntitySet {
         }
     }
     
+    /**
+     * Adds the mini.
+     *
+     * @param master the master
+     * @param energy the energy
+     * @param direction the direction
+     */
     public void addMini(MasterSquirrel master,int energy, XY direction){
          entArray.add(master.createDescendant(numbOf++,energy , direction.getX(), direction.getY()));
     }
     
+    /**
+     * Delete.
+     *
+     * @param id the id
+     */
     public void delete(int id){
         
         for(int i = 0; entArray.size()>i;i++){
@@ -84,13 +126,29 @@ public class EntitySet {
         }
     }
     
+    /**
+     * Gets the latest id.
+     *
+     * @return the latest id
+     */
     public int getLatestId(){
         return numbOf;
     }
     
+    /**
+     * Gets the entity vector.
+     *
+     * @return the entity vector
+     */
     public LinkedList getEntityVector(){
         return entArray;
     }
+    
+    /**
+     * Gets the entity array.
+     *
+     * @return the entity array
+     */
     public Entity[] getEntityArray(){
         Entity[] entArr = new Entity[entArray.size()];
         for(int i =0; i< entArray.size();i++){
@@ -98,6 +156,10 @@ public class EntitySet {
         }
         return entArr;
     }
+    
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString(){
         String output="";
@@ -107,6 +169,13 @@ public class EntitySet {
         return(output);
     }
 
+    /**
+     * Next step all.
+     *
+     * @param entContext the ent context
+     * @param input the input
+     * @throws InterruptedException the interrupted exception
+     */
     public void nextStepAll(EntityContext entContext, XY input) throws InterruptedException{
         for(int i=0;entArray.size()>i;i++){
             if(entArray.get(i).getTimeout()<=0){
