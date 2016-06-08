@@ -16,7 +16,7 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 import de.hsa.games.fatsquirrel.util.ui.console.Command;
 import de.hsa.games.fatsquirrel.util.ui.console.ScanException;
 import de.hsa.games.util.ui.gui.FxUI;
-import prog2_a3.*;
+
 
 public class GameImpl extends Game {
     private Command puffer;

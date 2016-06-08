@@ -1,4 +1,4 @@
-package prog2_a3.fatsquirrel.core_Unit;
+package de.hsa.games.fatsquirrel.core.unit;
 
 import static org.junit.Assert.*;
 

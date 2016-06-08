@@ -1,4 +1,4 @@
-package prog2_a3.fatsquirrel_integration;
+package de.hsa.games.fatsquirrel.integration;
 
 import static org.easymock.EasyMock.createMockBuilder;
 import static org.junit.Assert.*;
