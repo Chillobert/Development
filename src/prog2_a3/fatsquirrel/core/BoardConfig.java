@@ -42,8 +42,17 @@ public class BoardConfig {
 			
 
 		} catch (IOException ex) {
-			BoardConfig_old backup = new BoardConfig_old();
+			BoardConfig_old alternative = new BoardConfig_old();
 			//hier setter verwenden
+			this.setSize(Integer.parseInt(prop.getProperty("size_length")), Integer.parseInt(prop.getProperty("size_width")));
+			this.setAmountGoodBeasts(Integer.parseInt(prop.getProperty("amountGoodBeasts")));
+			this.setAmountBadBeasts(Integer.parseInt(prop.getProperty("amountBadBeasts")));
+			this.setAmountGoodPlants(Integer.parseInt(prop.getProperty("amountGoodPlants")));
+			this.setAmountBadPlants(Integer.parseInt(prop.getProperty("amountBadPlants")));
+			this.setAmountWalls();
+			this.setStepsPerRound(Integer.parseInt(prop.getProperty("stepsPerRound")));
+			this.setMasterBotImplsLocation(prop.getProperty("masterBotImplsLocation"));
+			this.setMasterBotImpls(prop.getProperty("masterBotImpls"));
 			System.out.println("FUUUUUUU");
 		} finally {
 			if (input != null) {
