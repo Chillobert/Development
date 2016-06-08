@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import prog2_a3.fatsquirrel.core.XY;
+import de.hsa.games.fatsquirrel.XY;
 
 public class XYTest {
 	private int[] locTest;

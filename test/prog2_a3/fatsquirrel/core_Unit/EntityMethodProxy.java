@@ -1,15 +1,15 @@
 package prog2_a3.fatsquirrel.core_Unit;
 
 
-import prog2_a3.fatsquirrel.core.BadBeast;
-import prog2_a3.fatsquirrel.core.Entity;
-import prog2_a3.fatsquirrel.core.GoodBeast;
-import prog2_a3.fatsquirrel.core.MasterSquirrel;
-import prog2_a3.fatsquirrel.core.MiniSquirrel;
-import prog2_a3.fatsquirrel.core.NotEnoughEnergyException;
-import prog2_a3.fatsquirrel.core.PlayerEntity;
-import prog2_a3.fatsquirrel.core.XY;
-import prog2_a3.interfaces.EntityContext;
+import de.hsa.games.fatsquirrel.BadBeast;
+import de.hsa.games.fatsquirrel.Entity;
+import de.hsa.games.fatsquirrel.GoodBeast;
+import de.hsa.games.fatsquirrel.MasterSquirrel;
+import de.hsa.games.fatsquirrel.MiniSquirrel;
+import de.hsa.games.fatsquirrel.PlayerEntity;
+import de.hsa.games.fatsquirrel.XY;
+import de.hsa.games.fatsquirrel.core.EntityContext;
+import de.hsa.games.fatsquirrel.core.NotEnoughEnergyException;
 
 public class EntityMethodProxy implements EntityContext{
 	private XY direction = new XY(new int[]{0,-1});

@@ -7,11 +7,11 @@ import org.easymock.TestSubject;
 import org.junit.Before;
 import org.junit.Test;
 
-import prog2_a3.fatsquirrel.core.Board;
-import prog2_a3.fatsquirrel.core.BoardConfig;
-import prog2_a3.fatsquirrel.core.FlattenedBoard;
-import prog2_a3.fatsquirrel.core.GuidedMasterSquirrel;
-import prog2_a3.fatsquirrel.core.XY;
+import de.hsa.games.fatsquirrel.GuidedMasterSquirrel;
+import de.hsa.games.fatsquirrel.XY;
+import de.hsa.games.fatsquirrel.core.Board;
+import de.hsa.games.fatsquirrel.core.BoardConfig;
+import de.hsa.games.fatsquirrel.core.FlattenedBoard;
 
 
 

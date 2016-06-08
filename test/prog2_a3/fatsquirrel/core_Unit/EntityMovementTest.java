@@ -4,17 +4,18 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import prog2_a3.fatsquirrel.core.Board;
-import prog2_a3.fatsquirrel.core.BoardConfig;
-import prog2_a3.fatsquirrel.core.EntitySet;
-import prog2_a3.fatsquirrel.core.FlattenedBoard;
-import prog2_a3.fatsquirrel.core.XY;
-import prog2_a3.interfaces.EntityContext;
+import de.hsa.games.fatsquirrel.Entity;
+import de.hsa.games.fatsquirrel.XY;
+import de.hsa.games.fatsquirrel.core.Board;
+import de.hsa.games.fatsquirrel.core.BoardConfig;
+import de.hsa.games.fatsquirrel.core.EntityContext;
+import de.hsa.games.fatsquirrel.core.EntitySet;
+import de.hsa.games.fatsquirrel.core.FlattenedBoard;
+
 import org.easymock.*;
 import static org.easymock.EasyMock.createMockBuilder;
 import org.junit.Assert;
 import org.junit.Before;
-import prog2_a3.fatsquirrel.core.Entity;
 
 //Dieser Testcase �berpr�ft die Bewegungen der verschiedenen Entitys 
 public class EntityMovementTest {
