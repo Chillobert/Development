@@ -1,11 +1,15 @@
 package prog2_a3.fatsquirrel.core;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class State {
     HashMap<String,LinkedList<Integer>> highscore;
@@ -29,11 +33,40 @@ public class State {
             if(MasterSquirrelBot.class.isInstance(entArr.get(i)))
                 highscore.put(((MasterSquirrelBot)entArr.get(i)).getImplName(), new LinkedList<Integer>());
         }
+        getHighscoreFromData();
     }
 
     public HashMap getHighscore(){
         return highscore;
         
+    }
+    
+    public void getHighscoreFromData(){
+        String fileInput = "";
+        int charsRead = -1;
+        String[] inputArr;
+        StringBuilder builder = new StringBuilder();
+        String[] keys;
+        char[] charArray = new char[1000];
+        try {
+            FileReader reader = new FileReader("highscore.fck");
+            
+                charsRead = reader.read(charArray,0,charArray.length);
+            builder.append(charArray,0,charsRead);
+
+            fileInput = builder.toString();
+            inputArr = fileInput.split("\n");
+            keys = new String[inputArr.length];
+            String[] values = new String[inputArr.length];
+            for (int i=0;i<inputArr.length;i++) {
+                keys[i]=inputArr[i].substring(0,inputArr[i].indexOf(":"));
+                values[i]=inputArr[i].substring(inputArr[i].indexOf(":"));
+            }
+        } catch (FileNotFoundException ex) {
+            logger.log(Level.SEVERE, "File highscore not found");
+        } catch (IOException ex) {
+            Logger.getLogger(State.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void update(){
@@ -83,5 +116,8 @@ public class State {
     
     public Board getBoard(){
         return this.board;
+    }
+    public FlattenedBoard getFlattenedBoard(){
+        return this.flattenedBoard;
     }
 }

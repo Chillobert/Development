@@ -90,7 +90,7 @@ public class GameImpl extends Game {
     private void exit() throws IOException{
         //Neue highscore.txt datei erstellen, String vorbereiten und reinschreiben
         LinkedList ls;
-        File highscoreDatei = new File("highscore.txt");
+        File highscoreDatei = new File("highscore.fck");
         FileWriter writer = new FileWriter(highscoreDatei);
         HashMap<String,LinkedList> highscoreMap = state.getHighscore();
         String highscoreOut = "";

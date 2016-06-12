@@ -1,10 +1,8 @@
 package prog2_a3.fatsquirrel.core;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Vector;
 import java.util.logging.Level;
 import prog2_a3.interfaces.*;
 

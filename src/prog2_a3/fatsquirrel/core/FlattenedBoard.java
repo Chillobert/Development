@@ -86,6 +86,7 @@ public class FlattenedBoard implements BoardView, EntityContext {
     public void killAndReplace(Entity entity){
         entSet.delete(entity.getId());
         XY newLoc = new XY(board.randLoc());
+        //Constructor für MasterSquirrelBot hinzufügen, Impl aus bestehendem auslesen
         try {
             entSet.add((Entity)entity.getClass().getDeclaredConstructor(int.class, int.class, int.class).newInstance(entSet.getLatestId(),newLoc.getX(),newLoc.getY()));
         } catch (InstantiationException | IllegalAccessException ex) {
