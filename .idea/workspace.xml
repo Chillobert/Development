@@ -1,0 +1,1827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="final:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2e5ba0d8-d362-4743-93b0-26638fae8c10" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/artifacts/final_jar/final.jar" afterPath="$PROJECT_DIR$/build/artifacts/final_jar/final.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/final_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/final_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.properties" afterPath="$PROJECT_DIR$/build.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/allclasses-frame.html" afterPath="$PROJECT_DIR$/doc/out/allclasses-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/allclasses-noframe.html" afterPath="$PROJECT_DIR$/doc/out/allclasses-noframe.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/constant-values.html" afterPath="$PROJECT_DIR$/doc/out/constant-values.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/BadBeast.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/BadBeast.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/BadPlant.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/BadPlant.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/BeastMoveTest.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/BeastMoveTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/BeastNextStepTest.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/BeastNextStepTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/EmptyType.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/EmptyType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/Entity.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/Entity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/EntitySet.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/EntitySet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/EntityType.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/EntityType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/Game.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/Game.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/GoodBeast.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/GoodBeast.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/GoodPlant.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/GoodPlant.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/GuidedMasterSquirrel.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/GuidedMasterSquirrel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/Launcher.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/Launcher.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/MasterSquirrel.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/MasterSquirrel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/MiniSquirrel.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/MiniSquirrel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/PlayerEntity.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/PlayerEntity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/State.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/State.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/UI.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/UI.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/Wall.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/Wall.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/XY.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/XY.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/XYTest.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/XYTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/BotController.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/BotController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/BotControllerFactory.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/BotControllerFactory.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/BotControllerFactoryImpl.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/BotControllerFactoryImpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/ControllerContext.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/ControllerContext.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/package-frame.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/package-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/package-summary.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/package-tree.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/botapi/package-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/ConsoleUI.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/ConsoleUI.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/GameCommandType.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/GameCommandType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/GameImpl.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/GameImpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/package-frame.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/package-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/package-summary.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/package-tree.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/console/package-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/Board.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/Board.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/BoardConfig.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/BoardConfig.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/BoardView.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/BoardView.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/EntityContext.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/EntityContext.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/FlattenedBoard.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/FlattenedBoard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/MasterSquirrelBot.ControllerContextImpl.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/MasterSquirrelBot.ControllerContextImpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/MasterSquirrelBot.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/MasterSquirrelBot.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/MiniSquirrelBot.ControllerContextImpl.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/MiniSquirrelBot.ControllerContextImpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/MiniSquirrelBot.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/MiniSquirrelBot.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/package-frame.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/package-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/package-summary.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/package-tree.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/core/package-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/package-frame.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/package-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/package-summary.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/package-tree.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/package-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/Command.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/Command.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/CommandProcessor.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/CommandProcessor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/CommandScanner.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/CommandScanner.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/CommandTypeInfo.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/CommandTypeInfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/ScanException.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/ScanException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/package-frame.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/package-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/package-summary.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/package-tree.html" afterPath="$PROJECT_DIR$/doc/out/de/hsa/games/fatsquirrel/util/ui/console/package-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/deprecated-list.html" afterPath="$PROJECT_DIR$/doc/out/deprecated-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/help-doc.html" afterPath="$PROJECT_DIR$/doc/out/help-doc.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/index-all.html" afterPath="$PROJECT_DIR$/doc/out/index-all.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/index.html" afterPath="$PROJECT_DIR$/doc/out/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/overview-frame.html" afterPath="$PROJECT_DIR$/doc/out/overview-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/overview-summary.html" afterPath="$PROJECT_DIR$/doc/out/overview-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/overview-tree.html" afterPath="$PROJECT_DIR$/doc/out/overview-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/package-list" afterPath="$PROJECT_DIR$/doc/out/package-list" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/out/serialized-form.html" afterPath="$PROJECT_DIR$/doc/out/serialized-form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/final.iml" afterPath="$PROJECT_DIR$/final.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game.properties" afterPath="$PROJECT_DIR$/game.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logFile.txt" afterPath="$PROJECT_DIR$/logFile.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Entity.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Entity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/FxUI.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/FxUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Launcher.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Launcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/State.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/State.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/XY.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/XY.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotControllerFactoryImpl.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotControllerFactoryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MasterSherlock.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MasterSherlock.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MiniSherlock.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MiniSherlock.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/ConsoleUI.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/ConsoleUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/GameCommandType.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/GameCommandType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/GameImpl.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/GameImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/Board.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/BoardConfig.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/BoardConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/FlattenedBoard.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/FlattenedBoard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/GameConfig.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/GameConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/proxy/InvocationHandlerImpl.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/proxy/InvocationHandlerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandProcessor.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandProcessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandScanner.java" afterPath="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandScanner.java" />
+    </list>
+    <ignored path="final.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/final$Launcher.coverage" NAME="Launcher Coverage Results" MODIFIED="1462198948278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="final">
+      <favorite_root url="uml://JAVA/de.hsa.games.fatsquirrel.Game" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/MasterSquirrelBot/ControllerContextImpl.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/ControllerContext.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/FlattenedBoard.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/MiniSquirrelBot/ControllerContextImpl.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/Board.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/EntityContext.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/CompetitorImpl.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/XY.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="uml://JAVA/de.hsa.games.fatsquirrel" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="BoardConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/BoardConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/tests/BadBeastTest_one.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/tests/BadBeastTest_two.java" />
+        <option value="$PROJECT_DIR$/tests/BeastMoveTest.java" />
+        <option value="$PROJECT_DIR$/tests/BeastNextStepTest.java" />
+        <option value="$PROJECT_DIR$/tests/XYTest.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/tests/XYTest.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/BadBeast.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/tests/BeastNextStepTest.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/tests/BeastMoveTest.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotControllerKI.java" />
+        <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/InvocationHandlerImpl.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/ControllerContext.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/UI.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotController.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/MiniSquirrel.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/XYTest.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/logging/InvocationHandlerImpl.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/logging/Log.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/BeastNextStepTest.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotControllerImplMini.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotControllerImplMaster.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/BotControllerImplMini.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MasterDefault.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MiniDefault.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/EntityContext.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/BoardView.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/MasterSquirrelBot.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/MiniSquirrelBot.java" />
+        <option value="$PROJECT_DIR$/test.txt" />
+        <option value="$PROJECT_DIR$/prop.properties" />
+        <option value="$PROJECT_DIR$/game.properties" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Game.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/GameCommandType.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandScanner.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandProcessor.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Entity.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/FxUI.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/State.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/XY.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/proxy/InvocationHandlerImpl.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/Board.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/GameConfig.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/FlattenedBoard.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/ConsoleUI.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/GameImpl.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotControllerFactoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MasterSherlock.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MiniSherlock.java" />
+        <option value="$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/BoardConfig.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="23" />
+    <option name="width" value="1436" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>Ant inspections</id>
+          </State>
+          <State>
+            <id>Application Server Specific Inspections</id>
+          </State>
+          <State>
+            <id>Control flow issuesJava</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Declaration redundancyJava</id>
+          </State>
+          <State>
+            <id>Faces Model</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>Hibernate Issues</id>
+          </State>
+          <State>
+            <id>Initialization issuesJava</id>
+          </State>
+          <State>
+            <id>Internationalization issuesJava</id>
+          </State>
+          <State>
+            <id>JBoss Seam issues</id>
+          </State>
+          <State>
+            <id>JPA issues</id>
+          </State>
+          <State>
+            <id>JSON</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java EE issues</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Maven</id>
+          </State>
+          <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>Struts</id>
+          </State>
+          <State>
+            <id>Struts 1Struts</id>
+          </State>
+          <State>
+            <id>TestNGJava</id>
+          </State>
+          <State>
+            <id>UI Form Problems</id>
+          </State>
+          <State>
+            <id>Validity issuesGroovy</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XMLSpring CoreSpring</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages ProjectPane="false" />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fatsquirrel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fatsquirrel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.xml" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="build" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="findjar.last.used.dir" value="$USER_HOME$/Downloads/easymock-3.4" />
+    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;Oracle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="de.hsa.games.fatsquirrel" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.hsa.games.fatsquirrel.tests" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Launcher">
+    <configuration default="false" name="BeastNextStepTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="de.hsa.games.fatsquirrel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="final" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="de.hsa.games.fatsquirrel" />
+      <option name="MAIN_CLASS_NAME" value="de.hsa.games.fatsquirrel.BeastNextStepTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BeastMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="final" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="de.hsa.games.fatsquirrel" />
+      <option name="MAIN_CLASS_NAME" value="de.hsa.games.fatsquirrel.BeastMoveTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BeastNextStepTest.testAblauf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="de.hsa.games.fatsquirrel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="final" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="de.hsa.games.fatsquirrel" />
+      <option name="MAIN_CLASS_NAME" value="de.hsa.games.fatsquirrel.BeastNextStepTest" />
+      <option name="METHOD_NAME" value="testAblauf" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BeastNextStepTest.testNextStep" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="de.hsa.games.fatsquirrel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="final" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="de.hsa.games.fatsquirrel" />
+      <option name="MAIN_CLASS_NAME" value="de.hsa.games.fatsquirrel.BeastNextStepTest" />
+      <option name="METHOD_NAME" value="testNextStep" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="XYTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="de.hsa.games.fatsquirrel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="final" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="de.hsa.games.fatsquirrel" />
+      <option name="MAIN_CLASS_NAME" value="de.hsa.games.fatsquirrel.XYTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="final" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="false" name="Launcher" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="de.hsa.games.fatsquirrel.Launcher" />
+      <option name="VM_PARAMETERS" value="-Djava.util.logging.config.file=$PROJECT_DIR$/prop.properties" />
+      <option name="PROGRAM_PARAMETERS" value="3" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="final" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Application.Launcher" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.BeastNextStepTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.BeastMoveTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.BeastNextStepTest.testAblauf" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BeastNextStepTest.testNextStep" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.XYTest" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.XYTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.BeastMoveTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.BeastNextStepTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.BeastNextStepTest.testAblauf" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.BeastNextStepTest.testNextStep" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SliceToolwindowSettings">
+    <option name="autoScroll" value="true" />
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_ANONYMOUS" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e5ba0d8-d362-4743-93b0-26638fae8c10" name="Default" comment="" />
+      <created>1461146852345</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1461146852345</updated>
+      <workItem from="1461146856467" duration="2784000" />
+      <workItem from="1461234212455" duration="7754000" />
+      <workItem from="1461250253403" duration="170000" />
+      <workItem from="1461255021385" duration="94000" />
+      <workItem from="1461260576905" duration="740000" />
+      <workItem from="1461304466872" duration="12128000" />
+      <workItem from="1461321263266" duration="46000" />
+      <workItem from="1461407612105" duration="3458000" />
+      <workItem from="1461570524992" duration="53620000" />
+      <workItem from="1461909870769" duration="18514000" />
+      <workItem from="1462168260139" duration="9954000" />
+      <workItem from="1462183010554" duration="11111000" />
+      <workItem from="1462347240960" duration="11227000" />
+      <workItem from="1462514400050" duration="1671000" />
+      <workItem from="1462516497826" duration="512000" />
+      <workItem from="1462630037261" duration="1529000" />
+      <workItem from="1462774782813" duration="267000" />
+      <workItem from="1462775117084" duration="3000" />
+      <workItem from="1462775161202" duration="20507000" />
+      <workItem from="1462889483511" duration="572000" />
+      <workItem from="1462949668222" duration="12566000" />
+      <workItem from="1462966690341" duration="15090000" />
+      <workItem from="1463045809487" duration="7107000" />
+      <workItem from="1463118688129" duration="1023000" />
+      <workItem from="1463120147650" duration="3547000" />
+      <workItem from="1463127094030" duration="1145000" />
+      <workItem from="1463555994242" duration="3764000" />
+      <workItem from="1463566643376" duration="7387000" />
+      <workItem from="1463585482834" duration="14000" />
+      <workItem from="1463585588314" duration="2693000" />
+      <workItem from="1463588759735" duration="138000" />
+      <workItem from="1463637557540" duration="6796000" />
+      <workItem from="1463646083561" duration="7329000" />
+      <workItem from="1463672012407" duration="172000" />
+      <workItem from="1463673150583" duration="9000" />
+      <workItem from="1463725647001" duration="9706000" />
+      <workItem from="1463748809654" duration="26896000" />
+      <workItem from="1464159320879" duration="6845000" />
+      <workItem from="1464169368275" duration="4760000" />
+      <workItem from="1464590807106" duration="450000" />
+      <workItem from="1464591284835" duration="11589000" />
+    </task>
+    <task id="LOCAL-00001" summary="changed constructor in Board,BoardConfig, FlattenedBoard">
+      <created>1461242570472</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1461242570472</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="BeastMoveTest - 2016.05.25 at 11h 09m 39s.xml">
+      <configuration name="BeastMoveTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeastNextStepTest - 2016.05.20 at 10h 47m 33s.xml">
+      <configuration name="BeastNextStepTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeastNextStepTest - 2016.05.23 at 15h 37m 10s.xml">
+      <configuration name="BeastNextStepTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeastNextStepTest - 2016.05.23 at 15h 37m 15s.xml">
+      <configuration name="BeastNextStepTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeastNextStepTest - 2016.05.25 at 11h 09m 23s.xml">
+      <configuration name="BeastNextStepTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeastNextStepTest_testAblauf - 2016.05.20 at 10h 47m 22s.xml">
+      <configuration name="BeastNextStepTest.testAblauf" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="XYTest - 2016.05.19 at 10h 33m 27s.xml">
+      <configuration name="XYTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="XYTest - 2016.05.20 at 10h 42m 02s.xml">
+      <configuration name="XYTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="XYTest - 2016.05.25 at 11h 09m 46s.xml">
+      <configuration name="XYTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="XYTest - 2016.05.25 at 11h 54m 06s.xml">
+      <configuration name="XYTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="285687000" />
+  </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="23" width="1436" height="877" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866243" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32611465" sideWeight="0.49713057" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2624204" sideWeight="0.5088757" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866243" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2624204" sideWeight="0.49112427" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24318507" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964131" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964131" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37961784" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Analyze Dataflow to" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909784" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32738853" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed constructor in Board,BoardConfig, FlattenedBoard" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed constructor in Board,BoardConfig, FlattenedBoard" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="60" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="moveCounter" />
+        <watch expression="nextXY" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/build.xml">
+      <targetFilters>
+        <filter targetName="compile.module.final" isVisible="true" />
+        <filter targetName="compile.module.final.production" isVisible="true" />
+        <filter targetName="compile.module.final.tests" isVisible="true" />
+        <filter targetName="clean.module.final" isVisible="true" />
+        <filter targetName="init" isVisible="true" />
+        <filter targetName="clean" isVisible="true" />
+        <filter targetName="build.modules" isVisible="true" />
+        <filter targetName="all" isVisible="true" />
+      </targetFilters>
+      <expanded value="true" />
+    </buildFile>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/old/util/ui/console/CommandScanner.java" />
+    <entry file="file://$PROJECT_DIR$/old/util/ui/console/CommandProcessor.java" />
+    <entry file="file://$PROJECT_DIR$/old/State.java" />
+    <entry file="file://$PROJECT_DIR$/old/Launcher.java" />
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotControllerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/EmptyType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/squirrel.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="272" column="0" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/logging/Log.java" />
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/logging/InvocationHandlerImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/ControllerContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/XYTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/BeastMoveTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/MiniSquirrel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MasterDefault.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MiniDefault.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/BoardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/MiniSquirrelBot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/BeastNextStepTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prop.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logFile.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-979">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home/javafx-src.zip!/javafx/application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="222" column="23" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="87" column="11" selection-start-line="87" selection-start-column="11" selection-end-line="87" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#startGame#0;class#Launcher#0" expanded="false" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#start#0;class#Launcher#0" expanded="false" />
+            <marker date="1464603130000" expanded="false" signature="4567:4628" ph="//..." />
+            <marker date="1464603130000" expanded="false" signature="5499:5518" ph=" { " />
+            <marker date="1464603130000" expanded="false" signature="5534:5553" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/GameCommandType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="181" column="11" selection-start-line="181" selection-start-column="11" selection-end-line="181" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <folding>
+            <element signature="method#CommandScanner#0;class#CommandScanner#0" expanded="false" />
+            <element signature="method#checkInput#0;class#CommandScanner#0" expanded="false" />
+            <element signature="method#next#0;class#CommandScanner#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+          <folding>
+            <element signature="method#process#0;class#CommandProcessor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/util/ui/console/CommandTypeInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-319">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/EntityType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/FxUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="155" column="84" selection-start-line="155" selection-start-column="84" selection-end-line="155" selection-end-column="84" />
+          <folding>
+            <element signature="method#createInstance#0;class#FxUI#0" expanded="false" />
+            <element signature="method#fillGameBoard#0;class#FxUI#0" expanded="false" />
+            <element signature="method#render#0;class#FxUI#0" expanded="false" />
+            <element signature="method#repaintBoardCanvas#0;class#FxUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding>
+            <element signature="method#update#0;class#State#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/XY.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/proxy/InvocationHandlerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="87" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+          <folding>
+            <element signature="method#invoke#0;class#InvocationHandlerImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/proxy/CtrlContProx.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding>
+            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#getDboard_split#0;class#Board#0" expanded="false" />
+            <element signature="method#fillArrayList#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/EntityContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/GameConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="139" column="43" selection-start-line="139" selection-start-column="43" selection-end-line="139" selection-end-column="43" />
+          <folding>
+            <element signature="method#GameConfig#0;class#GameConfig#0" expanded="false" />
+            <element signature="method#read#0;class#GameConfig#0" expanded="false" />
+            <element signature="method#write#0;class#GameConfig#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/FlattenedBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="247" column="64" selection-start-line="247" selection-start-column="64" selection-end-line="247" selection-end-column="64" />
+          <folding>
+            <element signature="method#syncBoards#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#chCollision#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#collisionEvo#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#tryMoveCommand#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#normalizeXY#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#reactToMovement#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#implosionEvo#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#getDistance#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#getSize#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#tryMove#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#tryMove#1;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#tryMove#2;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#tryMove#3;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#nearestPlayerEntity#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#spawnChildBot#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#kill#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#killAndReplace#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#getEntityType#0;class#FlattenedBoard#0" expanded="false" />
+            <element signature="method#getEntityType#1;class#FlattenedBoard#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/MasterSquirrelBot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-461">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="method#normalizeXY#0;class#ControllerContextImpl#0;class#MasterSquirrelBot#0" expanded="false" />
+            <element signature="method#getViewLowerLeft#0;class#ControllerContextImpl#0;class#MasterSquirrelBot#0" expanded="false" />
+            <element signature="method#getGameStep#0;class#ControllerContextImpl#0;class#MasterSquirrelBot#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/ConsoleUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+          <folding>
+            <element signature="method#render#0;class#ConsoleUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/console/GameImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
+          <folding>
+            <element signature="method#run#0;class#GameImpl#0" expanded="false" />
+            <element signature="method#render#0;class#GameImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botapi/BotControllerFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
+          <folding>
+            <element signature="method#createMasterBotController#0;class#BotControllerFactoryImpl#0" expanded="false" />
+            <element signature="method#createMiniBotController#0;class#BotControllerFactoryImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MasterSherlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+          <folding>
+            <element signature="method#nextStep#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#determineTarget#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#calcMoveDirection#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#avoidWall#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#getNearestTarget#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#getDistanceToMS#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#getDistance#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#tryRandomMove#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#tryRun#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#tryEat#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#tryLaunchMini#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#tryHold#0;class#MasterSherlock#0" expanded="false" />
+            <element signature="method#tryCollectMini#0;class#MasterSherlock#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/botimpls/MiniSherlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+          <folding>
+            <element signature="method#determineTarget#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#calcMoveDirection#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#avoidWall#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#getNearestTarget#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#getDistanceToMS#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#getDistance#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#tryRandomMove#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#tryRun#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#tryEat#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#tryLaunchMini#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#tryHold#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#tryCollectMini#0;class#MiniSherlock#0" expanded="false" />
+            <element signature="method#tryImplode#0;class#MiniSherlock#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/hsa/games/fatsquirrel/core/BoardConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>final:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>easymock</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>final</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>junit-4.12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

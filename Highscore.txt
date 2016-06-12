@@ -1,0 +1,9 @@
+Date: 08/06/2016 13:35:57
+Result:{GuidedMasterSquirrel=[], MasterBotImpl2=[], MasterBotImpl1=[]}
+Date: 08/06/2016 13:36:19
+Result:{GuidedMasterSquirrel=[1490], MasterBotImpl2=[930], MasterBotImpl1=[400]}
+Date: 08/06/2016 13:36:49
+Result:{GuidedMasterSquirrel=[1300, 1500], MasterBotImpl2=[-220, 60], MasterBotImpl1=[570, -140]}
+
+Date: 08/06/2016 13:44:54
+Result:{GuidedMasterSquirrel=[-750], MasterBotImpl2=[850], MasterBotImpl1=[-110]}

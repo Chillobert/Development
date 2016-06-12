@@ -1,0 +1,12 @@
+de.hsa.games.fatsquirrel
+de.hsa.games.fatsquirrel.botapi
+de.hsa.games.fatsquirrel.botimpls
+de.hsa.games.fatsquirrel.console
+de.hsa.games.fatsquirrel.core
+de.hsa.games.fatsquirrel.core.component_modul
+de.hsa.games.fatsquirrel.core.unit
+de.hsa.games.fatsquirrel.integration
+de.hsa.games.fatsquirrel.logger
+de.hsa.games.fatsquirrel.proxy
+de.hsa.games.fatsquirrel.util.ui.console
+de.hsa.games.util.ui.gui
