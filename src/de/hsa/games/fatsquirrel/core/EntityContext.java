@@ -8,21 +8,21 @@ import de.hsa.games.fatsquirrel.MiniSquirrel;
 import de.hsa.games.fatsquirrel.PlayerEntity;
 import de.hsa.games.fatsquirrel.XY;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Interface EntityContext contains the movement Methods for the Entitys of the Game.
+ * The interface EntityContext contains all actions, that can be used for an existing Entity.
+ * such as move, kill, find,... .
  */
 public interface EntityContext {
 
     /**
-     * This Method gets the Size of the Board.
+     * This Method gets the Size of the Board and returns it as XY object.
      *
-     * @return the size
+     * @return the size of the board as XY object
      */
     XY getSize();
     
     /**
-     * This Method handles the Movement attempt of a miniSquirrel.
+     * This Method handles the Movement attempt of a MiniSquirrel.
      *
      * @param miniSquirrel the mini squirrel
      * @param moveDirection the move direction
@@ -31,14 +31,16 @@ public interface EntityContext {
     
     /**
      * This Method handles the Movement attempt of a goodBeast.
+     * If PlayerEntity is in sight, the moveDirection will be set automatically to the opposite direction.
      *
-     * @param goodBeast the good beast
-     * @param moveDirection the move direction
+     * @param goodBeast the GoodBeast you want to move
+     * @param moveDirection the direction to move to
      */
     void tryMove(GoodBeast goodBeast, XY moveDirection);
     
     /**
      * This Method handles the Movement attempt of a BadBeast.
+     * If PlayerEntity is in sight, the moveDirection will be set automatically point to it.
      *
      * @param badBeast the bad beast
      * @param moveDirection the move direction
@@ -94,7 +96,7 @@ public interface EntityContext {
     
     /**
      * This Method gets the EntityType of a given Entity.
-     *
+     * 
      * @param loc the location of the Entity.
      * @return the entity Type.
      */
