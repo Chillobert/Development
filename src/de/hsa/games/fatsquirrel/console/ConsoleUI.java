@@ -57,7 +57,7 @@ public class ConsoleUI implements UI {
             CommandScanner commandScanner = new CommandScanner(commandTypes,inputReader);
             command = commandScanner.next();
         } catch (IOException ioEx) {
-        	logger.log(Level.WARNING, "Warnung: ConsoleUI.getCommand(); Ungültige Eingabe des Spielers");
+        	logger.log(Level.WARNING, "Warnung: ConsoleUI.getCommand(); Ungueltige Eingabe des Spielers");
             outputStream.println("Das war keine gÃ¼ltige Eingabe. probier es mal mit help");
         }
         return command;

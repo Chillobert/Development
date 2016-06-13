@@ -10,6 +10,7 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Entity.
+ * This Class is the Superclass for all Entitys which are getting created for the Game.
  */
 public abstract class Entity{
 	

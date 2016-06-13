@@ -8,6 +8,7 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 // TODO: Auto-generated Javadoc
 /**
  * The Class BadBeast.
+ * This Class creates a BadBeast Entity.
  */
 public class BadBeast extends Beast{
 	

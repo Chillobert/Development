@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 // TODO: Auto-generated Javadoc
 /**
  * The Class State.
+ * This Class handles the Highscore which can get loaded, saved and updated.
  */
 public class State {
     
@@ -73,7 +74,7 @@ public class State {
     }
     
     /**
-     * Update.
+     * This Method updates the existing Highscore File with the latest Highscores.
      */
     public void update(){
         this.entArr = this.board.getEntitySet().getEntityVector();
@@ -118,7 +119,7 @@ public class State {
     }
     
     /**
-     * Save.
+     * This Method saves the Highscores into a File.
      */
     //Diese Methode speichert die Highscore der aktuellen Spielrunden in die Highscore.txt (Pfad: RootDirectory)
     public void save(){
@@ -167,9 +168,9 @@ public class State {
     }
     
     /**
-     * load.
+     * This Method loads the Highscore out of a File into a local Map.
      *
-     * Speichert den HighScore aus der File in die lokale Map
+     * 
      */
     public void load(){
         final String HIGHSCORE_PATH = config.getHighscoreFile();

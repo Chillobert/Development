@@ -1,15 +1,15 @@
 package de.hsa.games.fatsquirrel.botapi;
 
+import de.hsa.games.fatsquirrel.logger.GameLogger;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BotControllerFactoryImpl.
  */
 public class BotControllerFactoryImpl implements BotControllerFactory {
 
+    private static final GameLogger logger = new GameLogger();
     //MasterBotController erstellen
     
     /* (non-Javadoc)
@@ -22,9 +22,9 @@ public class BotControllerFactoryImpl implements BotControllerFactory {
             try {
                 botControllerArray[i] = (BotController)Class.forName(masterImpls[i]).newInstance();
             } catch (ClassNotFoundException ex) {
-                System.out.println("Invoke Class not Found in BotControllerFactory");
+                logger.log(Level.SEVERE,"Invoke Class not Found in BotControllerFactory");
             } catch(InstantiationException ex){
-                System.out.println("exception, InstantiationException");
+                logger.log(Level.SEVERE,"exception, InstantiationException");
             } catch(IllegalAccessException ex){
                 
             }

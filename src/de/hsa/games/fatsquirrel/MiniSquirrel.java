@@ -8,6 +8,7 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 // TODO: Auto-generated Javadoc
 /**
  * The Class MiniSquirrel.
+ * This Class creates a MiniSquirrel Entity.
  */
 public class MiniSquirrel extends PlayerEntity{
 	

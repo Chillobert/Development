@@ -7,7 +7,8 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Game.
+ * The Class Game is an abstract Class and extends the GameImpl.
+ * These Methods are there for the GameLoop.
  */
 public abstract class Game {
     
@@ -36,7 +37,8 @@ public abstract class Game {
     };
 
     /**
-     * Run.
+     * This Method controls the Gameloop for the different variants.
+     * 
      */
     public void run(){  		
     	 if(Launcher.getMode() == 1 ){
@@ -57,7 +59,7 @@ public abstract class Game {
     }
     
     /**
-     * Process.
+     * This Method handles the userInput.
      */
     public void process(){
     	processInput();
@@ -66,21 +68,21 @@ public abstract class Game {
 //Darstellung des Spielzustands auf dem Ausgabemedium
 
     /**
- * Render.
+ * This Method is rendering the Game for the output (console or gui).
  */
 protected abstract void render();
 	
 //Verarbeitung von Benutzereingaben
 
     /**
- * Process input.
+ * This Method processes the Input..
  */
 protected abstract void processInput();
 	
 //Ver�nderung des Spielzustandes -> Vorbereitung n�chster Render Vorgang
 
     /**
- * Update.
+ * This Method updates the Game after something happened.
  */
 protected abstract void update();
 }
