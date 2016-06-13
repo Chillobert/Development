@@ -5,7 +5,7 @@ import java.util.Random;
 import de.hsa.games.fatsquirrel.XY;
 
 /**
- * The Class MiniBotImpl1.
+ * The Class MiniBotImpl implements the strategy for all Minisquirrels, how to collect energy for their master.
  */
 public class MiniBotImpl implements BotController{
 

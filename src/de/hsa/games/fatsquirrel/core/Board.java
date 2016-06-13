@@ -23,7 +23,6 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Logger;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Board.
  * This Class creates a Gamefield Object depending on a Game.Properties File.
@@ -297,8 +296,7 @@ private String[] masterBotImpls;
      * @throws ClassNotFoundException gets thrown if you class is not found with the given Package.
      * @throws IOException gets thrown if there are problems with reading from the Path.
      */
-    private static String[] getClasses(String packageName)
-        throws ClassNotFoundException, IOException {
+    private static String[] getClasses(String packageName) throws ClassNotFoundException, IOException {
     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
     assert classLoader != null;
     String path = packageName.replace('.', '/');

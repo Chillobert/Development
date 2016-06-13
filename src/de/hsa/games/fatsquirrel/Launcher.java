@@ -25,6 +25,10 @@ import javafx.stage.Stage;
  * The Class Launcher.
  * This Class contains the gameloop in different variants.
  * These variants include Console and JavaFX Modes.
+ * They can be selected by adding an propper program-parameter
+ * 1 - ConsoleSingleFrame
+ * 2 - ConsoleMultiThread
+ * 3 - Gui-Mode
  */
 public class Launcher extends Application{
 
@@ -44,7 +48,7 @@ private Calendar calendar;
 private Command commandPuffer;
 
 /** The game mode sets the variant.
- * 1 = console_old, 2 = console_new, 3 = javafx_gui */
+ * 1 = ConsoleSingleFrame, 2 = ConsoleMultiThread, 3 = Gui-Mode */
 private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
 
 /** The level is needed for logging at a certain level. */

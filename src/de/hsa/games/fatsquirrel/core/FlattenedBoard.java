@@ -19,7 +19,6 @@ import de.hsa.games.fatsquirrel.Wall;
 import de.hsa.games.fatsquirrel.XY;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class FlattenedBoard is a mirror of the Board Object itself and is used for the view (gui).
  */

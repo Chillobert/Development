@@ -8,7 +8,6 @@ import de.hsa.games.fatsquirrel.botapi.BotController;
 import de.hsa.games.fatsquirrel.botapi.ControllerContext;
 import de.hsa.games.fatsquirrel.proxy.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MasterBotImpl1.
  */

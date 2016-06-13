@@ -1,16 +1,15 @@
 
 package de.hsa.games.fatsquirrel.botapi;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface BotController.
  */
 public interface BotController {
 	
 	/**
-	 * Next step.
+	 * nextStep overrides the nextStep-methode of Entity for the current used bot.
 	 *
-	 * @param view the view
+	 * @param view an implementation of the ControllerContext interface
 	 */
 	void nextStep(ControllerContext view);
 }

@@ -5,9 +5,6 @@ import java.util.logging.Level;
 import de.hsa.games.fatsquirrel.core.EntityContext;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
-
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class Entity.
  * This Class is the Superclass for all Entitys which are getting created for the Game.
@@ -20,13 +17,13 @@ public abstract class Entity{
 	/** The energy. */
 	private int energy;
 	
-	/** The loc. */
+	/** current location of the Entity */
 	private XY loc;
         
-        /** The penalty. */
+        /** number of rounds, a entity is unable to move or operate a command */
         private int penalty;
 	
-	/** The coll count. */
+	/** number of collisions a badBeast already had */
 	public int collCount=0;
 	
 	/** The Constant logger. */
@@ -85,10 +82,10 @@ public abstract class Entity{
         }
 
         /**
-         * Next step.
+         * This method operates the next command of the Entity.
          *
-         * @param entCon the ent con
-         * @param input the input
+         * @param entCon implementation of EntityContext interface
+         * @param input xy-vector for direction
          */
         public abstract void nextStep(EntityContext entCon, XY input);
         
