@@ -5,9 +5,9 @@ import java.util.logging.Level;
 import de.hsa.games.fatsquirrel.logger.GameLogger;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GuidedMasterSquirrel.
+ * This Class creates a GuidedMasterSquirrel Entity.
  */
 public class GuidedMasterSquirrel extends MasterSquirrel {
 	

@@ -1,6 +1,6 @@
 package de.hsa.games.fatsquirrel.core;
 
-import com.sun.org.apache.bcel.internal.util.ClassPath;
+//import com.sun.org.apache.bcel.internal.util.ClassPath;
 import java.util.LinkedList;
 import java.util.logging.Level;
 
@@ -26,47 +26,51 @@ import java.util.logging.Logger;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Board.
+ * This Class creates a Gamefield Object depending on a Game.Properties File.
+ * If there are Problems with the Properties.File this Class will use a Config Class (BoardConfig_Old) instead.
+ * Every Task of the Gamelogic itself gets performed at the Board Object.
+ * 
  */
 public class Board {
 	
-/** The length. */
+/** The length of the Board. */
 private final int length;
 
-/** The width. */
+/** The width of the Board. */
 private final int width;
 
-/** The size. */
+/** The size of the Board (length,width). */
 private final XY size;
 
-/** The amount good beasts. */
+/** The amount good beasts (preset by the GameConfig). */
 private final int amountGoodBeasts;
 
-/** The amount bad beasts. */
+/** The amount bad beasts (preset by the GameConfig). */
 private final int amountBadBeasts;
 
-/** The amount good plants. */
+/** The amount good plants (preset by the GameConfig). */
 private final int amountGoodPlants;
 
-/** The amount bad plants. */
+/** The amount bad plants (preset by the GameConfig). */
 private final int amountBadPlants;
 
-/** The amount walls. */
+/** The amount walls (preset by the GameConfig). */
 private int amountWalls;
 
-/** The ent set. */
+/** The ent set contains all existing Entitys in a linked List. */
 private EntitySet entSet;
 
-/** The board config. */
+/** The board config contains all presets (size, amount of Entitys...). */
 private BoardConfig boardConfig;
 
-/** The Constant logger. */
+/** The Constant logger is there for logging important Informations inside of the Board Class. */
 private static final GameLogger logger = new GameLogger();
 private String[] masterBotImpls;
 
     /**
-     * Instantiates a new board.
+     * Instantiates a new board for the Game.
      *
-     * @param config the config
+     * @param config this Object contains the Informations which will be used to create the GameField (Size, Amount of Entitys...)
      */
     public Board(BoardConfig config){
 	this.length = config.getLength();
@@ -84,7 +88,7 @@ private String[] masterBotImpls;
     
     
     /**
-     * Instantiates a new board.
+     * This Constructor will only be used for JUnit Tests.
      *
      * @param config the config
      * @param masterSquirrel the master squirrel
@@ -108,8 +112,8 @@ private String[] masterBotImpls;
 	logger.log(Level.FINEST, "Testobject der Klasse Board erstellt");
     };
         
-    /**
-     * Prep board.
+    /** This Method will only be used to create a TestCase Board. 
+     * 
      *
      * @param masterSquirrel the master squirrel
      * @param masterBot the master bot
@@ -160,7 +164,7 @@ private String[] masterBotImpls;
     }
     
     /**
-     * Fill board.
+     * This Method fills the Board with given Entitys (from the Config) on Random Locations.
      *
      * @param amountGoodBeasts the amount good beasts
      * @param amountBadBeasts the amount bad beasts
@@ -209,9 +213,9 @@ private String[] masterBotImpls;
     };
 
     /**
-     * Rand loc.
+     * This Method generates a random int Array.
      *
-     * @return the int[]
+     * @return the random int[].
      */
     public int[] randLoc(){
         int[] randVector = new int[]{((int)((Math.random()*(length-1))+1)),((int)((Math.random()*(width-1))+1))};
@@ -240,50 +244,59 @@ private String[] masterBotImpls;
     }
 
     /**
-     * Gets the entity count.
+     * This Method calculates the amount of Entitys on the Board.
      *
-     * @return the entity count
+     * @return the last ID of the entitySet Array.
      */
     public int getEntityCount() {
 	return entSet.getLatestId();
 	}
     
     /**
-     * Flatten.
+     * This Method generates a second Board. This will be used for the view not for operations.
      *
-     * @return the flattened board
+     * @return the board for the view.
      */
     public FlattenedBoard flatten(){ //Board übergeben und für flattendBoard nutzen
         return new FlattenedBoard(this);
     }
     
     /**
-     * Gets the entity set.
+     * This Method returns the EntitySet Object of the Board. 
+     * It contains all Entitys of the Game.
      *
-     * @return the entity set
+     * @return the EntitySet Object.
      */
     public EntitySet getEntitySet(){
         return this.entSet;
     }
     
     /**
-     * Gets the size.
+     * This Method gets the size of the Board.
      *
-     * @return the size
+     * @return the BoardSize Object.
      */
     public XY getSize(){
         return this.size;
     }
     
     /**
-     * Gets the config.
+     * This Method gets the configuration of the GameBoard.
      *
-     * @return the config
+     * @return the GameBoard Configuration Object.
      */
     public BoardConfig getConfig(){
         return this.boardConfig;
     }
     
+    
+    /**
+     * This Method gets Classes from a packageName.
+     * @param packageName. is the Name of the Package where the classes should be loaded from.
+     * @return the ClassNames in a String[] names.
+     * @throws ClassNotFoundException gets thrown if you class is not found with the given Package.
+     * @throws IOException gets thrown if there are problems with reading from the Path.
+     */
     private static String[] getClasses(String packageName)
         throws ClassNotFoundException, IOException {
     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -307,7 +320,13 @@ private String[] masterBotImpls;
     //return classes.toArray(new Class[classes.size()]);
     return names;
 }
-    
+    /**
+     * This Method saves Classes into a List.
+     * @param directory where the classes are located.
+     * @param packageName name of the Package where the classes are located.
+     * @return the list of classes.
+     * @throws ClassNotFoundException gets thrown if there is no Class found by the given Parameters.
+     */
     private static List<Class> findClasses(File directory, String packageName) throws ClassNotFoundException {
     List<Class> classes = new ArrayList<Class>();
     if (!directory.exists()) {

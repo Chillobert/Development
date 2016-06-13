@@ -11,16 +11,18 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 // TODO: Auto-generated Javadoc
 /**
  * The Class BoardConfig.
+ * This Class gets the BoardConfig out of a Properties File.
+ * If the Properties File cant be found or doesnt exist the Configuration will be read out of the old Configuration Class (BoardConfig_old).
  */
 public class BoardConfig {
 	
-	/** The prop. */
+	/** The prop is used for the Parameters from the Properties File. */
 	Properties prop = new Properties();
 	
-	/** The input. */
+	/** The input is used for reading in the Parameters from the Properties FIle. */
 	InputStream input = null;
 	
-	/** The size. */
+	/** The size of the Board. */
 	private XY size;
 	
 	/** The amount good beasts. */
@@ -38,10 +40,10 @@ public class BoardConfig {
 	/** The amount walls. */
 	private int amountWalls;
 	
-	/** The master bot impls location. */
+	/** The masterbotimpls location. */
 	private String masterBotImplsLocation;
 	
-	/** The master bot impls. */
+	/** The masterbotimpls name. */
 	private String[] masterBotImpls;
 	
 	/** The steps per round. */
@@ -63,9 +65,10 @@ public class BoardConfig {
 	}
 
 	/**
-	 * Gets the props.
-	 *
-	 * @return the props
+	 * This Method gets the Properties out of the Configuration File or the Configuration Class.
+	 * 
+	 * 
+	 * 
 	 */
 	public void getProps(){
 		try {
@@ -113,7 +116,8 @@ public class BoardConfig {
   }
 	
 	/**
-	 * Prints the properties.
+	 * This Method is needed for testing.
+	 * It prints out all the properties.
 	 */
 	public void printProperties(){
 		System.out.println("size:" + this.size.toString());
@@ -129,80 +133,80 @@ public class BoardConfig {
 	}
 	
 	/**
-	 * Sets the size.
+	 * This Method sets the size.
 	 *
-	 * @param length the length
-	 * @param width the width
+	 * @param length the length.
+	 * @param width the width.
 	 */
 	private void setSize(int length, int width){
 		this.size = new XY(new int[]{length,width});
 	}
 	
 	/**
-	 * Sets the amount good beasts.
+	 * This Method sets the amount good beasts.
 	 *
-	 * @param amount the new amount good beasts
+	 * @param amount the new amount good beasts.
 	 */
 	private void setAmountGoodBeasts(int amount){
 		this.amountGoodBeasts = amount;
 	}
 	
 	/**
-	 * Sets the amount bad beasts.
+	 * This Method sets the amount bad beasts.
 	 *
-	 * @param amount the new amount bad beasts
+	 * @param amount the new amount bad beasts.
 	 */
 	private void setAmountBadBeasts(int amount){
 		this.amountBadBeasts = amount;
 	}	
 	
 	/**
-	 * Sets the amount good plants.
+	 * This Method sets the amount good plants.
 	 *
-	 * @param amount the new amount good plants
+	 * @param amount the new amount good plants.
 	 */
 	private void setAmountGoodPlants(int amount){
 		this.amountGoodPlants = amount;
 	}
 	
 	/**
-	 * Sets the amount bad plants.
+	 * This Method sets the amount bad plants.
 	 *
-	 * @param amount the new amount bad plants
+	 * @param amount the new amount bad plants.
 	 */
 	private void setAmountBadPlants(int amount){
 		this.amountBadPlants = amount;
 	}	
 	
 	/**
-	 * Sets the amount walls.
+	 * This Method sets the amount walls.
 	 */
 	private void setAmountWalls(){
 		this.amountWalls = size.getX()*2 + size.getY()*2;
 	}		
 	
 	/**
-	 * Sets the steps per round.
+	 * This Method sets the steps per round.
 	 *
-	 * @param amount the new steps per round
+	 * @param amount the new steps per round.
 	 */
 	private void setStepsPerRound(int amount){
 		this.stepsPerRound = amount;
 	}	
 	
 	/**
-	 * Sets the master bot impls location.
+	 * This Method  sets the master bot impls location.
 	 *
-	 * @param path the new master bot impls location
+	 * @param path the new master bot impls location.
 	 */
 	private void setMasterBotImplsLocation(String path){
 		this.masterBotImplsLocation = path;
 	}
 	
 	/**
-	 * Sets the master bot impls.
+	 * This Method sets the master bot impls.
 	 *
-	 * @param masterBotImpls the new master bot impls
+	 * @param masterBotImpls the new master bot impls.
 	 */
         
         private void setMasterBotImpls(String masterBotImpls){
@@ -223,81 +227,81 @@ public class BoardConfig {
         }
 
 /**
- * Gets the length.
+ * This Method gets the length.
  *
- * @return the length
+ * @return the length.
  */
 public int getLength(){
      return size.getX();
 }
 
 /**
- * Gets the width.
+ * This Method gets the width.
  *
- * @return the width
+ * @return the width.
  */
 public int getWidth(){
       return size.getY();
 }
     
     /**
-     * Gets the size.
+     * This Method gets the size.
      *
-     * @return the size
+     * @return the size.
      */
     public XY getSize(){
         return size;
     }
 
 /**
- * Gets the amount good beasts.
+ * This Method gets the amount good beasts.
  *
- * @return the amount good beasts
+ * @return the amount good beasts.
  */
 public int getAmountGoodBeasts(){
         return amountGoodBeasts;
 }
 
 /**
- * Gets the amount bad beasts.
+ * This Method gets the amount bad beasts.
  *
- * @return the amount bad beasts
+ * @return the amount bad beasts.
  */
 public int getAmountBadBeasts(){
         return amountBadBeasts;
 }
 
 /**
- * Gets the amount good plants.
+ * This Method gets the amount good plants.
  *
- * @return the amount good plants
+ * @return the amount good plants.
  */
 public int getAmountGoodPlants(){
         return amountGoodPlants;
 }
 
 /**
- * Gets the amount bad plants.
+ * This Method gets the amount bad plants.
  *
- * @return the amount bad plants
+ * @return the amount bad plants.
  */
 public int getAmountBadPlants(){
         return amountBadPlants;
 }
 
 /**
- * Gets the amount walls.
+ * This Method gets the amount walls.
  *
- * @return the amount walls
+ * @return the amount walls.
  */
 public int getAmountWalls(){
         return size.getX()*2 + size.getY()*2;
 }
     
     /**
-     * Gets the master bot impls.
+     * This Method gets the master bot impls.
      *
-     * @return the master bot impls
+     * @return the master bot impls.
      */
     public String[] getMasterBotImpls(){
         String[] output = new String[masterBotImpls.length];
@@ -313,14 +317,18 @@ public int getAmountWalls(){
     }
     
     /**
-     * Gets the steps per rounds.
+     * This Method gets the steps per rounds.
      *
-     * @return the steps per rounds
+     * @return the steps per rounds.
      */
     public int getStepsPerRounds(){
         return stepsPerRound;
     }
     
+    /**
+     * This Method gets the HighscoreFile.
+     * @return the Highscore File.
+     */
     public String getHighscoreFile(){
         return this.highScoreFile;
     }

@@ -10,19 +10,19 @@ import de.hsa.games.fatsquirrel.XY;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface EntityContext.
+ * The Interface EntityContext contains the movement Methods for the Entitys of the Game.
  */
 public interface EntityContext {
 
     /**
-     * Gets the size.
+     * This Method gets the Size of the Board.
      *
      * @return the size
      */
     XY getSize();
     
     /**
-     * Try move.
+     * This Method handles the Movement attempt of a miniSquirrel.
      *
      * @param miniSquirrel the mini squirrel
      * @param moveDirection the move direction
@@ -30,7 +30,7 @@ public interface EntityContext {
     void tryMove(MiniSquirrel miniSquirrel, XY moveDirection);
     
     /**
-     * Try move.
+     * This Method handles the Movement attempt of a goodBeast.
      *
      * @param goodBeast the good beast
      * @param moveDirection the move direction
@@ -38,7 +38,7 @@ public interface EntityContext {
     void tryMove(GoodBeast goodBeast, XY moveDirection);
     
     /**
-     * Try move.
+     * This Method handles the Movement attempt of a BadBeast.
      *
      * @param badBeast the bad beast
      * @param moveDirection the move direction
@@ -46,57 +46,57 @@ public interface EntityContext {
     void tryMove(BadBeast badBeast, XY moveDirection);
     
     /**
-     * Try move.
+     * This Method handles the Movement attempt of a MasterBot.
      *
-     * @param masterBot the master bot
-     * @param moveDirection the move direction
+     * @param masterBot the master bot.
+     * @param moveDirection the move direction.
      */
     void tryMove(MasterSquirrel masterBot, XY moveDirection);
     
     /**
-     * Nearest player entity.
+     * This Method is looking for the nearest PlayerEntity starting from a given Position.
      *
-     * @param pos the pos
-     * @return the player entity
+     * @param pos is the given Position where we are looking from.
+     * @return the nearest PlayerEntity.
      */
     PlayerEntity nearestPlayerEntity(XY pos);
     
     /**
-     * Gets the squirrel energy.
+     * This Method gets the Energy of a Squirrel.
      *
-     * @return the squirrel energy
+     * @return the amount of Energy from a Squirrel.
      */
     int getSquirrelEnergy();
     
     /**
-     * Spawn child.
+     * This Method spawns a miniSquirrel from a MasterSquirrel.
      *
-     * @param parent the parent
-     * @param direction the direction
-     * @param energy the energy
-     * @throws NotEnoughEnergyException the not enough energy exception
+     * @param parent the parent MasterSquirrel.
+     * @param direction the direction in which the miniSquirrel should spawn in.
+     * @param energy the energy of the miniSquirrel at spawn.
+     * @throws NotEnoughEnergyException gets thrown if the master has not enough Energy to spawn the miniSquirrel.
      */
     void spawnChild(MasterSquirrel parent, XY direction, int energy) throws NotEnoughEnergyException;
     
     /**
-     * Kill.
+     * This Method kills an given Entity.
      *
-     * @param entity the entity
+     * @param entity the Entity who should get killed.
      */
     void kill(Entity entity);
     
     /**
-     * Kill and replace.
+     * This Method kills an Entity and spawns a new one.
      *
-     * @param entity the entity
+     * @param entity the Entity who should get killed and respawned.
      */
     void killAndReplace(Entity entity);
     
     /**
-     * Gets the entity type.
+     * This Method gets the EntityType of a given Entity.
      *
-     * @param loc the loc
-     * @return the entity type
+     * @param loc the location of the Entity.
+     * @return the entity Type.
      */
     String getEntityType(XY loc);
 }

@@ -8,6 +8,7 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Beast.
+ * This Class is the superclass for the GoodBeast and the BadBeast.
  */
 public abstract class Beast extends Entity {
 	

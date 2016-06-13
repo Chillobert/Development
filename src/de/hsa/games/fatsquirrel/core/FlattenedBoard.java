@@ -21,33 +21,33 @@ import de.hsa.games.fatsquirrel.logger.GameLogger;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class FlattenedBoard.
+ * The Class FlattenedBoard is a mirror of the Board Object itself and is used for the view (gui).
  */
 public class FlattenedBoard implements BoardView, EntityContext {
 
 
-    /** The flattened board. */
+    /** Object for containing all created Entitys. */
     private final Entity[][] flattenedBoard;
     
-    /** The size. */
+    /** The size of the Board. */
     private XY size;
     
-    /** The ent set. */
+    /** The entitySet given by the Board (contains all Entitys). */
     private EntitySet entSet;
     
-    /** The board. */
+    /** The board which gets mirrored by the flattenedBoard and is used for all gamelogical tasks. */
     private Board board;
     
-    /** The Constant logger. */
+    /** The Logger is logging important Informations which happen inside of the FlattenedBoard Object . */
     private static final GameLogger logger = new GameLogger();
     
     /** The params. */
-    private String params;
+   // private String params;
     
     /**
-     * Instantiates a new flattened board.
+     * Instantiates a new flattenedboard for the view.
      *
-     * @param board the board
+     * @param board gets mirrored by the flattenedBoard and is used for all gamelogical tasks.
      */
     public FlattenedBoard(Board board){
         this.board = board;
@@ -62,27 +62,27 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     /**
-     * Gets the ent board.
+     * This Method gets the flattenedBoard.
      *
-     * @return the ent board
+     * @return the flattenedBoard.
      */
     public Entity[][] getEntBoard(){
         return flattenedBoard;
     }
     
     /**
-     * Gets the board.
+     * This Method gets the Board (which got mirrored by the flattenedBoard).
      *
-     * @return the board
+     * @return the board.
      */
     public Board getBoard(){
     	return board;
     }
     
     /**
-     * Gets the entity set.
+     * This Method gets the entitySet.
      *
-     * @return the entity set
+     * @return the entitySet.
      */
     public EntitySet getEntitySet(){
         return this.entSet;
@@ -351,10 +351,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     /**
-     * Gets the flee direction.
+     * This Method gets the fleeDirection of the given Beast.
      *
-     * @param beast the beast
-     * @return the flee direction
+     * @param the beast which flees (GoodBeast, BadBeast).
+     * @return the direction in where the beast is moving away.
      */
     private XY getFleeDirection(Beast beast){
         XY nearestPlayerLoc = nearestPlayerEntity(beast.getLocation()).getLocation();
@@ -389,10 +389,10 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     /**
-     * Mortal combat.
+     * This Method handles the Collision between two given Entitys.
      *
-     * @param moveEnt the move ent
-     * @param collEnt the coll ent
+     * @param moveEnt the Entity which moved onto another.
+     * @param collEnt the Entity who got overrun by another.
      */
     private void mortalCombat(Entity moveEnt,Entity collEnt){
 
@@ -471,9 +471,9 @@ public class FlattenedBoard implements BoardView, EntityContext {
     }
     
     /**
-     * Gets the master squirrel.
+     * This Method gets the MasterSquirrel.
      *
-     * @return the master squirrel
+     * @return the Mastersquirrel if there is one.
      */
     public MasterSquirrel getMasterSquirrel(){
         List<Entity> entArr = this.entSet.getEntityVector();
@@ -483,23 +483,15 @@ public class FlattenedBoard implements BoardView, EntityContext {
         return null;
     }
     
-    /**
-     * Sets the params.
-     *
-     * @param string the new params
-     */
-    public void setParams(String string){
-    	this.params = string;
+
+ //   public void setParams(String string){
+ //   	this.params = string;
     	
-    }
+  //  }
     
-    /**
-     * Gets the params.
-     *
-     * @return the params
-     */
-    public String getParams(){
-    	return this.params;
-    }
+
+  //  public String getParams(){
+  //  	return this.params;
+ //   }
     
 }

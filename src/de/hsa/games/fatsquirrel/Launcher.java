@@ -23,40 +23,43 @@ import javafx.stage.Stage;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Launcher.
+ * This Class contains the gameloop in different variants.
+ * These variants include Console and JavaFX Modes.
  */
 public class Launcher extends Application{
 
-/** The timestamp_1. */
+/** The timestamp_1 needed for thread handling. */
 private static long timestamp_1;
 
-/** The timestamp_2. */
+/** The timestamp_2 needed for thread handling. */
 private static long timestamp_2;
 
-/** The game. */
+/** The game is an Object of the GameImpl Class. */
 private GameImpl game;
 
-/** The calendar. */
+/** The calendar is needed for timestamps. */
 private Calendar calendar;
 
-/** The command puffer. */
+/** The command puffer is needed to cache the userinput for the gameloop. */
 private Command commandPuffer;
 
-/** The game mode. */
+/** The game mode sets the variant.
+ * 1 = console_old, 2 = console_new, 3 = javafx_gui */
 private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
 
-/** The level. */
+/** The level is needed for logging at a certain level. */
 private static Level level; //Level fuer Logging (= Level.FINE)
 
-/** The board config. */
+/** The board config is needed to generate the gui. */
 private BoardConfig boardConfig = new BoardConfig();
 
-/** The primary stage. */
+/** The primary stage is needed to generate the gui. */
 private Stage primaryStage;
 
-/** The fx ui. */
+/** The fx ui is needed to generate the gui. */
 private FxUI fxUI;
 
-/** The Constant logger. */
+/** The Constant logger is needed to log important informations inside of the Launcher Class. */
 private static final GameLogger logger = new GameLogger();
 
 
@@ -76,7 +79,7 @@ private static final GameLogger logger = new GameLogger();
     }
 	
     /**
-     * The main method.
+     * The main method starts the GameLoop.
      *
      * @param args the arguments
      */
@@ -106,10 +109,10 @@ private static final GameLogger logger = new GameLogger();
     
 	//Diese Methode gibt den Spielablauf wieder. 
     /**
-	 * Start game.
+	 * This Method starts the Game if one of the console variants is used.
 	 *
-	 * @param fxUI the fx ui
-	 * @param game the game
+	 * @param fxUI gets loaded for the Game Object.
+	 * @param game the GameImpl Object where the UserInput gets handled.
 	 */
 	//Die Methode game.run wird fortlaufend aufgerufen. Mithilfe von game.FPS kann die Geschwindigkeit reguliert werden
     private void startGame(FxUI fxUI, GameImpl game) { 

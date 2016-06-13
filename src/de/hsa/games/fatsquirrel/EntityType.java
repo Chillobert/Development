@@ -3,6 +3,7 @@ package de.hsa.games.fatsquirrel;
 // TODO: Auto-generated Javadoc
 /**
  * The Enum EntityType.
+ * This Enum contains all Entity Classes.
  */
 public enum EntityType {
 
