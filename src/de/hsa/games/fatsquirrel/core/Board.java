@@ -284,8 +284,7 @@ private String[] masterBotImpls;
         return this.boardConfig;
     }
     
-    private static String[] getClasses(String packageName)
-        throws ClassNotFoundException, IOException {
+    private static String[] getClasses(String packageName) throws ClassNotFoundException, IOException {
     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
     assert classLoader != null;
     String path = packageName.replace('.', '/');

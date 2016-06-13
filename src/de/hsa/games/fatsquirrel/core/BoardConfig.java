@@ -308,6 +308,11 @@ public int getAmountWalls(){
         return output;
     }
     
+    /**
+     * Gets the path of master bot impls.
+     *
+     * @return the path of master bot impls
+     */
     public String getMasterBotImplsLocation(){
         return this.masterBotImplsLocation;
     }
