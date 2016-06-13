@@ -175,6 +175,7 @@ public class State {
     public void load(){
         final String HIGHSCORE_PATH = config.getHighscoreFile();
         final File HIGHSCORE_FILE = new File(HIGHSCORE_PATH);
+        if (HIGHSCORE_FILE.exists()){
         HashMap map = new HashMap();
         
         try{
@@ -186,6 +187,7 @@ public class State {
             logger.log(Level.WARNING, "Error while loading Object from"+HIGHSCORE_PATH);
         }
         this.highscore = map;
+    }
     }
     
     /**

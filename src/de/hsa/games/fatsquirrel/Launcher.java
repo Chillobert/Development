@@ -19,8 +19,6 @@ import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class Launcher.
  * This Class contains the gameloop in different variants.
@@ -48,8 +46,8 @@ private Calendar calendar;
 private Command commandPuffer;
 
 /** The game mode sets the variant.
- * 1 = ConsoleSingleFrame, 2 = ConsoleMultiThread, 3 = Gui-Mode */
-private static int gameMode = 3; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
+ * 1 = console_old, 2 = console_new, 3 = javafx_gui */
+private static int gameMode = 0; //gameMode Switcher: 1== konsole_alt; 2== konsole_neu; 3== javafx_gui
 
 /** The level is needed for logging at a certain level. */
 private static Level level; //Level fuer Logging (= Level.FINE)
@@ -89,7 +87,8 @@ private static final GameLogger logger = new GameLogger();
      */
     public static void main(String[] args){
         logger.log(Level.INFO, "Spiel gestartet");
-
+        
+        gameMode = Integer.valueOf(args[0]);
         
        //Konsole_alt    
     	if(gameMode == 1){
